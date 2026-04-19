@@ -30,23 +30,36 @@ export default function FilterPanel({
         }
     }, [openDropdown]);
 
-    // Check if buttons fit in one row
+    // Check if buttons fit in one row by measuring in a temporary container
     useEffect(() => {
         const checkFitness = () => {
             if (!containerRef.current) return;
             const container = containerRef.current;
-            // scrollWidth always includes the hidden labels (rendered but invisible),
-            // so measurement is stable regardless of current layout state.
-            setNeedsStackLayout(container.scrollWidth > container.clientWidth);
+            
+            // Temporarily force one-row layout to get true measurement
+            const originalDisplay = container.style.display;
+            const originalFlexWrap = container.style.flexWrap;
+            container.style.display = "flex";
+            container.style.flexWrap = "nowrap";
+            
+            // Get the width needed if everything is in one row
+            const neededWidth = container.scrollWidth;
+            const availableWidth = container.parentElement?.clientWidth || 0;
+            
+            // Restore original styles
+            container.style.display = originalDisplay;
+            container.style.flexWrap = originalFlexWrap;
+            
+            setNeedsStackLayout(neededWidth > availableWidth);
         };
 
-        checkFitness();
+        // Small delay to ensure DOM is ready
+        const timer = setTimeout(checkFitness, 0);
         window.addEventListener("resize", checkFitness);
-        const timer = setTimeout(checkFitness, 100);
 
         return () => {
-            window.removeEventListener("resize", checkFitness);
             clearTimeout(timer);
+            window.removeEventListener("resize", checkFitness);
         };
     }, [filters, personal]);
 
