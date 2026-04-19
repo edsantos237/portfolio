@@ -17,15 +17,15 @@ export default function Layout() {
   const [isManualScrolling, setIsManualScrolling] = useState(false);
 
   useEffect(() => {
-    const hero = document.getElementById("about");
-    if (!hero) return;
+    const sentinel = document.getElementById("cover-content-sentinel");
+    if (!sentinel) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsPastHero(!entry.isIntersecting),
-      { threshold: 0.4 }
+      { threshold: 1 }
     );
 
-    observer.observe(hero);
+    observer.observe(sentinel);
     return () => observer.disconnect();
   }, []);
 
@@ -87,21 +87,20 @@ export default function Layout() {
         {/* Dark overlay */}
         <div className="absolute inset-0 -z-10 bg-black/60" />
 
-        {/* Top bar (mobile only, hidden while hero visible) */}
-        {isPastHero && (
-          <MobileTopBar
-            activeSection={activeSection}
-            onJump={jumpTo}
-          />
-        )}
 
         {/* Cover */}
         <Cover
           activeSection={activeSection}
           onJump={jumpTo}
-          sidebarVisible={isPastHero}
         />
       </div>
+
+      {/* Mobile Top Bar (anchored below cover, fades in) */}
+      <MobileTopBar
+        activeSection={activeSection}
+        onJump={jumpTo}
+        visible={isPastHero}
+      />
 
       {/* ================= MAIN LAYOUT ================= */}
       <div className="lg:grid lg:grid-cols-[260px,1fr]">
