@@ -19,7 +19,10 @@ export default function FilterDropdown({
   return (
     <button
       type="button"
-      onClick={() => setOpen((prev) => (prev === id ? null : id))}
+      onClick={(e) => {
+        e.stopPropagation();
+        setOpen((prev) => (prev === id ? null : id));
+      }}
       className={`px-3 py-1.5 text-sm rounded-lg border transition flex items-center gap-2 ${baseStyle} ${
         isOpen ? "ring-2 ring-gray-400" : ""
       }`}

@@ -15,6 +15,7 @@ export default function Layout() {
   const [activeSection, setActiveSection] = useState("about");
   const [isPastHero, setIsPastHero] = useState(false);
   const [isManualScrolling, setIsManualScrolling] = useState(false);
+  const [focusedSkill, setFocusedSkill] = useState(null);
 
   useEffect(() => {
     const sentinel = document.getElementById("cover-content-sentinel");
@@ -73,6 +74,11 @@ export default function Layout() {
     window.addEventListener("scroll", onScroll);
   };
 
+  const showProjectsForSkill = (skillId) => {
+    setFocusedSkill(skillId);
+    jumpTo("projects");
+  };
+
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       
@@ -113,53 +119,79 @@ export default function Layout() {
         />
 
         {/* MAIN CONTENT */}
-        <main className="px-6 lg:px-10 py-6 w-full">
-          <div className="max-w-6xl mx-auto">
-
-            <section id="skills" className="py-16">
-              <Skills onShowProjects={() => jumpTo("projects")} />
+        <main className="w-full py-6">
+            <section id="skills" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
+              activeSection === "skills" ? "bg-gray-900/25" : ""
+            }`}>
+              <div className="max-w-6xl mx-auto">
+                <Skills onShowProjects={showProjectsForSkill} />
+              </div>
             </section>
 
-            <section id="experience" className="py-16">
-              <Experience />
+            <section id="experience" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
+              activeSection === "experience" ? "bg-gray-900/25" : ""
+            }`}>
+              <div className="max-w-6xl mx-auto">
+                <Experience />
+              </div>
             </section>
 
-            <section id="education" className="py-16">
-              <Education />
+            <section id="education" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
+              activeSection === "education" ? "bg-gray-900/25" : ""
+            }`}>
+              <div className="max-w-6xl mx-auto">
+                <Education />
+              </div>
             </section>
 
-            <section id="projects" className="py-16">
-              <Projects />
+            <section id="projects" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
+              activeSection === "projects" ? "bg-gray-900/25" : ""
+            }`}>
+              <div className="max-w-6xl mx-auto">
+                <Projects focusedSkill={focusedSkill} setFocusedSkill={setFocusedSkill} />
+              </div>
             </section>
 
-            <section id="contact" className="py-20">
-              <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-              <p className="text-gray-300">Your contact info here</p>
+            <section id="contact" className={`px-6 lg:px-10 py-20 transition-colors duration-300 ${
+              activeSection === "contact" ? "bg-gray-900/25" : ""
+            }`}>
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+                <p className="text-gray-300">Your contact info here</p>
+              </div>
             </section>
-
-          </div>
         </main>
       </div>
 
       {/* ================= MOBILE CONTENT (below hero) ================= */}
       <div className="lg:hidden px-6">
-        <section id="skills" className="py-16">
-          <Skills onShowProjects={() => jumpTo("projects")} />
+        <section id="skills" className={`py-16 border-b border-gray-800 transition-colors duration-300 ${
+          activeSection === "skills" ? "bg-gray-900/25" : ""
+        }`}>
+          <Skills onShowProjects={showProjectsForSkill} />
         </section>
 
-        <section id="experience" className="py-16">
+        <section id="experience" className={`py-16 border-b border-gray-800 transition-colors duration-300 ${
+          activeSection === "experience" ? "bg-gray-900/25" : ""
+        }`}>
           <Experience />
         </section>
 
-        <section id="education" className="py-16">
+        <section id="education" className={`py-16 border-b border-gray-800 transition-colors duration-300 ${
+          activeSection === "education" ? "bg-gray-900/25" : ""
+        }`}>
           <Education />
         </section>
 
-        <section id="projects" className="py-16">
-          <Projects />
+        <section id="projects" className={`py-16 border-b border-gray-800 transition-colors duration-300 ${
+          activeSection === "projects" ? "bg-gray-900/25" : ""
+        }`}>
+          <Projects focusedSkill={focusedSkill} setFocusedSkill={setFocusedSkill} />
         </section>
 
-        <section id="contact" className="py-20">
+        <section id="contact" className={`py-20 transition-colors duration-300 ${
+          activeSection === "contact" ? "bg-gray-900/25" : ""
+        }`}>
           <h2 className="text-2xl font-semibold mb-4">Contact</h2>
         </section>
       </div>

@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useRef, useEffect } from "react";
 import FilterDropdown from "./FilterDropdown";
 import FilterChips from "./FilterChips";
 
@@ -9,6 +9,46 @@ export default function FilterPanel({
     chips, // ✅ NEW (passed from parent)
 }) {
     const [openDropdown, setOpenDropdown] = useState(null);
+    const drawerRef = useRef(null);
+    const containerRef = useRef(null);
+    const [needsStackLayout, setNeedsStackLayout] = useState(false);
+
+    // Close dropdown on outside click
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            // Keep open only if clicking inside the drawer
+            if (drawerRef.current && drawerRef.current.contains(e.target)) {
+                return;
+            }
+            // Close for everything else (including filter bar)
+            setOpenDropdown(null);
+        };
+
+        if (openDropdown) {
+            document.addEventListener("click", handleClickOutside);
+            return () => document.removeEventListener("click", handleClickOutside);
+        }
+    }, [openDropdown]);
+
+    // Check if buttons fit in one row
+    useEffect(() => {
+        const checkFitness = () => {
+            if (!containerRef.current) return;
+            const container = containerRef.current;
+            // scrollWidth always includes the hidden labels (rendered but invisible),
+            // so measurement is stable regardless of current layout state.
+            setNeedsStackLayout(container.scrollWidth > container.clientWidth);
+        };
+
+        checkFitness();
+        window.addEventListener("resize", checkFitness);
+        const timer = setTimeout(checkFitness, 100);
+
+        return () => {
+            window.removeEventListener("resize", checkFitness);
+            clearTimeout(timer);
+        };
+    }, [filters, personal]);
 
     const toggleInList = (list, value) =>
         list.includes(value)
@@ -18,8 +58,26 @@ export default function FilterPanel({
     return (
         <>
             {/* FILTER BAR */}
-            <div className="flex flex-wrap gap-3 mb-4 items-center">
-                <span className="text-sm text-gray-400 mr-1">
+            {/* Stacked header: Filters label and Clear all - shown when buttons don't fit */}
+            {needsStackLayout && (
+                <div className="flex justify-between items-center mb-3">
+                    <span className="text-sm text-gray-400">Filters:</span>
+                    <button
+                        onClick={onClearAll}
+                        className="text-sm text-gray-400 hover:text-white"
+                    >
+                        Clear all
+                    </button>
+                </div>
+            )}
+
+            {/* Buttons container */}
+            <div 
+                ref={containerRef}
+                className="flex gap-3 mb-4 items-center overflow-x-auto no-scrollbar"
+            >
+                {/* Always rendered so scrollWidth includes them — hidden in two-row mode */}
+                <span className={`text-sm text-gray-400 mr-1 shrink-0 ${needsStackLayout ? "hidden" : ""}`}>
                     Filters:
                 </span>
                 {filters.map((f) => (
@@ -41,7 +99,7 @@ export default function FilterPanel({
                         {personal && f.id.includes("acad") && (
                             <button
                                 onClick={() => personal.setValue((v) => !v)}
-                                className={`px-3 py-1.5 rounded-lg border text-sm ${personal.value
+                                className={`px-3 py-1.5 rounded-lg border text-sm whitespace-nowrap ${personal.value
                                     ? "bg-white text-black border-white"
                                     : "bg-gray-900 text-gray-300 border-gray-700"
                                     }`}
@@ -52,9 +110,10 @@ export default function FilterPanel({
                     </Fragment>
                 ))}
 
+                {/* Always rendered so scrollWidth includes it — hidden in two-row mode */}
                 <button
                     onClick={onClearAll}
-                    className="ml-auto text-sm text-gray-400 hover:text-white"
+                    className={`ml-auto text-sm text-gray-400 hover:text-white whitespace-nowrap shrink-0 ${needsStackLayout ? "hidden" : ""}`}
                 >
                     Clear all
                 </button>
@@ -66,6 +125,8 @@ export default function FilterPanel({
 
                 return (
                     <div
+                        ref={drawerRef}
+                        onClick={(e) => e.stopPropagation()}
                         key={f.id}
                         className="mb-6 border border-gray-800 bg-gray-950 rounded-xl p-4"
                     >
