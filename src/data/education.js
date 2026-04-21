@@ -51,5 +51,14 @@ export const schools = [
             start: "2008-09",
             end: "2013-06"
         }
+    },
+    {
+        id: "primary_school",
+        title: "Escola Básica de Ribeirão",
+        degrees: ["Primary School", "4th grade"],
+        date: {
+            start: "2004-09",
+            end: "2008-06"
+        }
     }
 ]

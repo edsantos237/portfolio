@@ -200,8 +200,8 @@ export default function FilterPanel({
                             <button
                                 onClick={() => { personal.setValue((v) => !v); scrollSectionToTop(); }}
                                 className={`px-3 py-1.5 rounded-lg border text-sm whitespace-nowrap ${personal.value
-                                    ? "bg-white text-black border-white"
-                                    : "bg-gray-900 text-gray-300 border-gray-700"
+                                    ? "section-control-active"
+                                    : "section-control-idle"
                                     }`}
                             >
                                 Personal
@@ -230,7 +230,7 @@ export default function FilterPanel({
                         ref={drawerRef}
                         onClick={(e) => e.stopPropagation()}
                         key={f.id}
-                        className="mb-6 border border-gray-800 bg-gray-950 rounded-xl p-4 filter-drawer-scrollbar"
+                        className="mb-6 border rounded-xl p-4 filter-drawer-scrollbar section-card-strong"
                     >
                         {/* SIMPLE LIST */}
                         {f.items && (
@@ -246,8 +246,8 @@ export default function FilterPanel({
                                                 scrollSectionToTop();
                                             }}
                                             className={`px-3 py-1.5 rounded-lg border text-sm ${f.selected.includes(item.id)
-                                                ? "bg-white text-black border-white"
-                                                : "bg-gray-900 text-gray-300 border-gray-700"
+                                                ? "section-control-active"
+                                                : "section-control-idle"
                                                 }`}
                                         >
                                             {item.title}
@@ -296,8 +296,8 @@ export default function FilterPanel({
                                                                 scrollSectionToTop();
                                                             }}
                                                             className={`px-3 py-1.5 rounded-lg border text-xs ${f.selected.includes(skill.id)
-                                                                ? "bg-white text-black border-white"
-                                                                : "bg-gray-900 text-gray-300 border-gray-700"
+                                                                ? "section-control-active"
+                                                                : "section-control-idle"
                                                                 }`}
                                                         >
                                                             {skill.title}

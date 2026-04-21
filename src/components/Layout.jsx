@@ -12,7 +12,7 @@ import Experience from "./Experience";
 import Education from "./Education";
 import Contact from "./Contact";
 
-import { sections } from "../config/sections";
+import { getSectionStyleVars, getSectionTheme, sections } from "../config/sections";
 import { heroBackgroundStyle } from "../config/heroTheme";
 
 export default function Layout() {
@@ -20,6 +20,14 @@ export default function Layout() {
   const [isPastHero, setIsPastHero] = useState(false);
   const [isManualScrolling, setIsManualScrolling] = useState(false);
   const [focusedSkill, setFocusedSkill] = useState(null);
+  const [focusedCompany, setFocusedCompany] = useState(null);
+  const [focusedActivity, setFocusedActivity] = useState(null);
+  // Academic filter for Education → Projects
+  const [focusedAcademic, setFocusedAcademic] = useState(null);
+  const showProjectsForAcademic = (schoolId) => {
+    setFocusedAcademic(schoolId);
+    jumpTo("projects");
+  };
 
   useEffect(() => {
     const sentinel = document.getElementById("cover-content-sentinel");
@@ -109,6 +117,34 @@ export default function Layout() {
     setFocusedSkill(skillId);
     jumpTo("projects");
   };
+  const showProjectsForCompany = (companyId) => {
+    setFocusedCompany(companyId);
+    jumpTo("projects");
+  };
+  const showProjectsForActivity = (activityTitle) => {
+    setFocusedActivity(activityTitle);
+    jumpTo("projects");
+  };
+
+  const getSectionSurfaceStyle = (sectionId) => {
+    const theme = getSectionTheme(sectionId);
+    const activeSeparatorColor = getSectionTheme(activeSection).accentLine;
+    const isActive = activeSection === sectionId;
+    const sectionIndex = sections.findIndex((s) => s.id === sectionId);
+    const isPreviousOfActive =
+      sectionIndex >= 0 && sections[sectionIndex + 1]?.id === activeSection;
+
+    return {
+      ...getSectionStyleVars(sectionId),
+      backgroundColor: isActive ? theme.activeBackground : theme.baseBackground,
+      borderLeftColor: isActive ? theme.accentBorder : theme.controlBorder,
+      borderBottomColor: isActive || isPreviousOfActive ? activeSeparatorColor : undefined,
+    };
+  };
+
+  // index of the currently active section and the active section's accent line
+  const activeIndex = sections.findIndex((s) => s.id === activeSection);
+  const activeAccentLine = getSectionTheme(activeSection).accentLine;
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
@@ -151,67 +187,66 @@ export default function Layout() {
 
         {/* MAIN CONTENT */}
         <main className="w-full pb-6">
-            <section id="about-me" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
-              activeSection === "about-me" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="about-me" style={getSectionSurfaceStyle("about-me")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
                 <About isActive={activeSection === "about-me"} />
               </div>
             </section>
 
-            <section id="skills" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
-              activeSection === "skills" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="skills" style={getSectionSurfaceStyle("skills")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Skills onShowProjects={showProjectsForSkill} isActive={activeSection === "skills"} />
+                <Skills
+                  onShowProjects={showProjectsForSkill}
+                  isActive={activeSection === "skills"}
+                  isPrevious={sections[activeIndex - 1]?.id === "skills"}
+                  activeAccentLine={activeAccentLine}
+                />
               </div>
             </section>
 
-            <section id="experience" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
-              activeSection === "experience" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="experience" style={getSectionSurfaceStyle("experience")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Experience isActive={activeSection === "experience"} />
+                <Experience isActive={activeSection === "experience"} onShowProjects={showProjectsForCompany} />
               </div>
             </section>
 
-            <section id="education" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
-              activeSection === "education" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="education" style={getSectionSurfaceStyle("education")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Education isActive={activeSection === "education"} />
+                <Education isActive={activeSection === "education"} onShowProjects={showProjectsForAcademic} />
               </div>
             </section>
 
-            <section id="projects" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
-              activeSection === "projects" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="projects" style={getSectionSurfaceStyle("projects")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Projects focusedSkill={focusedSkill} setFocusedSkill={setFocusedSkill} isActive={activeSection === "projects"} />
+                <Projects
+                  focusedSkill={focusedSkill} setFocusedSkill={setFocusedSkill}
+                  focusedCompany={focusedCompany} setFocusedCompany={setFocusedCompany}
+                  focusedActivity={focusedActivity} setFocusedActivity={setFocusedActivity}
+                  focusedAcademic={focusedAcademic} setFocusedAcademic={setFocusedAcademic}
+                  isActive={activeSection === "projects"}
+                />
               </div>
             </section>
 
-            <section id="publications" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
-              activeSection === "publications" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="publications" style={getSectionSurfaceStyle("publications")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
                 <Publications isActive={activeSection === "publications"} />
               </div>
             </section>
 
-            <section id="activities" className={`px-6 lg:px-10 py-16 border-b border-gray-800 transition-colors duration-300 ${
-              activeSection === "activities" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="activities" style={getSectionSurfaceStyle("activities")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Activities isActive={activeSection === "activities"} />
+                <Activities isActive={activeSection === "activities"} onShowProjects={showProjectsForActivity} />
               </div>
             </section>
 
-            <section id="contact" className={`px-6 lg:px-10 py-20 transition-colors duration-300 ${
-              activeSection === "contact" ? "bg-gray-900/25" : ""
-            }`}>
+            <section id="contact" style={getSectionSurfaceStyle("contact")} className="px-6 lg:px-10 py-20 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Contact />
+                <Contact
+                  isActive={activeSection === "contact"}
+                  isPrevious={sections[activeIndex - 1]?.id === "contact"}
+                  activeAccentLine={activeAccentLine}
+                />
               </div>
             </section>
         </main>

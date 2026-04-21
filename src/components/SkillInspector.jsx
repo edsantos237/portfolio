@@ -1,10 +1,11 @@
 import Icon from "./Icon";
+import ShowProjectsButton from "./ShowProjectsButton";
 
 export default function SkillInspector({ skill, usage, onShowProjects }) {
   if (!skill) {
     return (
       <aside className="lg:sticky lg:top-24">
-        <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-5 text-sm text-gray-400">
+        <div className="rounded-xl border p-5 text-sm text-gray-400 section-card">
           Select a skill to inspect where it was used.
         </div>
       </aside>
@@ -13,9 +14,9 @@ export default function SkillInspector({ skill, usage, onShowProjects }) {
 
   return (
     <aside className="lg:sticky lg:top-24">
-      <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-5 space-y-5">
+      <div className="rounded-xl border p-5 space-y-5 section-card">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-700 bg-gray-900">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg border section-icon-surface">
             <Icon icon={skill.icon} />
           </div>
 
@@ -45,7 +46,7 @@ export default function SkillInspector({ skill, usage, onShowProjects }) {
                 {usage.professional.map((item) => (
                   <span
                     key={item.id}
-                    className="px-2 py-1 rounded border border-gray-700 text-xs text-gray-300"
+                    className="px-2 py-1 rounded border text-xs section-chip"
                   >
                     {item.label}
                   </span>
@@ -65,7 +66,7 @@ export default function SkillInspector({ skill, usage, onShowProjects }) {
                 {usage.academic.map((item) => (
                   <span
                     key={item.id}
-                    className="px-2 py-1 rounded border border-gray-700 text-xs text-gray-300"
+                    className="px-2 py-1 rounded border text-xs section-chip"
                   >
                     {item.label}
                   </span>
@@ -77,13 +78,7 @@ export default function SkillInspector({ skill, usage, onShowProjects }) {
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={() => onShowProjects(skill.id)}
-          className="w-full rounded-lg bg-white px-3 py-2 text-sm font-medium text-black transition hover:bg-gray-200"
-        >
-          Show projects
-        </button>
+        <ShowProjectsButton onClick={() => onShowProjects(skill.id)} />
       </div>
     </aside>
   );

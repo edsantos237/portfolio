@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { sections } from "../config/sections";
+import { getSectionStyleVars, sections } from "../config/sections";
 import { heroBackgroundStyle } from "../config/heroTheme";
 import { about } from "../data/about";
 
@@ -7,6 +7,7 @@ export default function Cover({ activeSection, onJump }) {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const [contentOffset, setContentOffset] = useState(0);
+  const navThemeVars = getSectionStyleVars(activeSection);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +42,7 @@ export default function Cover({ activeSection, onJump }) {
     <section
       ref={sectionRef}
       id="start"
+      style={navThemeVars}
       className="relative h-screen min-h-screen grid place-items-center px-6 overflow-hidden"
     >
       {/* BACKGROUND IMAGE (fixed) */}
@@ -84,19 +86,23 @@ export default function Cover({ activeSection, onJump }) {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {sections.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => onJump(s.id)}
-                className={`px-4 py-2 rounded-lg border text-sm ${
-                  activeSection === s.id
-                    ? "bg-white text-black border-white"
-                    : "bg-gray-900 text-gray-300 border-gray-700"
-                }`}
-              >
-                {s.label}
-              </button>
-            ))}
+            {sections.map((s) => {
+              const sectionVars = getSectionStyleVars(s.id);
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => onJump(s.id)}
+                  className={`px-4 py-2 rounded-lg border text-sm ${
+                    activeSection === s.id
+                      ? "section-control-active"
+                      : "section-control-idle"
+                  }`}
+                  style={activeSection === s.id ? undefined : sectionVars}
+                >
+                  {s.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

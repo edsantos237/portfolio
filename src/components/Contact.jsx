@@ -1,10 +1,31 @@
 import Icon from "./Icon";
 import { contact } from "../data/contact";
+import { getSectionTheme } from "../config/sections";
 
-export default function Contact() {
+export default function Contact({ isActive, isPrevious = false, activeAccentLine }) {
+  const sectionTheme = getSectionTheme("contact");
+
   return (
     <section id="contact" className="py-20 px-6">
-      <h2 className="text-3xl font-bold">Contact</h2>
+      <div
+        className="sticky top-12 lg:top-0 z-40 backdrop-blur border-b mb-6 relative transition-colors duration-300"
+        style={{
+          backgroundColor: isActive ? 'var(--section-active-bg)' : 'var(--section-base-bg)',
+          borderBottomColor: isActive
+            ? sectionTheme.accentBorder
+            : isPrevious
+            ? activeAccentLine
+            : sectionTheme.controlBorder,
+        }}
+      >
+        <div
+          className="absolute inset-0 transition-colors duration-300"
+          style={{ backgroundColor: isActive ? sectionTheme.stickyActiveOverlay : "transparent" }}
+        />
+        <div className="relative pt-4">
+          <h2 className="text-3xl font-bold">Contact</h2>
+        </div>
+      </div>
 
       <p className="mt-4 text-gray-400">Feel free to reach out 👇</p>
 

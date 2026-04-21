@@ -32,6 +32,10 @@ export const hobbies = [
         icon: {
             type: "react",
             value: MdOutlineDeveloperMode
+        },
+        details: {
+            type: "button",
+            value: ["projects", "personal"]
         }
     },
     {
@@ -39,6 +43,10 @@ export const hobbies = [
         icon: {
             type: "react",
             value: IoAperture
+        },
+        details: {
+            type: "file",
+            value: []
         }
     },
     {
@@ -46,6 +54,10 @@ export const hobbies = [
         icon: {
             type: "react",
             value: TbWritingSignFilled
+        },
+        details: {
+            type: "file",
+            value: []
         }
     },
     {
@@ -53,6 +65,10 @@ export const hobbies = [
         icon: {
             type: "react",
             value: IoMdFitness
+        },
+        details: {
+            type: "text",
+            value: ["I try to workout 3x a week"]
         }
     },
     {
@@ -60,6 +76,10 @@ export const hobbies = [
         icon: {
             type: "react",
             value: FaPersonHiking
+        },
+        details: {
+            type: "text",
+            value: ["I have quite the tendency to get lost in the woods with my dog."]
         }
     },
     {
@@ -67,6 +87,10 @@ export const hobbies = [
         icon: {
             type: "react",
             value: MdHeadphones
+        },
+        details: {
+            type: "file",
+            value: []
         }
     },
     {
@@ -88,7 +112,13 @@ export const hobbies = [
         icon: {
             type: "react",
             value: BiWorld
-        }
+        },
+        details: [
+            {
+                type: "text",
+                value: ["I have traveled a total of 13 countries (15 if you count layovers) across 4 continents."]
+            }
+        ]
     },
     {
         title: "Volunteering",
@@ -117,6 +147,10 @@ export const strengths = [
     {
         title: "Creativity",
         description: "I design solutions beyond standard approaches."
+    },
+    {
+        title: "Ambition",
+        description: "I set high goals for my projects.",
     },
     {
         title: "Problem solving",

@@ -54,5 +54,31 @@ export const activities = [
                 ]
             }
         ]
+    },
+    {
+        title: "Praxe",
+        tags: ["college"],
+        roles: [
+            {
+                title: "MIETI Praxe Committee",
+                date: {
+                    start: "2018-09",
+                    end: "2019-05"
+                },
+                description: [
+                    "\"Mr. Engineer Fósforo Sheldon\" with a very short active duty."
+                ]
+            },
+            {
+                title: "Freshman",
+                date: {
+                    start: "2016-09",
+                    end: "2017-05"
+                },
+                description: [
+                    "Had my weekly push-ups routine, participated in Guimarães's \"Latada\" and Braga's \"Enterro da Gata\", and got baptized as \"Fósforo Sheldon\" with Francesinha sauce."
+                ]
+            }
+        ]
     }
 ]

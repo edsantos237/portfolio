@@ -1,12 +1,19 @@
 import SkillCategory from "./SkillCategory";
 import FilterPanel from "./FilterPanel";
 import { useState, useRef, useMemo, useEffect } from "react";
+import { getSectionTheme } from "../config/sections";
 import { skills } from "../data/skills";
 import { projects } from "../data/projects";
 import { companies } from "../data/experience";
 import { schools } from "../data/education";
 
-export default function Skills({ onShowProjects, isActive }) {
+export default function Skills({ onShowProjects, isActive, isPrevious = false, activeAccentLine }) {
+    const sectionTheme = getSectionTheme("skills");
+    const headerBottomColor = isActive
+        ? sectionTheme.accentBorder
+        : isPrevious
+        ? activeAccentLine
+        : sectionTheme.controlBorder;
     const [selectedProfessional, setSelectedProfessional] = useState([]);
     const [selectedAcademic, setSelectedAcademic] = useState([]);
     const [personalSelected, setPersonalSelected] = useState(false);
@@ -149,8 +156,17 @@ export default function Skills({ onShowProjects, isActive }) {
 
         return (
             <section id="skills" className="py-16">
-                <div className="sticky top-12 lg:top-0 z-40 bg-gray-950/95 backdrop-blur border-b border-gray-800 mb-6 relative">
-                    <div className={`absolute inset-0 transition-colors duration-300 ${isActive ? "bg-gray-900/25" : ""}`} />
+                <div
+                    className="sticky top-12 lg:top-0 z-40 backdrop-blur border-b mb-6 relative transition-colors duration-300"
+                    style={{
+                        backgroundColor: isActive ? 'var(--section-active-bg)' : 'var(--section-base-bg)',
+                        borderBottomColor: headerBottomColor
+                    }}
+                >
+                    <div
+                        className="absolute inset-0 transition-colors duration-300"
+                        style={{ backgroundColor: isActive ? sectionTheme.stickyActiveOverlay : "transparent" }}
+                    />
                     <div className="relative pt-4">
                         <h2 className="text-3xl font-bold mb-2">Skills</h2>
                         <FilterPanel

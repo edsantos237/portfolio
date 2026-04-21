@@ -39,7 +39,7 @@ export default function FilterChips({
       {professional.map((c) => (
         <span
           key={c.id}
-          className="px-2 py-1 border border-gray-700 rounded flex items-center gap-1"
+          className="px-2 py-1 border rounded flex items-center gap-1 section-chip"
         >
           {c.title}
           <button
@@ -60,7 +60,7 @@ export default function FilterChips({
       {academic.map((s) => (
         <span
           key={s.id}
-          className="px-2 py-1 border border-gray-700 rounded flex items-center gap-1"
+          className="px-2 py-1 border rounded flex items-center gap-1 section-chip"
         >
           {s.title}
           <button
@@ -80,7 +80,7 @@ export default function FilterChips({
       {/* PERSONAL */}
       {personal && (
         <>
-          <span className="px-2 py-1 border border-gray-700 rounded flex items-center gap-1">
+          <span className="px-2 py-1 border rounded flex items-center gap-1 section-chip">
             Personal
             <button
               onClick={onRemovePersonal}
@@ -100,7 +100,7 @@ export default function FilterChips({
       {skills.map((s) => (
         <span
           key={s.id}
-          className="px-2 py-1 border border-gray-700 rounded flex items-center gap-1"
+          className="px-2 py-1 border rounded flex items-center gap-1 section-chip"
         >
           {s.title}
           <button

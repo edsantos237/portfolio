@@ -1,3 +1,48 @@
+/* Both sides rounded by default, but only right side for idle, left for active */
+.sidebar-tab-btn {
+  border-radius: 1rem 1rem 1rem 1rem;
+  border-width: 2px;
+  border-left-width: 6px;
+  border-right: none;
+  width: 100%;
+  display: block;
+  min-width: 0;
+  background: none;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.sidebar-tab-idle {
+  background-color: var(--section-control-bg);
+  border-color: var(--section-control-border);
+  color: rgba(255,255,255,0.78);
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+.sidebar-tab-idle:hover {
+  background-color: var(--section-control-hover-bg);
+  color: rgba(255,255,255,0.96);
+  border-color: var(--section-accent-border);
+}
+.sidebar-tab-selected {
+  background-color: var(--section-accent-bg);
+  color: var(--section-accent-text);
+  border-color: var(--section-accent-border);
+}
+.sidebar-tab-active {
+  box-shadow: 2px 0 8px 0 rgba(0,0,0,0.08);
+  /* extend slightly more to ensure the section left border is covered */
+  margin-right: -2.05rem;
+  width: calc(100% + 2.05rem);
+  z-index: 20;
+  position: relative;
+  border-radius: 1rem 0 0 1rem;
+  background-image: linear-gradient(
+    to right,
+    var(--section-accent-bg) 0%,
+    var(--section-accent-bg) 78%,
+    var(--section-bg, #0f172a) 100%
+  );
+}
 /* Custom horizontal scrollbar for FilterChips to match page background */
 .filter-chips-scrollbar::-webkit-scrollbar {
   height: 8px;
@@ -41,4 +86,88 @@ html {
 
 body {
   margin: 0;
+}
+
+.section-card {
+  background-color: var(--section-card-bg);
+  border-color: var(--section-card-border);
+}
+
+.section-card-strong {
+  background-color: var(--section-card-bg-strong);
+  border-color: var(--section-card-border);
+}
+
+.section-chip {
+  background-color: var(--section-control-bg);
+  border-color: var(--section-control-border);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.section-control-idle {
+  background-color: var(--section-control-bg);
+  border-color: var(--section-control-border);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.section-control-idle:hover {
+  background-color: var(--section-control-hover-bg);
+  border-color: var(--section-accent-border);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.section-control-active {
+  background-color: var(--section-accent-bg);
+  border-color: var(--section-accent-border);
+  color: var(--section-accent-text);
+}
+
+.section-control-partial {
+  background-color: var(--section-soft-bg);
+  border-color: var(--section-accent-border);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.section-accent-button {
+  background-color: var(--section-accent-bg);
+  border-color: var(--section-accent-border);
+  color: var(--section-accent-text);
+}
+
+.section-accent-button:hover {
+  background-color: var(--section-accent-hover-bg);
+}
+
+.section-soft-highlight {
+  background-color: var(--section-soft-bg);
+  border-left-color: var(--section-accent-line) !important;
+}
+
+.section-soft-hover:hover {
+  background-color: var(--section-soft-hover-bg);
+}
+
+.section-outline-active {
+  outline: 2px solid var(--section-accent-ring);
+}
+
+.section-icon-surface {
+  background-color: var(--section-control-bg);
+  border-color: var(--section-control-border);
+}
+
+.section-progress-fill {
+  background-color: var(--section-accent-line);
+}
+
+.section-timeline-accent {
+  background-color: var(--section-accent-line);
+}
+
+.section-year-active {
+  color: var(--section-accent-line);
+}
+
+.section-year-tick-active {
+  background-color: var(--section-accent-line);
 }

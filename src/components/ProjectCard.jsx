@@ -72,7 +72,7 @@ export default function ProjectCard({
   });
 
   return (
-    <div className="p-4 rounded-lg border border-gray-800 bg-gray-900/40 h-full flex flex-col">
+    <div className="p-4 rounded-lg border h-full flex flex-col section-card">
       
       {/* HEADER */}
       <div className="mb-2">
@@ -93,7 +93,7 @@ export default function ProjectCard({
           {origins.map((origin) => (
             <span
               key={origin.id}
-              className="flex items-center gap-1 px-2 py-1 text-xs rounded border border-gray-700 bg-gray-900 whitespace-nowrap"
+              className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip"
             >
               {origin.icon && <Icon icon={origin.icon} />}
               {origin.title}
@@ -117,7 +117,7 @@ export default function ProjectCard({
           {orderedSkills.map((skill) => (
             <span
               key={skill.id}
-              className="flex items-center gap-1 px-2 py-1 text-xs rounded border border-gray-700 bg-gray-900 whitespace-nowrap"
+              className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip"
             >
               {skill.icon && <Icon icon={skill.icon} />}
               {skill.title}

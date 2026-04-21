@@ -29,7 +29,7 @@ export default function SkillContainer({
     return (
         <div
             ref={containerRef}
-            className="bg-gray-900/60 border border-gray-800 rounded-xl p-5"
+            className="border rounded-xl p-5 section-card"
             style={{ scrollMarginTop: '10rem' }}
         >
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
@@ -72,7 +72,7 @@ export default function SkillContainer({
                                 if (!usage || !selectedSkill) return null;
 
                                 return (
-                                    <div className="col-span-full mt-4 border border-gray-800 bg-gray-950 rounded-lg p-5">
+                                    <div className="col-span-full mt-4 border rounded-lg p-5 section-card-strong">
                                         <h4 className="text-white font-semibold mb-2">
                                             {selectedSkill.title}
                                         </h4>
@@ -81,7 +81,7 @@ export default function SkillContainer({
                                             {usage.professional?.map((c) => (
                                                 <span
                                                     key={c.id}
-                                                    className="px-2 py-1 border border-gray-700 rounded"
+                                                    className="px-2 py-1 border rounded section-chip"
                                                 >
                                                     {c.title}
                                                 </span>
@@ -96,7 +96,7 @@ export default function SkillContainer({
                                             {usage.academic?.map((s) => (
                                                 <span
                                                     key={s.id}
-                                                    className="px-2 py-1 border border-gray-700 rounded"
+                                                    className="px-2 py-1 border rounded section-chip"
                                                 >
                                                     {s.title}
                                                 </span>
@@ -108,7 +108,7 @@ export default function SkillContainer({
                                                 )}
 
                                             {usage.personal?.length > 0 && (
-                                                <span className="px-2 py-1 border border-gray-700 rounded">
+                                                <span className="px-2 py-1 border rounded section-chip">
                                                     Personal
                                                 </span>
                                             )}
@@ -118,7 +118,7 @@ export default function SkillContainer({
                                             onClick={() =>
                                                 onShowProjects(selectedSkillId)
                                             }
-                                            className="px-3 py-1.5 text-xs rounded bg-white text-black"
+                                            className="px-3 py-1.5 text-xs rounded border section-accent-button"
                                         >
                                             Show {usage.relatedProjects.length}{" "}
                                             {usage.relatedProjects.length === 1
