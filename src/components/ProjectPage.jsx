@@ -2,20 +2,14 @@ import { useEffect, useState, useRef } from "react";
 import { getSectionTheme, getSectionStyleVars } from "../config/sections";
 import { companies } from "../data/experience";
 import { schools } from "../data/education";
-import { skills } from "../data/skills";
+import { skills, categories, getSkillCategoryId } from "../data/skills";
 import { projects } from "../data/projects";
 import { formatRange } from "../utils/dateFormat";
 import Icon from "./Icon";
 import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
 
-const skillOrder = ["language", "framework", "tool", "platform", "domain"];
-const skillLabels = {
-  language: "Languages",
-  framework: "Frameworks",
-  tool: "Tools",
-  platform: "Platforms",
-  domain: "Domains",
-};
+const skillOrder = categories.map((c) => c.id);
+const skillLabels = Object.fromEntries(categories.map((c) => [c.id, c.title]));
 
 
 function monthIndex(dateStr) {
@@ -103,7 +97,10 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
     .map((type) => ({
       type,
       label: skillLabels[type],
-      items: projectSkills.filter((s) => s.tags?.[0] === type),
+      items: projectSkills
+        .filter((s) => getSkillCategoryId(s) === type)
+        .slice()
+        .sort((a, b) => a.title.localeCompare(b.title)),
     }))
     .filter((g) => g.items.length > 0);
 
@@ -173,6 +170,11 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
                             ? origin.title
                             : origin.title}
                         </span>
+                          {origin.type === "school" && origin.labels && origin.labels.length > 1 && (
+                            <p className="text-sm text-gray-400">
+                              {origin.labels.slice(1).join(" \u2022 ")}
+                            </p>
+                          )}
                         {origin.type === "company" && origin.department && (
                           <span className="block text-xs text-gray-500">
                             {origin.department}

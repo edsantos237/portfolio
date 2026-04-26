@@ -27,6 +27,8 @@ export default function Layout() {
   const [focusedProjectFilters, setFocusedProjectFilters] = useState(null);
   // Academic filter for Education → Projects
   const [focusedAcademic, setFocusedAcademic] = useState(null);
+  // Focus filters for Skills (applied when jumping to Skills section)
+  const [focusedSkillFilters, setFocusedSkillFilters] = useState(null);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const showProjectsForAcademic = (schoolId) => {
     setFocusedAcademic(schoolId);
@@ -120,6 +122,14 @@ export default function Layout() {
   const showProjectsForSkill = (skillId) => {
     setFocusedSkill(skillId);
     jumpTo("projects");
+  };
+  const showSkillsForCompany = (companyId) => {
+    setFocusedSkillFilters({ professional: [companyId], academic: [], personal: false });
+    jumpTo("skills");
+  };
+  const showSkillsForAcademic = (schoolId) => {
+    setFocusedSkillFilters({ professional: [], academic: [schoolId], personal: false });
+    jumpTo("skills");
   };
   const showProjectsForCompany = (companyId) => {
     setFocusedCompany(companyId);
@@ -256,19 +266,21 @@ export default function Layout() {
                   isActive={activeSection === "skills"}
                   isPrevious={sections[activeIndex - 1]?.id === "skills"}
                   activeAccentLine={activeAccentLine}
+                  focusFilters={focusedSkillFilters}
+                  onClearFocusFilters={() => setFocusedSkillFilters(null)}
                 />
               </div>
             </section>
 
             <section id="experience" style={getSectionSurfaceStyle("experience")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Experience isActive={activeSection === "experience"} onShowProjects={showProjectsForCompany} onProjectLink={handleProjectLink} />
+                <Experience isActive={activeSection === "experience"} onShowProjects={showProjectsForCompany} onShowSkills={showSkillsForCompany} onProjectLink={handleProjectLink} />
               </div>
             </section>
 
             <section id="education" style={getSectionSurfaceStyle("education")} className="px-6 lg:px-10 py-16 border-b border-gray-800 lg:border-l transition-colors duration-300">
               <div className="max-w-6xl mx-auto">
-                <Education isActive={activeSection === "education"} onShowProjects={showProjectsForAcademic} onProjectLink={handleProjectLink} />
+                <Education isActive={activeSection === "education"} onShowProjects={showProjectsForAcademic} onShowSkills={showSkillsForAcademic} onProjectLink={handleProjectLink} />
               </div>
             </section>
 

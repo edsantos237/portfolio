@@ -2,10 +2,11 @@ import { useState } from "react";
 import AnimatedCollapse from "./AnimatedCollapse";
 import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
+import ShowSkillsButton from "./ShowSkillsButton";
 import { formatRange } from "../utils/dateFormat";
 import { groupDescriptionItems, renderGroups, renderFlatButtons } from "../utils/descriptionRenderer.jsx";
 
-export default function ExperienceCard({ company, open, onToggle, forceOpen, roleSelectable, selectedRoleId, onSelectRole, showProjectsButton, projectCount, onShowProjects, onProjectLink }) {
+export default function ExperienceCard({ company, open, onToggle, forceOpen, roleSelectable, selectedRoleId, onSelectRole, showProjectsButton, projectCount, showSkillsButton, skillCount, onShowProjects, onShowSkills, onProjectLink }) {
   // open/onToggle controlled externally; fallback to internal state if not provided
   const [internalOpen, setInternalOpen] = useState(false);
   const isOpen = forceOpen ? true : (onToggle ? open : internalOpen);
@@ -111,9 +112,10 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
                                   {renderGroups(otherGroups, `company-desc-${company.id}-other`, onProjectLink, { compact: true })}
                                 </div>
                               )}
-                              {(showProjectsButton || trailing.length > 0) && (
+                              {(showProjectsButton || trailing.length > 0 || showSkillsButton) && (
                                 <div className="flex flex-wrap gap-2">
                                   {showProjectsButton && <ShowProjectsButton onClick={onShowProjects} count={projectCount} />}
+                                  {showSkillsButton && skillCount > 0 && onShowSkills && <ShowSkillsButton onClick={() => onShowSkills(company.id)} count={skillCount} />}
                                   {renderFlatButtons(trailing, `company-desc-trail-${company.id}`, onProjectLink)}
                                 </div>
                               )}

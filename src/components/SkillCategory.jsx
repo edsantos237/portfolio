@@ -185,15 +185,17 @@ export default function SkillContainer({
                                 )}
                             </div>
 
-                            <button
-                                onClick={() => onShowProjects(skillId)}
-                                className="px-3 py-1.5 text-xs rounded border section-accent-button"
-                            >
-                                Show {usage.relatedProjects.length}{" "}
-                                {usage.relatedProjects.length === 1
-                                    ? "project"
-                                    : "projects"}
-                            </button>
+                            {usage.relatedProjects.length > 0 && (
+                                <button
+                                    onClick={() => onShowProjects(skillId)}
+                                    className="px-3 py-1.5 text-xs rounded border section-accent-button"
+                                >
+                                    Show {usage.relatedProjects.length}{" "}
+                                    {usage.relatedProjects.length === 1
+                                        ? "project"
+                                        : "projects"}
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>

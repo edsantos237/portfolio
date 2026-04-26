@@ -1,8 +1,10 @@
+import { IoLogoGithub } from "react-icons/io5";
+
 export const projects = [
     {
         id: "xrgrit",
         title: "XR-GRIT - Gamified XR Platform for Robotics Instruction and Training Consulte",
-        tags: ["ccg", "unity", "csharp", "vr", "xritk", "vstudio", "git", "msword", "powerpnt"],
+        tags: ["featured", "ccg", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
         date: {
             start: "2025-09",
             end: null
@@ -18,11 +20,11 @@ export const projects = [
             "At its core, XR-GRIT integrates narrative-driven missions, progress-tracking mechanics, and visual metaphors representing achievement and advancement.",
             "Trainees are guided by an avatar facilitator, who introduces objectives, demonstrates procedures, and provides feedback throughout the modules, ensuring an intuitive, instructor-like learning flow.",
             "By merging immersive training and game design, XR-GRIT provides a pathway for workforce upskilling and digital transformation in sectors with low technological maturity — particularly ceramics, glass, and stone — aligning with the Industry 5.0 vision of human-centric, adaptive automation.",
-            "My contributions:",
+            "<b>My contributions:</b>",
             "• Integration into the VIROO platform.",
             "• Development of the environment, interactions, gamification mechanics and tutor timelines.",
             "• Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
-            "• Partners: CCG, CTCV",
+            "• Partners: <b>CCG</b>, <b><a href=\"https://www.ctcv.pt/\">CTCV</a></b>",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/2RsYF83Yetk"
@@ -50,7 +52,7 @@ export const projects = [
     {
         id: "nyxium",
         title: "Nyxium",
-        tags: ["personal", "unity", "csharp", "android", "vstudio"],
+        tags: ["featured", "personal", "android", "csharp", "mobile", "unity"],
         date: {
             start: "2025-08",
             end: null
@@ -74,7 +76,7 @@ export const projects = [
     {
         id: "texpact",
         title: "TEXP@CT - Innovation Pact for the Digitalization of Textiles and Clothing",
-        tags: ["ccg", "unity", "csharp", "nodejs", "js", "ar", "webrtc", "linux", "docker", "vstudio"],
+        tags: ["ccg", "android", "ar", "backend", "csharp", "js", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "xr"],
         date: {
             start: "2024-09",
             end: null
@@ -120,7 +122,7 @@ export const projects = [
     {
         id: "ecp",
         title: "ECP - Ecoceramics and Crystalware of Portugal",
-        tags: ["ccg", "unity", "csharp", "nodejs", "js", "ar", "arfoundation", "android", "linux", "docker", "vstudio", "msword", "powerpnt"],
+        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "js", "mobile", "networking", "nodejs", "unity", "windows", "xr"],
         date: {
             start: "2023-12",
             end: null
@@ -165,7 +167,7 @@ export const projects = [
     {
         id: "hfpt",
         title: "HfPT - Health from Portugal",
-        tags: ["ccg", "unity", "csharp", "linux", "nodejs", "webgl", "vstudio", "android", "figma", "js", "ar", "msword", "docker", "webrtc", "arfoundation"],
+        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "js", "mobile", "networking", "nodejs", "unity", "webgl", "webrtc", "websocket", "windows", "xr"],
         date: {
             start: "2023-10",
             end: null
@@ -195,7 +197,7 @@ export const projects = [
     {
         id: "skyscanner",
         title: "Sky Scanner",
-        tags: ["personal", "unity", "csharp", "mapbox", "android", "vstudio"],
+        tags: ["personal", "mobile", "android", "csharp", "mapbox", "unity"],
         date: {
             start: "2025-03",
             end: "2025-03"
@@ -215,7 +217,7 @@ export const projects = [
     {
         id: "openlabs",
         title: "OpenLabs - Open Pilot Labs Network",
-        tags: ["ccg", "unity", "csharp", "nodejs", "js", "ar", "ml", "webrtc", "linux", "docker", "vstudio"],
+        tags: ["ccg", "backend", "csharp", "js", "linux", "ml", "networking", "nodejs", "unity", "webrtc", "websocket"],
         date: {
             start: "2024-06",
             end: "2024-07"
@@ -240,7 +242,7 @@ export const projects = [
     {
         id: "solarsystem",
         title: "SolAR System",
-        tags: ["ccg", "unity", "csharp", "vstudio", "android", "ar", "arfoundation"],
+        tags: ["ccg", "android", "ar", "arfoundation", "csharp", "mobile", "xr", "unity"],
         date: {
             start: "2024-07",
             end: "2024-07"
@@ -264,7 +266,7 @@ export const projects = [
     {
         id: "cmms",
         title: "Cognitive CMMS - Cognitive Computerized Maintenance Management System",
-        tags: ["ccg", "unity", "csharp", "linux", "nodejs", "webgl", "vstudio", "android", "figma", "js", "firebase", "ar", "msword", "docker", "webrtc", "arfoundation"],
+        tags: ["ccg", "arfoundation", "android", "ar", "backend", "csharp", "firebase", "js", "mobile", "networking", "nodejs", "webgl", "webrtc", "websocket", "xr"],
         date: {
             start: "2021-06",
             end: "2023-06"
@@ -290,7 +292,7 @@ export const projects = [
     {
         id: "i2am",
         title: "I2AM: Intelligent Immersive Aircraft Modification",
-        tags: ["ccg", "unity", "csharp", "linux", "nodejs", "vstudio", "figma", "js", "ar", "msword", "docker", "webrtc"],
+        tags: ["ccg", "ar", "backend", "csharp", "js", "networking", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
         date: {
             start: "2022-03",
             end: "2023-08"
@@ -315,7 +317,7 @@ export const projects = [
     {
         id: "admin",
         title: "ADM.IN: Advanced Decision Making IN Productive Systems Through Intelligent Networks",
-        tags: ["ccg", "unity", "csharp", "linux", "nodejs", "vstudio", "figma", "js", "ar", "msword", "docker", "webrtc"],
+        tags: ["featured", "ccg", "ar", "backend", "csharp", "js", "networking", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
         date: {
             start: "2022-09",
             end: "2023-07"
@@ -341,7 +343,7 @@ export const projects = [
     {
         id: "tsim",
         title: "TSIM - Test System Intelligent Machines",
-        tags: ["ccg", "unity", "csharp", "linux", "nodejs", "vstudio", "android", "git", "js", "ar", "msword", "docker", "aspnet", "webrtc", "nestjs", "nextjs"],
+        tags: ["ccg", "backend", "ar", "aspnet", "csharp", "frontend", "js", "nestjs", "networking", "nextjs", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
         date: {
             start: "2021-05",
             end: "2023-10"
@@ -377,7 +379,7 @@ export const projects = [
             value: 19,
             range: 20
         },
-        tags: ["college", "unity", "csharp", "reactjs", "nodejs", "js", "mysql", "sql", "ar", "arfoundation", "mapbox", "android", "linux", "vstudio", "msword", "powerpnt"],
+        tags: ["featured", "university", "android", "ar", "arfoundation", "backend", "csharp", "frontend", "fullstack", "gamedev", "js", "mapbox", "mobile", "mysql", "networking", "nodejs", "reactjs", "sql", "unity", "xr"],
         date: {
             start: "2020-09",
             end: "2022-03"
@@ -395,7 +397,7 @@ export const projects = [
     {
         id: "fof",
         title: "Factory of the Future: Smart Manufacturing / P51 - Training for operators with new methodologies",
-        tags: ["ccg", "mysql", "sql", "unity", "csharp", "webgl", "vstudio", "ar", "msword", "vr"],
+        tags: ["featured", "ccg", "ar", "backend", "csharp", "mysql", "sql", "unity", "webgl", "vr", "xr"],
         date: {
             start: "2021-08",
             end: "2022-01"
@@ -421,7 +423,7 @@ export const projects = [
     {
         id: "voice_transcription",
         title: "Voice Transcription app",
-        tags: ["personal", "java", "androidstudio", "android"],
+        tags: ["personal", "android", "androidstudio", "mobile", "java"],
         date: {
             start: "2021-07",
             end: "2021-07"
@@ -432,13 +434,13 @@ export const projects = [
         ]
     },
     {
-        id: "vrollarcoastar",
+        id: "rva_1",
         title: "VRollercoastAR",
         grade: {
             value: 19,
             range: 20
         },
-        tags: ["college", "mysql", "sql", "unity", "csharp", "vuforia", "nodejs", "cardboard", "vstudio", "android", "ar", "msword", "powerpnt", "vr"],
+        tags: ["featured", "university", "android", "ar", "cardboard", "csharp", "mobile", "sql", "unity", "vuforia", "vr", "xr"],
         date: {
             start: "2020-09",
             end: "2021-02"
@@ -448,25 +450,34 @@ export const projects = [
         ]
     },
     {
-        id: "bikeevents",
+        id: "su_1",
         title: "Detection of bike riding events with a mobile phone",
         grade: {
             value: 18.53,
             range: 20
         },
-        tags: ["college", "python", "java", "androidstudio", "ml", "android", "git", "firebase", "msword", "tensorflow", "powerpnt"],
+        tags: ["featured", "university", "android", "androidstudio", "firebase", "java", "ml", "mobile", "python", "tensorflow"],
         date: {
             start: "2020-09",
             end: "2021-01"
         },
         description: [
-            "• Curricular unit: Ubiquitous Systems (5th year)"
+            "• Curricular unit: Ubiquitous Systems (5th year)",
+            {
+                type: "button",
+                label: "GitHub",
+                icon: {
+                    type: "react",
+                    value: IoLogoGithub
+                },
+                link: "https://github.com/edsantos237/BikeMonitor"
+            }
         ]
     },
     {
         id: "edshot",
         title: "edShot",
-        tags: ["personal", "java", "androidstudio", "android", "ar", "tensorflow"],
+        tags: ["personal", "backend", "android", "androidstudio", "ar", "gamedev", "java", "mobile", "networking", "tensorflow", "xr"],
         date: {
             start: "2019-07",
             end: "2020-09"
@@ -477,17 +488,490 @@ export const projects = [
         ]
     },
     {
-        id: "tictactorchic",
+        id: "tsm_2",
+        title: "PCM Audio Distribution",
+        grade: {
+            value: 17.0,
+            range: 20
+        },
+        tags: ["university", "backend", "java", "linux", "networking"],
+        date: {
+            start: "2020-05",
+            end: "2020-07"
+        },
+        description: [
+            "• Curricular unit: Multimedia Technologies and Services (4th year)"
+        ]
+    },
+    {
+        id: "tsm_1",
+        title: "Shannon-Fano and LZW file compressor",
+        grade: {
+            value: 19.0,
+            range: 20
+        },
+        tags: ["university", "clang", "linux"],
+        date: {
+            start: "2020-02",
+            end: "2020-07"
+        },
+        description: [
+            "• Curricular unit: Multimedia Technologies and Services (4th year)"
+        ]
+    },
+    {
+        id: "pti2_1",
+        title: "Corporative messaging and alerting services for vehicular networks",
+        grade: {
+            value: 19,
+            range: 20
+        },
+        tags: ["featured", "university", "backend", "core", "iot", "java", "linux", "mysql", "networking", "python", "sql"],
+        date: {
+            start: "2020-02",
+            end: "2020-06"
+        },
+        description: [
+            "• Original title (PT): \"Serviços corporativos de mensagens e alertas para redes veiculares\"",
+            "• Curricular unit: Project of Telecommunications and Informatics II (4th year)"
+        ]
+    },
+    {
+        id: "rm_1",
+        title: "E-Scudo - Mobile application to carry out criptocurrency transactions",
+        grade: {
+            value: 18,
+            range: 20
+        },
+        tags: ["featured", "university", "corda", "java"],
+        date: {
+            start: "2020-03",
+            end: "2020-06"
+        },
+        description: [
+            "• Original title (PT): \"E-Scudo - Aplcação móvel para efetuar transações em criptomoedas\"",
+            "• Curricular unit: Mobile Networks (4th year)",
+            "Participated in the 1st edition of INNCYBER Innovation Award (2019/2020).",
+            {
+                type: "pdf",
+                path: "Certificado de Participação-José Eduardo da Silva Santos.pdf"
+            }
+        ]
+    },
+    {
+        id: "gr_1",
+        title: "Monitoring tool",
+        grade: {
+            value: 15.0,
+            range: 20
+        },
+        tags: ["university", "backend", "frontend", "java", "js", "linux", "networking", "nodejs", "reactjs", "snmp"],
+        date: {
+            start: "2019-11",
+            end: "2020-02"
+        },
+        description: [
+            "• Original title (PT): \"Ferramenta de monitorização\"",
+            "• Curricular unit: Network Management (4th year)"
+        ]
+    },
+    {
+        id: "gr_2",
+        title: "Music server with SNMP interface",
+        grade: {
+            value: 15.0,
+            range: 20
+        },
+        tags: ["university", "backend", "java", "linux", "networking", "snmp"],
+        date: {
+            start: "2020-01",
+            end: "2020-02"
+        },
+        description: [
+            "• Original title (PT): \"Servidor musical com interface SNMP\"",
+            "• Curricular unit: Network Management (4th year)"
+        ]
+    },
+    {
+        id: "carrilhoinator",
+        title: "Carrilhoinator",
+        tags: ["personal", "android", "androidstudio", "java", "js", "mobile", "nodejs"],
+        date: {
+            start: "2019-12",
+            end: "2019-12"
+        },
+        summary: "Mobile app that plays random audioclips that were sent from a friend over four years across group chats.",
+        description: [
+            "Mobile app that plays random audioclips that were sent from a friend over four years across group chats."
+        ]
+    },
+    {
+        id: "pti1_1",
+        title: "Colaborative sensing-based traffic monitoring services",
+        grade: {
+            value: 18,
+            range: 20
+        },
+        tags: ["featured", "university", "android", "androidstudio", "clang", "backend", "iot", "java", "js", "linux", "mobile", "mysql", "networking", "sql"],
+        date: {
+            start: "2019-09",
+            end: "2020-01"
+        },
+        description: [
+            "• Original title (PT): \"Serviços de monitorização de tráfego baseado em collaborative sensing\"",
+            "• Curricular unit: Project of Telecommunications and Informatics I (4th year)",
+            {
+                type: "button",
+                label: "GitHub",
+                icon: {
+                    type: "react",
+                    value: IoLogoGithub
+                },
+                link: "https://github.com/edsantos237/PTI1Project"
+            }
+        ]
+    },
+    {
+        id: "sco_1",
+        title: "Communication between two devices using laser and through air",
+        grade: {
+            value: 14,
+            range: 20
+        },
+        tags: ["university", "arduino", "embedded"],
+        date: {
+            start: "2019-10",
+            end: "2020-01"
+        },
+        description: [
+            "• Curricular unit: Optical Communications Systems (4th year)"
+        ]
+    },
+    {
+        id: "cripto_1",
+        title: "Server/client communication system with encryption and certificates",
+        grade: {
+            value: 16.0,
+            range: 20
+        },
+        tags: ["university", "linux", "python"],
+        date: {
+            start: "2019-09",
+            end: "2020-01"
+        },
+        description: [
+            "• Curricular unit: Cryptography (4th year)"
+        ]
+    },
+    {
+        id: "sd_1",
+        title: "Chat server",
+        grade: {
+            value: 18,
+            range: 20
+        },
+        tags: ["university", "backend", "java", "linux", "networking"],
+        date: {
+            start: "2019-05",
+            end: "2019-06"
+        },
+        description: [
+            "• Original title (PT): \"Servidor de chat\"",
+            "• Curricular unit: Distributed Systems (3rd year)"
+        ]
+    },
+    {
+        id: "pds_1",
+        title: "Electrocardiogram signal",
+        tags: ["university", "matlab"],
+        date: {
+            start: "2019-05",
+            end: "2019-06"
+        },
+        description: [
+            "• Original title (PT): \"Sinal de electrocardiograma\"",
+            "• Curricular unit: Digital Signal Processing (3rd year)"
+        ]
+    },
+    {
+        id: "rc2_1",
+        title: "IPv4 packet forwarding router",
+        grade: {
+            value: 17.75,
+            range: 20
+        },
+        tags: ["university", "core", "java", "networking"],
+        date: {
+            start: "2019-04",
+            end: "2019-06"
+        },
+        description: [
+            "• Curricular unit: Computer Networks II (3rd year)"
+        ]
+    },
+    {
+        id: "lti2_1",
+        title: "Physical activity monitoring system",
+        grade: {
+            value: 17.69,
+            range: 20
+        },
+        tags: ["featured", "university", "arduino", "backend", "clang", "embedded", "iot", "linux", "mysql", "networking", "sql"],
+        date: {
+            start: "2019-02",
+            end: "2019-06"
+        },
+        description: [
+            "• Original title (PT): \"Sistema de monitorização de atividade física\"",
+            "• Curricular unit: Laboratories of Telecommunications and Informatics II (3rd year)"
+        ]
+    },
+    {
+        id: "lti1_1",
+        title: "Chatting Application",
+        grade: {
+            value: 16,
+            range: 20
+        },
+        tags: ["university", "arduino", "embedded", "java", "networking"],
+        date: {
+            start: "2018-09",
+            end: "2019-01"
+        },
+        description: [
+            "• Original title (PT): \"Aplicação de Conversação\"",
+            "• Curricular unit: Laboratories of Telecommunications and Informatics I (3rd year)"
+        ]
+    },
+    {
+        id: "so_1",
+        title: "Scheduled Execution of Program Sets",
+        grade: {
+            value: 14.0,
+            range: 20
+        },
+        tags: ["university", "clang", "linux"],
+        date: {
+            start: "2018-11",
+            end: "2019-01"
+        },
+        description: [
+            "• Original title (PT): \"Execução Agendada de Conjuntos de Programas\"",
+            "• Curricular unit: Operating Systems (3rd year)"
+        ]
+    },
+    {
+        id: "rc1_1",
+        title: "Simulation of Ethernet LANs and TCP/IP networks using CORE",
+        grade: {
+            value: 14.0,
+            range: 20
+        },
+        tags: ["university", "core", "networking"],
+        date: {
+            start: "2018-11",
+            end: "2019-01"
+        },
+        description: [
+            "• Original title (PT): \"Simulação de LANs Ethernet e redes TCP/IP usando o CORE\"",
+            "• Curricular unit: Computer Networks I (3rd year)"
+        ]
+    },
+    {
+        id: "eletro2_1",
+        title: "PCBs Project",
+        tags: ["university"],
+        date: {
+            start: "2018-06",
+            end: "2018-06"
+        },
+        description: [
+            "• Original title (PT): \"Projeto de PCBs\"",
+            "• Curricular unit: Electronics II (2nd year)"
+        ]
+    },
+    {
+        id: "io_2",
+        title: "Pallet Warehouse",
+        grade: {
+            value: 67,
+            range: 100
+        },
+        tags: ["university", "gusek"],
+        date: {
+            start: "2018-05",
+            end: "2018-06"
+        },
+        summary: "Project to optimize storage of pallets in a warehouse.",
+        description: [
+            "• Original title (PT): \"Armazém de Paletes\"",
+            "• Curricular unit: Operations Research (2nd year)",
+            "Project to optimize storage of pallets in a warehouse."
+        ]
+    },
+    {
+        id: "pp2_1",
+        title: "Smart Health Control",
+        grade: {
+            value: 13,
+            range: 20
+        },
+        tags: ["featured", "university", "android", "androidstudio", "mobile"],
+        date: {
+            start: "2018-02",
+            end: "2018-06"
+        },
+        summary: "Mobile app to monitor user's health.",
+        description: [
+            "• Curricular unit: Programming Paradigms II (2nd year)",
+            "Mobile app to monitor user's health through a set of features:",
+            "• Steps counter and distance measuring - using accelerometer, gyroscope and GPS.",
+            "• Heart rate measure - using the device's camera and flashlight covered with the user's finger.",
+            "• Calories monitoring - through user's manual input."
+        ]
+    },
+    {
+        id: "io_1",
+        title: "Scientific article research - \"Resolution of an Antenna-Satellite assignment problem by means of Integer Linear Programming\"",
+        grade: {
+            value: 62,
+            range: 100
+        },
+        tags: ["university"],
+        date: {
+            start: "2018-04",
+            end: "2018-05"
+        },
+        summary: "Research and presentation of existing scientific article related to resources optimization.",
+        description: [
+            "• Curricular unit: Operations Research (2nd year)",
+            "Research and presentation of existing scientific article related to resources optimization.",
+            {
+                type: "button",
+                label: "ScienceDirect",
+                link: "https://www.sciencedirect.com/science/article/abs/pii/S1270963814001096"
+            }
+        ]
+    },
+    {
+        id: "pp1_1",
+        title: "Long term park management",
+        grade: {
+            value: 13,
+            range: 20
+        },
+        tags: ["university", "java"],
+        date: {
+            start: "2017-11",
+            end: "2018-01"
+        },
+        summary: "Java program to manage parking at a hotel.",
+        description: [
+            "• Original title (PT): \"Gestão de Parques de longa duração\"",
+            "• Curricular unit: Programming Paradigms I (2nd year)",
+            "Java program to manage parking at a hotel."
+        ]
+    },
+    {
+        id: "mp2_3",
+        title: "The QUIZZER",
+        grade: {
+            value: 16,
+            range: 20
+        },
+        tags: ["featured", "university", "clang", "gamedev", "latex", "linux"],
+        date: {
+            start: "2017-05",
+            end: "2017-06"
+        },
+        summary: "Quiz fighter game in C where the player must answer questions to defeat themed characters.",
+        description: [
+            "• Curricular unit: Programming Methods II (1st year)",
+            "Quiz fighter game in C where the player must answer questions to defeat themed characters.",
+            {
+                type: "youtube",
+                link: "https://www.youtube.com/embed/djG5STzFkOQ"
+            },
+            {
+                type: "youtube",
+                link: "https://www.youtube.com/embed/g6_N_XRKgoQ"
+            }
+        ]
+    },
+    {
+        id: "mp2_2",
+        title: "Pointers and Linked Lists",
+        grade: {
+            value: 16,
+            range: 20
+        },
+        tags: ["university", "clang", "latex", "linux"],
+        date: {
+            start: "2017-03",
+            end: "2017-04"
+        },
+        summary: "C program to read and store files content and store it in linked lists.",
+        description: [
+            "• Original title (PT): \"Pointers e Listas Ligadas\"",
+            "• Curricular unit: Programming Methods II (1st year)",
+            "C program to read and store files content and store it in linked lists."
+        ]
+    },
+    {
+        id: "mp2_1",
+        title: "Arrays, Structs, Files",
+        grade: {
+            value: 15,
+            range: 20
+        },
+        tags: ["university", "clang", "latex", "linux"],
+        date: {
+            start: "2017-02",
+            end: "2017-03"
+        },
+        summary: "C program to read and store files content and store it in arrays of structs.",
+        description: [
+            "• Curricular unit: Programming Methods II (1st year)",
+            "C program to read and store files content and store it in arrays of structs."
+        ]
+    },
+    {
+        id: "mp2_1",
+        title: "Morse dictionary decoder",
+        grade: {
+            value: 13,
+            range: 20
+        },
+        tags: ["university", "clang"],
+        date: {
+            start: "2016-11",
+            end: "2017-01"
+        },
+        summary: "Morse code decoder that translates an input into a list of every possible set of words from a dictionary.",
+        description: [
+            "• Curricular unit: Programming Methods I (1st year)",
+            "Decoder app where, upon inputting a Morse code, the app would decode it into a list of every possible set of words that would be translated from that code. Such words would have to be previously added to a dictionary with each one's Morse code conversion."
+        ]
+    },
+    {
+        id: "apib_1",
         title: "Tic Tac Torchic",
-        tags: ["high_school", "vbasic", "vstudio"],
+        tags: ["high_school", "gamedev", "vbasic", "windows"],
         date: {
             start: "2016-04",
             end: "2016-05"
         },
-        summary: "Tic Tac Toe game based on Pokémon battling.",
-        description: [            
+        summary: {
+            type: "image",
+            path: "tictactorchic.png"
+        },
+        description: [
+            "• Subject: Computer Applications B (12th grade)",
             "Tic Tac Toe game based on Pokémon battling, where both players would peak one of six Pokémon and battle each other as if a completed row would invoke one of the Pokémon moves and deal damage according to each other's stats, until someone would run out of HP.",
-            "• Subject: Computer Applications B (12th grade)"
+            {
+                type: "image",
+                path: "tictactorchic.png"
+            }
         ]
     }
 ];

@@ -5,6 +5,7 @@ import FilterChips from "./FilterChips";
 
 export default function FilterPanel({
     filters = [],
+    leadingControls = [],
     personal,
     onClearAll,
     chips, // ✅ NEW (passed from parent)
@@ -272,6 +273,7 @@ export default function FilterPanel({
     };
 
     const activeDropdownFilter = filters.find((filter) => filter.id === activeDropdownId) ?? null;
+    const separatorClassName = "text-gray-500 select-none";
 
     return (
         <>
@@ -283,8 +285,19 @@ export default function FilterPanel({
                 style={{ height: 0, visibility: 'hidden' }}
             >
                 <span className="text-sm text-gray-400 mr-1 whitespace-nowrap">Filters:</span>
-                {filters.map((f) => (
+                {leadingControls.map((control) => (
+                    <span key={control.id} className="px-3 py-1.5 text-sm whitespace-nowrap">
+                        {control.label}
+                    </span>
+                ))}
+                {leadingControls.length > 0 && filters.length > 0 && (
+                    <span className={separatorClassName}>·</span>
+                )}
+                {filters.map((f, index) => (
                     <Fragment key={f.id}>
+                        {index > 0 && filters[index - 1].group !== f.group && (
+                            <span className={separatorClassName}>·</span>
+                        )}
                         <span className="px-3 py-1.5 text-sm whitespace-nowrap">{f.label} ▾</span>
                         {personal && f.id.includes("acad") && (
                             <span className="px-3 py-1.5 text-sm whitespace-nowrap">Personal</span>
@@ -318,8 +331,29 @@ export default function FilterPanel({
                         Filters:
                     </span>
                 )}
-                {filters.map((f) => (
+                {leadingControls.map((control) => (
+                    <button
+                        key={control.id}
+                        onClick={() => {
+                            control.onClick();
+                            scrollSectionToTop();
+                        }}
+                        className={`px-3 py-1.5 rounded-lg border text-sm whitespace-nowrap ${control.active
+                            ? "section-control-active"
+                            : "section-control-idle"
+                            }`}
+                    >
+                        {control.label}
+                    </button>
+                ))}
+                {leadingControls.length > 0 && filters.length > 0 && (
+                    <span className={separatorClassName}>·</span>
+                )}
+                {filters.map((f, index) => (
                     <Fragment key={f.id}>
+                        {index > 0 && filters[index - 1].group !== f.group && (
+                            <span className={separatorClassName}>·</span>
+                        )}
                         <FilterDropdown
                             ref={(el) => (buttonRefs.current[f.id] = el)}
                             id={f.id}

@@ -2,12 +2,12 @@ import SkillCategory from "./SkillCategory";
 import FilterPanel from "./FilterPanel";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { getSectionTheme } from "../config/sections";
-import { skills } from "../data/skills";
+import { skills, categories, getSkillCategoryId } from "../data/skills";
 import { projects } from "../data/projects";
 import { companies } from "../data/experience";
 import { schools } from "../data/education";
 
-export default function Skills({ onShowProjects, isActive, isPrevious = false, activeAccentLine }) {
+export default function Skills({ onShowProjects, isActive, isPrevious = false, activeAccentLine, focusFilters = null, onClearFocusFilters }) {
     const sectionTheme = getSectionTheme("skills");
     // Only use activeAccentLine if isPrevious is true AND activeAccentLine is from Skills section
     // Otherwise, use Skills' own accentBorder
@@ -19,39 +19,72 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
     const [selectedProfessional, setSelectedProfessional] = useState([]);
     const [selectedAcademic, setSelectedAcademic] = useState([]);
     const [personalSelected, setPersonalSelected] = useState(false);
+    const [featuredSelected, setFeaturedSelected] = useState(true);
     const [selectedSkillId, setSelectedSkillId] = useState(null);
     const categoryRefs = useRef({});
     const [rowMapByType, setRowMapByType] = useState({});
+    const skillIdSet = useMemo(() => new Set(skills.map((s) => s.id)), []);
 
-        const selectedOrigins = [
-            ...selectedProfessional,
-            ...selectedAcademic,
-            ...(personalSelected ? ["personal"] : []),
-        ];
+    const normalizeAssociationTag = (value) =>
+        String(value || "")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "_")
+            .replace(/^_+|_+$/g, "");
+
+    const schoolAssociationTagMap = useMemo(() =>
+        new Map(
+            schools.map((school) => {
+                const labelTags = (school.labels || []).map(normalizeAssociationTag).filter(Boolean);
+                return [school.id, new Set([school.id, ...labelTags])];
+            })
+        ),
+        []
+    );
+
+        const featuredSkills = useMemo(
+            () => skills.filter((skill) => skill.tags.includes("featured")),
+            []
+        );
+
+        const baseProjects = useMemo(
+            () => featuredSelected ? projects.filter((project) => project.tags.includes("featured")) : projects,
+            [featuredSelected]
+        );
+
+        const visibleSkills = featuredSelected ? featuredSkills : skills;
+
+        const selectedOrigins = useMemo(() => {
+            const selectedAcademicTags = selectedAcademic.flatMap((schoolId) =>
+                Array.from(schoolAssociationTagMap.get(schoolId) || new Set([schoolId]))
+            );
+
+            return Array.from(
+                new Set([
+                    ...selectedProfessional,
+                    ...selectedAcademicTags,
+                    ...(personalSelected ? ["personal"] : []),
+                ])
+            );
+        }, [personalSelected, schoolAssociationTagMap, selectedAcademic, selectedProfessional]);
 
         const filteredSkills = useMemo(() => {
-            if (selectedOrigins.length === 0) return skills;
-            return skills.filter((skill) =>
-                projects.some(
+            if (selectedOrigins.length === 0) return visibleSkills;
+            return visibleSkills.filter((skill) =>
+                skill.tags?.some((tag) => selectedOrigins.includes(tag)) ||
+                baseProjects.some(
                     (p) =>
                         p.tags.includes(skill.id) &&
                         p.tags.some((tag) => selectedOrigins.includes(tag))
                 )
             );
-        }, [selectedOrigins]);
+        }, [baseProjects, selectedOrigins, visibleSkills]);
 
-        const typeOrder = ["language", "framework", "tool", "platform", "domain"];
-        const typeLabels = {
-            language: "Languages",
-            framework: "Frameworks",
-            tool: "Tools",
-            platform: "Platforms",
-            domain: "Domains",
-        };
+        const typeOrder = categories.map((c) => c.id);
+        const typeLabels = Object.fromEntries(categories.map((c) => [c.id, c.title]));
 
         const grouped = useMemo(() => {
             return filteredSkills.reduce((acc, skill) => {
-                const type = skill.tags?.[0] || "tool";
+                const type = getSkillCategoryId(skill);
                 if (!acc[type]) acc[type] = [];
                 acc[type].push(skill);
                 return acc;
@@ -59,40 +92,53 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
         }, [filteredSkills]);
 
         const getUsage = (skillId) => {
-            const relatedProjects = projects.filter((p) =>
-                p.tags.includes(skillId)
-            );
+            // Compute usage from the full projects set so toggling Featured
+            // does not change inspection counts or associated tags.
+            const skill = skills.find((s) => s.id === skillId);
+            const skillTags = skill?.tags || [];
+            const relatedProjects = projects.filter((p) => p.tags.includes(skillId));
             const professional = companies.filter((c) =>
-                relatedProjects.some((p) => p.tags.includes(c.id))
+                skillTags.includes(c.id) || relatedProjects.some((p) => p.tags.includes(c.id))
             );
             const academic = schools.filter((s) =>
+                Array.from(schoolAssociationTagMap.get(s.id) || new Set([s.id])).some((tag) => skillTags.includes(tag)) ||
                 relatedProjects.some((p) => p.tags.includes(s.id))
             );
-            const personal = relatedProjects.some((p) =>
-                p.tags.includes("personal")
-            )
+            const personal = skillTags.includes("personal") || relatedProjects.some((p) => p.tags.includes("personal"))
                 ? [{ id: "personal", title: "Personal" }]
                 : [];
             return { professional, academic, personal, relatedProjects };
         };
 
+        // Dropdowns should list origins independent of the Featured toggle,
+        // so compute from the complete projects set.
         const companiesWithSkills = useMemo(() =>
             companies.filter((c) =>
-                projects.some((p) => p.tags.includes(c.id) && skills.some((s) => p.tags.includes(s.id)))
+                skills.some((s) => s.tags?.includes(c.id)) ||
+                projects.some((p) => p.tags.includes(c.id) && p.tags.some((tag) => skillIdSet.has(tag)))
             ),
-        []);
+        [skillIdSet]);
 
         const schoolsWithSkills = useMemo(() =>
-            schools.filter((s) =>
-                projects.some((p) => p.tags.includes(s.id) && skills.some((sk) => p.tags.includes(sk.id)))
-            ),
-        []);
+            schools.filter((school) => {
+                const associationTags = Array.from(schoolAssociationTagMap.get(school.id) || new Set([school.id]));
+                const hasDirectSkills = skills.some((skill) =>
+                    associationTags.some((tag) => skill.tags?.includes(tag))
+                );
+                const hasProjectSkills = projects.some(
+                    (p) => p.tags.includes(school.id) && p.tags.some((tag) => skillIdSet.has(tag))
+                );
+                return hasDirectSkills || hasProjectSkills;
+            }),
+        [schoolAssociationTagMap, skillIdSet]);
 
         const hasPersonalSkills = useMemo(() =>
-            projects.some((p) => p.tags.includes("personal") && skills.some((s) => p.tags.includes(s.id))),
-        []);
+            skills.some((s) => s.tags?.includes("personal")) ||
+            projects.some((p) => p.tags.includes("personal") && p.tags.some((tag) => skillIdSet.has(tag))),
+        [skillIdSet]);
 
         const chips = {
+            featured: featuredSelected,
             professional: companies.filter((c) =>
                 selectedProfessional.includes(c.id)
             ),
@@ -101,6 +147,7 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
             ),
             personal: personalSelected,
             skills: [],
+            onRemoveFeatured: () => setFeaturedSelected(false),
             onRemoveProfessional: (id) =>
                 setSelectedProfessional((p) => p.filter((v) => v !== id)),
             onRemoveAcademic: (id) =>
@@ -113,8 +160,28 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
             setSelectedProfessional([]);
             setSelectedAcademic([]);
             setPersonalSelected(false);
+            setFeaturedSelected(false);
             setSelectedSkillId(null);
         };
+
+        // Apply external focus filters when requested (e.g., via Show Skills button)
+        // focusFilters shape: { professional: [companyIds], academic: [schoolIds], personal: boolean }
+        useEffect(() => {
+            if (!focusFilters) return;
+            setSelectedProfessional(focusFilters.professional || []);
+            setSelectedAcademic(focusFilters.academic || []);
+            setPersonalSelected(!!focusFilters.personal);
+            // Featured: use explicit value if provided; otherwise enable Featured only when no other filters present
+            if (focusFilters.featured !== undefined) {
+                setFeaturedSelected(!!focusFilters.featured);
+            } else {
+                const hasOther = (focusFilters.professional && focusFilters.professional.length > 0) || (focusFilters.academic && focusFilters.academic.length > 0) || !!focusFilters.personal;
+                setFeaturedSelected(!hasOther);
+            }
+            setSelectedSkillId(null);
+            // clear the external focus to avoid repeated reapplication
+            onClearFocusFilters?.();
+        }, [focusFilters, onClearFocusFilters]);
 
         useEffect(() => {
             const newRowMap = {};
@@ -147,7 +214,7 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
 
             const skill = filteredSkills.find(s => s.id === selectedSkillId);
             if (!skill) return;
-            const type = skill.tags?.[0] || 'tool';
+            const type = getSkillCategoryId(skill);
 
             const container = categoryRefs.current[type];
             if (!container) return;
@@ -170,7 +237,7 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
                     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
-        }, [selectedSkillId]);
+        }, [filteredSkills, selectedSkillId]);
 
         return (
             <section id="skills" className="py-16">
@@ -188,25 +255,65 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
                     <div className="relative pt-4">
                         <h2 className="text-3xl font-bold mb-2">Skills</h2>
                         <FilterPanel
+                            leadingControls={[
+                                {
+                                            id: "skill-featured",
+                                            label: "Featured",
+                                            active: featuredSelected,
+                                            onClick: () => {
+                                                setFeaturedSelected((prev) => {
+                                                    const next = !prev;
+                                                    if (next) {
+                                                        // when enabling Featured, clear other filters
+                                                        setSelectedProfessional([]);
+                                                        setSelectedAcademic([]);
+                                                        setPersonalSelected(false);
+                                                        setSelectedSkillId(null);
+                                                    }
+                                                    return next;
+                                                });
+                                            },
+                                        },
+                            ]}
                             filters={[
                                 {
                                     id: "skill-prof",
                                     label: "Professional",
+                                    group: "associations",
                                     items: companiesWithSkills,
                                     selected: selectedProfessional,
-                                    setSelected: setSelectedProfessional,
+                                    setSelected: (valueOrUpdater) => {
+                                        setSelectedProfessional((prev) => {
+                                            const next = typeof valueOrUpdater === 'function' ? valueOrUpdater(prev) : valueOrUpdater;
+                                            if (Array.isArray(next) && next.length > 0) setFeaturedSelected(false);
+                                            return next;
+                                        });
+                                    },
                                 },
                                 {
                                     id: "skill-acad",
                                     label: "Academic",
+                                    group: "associations",
                                     items: schoolsWithSkills,
                                     selected: selectedAcademic,
-                                    setSelected: setSelectedAcademic,
+                                    setSelected: (valueOrUpdater) => {
+                                        setSelectedAcademic((prev) => {
+                                            const next = typeof valueOrUpdater === 'function' ? valueOrUpdater(prev) : valueOrUpdater;
+                                            if (Array.isArray(next) && next.length > 0) setFeaturedSelected(false);
+                                            return next;
+                                        });
+                                    },
                                 },
                             ]}
                             personal={hasPersonalSkills ? {
                                 value: personalSelected,
-                                setValue: setPersonalSelected,
+                                setValue: (valueOrUpdater) => {
+                                    setPersonalSelected((prev) => {
+                                        const next = typeof valueOrUpdater === 'function' ? valueOrUpdater(prev) : valueOrUpdater;
+                                        if (next) setFeaturedSelected(false);
+                                        return next;
+                                    });
+                                },
                             } : null}
                             onClearAll={clearAll}
                             chips={chips}
@@ -233,6 +340,22 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
                         );
                     })}
                 </div>
+
+                {featuredSelected && (
+                    <div className="mt-8 flex justify-center">
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setFeaturedSelected(false);
+                                const section = document.getElementById("skills");
+                                section?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                            className={`w-fit rounded border px-3 py-2 text-xs font-normal transition section-accent-button`}
+                        >
+                            {`Show all skills (${skills.length})`}
+                        </button>
+                    </div>
+                )}
             </section>
         );
 }

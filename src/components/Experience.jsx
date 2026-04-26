@@ -2,10 +2,11 @@ import { useState, useMemo } from "react";
 import { getSectionTheme } from "../config/sections";
 import { companies } from "../data/experience";
 import { projects } from "../data/projects";
+import { skills } from "../data/skills";
 import ExperienceCard from "./ExperienceCard";
 import VerticalTimeline from "./VerticalTimeline";
 
-export default function Experience({ isActive, onShowProjects, onProjectLink }) {
+export default function Experience({ isActive, onShowProjects, onShowSkills, onProjectLink }) {
   const sectionTheme = getSectionTheme("experience");
   // If only one company, sub-entries (roles) are selectable and always expanded
   const single = companies.length === 1;
@@ -50,6 +51,35 @@ export default function Experience({ isActive, onShowProjects, onProjectLink }) 
     }
   }, [single, sorted]);
 
+  const skillIdSet = useMemo(() => new Set((skills || []).map((s) => s.id)), []);
+
+  const skillCountByCompany = useMemo(() => {
+    const counts = new Map();
+
+    companies.forEach((company) => {
+      const ids = new Set();
+
+      // Direct association from skill tags.
+      skills.forEach((skill) => {
+        if (skill.tags?.includes(company.id)) {
+          ids.add(skill.id);
+        }
+      });
+
+      // Association inferred from projects.
+      projects.forEach((p) => {
+        if (!p.tags || !p.tags.includes(company.id)) return;
+        p.tags.forEach((tag) => {
+          if (skillIdSet.has(tag)) ids.add(tag);
+        });
+      });
+
+      counts.set(company.id, ids.size);
+    });
+
+    return counts;
+  }, [skillIdSet]);
+
   // For single, highlight selected role; for multi, highlight selected company
   const activeId = single ? selectedId : openId;
 
@@ -83,6 +113,7 @@ export default function Experience({ isActive, onShowProjects, onProjectLink }) 
             const isEntryOpen = single || openId === company.id;
             // Count projects with this company id as tag
             const projectCount = projects.filter(p => p.tags.includes(company.id)).length;
+            const skillCount = skillCountByCompany.get(company.id) || 0;
             return (
               <div
                 key={company.id}
@@ -101,7 +132,10 @@ export default function Experience({ isActive, onShowProjects, onProjectLink }) 
                   } : undefined}
                   showProjectsButton={isEntryOpen && projectCount > 0}
                   projectCount={projectCount}
+                  showSkillsButton={isEntryOpen && skillCount > 0}
+                  skillCount={skillCount}
                   onShowProjects={() => onShowProjects && onShowProjects(company.id)}
+                  onShowSkills={() => onShowSkills && onShowSkills(company.id)}
                   onProjectLink={onProjectLink}
                 />
               </div>

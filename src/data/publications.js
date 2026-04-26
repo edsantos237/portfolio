@@ -42,7 +42,7 @@ export const publications = [
     {
         title: "QuizHuntAR: A location-based Augmented Reality game for education",
         publisher: "IEEE",
-        tags: ["arcticle, college"],
+        tags: ["arcticle, university"],
         date: "2021/11/04",
         links: ["https://ieeexplore.ieee.org/document/9655273"],
         description: [
@@ -52,7 +52,7 @@ export const publications = [
     // {
     //     title: "E-Scudo",
     //     publisher: "INNCYBER Innovation Hub",
-    //     tags: ["project, college"],
+    //     tags: ["project, university"],
     //     date: "2020/11",
     //     files: ["Certificado de Participação-José Eduardo da Silva Santos.pdf"],
     //     description: [

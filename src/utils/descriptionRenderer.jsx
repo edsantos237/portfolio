@@ -1,6 +1,74 @@
 import React from "react";
 import Icon from "../components/Icon";
 
+const ALLOWED_INLINE_TAGS = new Set(["a", "b", "strong", "i", "em", "u", "br", "code"]);
+
+function sanitizeHref(href) {
+  if (typeof href !== "string") return null;
+  const trimmed = href.trim();
+  if (!trimmed) return null;
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("mailto:")) {
+    return trimmed;
+  }
+  return null;
+}
+
+function renderInlineHtml(text, keyPrefix) {
+  if (typeof text !== "string" || !/[<>]/.test(text) || typeof window === "undefined" || !window.DOMParser) {
+    return text;
+  }
+
+  const parser = new window.DOMParser();
+  const doc = parser.parseFromString(`<div>${text}</div>`, "text/html");
+  const root = doc.body.firstChild;
+
+  const renderNode = (node, path) => {
+    if (node.nodeType === window.Node.TEXT_NODE) {
+      return node.textContent;
+    }
+
+    if (node.nodeType !== window.Node.ELEMENT_NODE) {
+      return null;
+    }
+
+    const tag = node.tagName.toLowerCase();
+    const children = Array.from(node.childNodes)
+      .map((child, index) => renderNode(child, `${path}-${index}`))
+      .filter((child) => child !== null);
+
+    if (!ALLOWED_INLINE_TAGS.has(tag)) {
+      return <React.Fragment key={path}>{children}</React.Fragment>;
+    }
+
+    if (tag === "br") {
+      return <br key={path} />;
+    }
+
+    if (tag === "a") {
+      const href = sanitizeHref(node.getAttribute("href"));
+      if (!href) {
+        return <React.Fragment key={path}>{children}</React.Fragment>;
+      }
+
+      return (
+        <a
+          key={path}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-gray-500 underline-offset-2 hover:text-white"
+        >
+          {children}
+        </a>
+      );
+    }
+
+    return React.createElement(tag, { key: path }, children);
+  };
+
+  return Array.from(root.childNodes).map((node, index) => renderNode(node, `${keyPrefix}-${index}`));
+}
+
 export function getItemGroup(item) {
   if (typeof item === "string") return "text";
   if (!item || typeof item !== "object") return "text";
@@ -131,16 +199,20 @@ export function renderGroups(groups, keyPrefix, onProjectLink, opts = {}) {
     if (group.type === "text") {
       return (
         <p key={`${keyPrefix}-text-${gi}`} className="text-sm text-gray-300">
-          {group.items[0]}
+          {renderInlineHtml(group.items[0], `${keyPrefix}-text-${gi}`)}
         </p>
       );
     }
 
     if (group.type === "media") {
+      const compact = !!opts.compact;
       return (
-        <div key={`${keyPrefix}-media-${gi}`} className="flex gap-3">
+        <div key={`${keyPrefix}-media-${gi}`} className="flex flex-wrap gap-3">
           {group.items.map((item, ii) => (
-            <div key={`${keyPrefix}-media-${gi}-${ii}`} className="flex-1 min-w-0">
+            <div
+              key={`${keyPrefix}-media-${gi}-${ii}`}
+              className={compact ? "flex-1 min-w-0" : "flex-1 min-w-52 min-h-52"}
+            >
               {renderMediaItem(item, `${keyPrefix}-${gi}-${ii}`, opts)}
             </div>
           ))}

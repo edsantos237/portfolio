@@ -1,33 +1,27 @@
 import AnimatedCollapse from "./AnimatedCollapse";
 import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
+import ShowSkillsButton from "./ShowSkillsButton";
 import { formatRange } from "../utils/dateFormat";
 import { groupDescriptionItems, renderGroups, renderFlatButtons } from "../utils/descriptionRenderer.jsx";
 
-export default function EducationCard({ school, open, onToggle, forceOpen, degreeSelectable, selectedDegreeId, onSelectDegree, showProjectsButton, projectCount, onShowProjects, onProjectLink }) {
+export default function EducationCard({ school, open, onToggle, forceOpen, degreeSelectable, selectedCourseId, onSelectCourse, showProjectsButton, projectCount, showSkillsButton, skillCount, onShowProjects, onShowSkills, onProjectLink }) {
     const formatDate = (d) => {
         if (!d) return "";
         if (typeof d === 'string') return d;
         return formatRange(d);
     };
 
-    const gradePercent =
-        school.grade?.value && school.grade?.range
-            ? Math.round((school.grade.value / school.grade.range) * 100)
-            : null;
-
     const labelArray = school.labels ?? (school.label ? [school.label] : []);
     const isOpen = forceOpen ? true : open;
     const toggle = forceOpen ? undefined : onToggle;
 
-    const collapsedHeadline = [...labelArray, school.course].filter(Boolean).join(' • ');
-    // When expanded, show only the course; if no course, hide label (empty string)
-    const headlineText = isOpen ? (school.course ? school.course : '') : collapsedHeadline;
-
+    // Expanded: only first label; collapsed: all labels (no course titles)
+    const visibleLabels = isOpen ? labelArray.slice(0, 1) : labelArray;
 
     return (
         <div className="relative">
-            {/* HEADER + Show Projects Button */}
+            {/* HEADER */}
             <div className="flex flex-col gap-2">
                 <button
                     onClick={toggle}
@@ -40,21 +34,24 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
                         <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
                             <Icon icon={school.icon} />
                         </div>
-                        {/* TITLE */}
+                        {/* TITLE + labels */}
                         <div>
                             <h3 className="text-lg font-semibold">
                                 {school.title}
                             </h3>
-                            <p className="text-sm text-gray-400">
-                                {headlineText}
-                            </p>
+                            {visibleLabels.length > 0 && (
+                                <p className="text-sm text-gray-400 mt-1">
+                                    {visibleLabels.join(" \u2022 ")}
+                                </p>
+                            )}
                         </div>
                     </div>
-                    <span className="text-gray-400 text-sm">
-                        {isOpen ? "−" : "+"}
-                    </span>
+                    {!forceOpen && (
+                        <span className="text-gray-400 text-sm">
+                            {isOpen ? "−" : "+"}
+                        </span>
+                    )}
                 </button>
-                {/* Show Projects Button is shown on top of the expanded content (right of the left border) */}
             </div>
 
             {/* EXPANDED CONTENT */}
@@ -99,9 +96,10 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
                                                         {renderGroups(otherGroups, `school-desc-${school.id}-other`, onProjectLink, { compact: true })}
                                                     </div>
                                                 )}
-                                                {(showProjectsButton || trailing.length > 0) && (
+                                                {(showProjectsButton || trailing.length > 0 || showSkillsButton) && (
                                                     <div className="flex flex-wrap gap-2">
                                                         {showProjectsButton && <ShowProjectsButton onClick={onShowProjects} count={projectCount} />}
+                                                        {showSkillsButton && skillCount > 0 && onShowSkills && <ShowSkillsButton onClick={() => onShowSkills(school.id)} count={skillCount} />}
                                                         {renderFlatButtons(trailing, `school-desc-trail-${school.id}`, onProjectLink)}
                                                     </div>
                                                 )}
@@ -113,52 +111,81 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
                             return null;
                         })()}
 
-                    {/* DATES */}
-                    <p className="text-sm text-gray-400">
-                        {formatDate(school.date)}
-                    </p>
+                    {/* COURSES (sub-entries) */}
+                    {(school.courses || []).map((course, cIdx) => {
+                        const courseGradePercent = course.grade?.value && course.grade?.range
+                            ? Math.round((course.grade.value / course.grade.range) * 100)
+                            : null;
 
-                    {/* DEGREES */}
-                    {school.degrees && (
-                        <div className="text-sm text-gray-300 space-y-1">
-                                {school.degrees.map((deg, i) => {
-                                    const degId = `${school.id}__deg${i}`;
-                                    const selected = degreeSelectable && selectedDegreeId === degId;
-                                    return (
-                                        <p
-                                            key={i}
-                                            className={`pl-2 py-1 rounded cursor-pointer transition ${degreeSelectable ? "section-soft-hover" : ""} ${selected ? "section-soft-highlight" : ""}`}
-                                            onClick={degreeSelectable ? () => onSelectDegree(i) : undefined}
-                                            tabIndex={degreeSelectable ? 0 : -1}
-                                        >
-                                            • {deg}
+                        const courseSelected = degreeSelectable && selectedCourseId === `${school.id}__course${cIdx}`;
+
+                        const courseDescRaw = Array.isArray(course.description) ? course.description.slice() : [];
+                        const courseTrailing = [];
+                        while (courseDescRaw.length > 0) {
+                            const last = courseDescRaw[courseDescRaw.length - 1];
+                            if (last && typeof last === 'object' && last.type === 'button') {
+                                courseTrailing.unshift(last);
+                                courseDescRaw.pop();
+                                continue;
+                            }
+                            break;
+                        }
+                        const courseDescGroups = groupDescriptionItems(courseDescRaw);
+
+                        return (
+                            <div
+                                key={cIdx}
+                                className={`space-y-1 ${degreeSelectable ? `cursor-pointer rounded transition section-soft-hover ${courseSelected ? "section-soft-highlight pl-2" : ""}` : ""}`}
+                                onClick={degreeSelectable ? () => onSelectCourse(cIdx) : undefined}
+                                tabIndex={degreeSelectable ? 0 : -1}
+                            >
+                                {/* Course title */}
+                                {course.title && (
+                                    <h4 className="font-medium text-gray-200">{course.title}</h4>
+                                )}
+
+                                {/* Degrees as inline text */}
+                                {course.degrees && course.degrees.length > 0 && (
+                                    <p className="text-sm text-gray-400">
+                                        {course.degrees.join(" \u2022 ")}
+                                    </p>
+                                )}
+
+                                {/* Date */}
+                                {course.date && (
+                                    <p className="text-xs text-gray-400">{formatDate(course.date)}</p>
+                                )}
+
+                                {/* Course description (e.g. dissertation button) */}
+                                {(courseDescGroups.length > 0 || courseTrailing.length > 0) && (
+                                    <div className="flex flex-wrap gap-2 mt-1">
+                                        {courseDescGroups.length > 0 && renderGroups(courseDescGroups, `course-desc-${school.id}-${cIdx}`, onProjectLink, { compact: true })}
+                                        {courseTrailing.length > 0 && renderFlatButtons(courseTrailing, `course-trail-${school.id}-${cIdx}`, onProjectLink)}
+                                    </div>
+                                )}
+
+                                {/* Grade */}
+                                {course.grade && (
+                                    <div className="mt-1">
+                                        <p className="text-sm text-gray-300 mb-1">
+                                            Grade: {" "}
+                                            <span className="font-medium">
+                                                {course.grade.value} / {course.grade.range}
+                                            </span>
                                         </p>
-                                    );
-                                })}
-                        </div>
-                    )}
-
-                    {/* GRADE */}
-                    {school.grade && (
-                        <div className="mt-2">
-                            <p className="text-sm text-gray-300 mb-1">
-                                Grade:{" "}
-                                <span className="font-medium">
-                                    {school.grade.value} / {school.grade.range}
-                                </span>
-                            </p>
-
-                            {/* PROGRESS BAR */}
-                            {gradePercent !== null && (
-                                <div className="w-full bg-gray-800 rounded-full h-2">
-                                    <div
-                                        className="section-progress-fill h-2 rounded-full"
-                                        style={{ width: `${gradePercent}%` }}
-                                    />
-                                </div>
-                            )}
-                        </div>
-                    )}
+                                        {courseGradePercent !== null && (
+                                            <div className="w-full bg-gray-800 rounded-full h-2">
+                                                <div
+                                                    className="section-progress-fill h-2 rounded-full"
+                                                    style={{ width: `${courseGradePercent}%` }}
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
 
                 </div>
             </AnimatedCollapse>

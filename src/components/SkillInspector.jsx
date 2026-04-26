@@ -1,5 +1,6 @@
 import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
+import { getSkillCategoryTitle } from "../data/skills";
 
 export default function SkillInspector({ skill, usage, onShowProjects }) {
   if (!skill) {
@@ -22,8 +23,8 @@ export default function SkillInspector({ skill, usage, onShowProjects }) {
 
           <div>
             <h3 className="text-lg font-semibold">{skill.title}</h3>
-            <p className="text-xs text-gray-400 capitalize">
-              {(skill.tags?.[0] || "tool")}{" "}
+            <p className="text-xs text-gray-400">
+              {getSkillCategoryTitle(skill)}
             </p>
           </div>
         </div>

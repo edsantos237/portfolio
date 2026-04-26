@@ -16,6 +16,15 @@ export const companies = [
                 },
                 label: "Website",
                 link: "https://ccg.pt/en"
+            },
+            {
+                type: "button",
+                icon: {
+                    type: "file",
+                    value: "ccg.svg"
+                },
+                label: "CVIG",
+                link: "https://ccg.pt/en/research-and-innovation/ri-departments/computer-vision-interaction-and-graphics"
             }
         ],
         roles: [

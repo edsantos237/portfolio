@@ -2,10 +2,11 @@ import { useState, useMemo } from "react";
 import { getSectionTheme } from "../config/sections";
 import { schools } from "../data/education";
 import { projects } from "../data/projects";
+import { skills } from "../data/skills";
 import EducationCard from "./EducationCard";
 import VerticalTimeline from "./VerticalTimeline";
 
-export default function Education({ isActive, onShowProjects, onProjectLink }) {
+export default function Education({ isActive, onShowProjects, onShowSkills, onProjectLink }) {
   const sectionTheme = getSectionTheme("education");
   const single = schools.length === 1;
   const [selectedId, setSelectedId] = useState(null);
@@ -13,41 +14,92 @@ export default function Education({ isActive, onShowProjects, onProjectLink }) {
 
   const sorted = useMemo(
     () =>
-      [...schools].sort((a, b) =>
-        (b.date?.start || "").localeCompare(a.date?.start || "")
+      [...schools].sort((a, b) => {
+        const getStart = (s) => (s.courses || []).map(c => c.date?.start).filter(Boolean).sort().at(-1) || "";
+        return getStart(b).localeCompare(getStart(a));
+      }),
+    []
+  );
+
+  // set for quick skill id membership checks
+  const skillIdSet = useMemo(() => new Set((skills || []).map((s) => s.id)), []);
+
+  const normalizeAssociationTag = (value) =>
+    String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_+|_+$/g, "");
+
+  const schoolAssociationTagMap = useMemo(
+    () =>
+      new Map(
+        schools.map((school) => {
+          const labelTags = (school.labels || []).map(normalizeAssociationTag).filter(Boolean);
+          return [school.id, new Set([school.id, ...labelTags])];
+        })
       ),
     []
   );
 
-  // Timeline: if single, use degrees as entries; else, use schools
+  const skillCountBySchool = useMemo(() => {
+    const counts = new Map();
+
+    schools.forEach((school) => {
+      const ids = new Set();
+      const associationTags = Array.from(
+        schoolAssociationTagMap.get(school.id) || new Set([school.id])
+      );
+
+      // Direct association from skill tags.
+      skills.forEach((skill) => {
+        if (associationTags.some((tag) => skill.tags?.includes(tag))) {
+          ids.add(skill.id);
+        }
+      });
+
+      // Association inferred from projects.
+      projects.forEach((p) => {
+        if (!p.tags || !p.tags.includes(school.id)) return;
+        (p.tags || []).forEach((tag) => {
+          if (skillIdSet.has(tag)) ids.add(tag);
+        });
+      });
+
+      counts.set(school.id, ids.size);
+    });
+
+    return counts;
+  }, [schoolAssociationTagMap, skillIdSet]);
+
+  // Timeline: if single, use courses as entries; else, use schools
   const timelineEntries = useMemo(() => {
     if (single) {
       const school = schools[0];
-      // Use each degree as a timeline entry, using school date for all
-      return (school.degrees || []).map((deg, idx) => ({
-        id: `${school.id}__deg${idx}`,
-        startDate: school.date?.start,
-        endDate: school.date?.end,
+      return (school.courses || []).map((course, idx) => ({
+        id: `${school.id}__course${idx}`,
+        startDate: course.date?.start,
+        endDate: course.date?.end,
       }));
     } else {
       return sorted.map((school) => {
-        // If degrees carry individual dates, expose them as periods so gaps are visible
-        if (Array.isArray(school.degrees) && school.degrees.length && typeof school.degrees[0] === "object" && (school.degrees[0].date?.start || school.degrees[0].date?.end)) {
-          const periods = (school.degrees || []).map((deg, idx) => ({
-            id: `${school.id}__deg${idx}`,
-            startDate: deg.date?.start,
-            endDate: deg.date?.end,
+        const courses = school.courses || [];
+        if (courses.length > 1) {
+          const periods = courses.map((c, idx) => ({
+            id: `${school.id}__course${idx}`,
+            startDate: c.date?.start,
+            endDate: c.date?.end,
           }));
 
           const starts = periods.map((p) => p.startDate).filter(Boolean).sort();
           const ends = periods.map((p) => p.endDate).filter(Boolean).sort();
           const startDate = starts[0];
-          const endDate = ends.length === (school.degrees || []).length ? ends.at(-1) : null;
+          const endDate = ends.length === courses.length ? ends.at(-1) : null;
 
           return { id: school.id, startDate, endDate, periods };
         }
 
-        return { id: school.id, startDate: school.date?.start, endDate: school.date?.end };
+        const c = courses[0] || {};
+        return { id: school.id, startDate: c.date?.start, endDate: c.date?.end };
       });
     }
   }, [single, sorted]);
@@ -82,6 +134,7 @@ export default function Education({ isActive, onShowProjects, onProjectLink }) {
           {sorted.map((school) => {
             const isEntryOpen = single || openId === school.id;
             const projectCount = projects.filter(p => p.tags.includes(school.id)).length;
+            const skillCount = skillCountBySchool.get(school.id) || 0;
             return (
               <div
                 key={school.id}
@@ -93,11 +146,14 @@ export default function Education({ isActive, onShowProjects, onProjectLink }) {
                   onToggle={single ? undefined : () => setOpenId(openId === school.id ? null : school.id)}
                   forceOpen={single}
                   degreeSelectable={single}
-                  selectedDegreeId={selectedId}
-                  onSelectDegree={single ? (idx) => setSelectedId(`${school.id}__deg${idx}`) : undefined}
+                  selectedCourseId={selectedId}
+                  onSelectCourse={single ? (cIdx) => setSelectedId(`${school.id}__course${cIdx}`) : undefined}
                   showProjectsButton={isEntryOpen && projectCount > 0}
                   projectCount={projectCount}
+                  showSkillsButton={isEntryOpen && skillCount > 0}
+                  skillCount={skillCount}
                   onShowProjects={() => onShowProjects && onShowProjects(school.id)}
+                  onShowSkills={() => onShowSkills && onShowSkills(school.id)}
                   onProjectLink={onProjectLink}
                 />
               </div>

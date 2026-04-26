@@ -49,7 +49,7 @@ export const activities = [
             type: "file",
             value: "netium.png"
         },
-        tags: ["college", "volunteering"],
+        tags: ["university", "volunteering"],
         description: [
             "Núcleo de Estudantes de Engenharia de Telecomunicações e Informática da Universidade do Minho",
             {
@@ -88,7 +88,7 @@ export const activities = [
     {
         id: "mieti_party_committee",
         title: "MIETI Party Committee",
-        tags: ["college", "volunteering"],
+        tags: ["university", "volunteering"],
         description: [
             {
                 type: "button",
@@ -135,7 +135,7 @@ export const activities = [
             type: "file",
             value: "praxe.png"
         },
-        tags: ["college"],
+        tags: ["university"],
         description: [
             {
                 type: "button",
@@ -165,7 +165,7 @@ export const activities = [
                     end: "2017-05"
                 },
                 description: [
-                    "Had my weekly push-ups routine, participated in Guimarães's \"Latada\" and Braga's \"Enterro da Gata\", and got baptized as \"Fósforo Cooper\" with Francesinha sauce."
+                    "Had my weekly push-ups routine, participated in Guimarães's \"Latada\" and Braga's universitary procession, and got baptized as \"Fósforo Cooper\" with Francesinha sauce."
                 ]
             }
         ]
@@ -209,7 +209,7 @@ export const activities = [
     {
         id: "students_association",
         title: "Students Association",
-        tags: ["basic_school", "volunteering"],
+        tags: ["middle_school", "volunteering"],
         roles: [
             {
                 date: {
@@ -241,7 +241,7 @@ export const activities = [
     {
         id: "futsal",
         title: "Futsal",
-        tags: ["basic_school"],
+        tags: ["middle_school"],
         roles: [
             {
                 date: {
@@ -257,7 +257,7 @@ export const activities = [
     {
         id: "chess",
         title: "Chess",
-        tags: ["basic_school"],
+        tags: ["middle_school"],
         roles: [
             {
                 date: {
@@ -303,7 +303,7 @@ export const activities = [
     },
     {
         title: "Informatics Course",
-        tags: ["basic_school"],
+        tags: ["middle_school"],
         roles: [
             {
                 date: {

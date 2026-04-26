@@ -125,14 +125,16 @@ export default function ProjectCard({
 
       {/* SKILLS */}
       {orderedSkills.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {orderedSkills.map((skill) => (
+        <div className="flex flex-wrap-reverse justify-end gap-2 mt-auto" style={{ direction: 'rtl' }}>
+          {orderedSkills.filter((skill) => !!skill.icon).slice().reverse().map((skill) => (
             <span
               key={skill.id}
-              className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip"
+              title={skill.title}
+              aria-label={skill.title}
+              className="flex items-center justify-center w-8 h-8 opacity-75"
+              style={{ direction: 'ltr' }}
             >
-              {skill.icon && <Icon icon={skill.icon} />}
-              {skill.title}
+              <Icon icon={skill.icon} className="w-4 h-4" />
             </span>
           ))}
         </div>
