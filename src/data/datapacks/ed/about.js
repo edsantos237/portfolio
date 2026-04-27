@@ -1,14 +1,5 @@
 export const about = {
-    // name: "Eduardo Santos",
-    // picture: "res/profile_torso.png",
     full_name: "José Eduardo da Silva Santos",
-    // headline_short: [
-    //     "Unity & Backend Developer"
-    // ],
-    // headline_long: [
-    //     "Unity & Backend Developer @ CCG/ZGDV Institute.",
-    //     "MSc in Telecommunications and Informatics Engineering @ University of Minho."
-    // ],
     birthdate: "1998-05-17",
     location: "V. N. Famalicão, Braga, Portugal",
     description: [
