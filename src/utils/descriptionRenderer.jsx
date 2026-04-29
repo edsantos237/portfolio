@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "../components/Icon";
+import { sources } from "../data/sources";
 
 const ALLOWED_INLINE_TAGS = new Set(["a", "b", "strong", "i", "em", "u", "br", "code"]);
 
@@ -99,7 +100,7 @@ export function renderMediaItem(item, key, opts = {}) {
     return (
       <img
         key={key}
-        src={`res/${item.path}`}
+        src={`res/${sources.res}/${item.path}`}
         alt={item.alt || ""}
         className={`w-full rounded-lg object-contain ${imageMaxH}`}
         style={{ display: "block", margin: "0 auto" }}
@@ -111,7 +112,7 @@ export function renderMediaItem(item, key, opts = {}) {
   if (item.type === "video") {
     return (
       <video key={key} className="w-full rounded-lg" controls preload="metadata">
-        <source src={`res/${item.path}`} />
+        <source src={`res/${sources.res}/${item.path}`} />
       </video>
     );
   }
@@ -134,13 +135,13 @@ export function renderMediaItem(item, key, opts = {}) {
     return (
       <div key={key} className="w-full">
         <iframe
-          src={`res/${item.path}`}
+          src={`res/${sources.res}/${item.path}`}
           title={item.alt || item.path || `PDF ${key}`}
           className="w-full rounded-lg"
           style={{ height: compact ? "12rem" : "32rem" }}
         />
         <div className="mt-2 text-sm text-gray-400">
-          <a href={`res/${item.path}`} target="_blank" rel="noopener noreferrer" className="underline">
+          <a href={`res/${sources.res}/${item.path}`} target="_blank" rel="noopener noreferrer" className="underline">
             Open PDF in new tab
           </a>
         </div>

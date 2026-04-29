@@ -156,8 +156,11 @@ export default function About({ isActive, onShowProjectFilters, onShowActivity, 
                       <div className="text-xs text-gray-400">{l.proficiency}</div>
                     </div>
 
-                    <div className="mt-2 w-full bg-gray-800 rounded-full h-2">
-                      <div className="section-progress-fill h-2 rounded-full" style={{ width: `${percent}%` }} />
+                    <div className="relative mt-2 w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                      <div className="h-full section-progress-fill rounded-full" style={{ width: `${percent}%` }} />
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className="absolute inset-y-0 w-px bg-black/30" style={{ left: `${(i / 5) * 100}%` }} />
+                      ))}
                     </div>
                   </div>
                 );

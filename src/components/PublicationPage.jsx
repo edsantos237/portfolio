@@ -94,7 +94,7 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
         style={{ pointerEvents: "none" }}
       >
         <div
-          className={`relative w-full max-w-4xl rounded-xl border section-card shadow-2xl flex flex-col max-h-[calc(100vh-4rem)] transform transition-all duration-300 ease-out ${visible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-3"}`}
+          className={`relative w-full max-w-4xl rounded-xl border section-card shadow-2xl flex flex-col max-h-[calc(100vh-4rem)] overflow-hidden transform transition-all duration-300 ease-out ${visible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-3"}`}
           style={{ ...styleVars, pointerEvents: visible ? "auto" : "none", backgroundColor: theme.baseBackground }}
           onClick={(e) => e.stopPropagation()}
         >

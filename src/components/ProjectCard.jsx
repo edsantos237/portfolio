@@ -1,4 +1,6 @@
 import Icon from "./Icon";
+import { sources } from "../data/sources";
+import ProjectStatusBadge, { getProjectBadgeTypes, getProjectCardBadgeWrapStyle } from "./ProjectStatusBadge";
 import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
 
 function formatMonthYear(dateStr) {
@@ -39,6 +41,7 @@ export default function ProjectCard({
   companies,
   schools,
   projectsData,
+  hasAssociatedPublications = false,
   onProjectClick,
 }) {
   const dateLabel = formatRange(project.date);
@@ -85,17 +88,24 @@ export default function ProjectCard({
     }
   });
 
+  const badgeTypes = getProjectBadgeTypes(project, hasAssociatedPublications);
+  const badgeWrapStyle = getProjectCardBadgeWrapStyle(badgeTypes.length);
+
   return (
     <div
-      className="p-4 rounded-lg border h-full flex flex-col section-card cursor-pointer transition-colors section-soft-hover"
+      className="relative p-4 rounded-lg border h-full flex flex-col section-card cursor-pointer transition-colors section-soft-hover"
       onClick={() => onProjectClick?.(project.id)}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onProjectClick?.(project.id); }}
     >
-      
+      <ProjectStatusBadge badges={badgeTypes} variant="card" />
+
       {/* HEADER */}
       <div className="mb-2">
+        {badgeWrapStyle && (
+          <div aria-hidden="true" style={badgeWrapStyle} />
+        )}
         <h3 className="font-semibold text-white">
           {project.title}
         </h3>
@@ -127,7 +137,7 @@ export default function ProjectCard({
         {Array.isArray(project.summary)
           ? renderGroups(groupDescriptionItems(project.summary), `project-summary-${project.id}`, null, { imageMaxH: 'max-h-48' })
           : project.summary && typeof project.summary === "object" && project.summary.type === "image"
-            ? <img src={`res/${project.summary.path}`} alt={project.title} className="w-full rounded-lg object-contain max-h-48" style={{ display: 'block', margin: '0 auto' }} loading="lazy" />
+            ? <img src={`res/${sources.res}/${project.summary.path}`} alt={project.title} className="w-full rounded-lg object-contain max-h-48" style={{ display: 'block', margin: '0 auto' }} loading="lazy" />
             : <p className="text-sm text-gray-400">{project.summary}</p>
         }
       </div>
@@ -140,7 +150,7 @@ export default function ProjectCard({
               key={skill.id}
               title={skill.title}
               aria-label={skill.title}
-              className="flex items-center justify-center w-8 h-8 opacity-75"
+              className="flex items-center justify-center w-8 h-8 opacity-60"
               style={{ direction: 'ltr' }}
             >
               <Icon icon={skill.icon} className="w-4 h-4" />

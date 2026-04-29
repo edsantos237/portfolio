@@ -1,3 +1,4 @@
 export const sources = {
-    datapack: "ed"
+    datapack: "ed",
+    res: "ed"
 }

@@ -177,11 +177,14 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
                                             </span>
                                         </p>
                                         {courseGradePercent !== null && (
-                                            <div className="w-full bg-gray-800 rounded-full h-2">
+                                            <div className="relative w-full bg-gray-800 rounded-full h-2 overflow-hidden">
                                                 <div
-                                                    className="section-progress-fill h-2 rounded-full"
+                                                    className="h-full section-progress-fill rounded-full"
                                                     style={{ width: `${courseGradePercent}%` }}
                                                 />
+                                                {Array.from({ length: course.grade.range - 1 }, (_, i) => (
+                                                    <div key={i} className="absolute inset-y-0 w-px bg-black/30" style={{ left: `${((i + 1) / course.grade.range) * 100}%` }} />
+                                                ))}
                                             </div>
                                         )}
                                     </div>

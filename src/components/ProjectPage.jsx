@@ -7,7 +7,9 @@ import { projects } from "@datapack/projects";
 import { publications } from "@datapack/publications";
 import { formatRange } from "../utils/dateFormat";
 import Icon from "./Icon";
+import ProjectStatusBadge, { getProjectBadgeTypes, getProjectPageBadgePadding } from "./ProjectStatusBadge";
 import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
+import { getRelatedPublicationsForProject } from "../utils/projectPublications";
 
 const skillOrder = categories.map((c) => c.id);
 const skillLabels = Object.fromEntries(categories.map((c) => [c.id, c.title]));
@@ -106,14 +108,11 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
     .filter((g) => g.items.length > 0);
 
   // Publications linked to this project (tags may be "type, projectId" comma-concatenated)
-  const relatedPublications = publications.filter((pub) =>
-    pub.tags?.some((tag) =>
-      tag.split(",").map((t) => t.trim()).includes(project.id)
-    )
-  );
+  const relatedPublications = getRelatedPublicationsForProject(project.id, publications);
 
   const descriptionGroups = groupDescriptionItems(project.description || []);
-  
+  const badgeTypes = getProjectBadgeTypes(project, relatedPublications.length > 0);
+  const titlePaddingRight = getProjectPageBadgePadding(badgeTypes.length);
 
   return (
     <>
@@ -129,10 +128,12 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
         style={{ pointerEvents: 'none' }}
       >
         <div
-          className={`relative w-full max-w-4xl rounded-xl border section-card shadow-2xl flex flex-col max-h-[calc(100vh-4rem)] transform transition-all duration-300 ease-out ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-3'}`}
+          className={`relative w-full max-w-4xl rounded-xl border section-card shadow-2xl flex flex-col max-h-[calc(100vh-4rem)] overflow-hidden transform transition-all duration-300 ease-out ${visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-3'}`}
           style={{ ...styleVars, pointerEvents: visible ? 'auto' : 'none', backgroundColor: theme.baseBackground }}
           onClick={(event) => event.stopPropagation()}
         >
+          <ProjectStatusBadge badges={badgeTypes} variant="page" />
+
           {/* Sticky header */}
           <div
             className="sticky top-0 z-10 backdrop-blur border-b"
@@ -148,7 +149,7 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
               >
                 ← Projects
               </button>
-              <h2 className="text-2xl font-bold leading-tight">{project.title}</h2>
+              <h2 className="text-2xl font-bold leading-tight" style={titlePaddingRight ? { paddingRight: titlePaddingRight } : undefined}>{project.title}</h2>
             </div>
           </div>
 
@@ -202,11 +203,6 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
               )}
             </div>
 
-            {/* Description content */}
-            <div className="space-y-4">
-              {renderGroups(descriptionGroups, `proj-${project.id}`, onProjectLink)}
-            </div>
-
             {/* Grade */}
             {project.grade && (() => {
               const gradePercent =
@@ -222,16 +218,24 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
                     </span>
                   </p>
                   {gradePercent !== null && (
-                    <div className="w-full bg-gray-800 rounded-full h-2">
+                    <div className="relative w-full bg-gray-800 rounded-full h-2 overflow-hidden">
                       <div
-                        className="section-progress-fill h-2 rounded-full"
+                        className="h-full section-progress-fill rounded-full"
                         style={{ width: `${gradePercent}%` }}
                       />
+                      {Array.from({ length: project.grade.range - 1 }, (_, i) => (
+                        <div key={i} className="absolute inset-y-0 w-px bg-black/30" style={{ left: `${((i + 1) / project.grade.range) * 100}%` }} />
+                      ))}
                     </div>
                   )}
                 </div>
               );
             })()}
+
+            {/* Description content */}
+            <div className="space-y-4">
+              {renderGroups(descriptionGroups, `proj-${project.id}`, onProjectLink)}
+            </div>
 
             {/* Skills by category */}
             {skillGroups.length > 0 && (

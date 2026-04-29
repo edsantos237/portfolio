@@ -1,5 +1,6 @@
 import SkillCategory from "./SkillCategory";
 import FilterPanel from "./FilterPanel";
+import { IoStar } from "react-icons/io5";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { getSectionTheme } from "../config/sections";
 import { skills, categories, getSkillCategoryId } from "@datapack/skills";
@@ -269,7 +270,7 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
                             leadingControls={[
                                 {
                                             id: "skill-featured",
-                                            label: "Featured",
+                                            label: <span className="flex items-center gap-1.5"><IoStar size={14} className="opacity-60" />Featured</span>,
                                             active: featuredSelected,
                                             onClick: () => {
                                                 setFeaturedSelected((prev) => {
@@ -367,7 +368,7 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
                                 const section = document.getElementById("skills");
                                 section?.scrollIntoView({ behavior: "smooth" });
                             }}
-                            className={`w-fit rounded border px-3 py-2 text-xs font-normal transition section-accent-button`}
+                            className={`w-fit rounded border px-3 py-2 text-sm font-normal transition section-accent-button`}
                         >
                             {`Show all skills (${skills.length})`}
                         </button>

@@ -1,4 +1,5 @@
 import { IoPerson } from "react-icons/io5";
+import { sources } from "../data/sources";
 
 export default function Icon({ icon, className = "w-5 h-5" }) {
   if (!icon) return null;
@@ -14,7 +15,7 @@ export default function Icon({ icon, className = "w-5 h-5" }) {
     // Treat as a file path relative to public/res
     return (
       <img
-        src={`res/${icon}`}
+        src={`res/${sources.res}/${icon}`}
         alt=""
         className={`${className} object-contain`}
       />
@@ -37,7 +38,7 @@ export default function Icon({ icon, className = "w-5 h-5" }) {
   if (icon.type === "file") {
     return (
       <img
-        src={`res/${icon.value}`}
+        src={`res/${sources.res}/${icon.value}`}
         alt=""
         className={`${className} object-contain`}
       />

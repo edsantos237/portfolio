@@ -2,6 +2,27 @@ import { IoLogoGithub } from "react-icons/io5";
 
 export const projects = [
     {
+        id: "portfolio",
+        title: "Portfoio / CV",
+        tags: ["personal", "frontend", "ghcopilot", "js", "nodejs", "reactjs"],
+        date: {
+            start: "2026-04",
+            end: null
+        },
+        summary: [
+            "Vibe-coded website in React.js, hosted in GitHub Pages, powered by GitHub Copilot, and easily customizable through data files."
+        ],
+        description: [
+            "Vibe-coded website in React.js, hosted in GitHub Pages, powered by GitHub Copilot, and easily customizable through data files.",
+            {
+                type: "button",
+                icon: "profile_icon.png",
+                label: "Website",
+                link: "https://edsantos237.github.io/portfolio/"
+            }
+        ]
+    },
+    {
         id: "xrgrit",
         title: "XR-GRIT - Gamified XR Platform for Robotics Instruction and Training Consulte",
         label: "XR-GRIT",
@@ -276,7 +297,7 @@ export const projects = [
             "The OpenLabs project is an open network of industrial laboratories for companies' digital and sustainable transformation in the Galicia-North Portugal Euroregion.",
             "In this way, it is possible to boost new production and service provision forms, and improve SMEs' ability to test use cases when implementing innovative solutions.",
             "<h2>My contributions:</h2>",
-            "• Demonstrative app to display a digital twin of a given environment (CCG's building) along with a mobile robot and a set of detection cameras.",
+            "• Demonstrative app to display a digital twin of CCG's building along with a mobile robot and a set of detection cameras.",
             "• Communication system through WebRTC to retrieve robot coordinates and coordinates of detected people to be displayed.",
             {
                 type: "youtube",
@@ -613,7 +634,7 @@ export const projects = [
             value: 18,
             range: 20
         },
-        tags: ["featured", "university", "corda", "java"],
+        tags: ["featured", "certified", "university", "corda", "java"],
         date: {
             start: "2020-03",
             end: "2020-06"

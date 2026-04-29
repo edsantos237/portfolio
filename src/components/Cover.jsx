@@ -3,6 +3,7 @@ import React from "react";
 import { getSectionStyleVars, sections } from "../config/sections";
 import { heroBackgroundStyle } from "../config/heroTheme";
 import { cover } from "@datapack/cover";
+import { sources } from "../data/sources";
 import { companies } from "@datapack/experience";
 import Icon from "./Icon";
 
@@ -127,7 +128,7 @@ export default function Cover({ activeSection, onJump }) {
         <div ref={contentRef} className="w-full">
           <div className="flex justify-center mb-6">
             <img
-              src={`res/${cover.picture}`}
+              src={`res/${sources.res}/${cover.picture}`}
               alt={cover.name}
               className="w-40 h-40 sm:w-52 sm:h-52 rounded-3xl object-contain shadow-2xl"
             />

@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { sources } from "../data/sources";
 import { getSectionTheme } from "../config/sections";
 import Icon from "./Icon";
 import SkillCard from "./SkillCard";
@@ -283,7 +284,7 @@ export default function HobbyGrid({
       return (
         <img
           key={`${hobby.id}-image-${index}`}
-          src={`res/${detail.path}`}
+          src={`res/${sources.res}/${detail.path}`}
           alt={detail.alt || `${hobby.title} detail`}
           className="w-full rounded-lg object-cover"
           loading="lazy"
@@ -299,7 +300,7 @@ export default function HobbyGrid({
           controls
           preload="metadata"
         >
-          <source src={`res/${detail.path}`} />
+          <source src={`res/${sources.res}/${detail.path}`} />
         </video>
       );
     }

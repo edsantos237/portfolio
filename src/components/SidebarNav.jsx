@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { getSectionStyleVars, getSectionTheme, sections } from "../config/sections";
 import { heroBackgroundStyle } from "../config/heroTheme";
 import { cover } from "@datapack/cover";
+import { sources } from "../data/sources";
 
 export default function SidebarNav({ activeSection, visible, onJump }) {
 
@@ -50,9 +51,9 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
       {/* DARK OVERLAY for readability */}
       <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
 
-      <div className="relative z-10 sticky top-0 flex w-full flex-col items-center gap-5 pt-6">
+      <div className="relative z-10 sticky top-0 flex w-full flex-col items-center gap-5 pt-6" style={{ height: "100dvh" }}>
         <img
-          src={`res/${cover.picture}`}
+          src={`res/${sources.res}/${cover.picture}`}
           alt={cover.name}
           className="w-20 h-20 rounded-2xl object-contain"
         />
@@ -90,7 +91,12 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
             );
           })}
         </nav>
+
+        <div className="mt-auto mb-8 text-xs text-gray-500 select-none">
+          &copy; {new Date().getFullYear()} {cover.name}
+        </div>
       </div>
+
     </aside>
   );
 }

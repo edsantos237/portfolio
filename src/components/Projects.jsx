@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
+import { IoStar } from "react-icons/io5";
 import { projects } from "@datapack/projects";
 import { companies } from "@datapack/experience";
 import { schools } from "@datapack/education";
 import { skills, categories, getSkillCategoryId } from "@datapack/skills";
+import { publications } from "@datapack/publications";
 import ProjectCard from "./ProjectCard";
 import FilterDropdown from "./FilterDropdown";
 import FilterChips from "./FilterChips";
 import FilterPanel from "./FilterPanel";
 import Icon from "./Icon";
 import { getSectionTheme } from "../config/sections";
+import { hasRelatedPublicationsForProject } from "../utils/projectPublications";
 
 export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany, setFocusedCompany, focusedActivity, setFocusedActivity, focusedProjectFilters, setFocusedProjectFilters, focusedAcademic, setFocusedAcademic, isActive, onProjectClick }) {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -296,7 +299,7 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
             leadingControls={[
               {
                 id: "projects-featured",
-                label: "Featured",
+                label: <span className="flex items-center gap-1.5"><IoStar size={14} className="opacity-60" />Featured</span>,
                 active: featuredSelected,
                 onClick: () => setFeaturedSelected((value) => {
                   const next = !value;
@@ -360,6 +363,7 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
             companies={companies}
             schools={schools}
             projectsData={projects}
+            hasAssociatedPublications={hasRelatedPublicationsForProject(project.id, publications)}
             onProjectClick={onProjectClick}
           />
         ))}
@@ -374,7 +378,7 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
               const section = document.getElementById("projects");
               section?.scrollIntoView({ behavior: "smooth" });
             }}
-            className={`w-fit rounded border px-3 py-2 text-xs font-normal transition section-accent-button`}
+            className={`w-fit rounded border px-3 py-2 text-sm font-normal transition section-accent-button`}
           >
             {`Show all projects (${projects.length})`}
           </button>

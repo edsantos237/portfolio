@@ -1,3 +1,5 @@
+import { sources } from "../data/sources";
+
 export default function HeroShell({ children }) {
   return (
     <div className="relative">
@@ -5,7 +7,7 @@ export default function HeroShell({ children }) {
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center"
         style={{
-          backgroundImage: "url('res/background.jpg')",
+          backgroundImage: `url('res/${sources.res}/background.jpg')`,
         }}
       />
 
