@@ -205,7 +205,7 @@ export const projects = [
                 path: "hfpt534.png"
             },
             "<h2>My contributions:</h2>",
-            "• AR mobile app for visitors of <a href=\"https://www.uc.pt/en/fmuc/iap-pm/museum/\">FMUC's Museum of Anatomical Pathology</a> to have access to additional info and digital twins of exposed or pieces in Augmented Reality.",
+            "• AR mobile app for visitors of <a href=\"https://www.uc.pt/en/fmuc/iap-pm/museum/\">FMUC's Museum of Anatomical Pathology</a> to have access to additional info and digital twins of exposed pieces in Augmented Reality.",
             "• Desktop app for students to simulate Anatomical Pathology laboratory classes with laboratory tools and fully customizable.",
             {
                 type: "youtube",
@@ -363,7 +363,7 @@ export const projects = [
         ],
         description: [
             "Solution based on augmented reality for remote assistance centered on aviation maintenance operations (borescope inspection) and with holographic visualization of information (from the worker on-site to the remote inspector)",
-            "<h2>My contributions</h2>:",
+            "<h2>My contributions:</h2>",
             "• Remote Assistance expert desktop app for video and audio communication with file and annotations exchange through WebRTC with aviation inspectors equipped with HoloLens 2.0.",
             {
                 type: "youtube",
