@@ -260,22 +260,44 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
       setSelectedSkills((p) => p.filter((v) => v !== id)),
   };
 
+
+  // Cap to 2 rows (16 icons max), keep category order, remove non-featured most common first
   const renderProjectSkills = (project) => {
     const projectSkills = project.tags
       .map((tag) => skills.find((s) => s.id === tag))
       .filter(Boolean);
 
-    // Group by category, sort alphabetically within each
-    const grouped = projectSkills.reduce((acc, skill) => {
-      const type = getSkillCategoryId(skill);
-      if (!acc[type]) acc[type] = [];
-      acc[type].push(skill);
-      return acc;
-    }, {});
-
-    return skillOrder.flatMap((type) =>
-      (grouped[type] || []).slice().sort((a, b) => a.title.localeCompare(b.title))
+    // Group by category, preserve order
+    const grouped = skillOrder.map((catId) =>
+      (projectSkills.filter((s) => getSkillCategoryId(s) === catId))
     );
+    let ordered = grouped.flat().filter(Boolean);
+
+    // If <= 16, return as is
+    if (ordered.length <= 16) return ordered;
+
+    // Split featured/non-featured
+    const isFeatured = (skill) => Array.isArray(skill.tags) && skill.tags.includes("featured");
+    const featured = ordered.filter(isFeatured);
+    let nonFeatured = ordered.filter((s) => !isFeatured(s));
+
+    // Sort non-featured by commonality (most common first)
+    nonFeatured = nonFeatured.slice().sort((a, b) => {
+      const freqA = projects.filter((p) => p.tags.includes(a.id)).length;
+      const freqB = projects.filter((p) => p.tags.includes(b.id)).length;
+      return freqB - freqA;
+    });
+
+    // Remove most common non-featured until total is 16
+    let keep = [...featured];
+    for (const skill of nonFeatured.reverse()) {
+      keep.push(skill);
+      if (keep.length === 16) break;
+    }
+
+    // Resort by category order
+    const keepSet = new Set(keep.map((s) => s.id));
+    return grouped.flat().filter((s) => keepSet.has(s.id));
   };
 
   return (
@@ -442,9 +464,19 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
           );
         }
 
+        // Sort: end date descending, then start date descending
+        const sortedProjects = filteredProjects.slice().sort((a, b) => {
+          const parse = (d) => d ? new Date(d) : null;
+          const aEnd = parse(a.date?.end) || new Date(3000,0,1);
+          const bEnd = parse(b.date?.end) || new Date(3000,0,1);
+          if (bEnd - aEnd !== 0) return bEnd - aEnd;
+          const aStart = parse(a.date?.start) || new Date(1000,0,1);
+          const bStart = parse(b.date?.start) || new Date(1000,0,1);
+          return bStart - aStart;
+        });
         return (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProjects.map((project, index) => (
+            {sortedProjects.map((project, index) => (
               <ProjectCard
                 key={`${project.title}-${index}`}
                 project={project}

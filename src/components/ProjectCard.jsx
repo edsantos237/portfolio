@@ -105,8 +105,8 @@ export default function ProjectCard({
     >
       <ProjectStatusBadge badges={badgeTypes} variant="card" />
 
-      {/* HEADER */}
-      <div className="mb-2">
+      {/* HEADER + ORIGIN TAGS */}
+      <div className="mb-3">
         {badgeWrapStyle && (
           <div aria-hidden="true" style={badgeWrapStyle} />
         )}
@@ -125,27 +125,26 @@ export default function ProjectCard({
             {dateLabel}
           </p>
         )}
-      </div>
 
-      {/* ORIGIN TAGS */}
-      {origins.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-3">
-          {origins.map((origin) => (
-            <span
-              key={origin.id}
-              className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip"
-            >
-              {origin.icon && <Icon icon={origin.icon} />}
-              {origin.title}
-            </span>
-          ))}
-        </div>
-      )}
+        {origins.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-2">
+            {origins.map((origin) => (
+              <span
+                key={origin.id}
+                className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip"
+              >
+                {origin.icon && <Icon icon={origin.icon} />}
+                {origin.title}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* SUMMARY */}
       <div className="mb-4 flex-1">
         {Array.isArray(project.summary)
-          ? renderGroups(groupDescriptionItems(project.summary), `project-summary-${project.id}`, null, { imageMaxH: 'max-h-48' })
+          ? renderGroups(groupDescriptionItems(project.summary), `project-summary-${project.id}`, null, { imageHeight: 'h-48', mediaSingleRow: true })
           : project.summary && typeof project.summary === "object" && project.summary.type === "image"
             ? <img src={`res/${sources.res}/${project.summary.path}`} alt={project.title} className="w-full rounded-lg object-contain max-h-48" style={{ display: 'block', margin: '0 auto' }} loading="lazy" />
             : <p className="text-sm text-gray-400">{project.summary}</p>
@@ -154,7 +153,7 @@ export default function ProjectCard({
 
       {/* SKILLS */}
       {orderedSkills.length > 0 && (
-        <div className="flex flex-wrap-reverse justify-end gap-2 mt-auto" style={{ direction: 'rtl' }}>
+        <div className="flex flex-wrap-reverse justify-end gap-2 mt-auto max-h-[72px] overflow-hidden" style={{ direction: 'rtl' }}>
           {orderedSkills.filter((skill) => !!skill.icon).slice().reverse().map((skill) => (
             <span
               key={skill.id}

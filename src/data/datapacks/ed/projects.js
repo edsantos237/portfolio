@@ -44,15 +44,15 @@ export const projects = [
             "At its core, XR-GRIT integrates narrative-driven missions, progress-tracking mechanics, and visual metaphors representing achievement and advancement.",
             "Trainees are guided by an avatar facilitator, who introduces objectives, demonstrates procedures, and provides feedback throughout the modules, ensuring an intuitive, instructor-like learning flow.",
             "By merging immersive training and game design, XR-GRIT provides a pathway for workforce upskilling and digital transformation in sectors with low technological maturity — particularly ceramics, glass, and stone — aligning with the Industry 5.0 vision of human-centric, adaptive automation.",
-            "<h2>My contributions:</h2>",
-            "• Integration into the VIROO platform.",
-            "• Development of the environment, interactions, gamification mechanics and tutor timelines.",
-            "• Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
+            "## My contributions:",
+            "* Integration into the VIROO platform.",
+            "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
+            "* Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/2RsYF83Yetk"
             },
-            "• <b>Partners</b>: CCG, <a href=\"https://www.ctcv.pt//index_eng.html\">CTCV</a>",
+            "### **Partner**: [CTCV](https://www.ctcv.pt//index_eng.html)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -106,19 +106,19 @@ export const projects = [
             "Remote Assistance system using AR for the textile and clothing industry."
         ],
         description: [
-            "<b>TEXP@CT is a response to the challenge of digital transition and adaptation to Industry 4.0 in the textile and clothing sector.</b>",
-            "The <b>Pact for Innovation in the Textile and Clothing Industry</b> will develop a set of 26 digital solutions and technologies, for different areas of work, namely robotics, product engineering, industrial processes, artificial intelligence, smart textiles, data sharing and digital skills.",
-            "With this pact, it is intended that there will be a significant boost in the <b>adoption of innovative digital technologies and solutions</b>, making the sector more attractive for current and future global markets and for human resources, more resilient, more sustainable and more sophisticated.",
+            "**TEXP@CT is a response to the challenge of digital transition and adaptation to Industry 4.0 in the textile and clothing sector.**",
+            "The **Pact for Innovation in the Textile and Clothing Industry** will develop a set of 26 digital solutions and technologies, for different areas of work, namely robotics, product engineering, industrial processes, artificial intelligence, smart textiles, data sharing and digital skills.",
+            "With this pact, it is intended that there will be a significant boost in the **adoption of innovative digital technologies and solutions**, making the sector more attractive for current and future global markets and for human resources, more resilient, more sustainable and more sophisticated.",
             "This project is financed by the Recovery Plan and Resilience.",
-            "<h1>WP6 - Digital Product | PPS22: T&C Product Lifecycle Management 4.0</h1>",
+            "# WP6 - Digital Product | PPS22: T&C Product Lifecycle Management 4.0",
             "PLM architecture on which project IT companies will develop their own versions of a PLM suite. By proceeding this way, the project preserves each company's DevOps choices, potential integration with other software products, and their market strategy.",
-            "<h2>My contributions:</h2>",
-            "• Remote Assistance system for video and audio communication through WebRTC between a remote expert on a desktop device and a clothes technician equipped with Magic Leap 2.",
+            "## My contributions:",
+            "* Remote Assistance system for video and audio communication through WebRTC between a remote expert on a desktop device and a clothes technician equipped with Magic Leap 2.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/G0DyT4qO1CI"
             },
-            "<b>Partners</b>: CCG, <a href=\"https://www.citeve.pt/\">Citeve<a>, <a href=\"https://inforcavado.com/\">Inforcávado</a>, <a href=\"https://infos.pt/en/\">INFOS</a>, <a href=\"https://www.f3m.pt/gb\">F3M</a>, <a href=\"https://www.mind.pt/mind/en/\">Mind</a>",
+            "### **Partners**: [Citeve](https://www.citeve.pt/), [Inforcávado](https://inforcavado.com/), [INFOS](https://infos.pt/en/), [F3M](https://www.f3m.pt/gb), [Mind](https://www.mind.pt/mind/en/)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -152,19 +152,19 @@ export const projects = [
             "Digital Training Academy with virtual and immersive learning methods for continuous and advanced worker training."
         ],
         description: [
-            "<h3>Role: <b>Technical Project Coordinator</b></h3>",
-            "<b>This is an integrated, cross-cutting initiative for the ceramics and crystal sectors, focused on their critical competitiveness factors and aimed at improving their international positioning.</b>",
+            "### Role: **Technical Project Coordinator**",
+            "**This is an integrated, cross-cutting initiative for the ceramics and crystal sectors, focused on their critical competitiveness factors and aimed at improving their international positioning.**",
             "Ecocerâmica e Cristalaria de Portugal Agenda's aims to strengthen the competitiveness of the ceramics and crystal industries at national level, based on factors of innovation, differentiation and a solid collaborative dynamic, with investments in all stages of the sector's value chain and sustained by improving the qualifications of its assets.",
-            "<h1>WP7 - CER_CAPACITATES | PPS 32: Ceramic and Glass Digital Training Academy</h1>",
+            "# WP7 - CER_CAPACITATES | PPS 32: Ceramic and Glass Digital Training Academy",
             "WP7 will focus on the continuous and advanced training of the active population, supporting the fundamental axes of the Agenda, namely, the re-engineering process, Innovation infusion, Energy Transition, Decarbonisation, Circular Economy, Industrial Symbiosis, and Industrial Design with a focus on Ecodesign, Digital Transition - namely, Additive Manufacturing technologies, BIM Libraries and I4.0 applied to the sector - Continuous and Advanced Training for Digital Transformation, Sustainability and Energy Transition.",
             "Accessible to the entire sector, through virtual and immersive training learning methods, which recreate the factory environment (manufacturing processes), laboratory, warehouse, simulating situations for problem solving, for the generation of new ideas, analysis and processing of data to support decision making.",
             "The Ceramic and Glass Sectors have a high deficit of qualified and even undifferentiated labor. As a critical current problem that will tend to get worse shortly, it is urgent to find a sustainable mitigation solution. Consumption patterns and technological development will bring a new paradigm in the attraction, qualification, and retention of company assets, a paradigm that drives the development of synergies between the business industries and the scientific and technological system in Portugal.",
             "To overcome the challenge of requalifying and qualifying the sector's workers, we will development 113 training courses, involving 1765 trainees, in alignment with the strategic development axes of the project, such as the energy and digital transition, the circularity of materials and decarbonization.",
-            "<b>Approaching academia, entities of the R&D system, technology suppliers, and national and international clients are factors that reinforce companies' competitiveness. Putting knowledge and technology at the service of companies to meet the challenges, is the focus of the 3rd activity of this WP, which aims to create synergies between the various stakeholders, bringing to discussion the best international practices, the best technologies, and the promotion of national ceramics.</b>",
-            "<h2>My contributions:</h2>",
-            "• TCA - <b>Training Configuration System</b> - desktop app for trainers to build immersive scenes composed with 3D objects with customizable properties, interactions and animations, following a set of steps.",
-            "• ARTA - <b>Augmented Reality Training System</b> - mobile app for trainees to load created training scenes to be performed in augmented reality.",
-            "• TSIS - <b>Training Session Information System</b> - back-end system to store training info and provide it to the apps through a REST API.",
+            "**Approaching academia, entities of the R&D system, technology suppliers, and national and international clients are factors that reinforce companies' competitiveness. Putting knowledge and technology at the service of companies to meet the challenges, is the focus of the 3rd activity of this WP, which aims to create synergies between the various stakeholders, bringing to discussion the best international practices, the best technologies, and the promotion of national ceramics.**",
+            "## My contributions:",
+            "* TCA - **Training Configuration System** - desktop app for trainers to build immersive scenes composed with 3D objects with customizable properties, interactions and animations, following a set of steps.",
+            "* ARTA - **Augmented Reality Training System** - mobile app for trainees to load created training scenes to be performed in augmented reality.",
+            "* TSIS - **Training Session Information System** - back-end system to store training info and provide it to the apps through a REST API.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/YqAKVt1mczU"
@@ -173,7 +173,7 @@ export const projects = [
                 type: "youtube",
                 link: "https://www.youtube.com/embed/mY7fUsA-E1s"
             },
-            "<b>Partners</b>: CCG, <a href=\"https://www.ctcv.pt//index_eng.html\">CTCV</a>, <a href=\"https://www.up.pt/fcup/en/\">FCUP</a>",
+            "### **Partners**: [CTCV](https://www.ctcv.pt//index_eng.html), [FCUP](https://www.up.pt/fcup/en/)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -204,35 +204,39 @@ export const projects = [
             end: null
         },
         summary: [
-            "Remote monitoring and telemedicine system for healthcare, and a set of interactive applications for anatomical pathology learning."
+            // "Remote monitoring and telemedicine system for healthcare, and a set of interactive applications for anatomical pathology learning."
+            {
+                type: "image",
+                path: "hfpt534.png"
+            }
         ],
         description: [
-            "The Health <i>from</i> Portugal (HfPT) Agenda aims at positioning Portugal as a world reference hub in the design, development and production of advanced solutions for the health markets, based on innovation and technology.",
+            "The Health *from* Portugal (HfPT) Agenda aims at positioning Portugal as a world reference hub in the design, development and production of advanced solutions for the health markets, based on innovation and technology.",
             "The HfPT Agenda is designed to provide an integrated response to the challenges facing the health sector, taking advantage of the emerging opportunities surrounding the digital and green transition and economic resilience. In general terms, the Mobilizing Agenda aims to position Portugal as a reference hub in the design and development of healthcare products and services that stand out for their degree of innovation and incorporation of technology.",
-            "The <b>Smart Health Solutions Vertical</b> is designed to foster a new paradigm for the operation and management of healthcare systems, geared towards the collection and analysis of data generated by the devices to be developed. These innovations are expected to stimulate the definition of new digital health models based on digital and patient-centered, with a focus on reducing costs and improving the quality of the services provided.",
-            "<h1>WP3 - Sensing and robotics | A3.2.3: Devices for remote physical monitoring and recovery, based on gamification</h1>",
+            "The **Smart Health Solutions Vertical** is designed to foster a new paradigm for the operation and management of healthcare systems, geared towards the collection and analysis of data generated by the devices to be developed. These innovations are expected to stimulate the definition of new digital health models based on digital and patient-centered, with a focus on reducing costs and improving the quality of the services provided.",
+            "# WP3 - Sensing and robotics | A3.2.3: Devices for remote physical monitoring and recovery, based on gamification",
             "The development of diagnostic methods is fundamental and transversal to the practice of occupational medicine and health. These methods allow for the early detection of pathologies to treat them effectively, more economically, and with a significant impact on the patient's quality of life. However, it is necessary to create new solutions that better respect their physical condition and the conditions of ergonomics and usability, with faster and more active feedback.",
             "Gripwise is a system based on a connected portable dynamometer, mobile applications, and the cloud data aggregator platform (GDPR), gathering data for frailty and sarcopenia assessments in a simple and effective workflow, aimed at maintaining the health and quality of life of the elderly. The sub-project aims the development of accessories to be applied to the Gripwise dynamometer to assess the strength of various muscle groups, applicable to recovery from frailty and remote physiotherapy, to reinforce the patent granted in the USA and the main markets in Europe. This development will also include the creation of a mobile application for digital games made using Gripwise to prescribe customized and quantified physical activity and rehabilitation with remote monitoring.",
             {
                 type: "image",
                 path: "gripwise.png"
             },
-            "<h2>My contributions:</h2>",
-            "• Video call module through WebRTC between a remote doctor and the patient using the Gripwise app.",
-            "<h1>WP5 - Digital consultation and telemedicine | A5.3.4: Augmented Reality system for visualizing processed slide data (QRCode ID)</h1>",
+            "## My contributions:",
+            "* Video call module through WebRTC between a remote doctor and the patient using the Gripwise app.",
+            "# WP5 - Digital consultation and telemedicine | A5.3.4: Augmented Reality system for visualizing processed slide data (QRCode ID)",
             "The rise of the health market will be driven by new opportunities related to the growth, increased longevity and aging of the global population, which will lead to a progressive increase in the incidence/prevalence of oncological, neurological, cerebro-cardiovascular, metabolic and osteoarticular diseases.",
             {
                 type: "image",
                 path: "hfpt534.png"
             },
-            "<h2>My contributions:</h2>",
-            "• AR mobile app for visitors of <a href=\"https://www.uc.pt/en/fmuc/iap-pm/museum/\">FMUC's Museum of Anatomical Pathology</a> to have access to additional info and digital twins of exposed pieces in Augmented Reality.",
-            "• Desktop app for students to simulate Anatomical Pathology laboratory classes with laboratory tools and fully customizable.",
+            "## My contributions:",
+            "* AR mobile app for visitors of [FMUC's Museum of Anatomical Pathology](https://www.uc.pt/en/fmuc/iap-pm/museum/) to have access to additional info and digital twins of exposed pieces in Augmented Reality.",
+            "* Desktop app for students to simulate Anatomical Pathology laboratory classes with laboratory tools and fully customizable.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/fMbwnmRuo-U"
             },
-            "<b>Partners</b>: CCG, <a href=\"https://www.bmd-software.com/\">BMD</a>, <a href=\"https://www.uc.pt/en/fmuc/\">FMUC</a>, <a href=\"https://www.centi.pt/en\">CeNTI</a>",
+            "### **Partners**: [BMD](https://www.bmd-software.com/), [FMUC](https://www.uc.pt/en/fmuc/), [CeNTI](https://www.centi.pt/en/)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -296,9 +300,9 @@ export const projects = [
         description: [
             "The OpenLabs project is an open network of industrial laboratories for companies' digital and sustainable transformation in the Galicia-North Portugal Euroregion.",
             "In this way, it is possible to boost new production and service provision forms, and improve SMEs' ability to test use cases when implementing innovative solutions.",
-            "<h2>My contributions:</h2>",
-            "• Demonstrative app to display a digital twin of CCG's building along with a mobile robot and a set of detection cameras.",
-            "• Communication system through WebRTC to retrieve robot coordinates and coordinates of detected people to be displayed.",
+            "## My contributions:",
+            "* Demonstrative app to display a digital twin of CCG's building along with a mobile robot and a set of detection cameras.",
+            "* Communication system through WebRTC to retrieve robot coordinates and coordinates of detected people to be displayed.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/H5_kQZDzgy0"
@@ -330,8 +334,8 @@ export const projects = [
         ],
         description: [
             "AR and 3D modeling training course for CCG's Tech Training Hub where users develop a Unity project to view and interact with the Solar System in Augmented Reality.",
-            "<h2>My contributions:</h2>",
-            "• Unity and AR Foundation project/tutorial.",
+            "## My contributions:",
+            "* Unity and AR Foundation project/tutorial.",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -353,15 +357,15 @@ export const projects = [
             "Mobile app to list and display assets info and tasks on a given location with indoor navigation system."
         ],
         description: [
-            "Mobile app to list and display assets info and tasks on a given location with indoor navigation system.",
-            "<h2>My contributions:</h2>",
-            "• Mobile app development.",
-            "• Remote Assistance expert desktop app for video and audio communication with file and annotations exchange through WebRTC with technicians equipped with HoloLens 1.0.",
+            "The Cognitive CMMS project aims to develop a solution that acts transversally in the maintenance management of buildings and their equipment, with a view to the future of predictive maintenance and intelligent CMMS 5.0 systems.",
+            "## My contributions:",
+            "* Mobile app development to list and display assets info and tasks on a given location with indoor navigation system.",
+            "* Remote Assistance expert desktop app for video and audio communication with file and annotations exchange through WebRTC with technicians equipped with HoloLens 1.0.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/sdArXSJv3iw"
             },
-            "<b>Partners</b>: CCG, Cegid, UMinho",
+            "### **Partners**: [Cegid](https://www.cegid.com/), [UMinho](https://www.uminho.pt/en/)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -384,13 +388,13 @@ export const projects = [
         ],
         description: [
             "Solution based on augmented reality for remote assistance centered on aviation maintenance operations (borescope inspection) and with holographic visualization of information (from the worker on-site to the remote inspector)",
-            "<h2>My contributions:</h2>",
-            "• Remote Assistance expert desktop app for video and audio communication with file and annotations exchange through WebRTC with aviation inspectors equipped with HoloLens 2.0.",
+            "## My contributions:",
+            "* Remote Assistance expert desktop app for video and audio communication with file and annotations exchange through WebRTC with aviation inspectors equipped with HoloLens 2.0.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/Kxz-InCzgc0"
             },
-            "<b>Partners</b>: CCG, Aeromec",
+            "### **Partner**: [Aeromec](https://www.aeromec.pt)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -413,10 +417,10 @@ export const projects = [
         ],
         description: [
             "Development of a knowledge management architecture and framework for the integration of Augmented Reality and Mixed Reality, oriented towards knowledge of the maintenance and monitoring process through indicators applied in some critical maintenance activities.",
-            "<h2>My contributions:</h2>",
-            "• <b>Maintenance Configurator</b> - desktop app to display a digital twin of a given machine and customize a set of telemetries, diagnosis tree and intervention steps.",
-            "• <b>Remote Assistance</b> - expert desktop app for video and audio communication with file and annotations exchange through WebRTC with technicians equipped with HoloLens 2.0.",
-            "<b>Partners</b>: CCG, <a href=\"https://www.sonaearauco.com/\">Sonae Arauco</a>",
+            "## My contributions:",
+            "* **Maintenance Configurator** - desktop app to display a digital twin of a given machine and customize a set of telemetries, diagnosis tree and intervention steps.",
+            "* **Remote Assistance** - expert desktop app for video and audio communication with file and annotations exchange through WebRTC with technicians equipped with HoloLens 2.0.",
+            "### **Partner**: [Sonae Arauco](https://www.sonaearauco.com/)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -438,22 +442,26 @@ export const projects = [
             "Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support."
         ],
         description: [
-            "Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support for HoloLens equipped by a technician performing operations on a machine.",
-            "<h2>My contributions:</h2>",
-            "• <b>Back-office app</b>:",
-            "- <b>Authentication module</b> - WebSocket connection handler and HTTP REST endpoints access;",
-            "- <b>Designer module</b> - content files manager, machine 3D model instantiation, content files instantiation for maintenance steps;",
-            "- <b>Remote Assistance module</b> - contacts management, WebRTC P2P call management (video and audio) with annotations and content files exchange, and sessions log management.",
-            "• <b>Backend servers</b>:",
-            "- <b>Authentication module</b> - WebSocket server, HTTP REST endpoints, and users database;",
-            "- <b>Designer module</b> - content files HTTP REST endpoints;",
-            "- <b>Remote Assistance module</b> - sessions log HTTP REST endpoints and database.",
-            "<b>Partners</b>: CCG, Controlar, UMinho",
+            "The central objective of the TSIM project is the design and development of modular test systems, accompanied by a self-diagnosis system, interactive manuals and a remote assistance system, using augmented reality (AR).",
+            "It is structured in three distinct components that are translated into the main lines of R&D involved:",
+            "* R&D new modular automatic test system, aims at the development of coupling modules that allow the testing of different types of products on the same platform;",
+            "* R&D new self-diagnosis system of the automatic test systems, aims at the development of a self-diagnosis system for assessing the health status of the test equipment;",
+            "* R&D a new interactive after-sales assistance application for maintenance and remote assistance, aims to develop a system that allows the visualization of equipment information and after-sales assistance using AR and mixed techniques.",
+            "## My contributions:",
+            "* **Back-office app**:",
+            "  * **Authentication module** - WebSocket connection handler and HTTP REST endpoints access;",
+            "  * **Designer module** - content files manager, machine 3D model instantiation, content files instantiation for maintenance steps;",
+            "  * **Remote Assistance module** - contacts management, WebRTC P2P call management (video and audio) with annotations and content files exchange, and sessions log management.",
+            "* **Backend servers**:",
+            "  * **Authentication module** - WebSocket server, HTTP REST endpoints, and users database;",
+            "  * **Designer module** - content files HTTP REST endpoints;",
+            "  * **Remote Assistance module** - sessions log HTTP REST endpoints and database.",
+            "### **Partners**: [Controlar](https://controlar.com/en/business-units/test-systems/tsim/), [UMinho](https://www.uminho.pt/en/)",
             {
                 type: "button",
                 icon: "controlar.svg",
                 label: "Project website",
-                link: "https://controlar.com/en/business-units/test-systems/tsim/"
+                link: "https://controlar.com/portugal-2020-si-idt-projeto-em-copromocao-n-o-40130-tsim-test-system-intelligent-machines/"
             },
         ]
     },
@@ -473,10 +481,35 @@ export const projects = [
             end: "2022-03"
         },
         summary: [
-            "Master's Dissertation"
+            "Master's Dissertation",
+            {
+                type: "image",
+                path: "dissertation_ss5.jpg"
+            },
+            {
+                type: "image",
+                path: "dissertation_ss6.jpg"
+            }
         ],
         description: [
-            "<h1>Original title (PT): <i>\"Sistema de Realidade Aumentada com Gamificação para o Ensino\"</i></h1>",
+            "# Original title (PT): *\"Sistema de Realidade Aumentada com Gamificação para o Ensino\"*",
+            "System centered on a location-based AR game for mobile devices named “**QuizHuntAR**”, heavily inspired by the game Pokémon GO, with education as its theme, that should be played by students. In this game, players must physically move to hotspots indicated on the map and perform tasks by solving exercises in a treasure hunting logic. This system is also composed of a back-office web app, where teachers can manage the game's content, namely hotspots and exercises, while students can access statistics regarding their class. These applications are supported by a REST API and a database to manage the accessed services and to store information regarding users, exercises, hotspots, and other aspects.",
+            {
+                type: "image",
+                path: "dissertation_ss1.jpg"
+            },
+            {
+                type: "image",
+                path: "dissertation_ss2.jpg"
+            },
+            {
+                type: "image",
+                path: "dissertation_ss3.jpg"
+            },
+            {
+                type: "image",
+                path: "dissertation_ss4.png"
+            },
             {
                 type: "pdf",
                 path: "Dissertation-a82350.pdf"
@@ -497,10 +530,10 @@ export const projects = [
         ],
         description: [
             "Gamified training and evaluation system for machine operations in VR and AR (HoloLens).",
-            "<h2>My contributions:</h2>",
-            "• <b>Task Configurator</b> - flowchart designer to define each task's flow through steps and conditions, and respective precedences and awarded points.",
-            "• <b>XR Configurator</b> - back-office app to assign interactions (VR only) and 3D annotations (VR and AR) using a QR code marker as reference point for each step and machine components, to be displayed in the VR and AR player apps.",
-            "Partners: CCG, Bosch, UMinho",
+            "## My contributions:",
+            "* **Task Configurator** - flowchart designer to define each task's flow through steps and conditions, and respective precedences and awarded points.",
+            "* **XR Configurator** - back-office app to assign interactions (VR only) and 3D annotations (VR and AR) using a QR code marker as reference point for each step and machine components, to be displayed in the VR and AR player apps.",
+            "### **Partners**: [Bosch](https://www.bosch.com/), [UMinho](https://www.uminho.pt/en/)",
             {
                 type: "button",
                 icon: "uminho.jpg",
@@ -521,7 +554,12 @@ export const projects = [
             "Voice Transcription mobile app shared with my family so they can communicate with its deaf members."
         ],
         description: [
-            "Voice Transcription mobile app shared with my family so they can communicate with its deaf members."
+            "Voice Transcription mobile app shared with my family so they can communicate with its deaf members. Based on Google's [Speech Recognizer API](https://developer.android.com/reference/android/speech/SpeechRecognizer).",
+            {
+                type: "image",
+                path: "voice_transcriptor.jpg"
+            },
+            "Made specially for my grandmother who lost her hearing ability, and for over three years, it became the main communication channel between her and the rest of the family on a daily baisis. It has a large font and high contrast coloring to be easily readable for her, and easily usable for the rest of the family.",
         ]
     },
     {
@@ -538,7 +576,40 @@ export const projects = [
             start: "2020-09",
             end: "2021-02"
         },
+        summary: [
+            {
+                type: "image",
+                path: "rva_ss1.jpg"
+            },
+            {
+                type: "image",
+                path: "rva_ss2.jpg"
+            }
+        ],
         description: [
+            "VR and AR system inspired on a rollercoaster business in pandemic times, split in two mobile apps:",
+            "* **VRollercoastAR Builder** - Augmented Reality app to build rollercoaster tracks;",
+            "* **VRollercoastAR Player** - Virtual Reality app (Cardboard) to ride the built rollercoaster tracks.",
+            {
+                type: "image",
+                path: "rva_ss3.jpg"
+            },
+            {
+                type: "image",
+                path: "rva_ss4.jpg"
+            },
+            {
+                type: "image",
+                path: "rva_ss5.jpg"
+            },
+            {
+                type: "image",
+                path: "rva_ss6.jpg"
+            },
+            {
+                type: "pdf",
+                path: "RVA-G5.pdf"
+            }
         ]
     },
     {
@@ -556,7 +627,19 @@ export const projects = [
             start: "2020-09",
             end: "2021-01"
         },
+        summary: [
+            "Mobile app to detect bike riding events (holes in the road, breaks and stops) using a machine learning model based on the phone's sensors data."
+        ],
         description: [
+            "System composed of a mobile app to detect bike riding events (holes in the road, breaks and stops) using a machine learning model based on the phone's sensors data - accelerometer and GPS, and a back-office web app to display the detected events on a map and respective statistics.",
+            {
+                type: "image",
+                path: "su_ss1.png"
+            },
+            {
+                type: "pdf",
+                path: "P2-BikeEvents_final_report.pdf"
+            },
             {
                 type: "button",
                 label: "GitHub",
@@ -574,10 +657,19 @@ export const projects = [
             end: "2020-09"
         },
         summary: [
-            "Mobile AR multiplayer laser tag game."
+            {
+                type: "image",
+                path: "edshot.jpg"
+            }
         ],
         description: [
-            "Unfinished project that consists on a mobile AR multiplayer laser tag game."
+            "Unfinished project that consists on a mobile AR multiplayer laser tag game.",
+            "This was actually my first attempt at developing an AR app, and given that I didn't use any AR framework nor a 3D engine, I had to create formulas that received the user's and the targets' GPS coordinates and orientation to place the targets on the screen.",
+            "The idea was eventually scrapped because GPS isn't proper for tracking players in a laser tag game that could be played indoors, and it wasn't viable to take advantage of other sensors. I tried to use TensorFlow to draw the targets based on the camera feed, but it still wasn't viable nor precise enough.",
+            {
+                type: "image",
+                path: "edshot.jpg"
+            }
         ]
     },
     {
@@ -589,12 +681,20 @@ export const projects = [
             value: 17.0,
             range: 20
         },
-        tags: ["university", "backend", "java", "linux", "networking", "udp", "tcp"],
+        tags: ["university", "backend", "core", "java", "linux", "networking", "udp", "tcp"],
         date: {
             start: "2020-05",
             end: "2020-07"
         },
+        summary: [
+            "Audio distribution system to compress and stream PCM audio from a server to multiple clients."
+        ],
         description: [
+            "System composed of a server that reads PCM audio files, and streams compressed samples to multiple clients through UDP and TCP protocols (along with resending mechanisms for lost packets), and a client that receives the audio stream and plays it in real-time.",
+            {
+                type: "pdf",
+                path: "TP3-a74230-a82157-a82350.pdf"
+            }
         ]
     },
     {
@@ -611,7 +711,19 @@ export const projects = [
             start: "2020-02",
             end: "2020-07"
         },
+        summary: [
+            "File compressor and decompressor based on Shannon-Fano and LZW algorithms."
+        ],
         description: [
+            "System composed of a compressor that receives a file and compresses it based on Shannon-Fano and LZW algorithms, and a decompressor that receives the compressed file and restores it to its original state.",
+            {
+                type: "pdf",
+                path: "TP1-a82350.pdf"
+            },
+            {
+                type: "pdf",
+                path: "TP2-a82350.pdf"
+            }
         ]
     },
     {
@@ -628,8 +740,27 @@ export const projects = [
             start: "2020-02",
             end: "2020-06"
         },
+        summary: [
+            {
+                type: "image",
+                path: "pti2_ss2.png"
+            }
+        ],
         description: [
-            "<h1>Original title (PT): <i>\"Serviços corporativos de mensagens e alertas para redes veiculares\"</i></h1>"
+            "# Original title (PT): *\"Serviços corporativos de mensagens e alertas para redes veiculares\"*",
+            "System composed of an IPv6 vehicular network, where vehicles communicate with each other through RSUs and OBUs, to send and receive messages and alerts based on services provided by their brand.",
+            {
+                type: "image",
+                path: "pti2_ss1.png"
+            },
+            {
+                type: "image",
+                path: "pti2_ss2.png"
+            },
+            {
+                type: "pdf",
+                path: "R3-G1.pdf"
+            }
         ]
     },
     {
@@ -642,17 +773,59 @@ export const projects = [
             value: 18,
             range: 20
         },
-        tags: ["featured", "certified", "university", "corda", "java"],
+        tags: ["featured", "certified", "university", "backend", "corda", "http", "java", "js"],
         date: {
             start: "2020-03",
             end: "2020-06"
         },
+        summary: [
+            "Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform."
+        ],
         description: [
-            "<h1>Original title (PT): <i>\"E-Scudo - Aplcação móvel para efetuar transações em criptomoedas\"</i></h1>",
-            "Participated in the 1st edition of INNCYBER Innovation Award (2019/2020).",
+            "# Original title (PT): *\"E-Scudo - Aplcação móvel para efetuar transações em criptomoedas\"*",            
+            "Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform.",
+            {
+                type: "pdf",
+                path: "E-Scudo-INNCYBER.pdf"
+            },
+            "## Participated in the 1st edition of INNCYBER Innovation Award (2019/2020).",
             {
                 type: "pdf",
                 path: "Certificado de Participação-José Eduardo da Silva Santos.pdf"
+            }
+        ]
+    },
+    {
+        id: "gr_2",
+        title: "Music server with SNMP interface",
+        year: "4th year",
+        subject: "Network Management",
+        grade: {
+            value: 15.0,
+            range: 20
+        },
+        tags: ["university", "backend", "http", "java", "linux", "networking", "snmp"],
+        date: {
+            start: "2020-01",
+            end: "2020-02"
+        },
+        summary: [
+            {
+                type: "image",
+                path: "gr_ss5.png"
+            },
+        ],
+        description: [
+            "# Original title (PT): *\"Servidor musical com interface SNMP\"*",
+            "System composed of an interface server that provides access to a music library stored in the file system of the operating system where an SNMP agent is running.",
+            "This service contains a program for the SNMP agent and a web interface for the user.",
+            {
+                type: "image",
+                path: "gr_ss4.png"
+            },
+            {
+                type: "pdf",
+                path: "TP3-GR-MIETI-a82157-a82350-Relatório.pdf"
             }
         ]
     },
@@ -670,32 +843,33 @@ export const projects = [
             start: "2019-11",
             end: "2020-02"
         },
+        summary: [
+            {
+                type: "image",
+                path: "gr_ss3.png"
+            }
+        ],
         description: [
-            "<h1>Original title (PT): <i>\"Ferramenta de monitorização\"</i></h1>"
-        ]
-    },
-    {
-        id: "gr_2",
-        title: "Music server with SNMP interface",
-        year: "4th year",
-        subject: "Network Management",
-        grade: {
-            value: 15.0,
-            range: 20
-        },
-        tags: ["university", "backend", "http", "java", "linux", "networking", "snmp"],
-        date: {
-            start: "2020-01",
-            end: "2020-02"
-        },
-        description: [
-            "<h1>Original title (PT): <i>\"Servidor musical com interface SNMP\"</i></h1>"
+            "# Original title (PT): *\"Ferramenta de monitorização\"*",
+            "Monitoring tool that retrieves information from an SNMP agent and displays it in a web interface.",
+            {
+                type: "image",
+                path: "gr_ss1.png"
+            },
+            {
+                type: "image",
+                path: "gr_ss2.png"
+            },
+            {
+                type: "pdf",
+                path: "TP2-GR-MIETI-a82350-Relatório.pdf"
+            }
         ]
     },
     {
         id: "carrilhoinator",
         title: "Carrilhoinator",
-        tags: ["personal", "android", "androidstudio", "java", "js", "mobile", "nodejs"],
+        tags: ["personal", "android", "androidstudio", "http", "java", "js", "mobile", "nodejs"],
         date: {
             start: "2019-12",
             end: "2019-12"
@@ -705,30 +879,6 @@ export const projects = [
         ],
         description: [
             "Mobile app that plays random audioclips that were sent from a friend over four years across group chats."
-        ]
-    },
-    {
-        id: "pti1_1",
-        title: "Colaborative sensing-based traffic monitoring services",
-        year: "4th year",
-        subject: "Project of Telecommunications and Informatics I",
-        grade: {
-            value: 18,
-            range: 20
-        },
-        tags: ["featured", "university", "android", "androidstudio", "backend", "clang", "coap", "http", "iot", "java", "js", "linux", "mobile", "mysql", "networking", "sql"],
-        date: {
-            start: "2019-09",
-            end: "2020-01"
-        },
-        description: [
-            "<h1>Original title (PT): <i>\"Serviços de monitorização de tráfego baseado em collaborative sensing\"</i></h1>",
-            {
-                type: "button",
-                label: "GitHub",
-                icon: IoLogoGithub,
-                link: "https://github.com/edsantos237/PTI1Project"
-            }
         ]
     },
     {
@@ -745,7 +895,54 @@ export const projects = [
             start: "2019-10",
             end: "2020-01"
         },
+        summary: [
+            "Communication system between two Arduino devices using laser and through air."
+        ],
         description: [
+            "Communication system between two Arduino devices using laser and through air, where one device is the transmitter and the other is the receiver. The transmitter sends a message coded in binary by blinking an LED that emits a laser light, while the receiver detects the light with a photoreceptor and amplifier and decodes the message.",
+            {
+                type: "pdf",
+                path: "REL_SCO-5.pdf"
+            }
+        ]
+    },
+    {
+        id: "pti1_1",
+        title: "Colaborative sensing-based traffic monitoring services",
+        year: "4th year",
+        subject: "Project of Telecommunications and Informatics I",
+        grade: {
+            value: 18,
+            range: 20
+        },
+        tags: ["featured", "university", "android", "androidstudio", "backend", "clang", "coap", "http", "iot", "java", "js", "linux", "mobile", "mysql", "networking", "sql"],
+        date: {
+            start: "2019-09",
+            end: "2020-01"
+        },
+        summary: [
+            {
+                type: "image",
+                path: "pti1_ss1.png"
+            }
+        ],
+        description: [
+            "# Original title (PT): *\"Serviços de monitorização de tráfego baseado em collaborative sensing\"*",
+            "Traffic monitoring system based on collaborative sensing, where vehicles send information regarding their speed and location to a server that processes this information and provides public access services like vehicle status for authority, traffic congestion information for drivers, navigation system, speed alerts, public transportation locations, and towing services.",
+            {
+                type: "image",
+                path: "pti1_ss1.png"
+            },
+            {
+                type: "pdf",
+                path: "R2-G1.pdf"
+            },
+            {
+                type: "button",
+                label: "GitHub",
+                icon: IoLogoGithub,
+                link: "https://github.com/edsantos237/PTI1Project"
+            }
         ]
     },
     {
@@ -755,12 +952,16 @@ export const projects = [
             value: 16.0,
             range: 20
         },
-        tags: ["university", "linux", "python", "udp"],
+        tags: ["university", "linux", "python", "tcp"],
         date: {
             start: "2019-09",
             end: "2020-01"
         },
+        summary: [
+            "Communication system between a server and a client with encryption and certificates, where each side exchanges encrypted messages, decrypted and authenticated through shared public keys and certificates."
+        ],
         description: [
+            "Communication system between a server and a client with encryption and certificates, where each side exchanges encrypted messages, decrypted and authenticated through shared public keys and certificates.",
         ]
     },
     {
@@ -778,7 +979,7 @@ export const projects = [
             end: "2019-06"
         },
         description: [
-            "<h1>Original title (PT): <i>\"Servidor de chat\"</i></h1>"
+            "# Original title (PT): *\"Servidor de chat\"*"
         ]
     },
     {
@@ -792,7 +993,7 @@ export const projects = [
             end: "2019-06"
         },
         description: [
-            "<h1>Original title (PT): <i>\"Sinal de electrocardiograma\"</i></h1>",
+            "# Original title (PT): *\"Sinal de electrocardiograma\"*",
         ]
     },
     {
@@ -827,7 +1028,7 @@ export const projects = [
             end: "2019-06"
         },
         description: [
-            "<h1>Original title (PT): <i>\"Sistema de monitorização de atividade física\"</i></h1>"
+            "# Original title (PT): *\"Sistema de monitorização de atividade física\"*"
         ]
     },
     {
@@ -845,7 +1046,7 @@ export const projects = [
             end: "2019-01"
         },
         description: [
-            "<h1>Original title (PT): <i>\"Aplicação de Conversação\"</i></h1>"
+            "# Original title (PT): *\"Aplicação de Conversação\"*"
         ]
     },
     {
@@ -863,7 +1064,7 @@ export const projects = [
             end: "2019-01"
         },
         description: [
-            "<h1>Original title (PT): <i>\"Execução Agendada de Conjuntos de Programas\"</i></h1>"
+            "# Original title (PT): *\"Execução Agendada de Conjuntos de Programas\"*"
         ]
     },
     {
@@ -881,7 +1082,7 @@ export const projects = [
             end: "2019-01"
         },
         description: [
-            "<h1>Original title (PT): <i>\"Simulação de LANs Ethernet e redes TCP/IP usando o CORE\"</i></h1>"
+            "# Original title (PT): *\"Simulação de LANs Ethernet e redes TCP/IP usando o CORE\"*"
         ]
     },
     {
@@ -895,7 +1096,7 @@ export const projects = [
             end: "2018-06"
         },
         description: [
-            "<h1>Original title (PT): <i>\"Projeto de PCBs\"</i></h1>"
+            "# Original title (PT): *\"Projeto de PCBs\"*"
         ]
     },
     {
@@ -916,7 +1117,7 @@ export const projects = [
             "Project to optimize storage of pallets in a warehouse."
         ],
         description: [
-            "<h1>Original title (PT): <i>\"Armazém de Paletes\"</i></h1>",
+            "# Original title (PT): *\"Armazém de Paletes\"*",
             "Project to optimize storage of pallets in a warehouse."
         ]
     },
@@ -939,9 +1140,9 @@ export const projects = [
         ],
         description: [
             "Mobile app to monitor user's health through a set of features:",
-            "• Steps counter and distance measuring - using accelerometer, gyroscope and GPS.",
-            "• Heart rate measure - using the device's camera and flashlight covered with the user's finger.",
-            "• Calories monitoring - through user's manual input."
+            "* Steps counter and distance measuring - using accelerometer, gyroscope and GPS.",
+            "* Heart rate measure - using the device's camera and flashlight covered with the user's finger.",
+            "* Calories monitoring - through user's manual input."
         ]
     },
     {
@@ -989,7 +1190,7 @@ export const projects = [
             "Java program to manage parking at a hotel."
         ],
         description: [
-            "<h1>Original title (PT): <i>\"Gestão de Parques de longa duração\"</i></h1>",
+            "# Original title (PT): *\"Gestão de Parques de longa duração\"*",
             "Java program to manage parking at a hotel."
         ]
     },
@@ -1040,7 +1241,7 @@ export const projects = [
             "C program to read and store files content and store it in linked lists."
         ],
         description: [
-            "<h1>Original title (PT): <i>\"Pointers e Listas Ligadas\"</i></h1>",
+            "# Original title (PT): *\"Pointers e Listas Ligadas\"*",
             "C program to read and store files content and store it in linked lists."
         ]
     },

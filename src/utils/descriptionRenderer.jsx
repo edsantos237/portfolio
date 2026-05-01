@@ -1,8 +1,27 @@
 import React from "react";
+import { marked } from "marked";
 import Icon from "../components/Icon";
 import { sources } from "../data/sources";
 
-const ALLOWED_INLINE_TAGS = new Set(["a", "b", "strong", "i", "em", "u", "br", "code"]);
+const ALLOWED_TAGS = new Set([
+  "a", "b", "strong", "i", "em", "u", "br", "code",
+  "p", "h1", "h2", "h3", "h4", "h5", "h6",
+  "ul", "ol", "li", "pre", "blockquote", "hr",
+]);
+
+const TAG_CLASSES = {
+  p: "text-sm text-gray-300",
+  h1: "text-base font-semibold text-white",
+  h2: "text-sm font-semibold text-white",
+  h3: "text-sm font-medium text-gray-100",
+  h4: "text-sm font-medium text-gray-200",
+  h5: "text-sm font-medium text-gray-300",
+  h6: "text-sm text-gray-300",
+  ul: "list-disc list-outside pl-5 text-sm text-gray-300 space-y-0.5",
+  ol: "list-decimal list-outside pl-5 text-sm text-gray-300 space-y-0.5",
+  pre: "text-sm bg-gray-800 p-2 rounded text-gray-200 font-mono overflow-x-auto my-1",
+  blockquote: "text-sm text-gray-400 border-l-2 border-gray-600 pl-3 italic",
+};
 
 function sanitizeHref(href) {
   if (typeof href !== "string") return null;
@@ -14,60 +33,92 @@ function sanitizeHref(href) {
   return null;
 }
 
-function renderInlineHtml(text, keyPrefix) {
-  if (typeof text !== "string" || !/[<>]/.test(text) || typeof window === "undefined" || !window.DOMParser) {
-    return text;
+function renderNode(node, path) {
+  if (node.nodeType === window.Node.TEXT_NODE) {
+    return node.textContent;
   }
 
-  const parser = new window.DOMParser();
-  const doc = parser.parseFromString(`<div>${text}</div>`, "text/html");
-  const root = doc.body.firstChild;
+  if (node.nodeType !== window.Node.ELEMENT_NODE) {
+    return null;
+  }
 
-  const renderNode = (node, path) => {
-    if (node.nodeType === window.Node.TEXT_NODE) {
-      return node.textContent;
-    }
+  const tag = node.tagName.toLowerCase();
+  const children = Array.from(node.childNodes)
+    .map((child, index) => renderNode(child, `${path}-${index}`))
+    .filter((child) => child !== null);
 
-    if (node.nodeType !== window.Node.ELEMENT_NODE) {
-      return null;
-    }
+  if (!ALLOWED_TAGS.has(tag)) {
+    return <React.Fragment key={path}>{children}</React.Fragment>;
+  }
 
-    const tag = node.tagName.toLowerCase();
-    const children = Array.from(node.childNodes)
-      .map((child, index) => renderNode(child, `${path}-${index}`))
-      .filter((child) => child !== null);
+  if (tag === "br") {
+    return <br key={path} />;
+  }
 
-    if (!ALLOWED_INLINE_TAGS.has(tag)) {
+  if (tag === "hr") {
+    return <hr key={path} className="border-gray-700 my-1" />;
+  }
+
+  if (tag === "a") {
+    const href = sanitizeHref(node.getAttribute("href"));
+    if (!href) {
       return <React.Fragment key={path}>{children}</React.Fragment>;
     }
 
-    if (tag === "br") {
-      return <br key={path} />;
-    }
+    return (
+      <a
+        key={path}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline decoration-gray-500 underline-offset-2 hover:text-white"
+      >
+        {children}
+      </a>
+    );
+  }
 
-    if (tag === "a") {
-      const href = sanitizeHref(node.getAttribute("href"));
-      if (!href) {
-        return <React.Fragment key={path}>{children}</React.Fragment>;
-      }
+  const className = TAG_CLASSES[tag];
+  return React.createElement(tag, { key: path, ...(className ? { className } : {}) }, children);
+}
 
-      return (
-        <a
-          key={path}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline decoration-gray-500 underline-offset-2 hover:text-white"
-        >
-          {children}
-        </a>
-      );
-    }
+function renderHtml(html, keyPrefix) {
+  if (typeof html !== "string" || typeof window === "undefined" || !window.DOMParser) {
+    return html;
+  }
 
-    return React.createElement(tag, { key: path }, children);
-  };
+  const parser = new window.DOMParser();
+  const doc = parser.parseFromString(`<div>${html}</div>`, "text/html");
+  const root = doc.body.firstChild;
 
   return Array.from(root.childNodes).map((node, index) => renderNode(node, `${keyPrefix}-${index}`));
+}
+
+function toHtml(text) {
+  if (typeof text !== "string") return "";
+  return marked.parse(text, { breaks: false });
+}
+
+function isListLine(text) {
+  return typeof text === "string" && /^\s*(?:[*+-]|\d+\.)\s/.test(text);
+}
+
+function isIndentedLine(text) {
+  return typeof text === "string" && /^\s+/.test(text);
+}
+
+function joinTextItems(items) {
+  let result = "";
+  for (let i = 0; i < items.length; i++) {
+    const cur = items[i];
+    if (i === 0) { result = cur; continue; }
+    const prev = items[i - 1];
+    const sameBlock =
+      (isListLine(prev) || isIndentedLine(prev)) &&
+      (isListLine(cur)  || isIndentedLine(cur));
+    result += (sameBlock ? "\n" : "\n\n") + cur;
+  }
+  return result;
 }
 
 export function getItemGroup(item) {
@@ -84,7 +135,13 @@ export function groupDescriptionItems(items = []) {
     if (item == null) continue;
     const type = getItemGroup(item);
     const last = groups[groups.length - 1];
-    if (last && last.type === type && type !== "text") {
+    const isPdf = (i) => i && typeof i === "object" && i.type === "pdf";
+    const mergeIntoLast =
+      last &&
+      last.type === type &&
+      (type !== "text" || (typeof item === "string" && last.items.every((e) => typeof e === "string"))) &&
+      !(type === "media" && (isPdf(item) || last.items.some(isPdf)));
+    if (mergeIntoLast) {
       last.items.push(item);
     } else {
       groups.push({ type, items: [item] });
@@ -93,16 +150,166 @@ export function groupDescriptionItems(items = []) {
   return groups;
 }
 
+function JustifiedImageRow({ items, keyPrefix, opts = {} }) {
+  const rowHeightClass = opts.imageHeight || "h-48";
+  const [ratios, setRatios] = React.useState(() => items.map(() => 1));
+
+  const handleLoad = React.useCallback((index, e) => {
+    const { naturalWidth, naturalHeight } = e.currentTarget;
+    if (!naturalWidth || !naturalHeight) return;
+    setRatios((prev) => {
+      const next = [...prev];
+      next[index] = naturalWidth / naturalHeight;
+      return next;
+    });
+  }, []);
+
+  return (
+    <div className={`flex flex-nowrap gap-3 overflow-hidden ${rowHeightClass}`}>
+      {items.map((item, index) => (
+        <div
+          key={`${keyPrefix}-${index}`}
+          className="min-w-0 h-full overflow-hidden"
+          style={{ flex: `${ratios[index]} 1 0%` }}
+        >
+          <img
+            src={`res/${sources.res}/${item.path}`}
+            alt={item.alt || ""}
+            className="h-full w-full rounded-lg object-contain"
+            loading="lazy"
+            onLoad={(e) => handleLoad(index, e)}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const GALLERY_GAP = 12; // px, matches gap-3
+
+// Google Photos–style justified gallery.
+// All image aspect ratios are preloaded via Image() before any DOM rendering,
+// so the layout is stable from the first paint with no intermediate states.
+function JustifiedGallery({ items, keyPrefix, opts = {} }) {
+  const containerRef = React.useRef(null);
+  const [containerWidth, setContainerWidth] = React.useState(0);
+  const [ratios, setRatios] = React.useState(null); // null = measuring
+  const targetH = opts.galleryTargetH ?? 512;
+
+  React.useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => setContainerWidth(el.getBoundingClientRect().width);
+    update();
+    const obs = new ResizeObserver(update);
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Preload all image dimensions before rendering the gallery
+  React.useEffect(() => {
+    if (typeof window === "undefined" || !items.length) return;
+    let cancelled = false;
+    const measured = new Array(items.length).fill(null);
+    let pending = items.length;
+    const done = (i, r) => {
+      measured[i] = r;
+      pending--;
+      if (!cancelled && pending === 0) setRatios(measured.map((v) => v ?? 1));
+    };
+    items.forEach((item, i) => {
+      const img = new window.Image();
+      img.onload = () => done(i, img.naturalWidth / img.naturalHeight);
+      img.onerror = () => done(i, 1);
+      img.src = `res/${sources.res}/${item.path}`;
+    });
+    return () => { cancelled = true; };
+  }, [items]);
+
+  const rows = React.useMemo(() => {
+    if (!containerWidth || !ratios) return null;
+    const maxRowH = Math.min(targetH, containerWidth * 1.05);
+    const minH = Math.max(96, Math.min(maxRowH, containerWidth) * 0.3);
+    const minItemW = Math.max(112, containerWidth * 0.3);
+    const result = [];
+    let cur = [];
+    let sumR = 0;
+    for (let i = 0; i < items.length; i++) {
+      const test = [...cur, i];
+      const testSumR = test.reduce((acc, idx) => acc + ratios[idx], 0);
+      const gaps = GALLERY_GAP * (test.length - 1);
+      const projectedH = (containerWidth - gaps) / testSumR;
+      const tooNarrow = test.some((idx) => ratios[idx] * projectedH < minItemW);
+      if ((projectedH < minH || tooNarrow) && cur.length > 0) {
+        result.push([...cur]);
+        cur = [i];
+        sumR = ratios[i];
+      } else {
+        cur = test;
+        sumR = testSumR;
+      }
+    }
+    if (cur.length) result.push(cur);
+    return result.map((row) => {
+      const rowSumR = row.reduce((s, i) => s + ratios[i], 0);
+      const gaps = GALLERY_GAP * (row.length - 1);
+      const height = Math.min(maxRowH, (containerWidth - gaps) / rowSumR);
+      return { indices: row, height };
+    });
+  }, [containerWidth, ratios, items, targetH]);
+
+  return (
+    <div ref={containerRef} className="w-full flex flex-col gap-3">
+      {rows === null ? (
+        // While preloading: render images naturally (no forced height) so they
+        // stack without any letterboxing dead space.
+        items.map((item, i) => (
+          <img
+            key={i}
+            src={`res/${sources.res}/${item.path}`}
+            alt={item.alt || ""}
+            className="w-auto max-w-full max-h-[512px] mx-auto block rounded-lg"
+            loading="lazy"
+          />
+        ))
+      ) : (
+        rows.map((row, ri) => (
+          <div key={ri} className="flex gap-3" style={{ height: row.height }}>
+            {row.indices.map((idx) => (
+              <div
+                key={idx}
+                className="min-w-0 h-full overflow-hidden rounded-lg"
+                style={{ flex: `${ratios[idx]} 1 0%` }}
+              >
+                <img
+                  src={`res/${sources.res}/${items[idx].path}`}
+                  alt={items[idx].alt || ""}
+                  className="h-full w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
+
 export function renderMediaItem(item, key, opts = {}) {
   const compact = !!opts.compact;
   const imageMaxH = opts.imageMaxH || (compact ? 'max-h-20' : 'max-h-[32rem]');
+  const imageHeight = opts.imageHeight || null;
   if (item.type === "image") {
+    const imageClassName = imageHeight
+      ? `max-w-full ${imageHeight} w-auto rounded-lg object-contain`
+      : `w-full rounded-lg object-contain ${imageMaxH}`;
     return (
       <img
         key={key}
         src={`res/${sources.res}/${item.path}`}
         alt={item.alt || ""}
-        className={`w-full rounded-lg object-contain ${imageMaxH}`}
+        className={imageClassName}
         style={{ display: "block", margin: "0 auto" }}
         loading="lazy"
       />
@@ -224,48 +431,56 @@ export function renderFlatButtons(items, keyPrefix, onProjectLink) {
   });
 }
 
-const HEADING_CLASSES = {
-  h1: "text-base font-semibold text-white",
-  h2: "text-sm font-semibold text-white",
-  h3: "text-sm font-medium text-gray-100",
-  h4: "text-sm font-medium text-gray-200",
-  h5: "text-sm font-medium text-gray-300",
-  h6: "text-sm text-gray-300",
-};
-
 export function renderGroups(groups, keyPrefix, onProjectLink, opts = {}) {
   return groups.map((group, gi) => {
     if (group.type === "text") {
-      const item = group.items[0];
       const key = `${keyPrefix}-text-${gi}`;
-
-      if (typeof item === "string") {
-        const headingMatch = item.match(/^<(h[1-6])\b[^>]*>([\s\S]*?)<\/\1>\s*$/i);
-        if (headingMatch) {
-          const tag = headingMatch[1].toLowerCase();
-          return React.createElement(
-            tag,
-            { key, className: HEADING_CLASSES[tag] },
-            renderInlineHtml(headingMatch[2], key)
-          );
-        }
-      }
+      const markdown = joinTextItems(group.items);
 
       return (
-        <p key={key} className="text-sm text-gray-300">
-          {renderInlineHtml(item, key)}
-        </p>
+        <React.Fragment key={key}>
+          {renderHtml(toHtml(markdown), key)}
+        </React.Fragment>
       );
     }
 
     if (group.type === "media") {
       const compact = !!opts.compact;
+      const singleRow = !!opts.mediaSingleRow;
+      if (group.items.every((item) => item?.type === "image")) {
+        if (singleRow) {
+          return (
+            <JustifiedImageRow
+              key={`${keyPrefix}-media-${gi}`}
+              items={group.items}
+              keyPrefix={`${keyPrefix}-media-${gi}`}
+              opts={opts}
+            />
+          );
+        }
+        return (
+          <JustifiedGallery
+            key={`${keyPrefix}-media-${gi}`}
+            items={group.items}
+            keyPrefix={`${keyPrefix}-media-${gi}`}
+            opts={opts}
+          />
+        );
+      }
+      const containerClass = singleRow
+        ? "flex flex-nowrap gap-3 overflow-hidden"
+        : "flex flex-wrap gap-3";
+      const itemClass = singleRow
+        ? "flex flex-1 min-w-0 items-center justify-center"
+        : compact
+          ? "flex-1 min-w-0"
+          : "flex-1 min-w-52 min-h-52";
       return (
-        <div key={`${keyPrefix}-media-${gi}`} className="flex flex-wrap gap-3">
+        <div key={`${keyPrefix}-media-${gi}`} className={containerClass}>
           {group.items.map((item, ii) => (
             <div
               key={`${keyPrefix}-media-${gi}-${ii}`}
-              className={compact ? "flex-1 min-w-0" : "flex-1 min-w-52 min-h-52"}
+              className={itemClass}
             >
               {renderMediaItem(item, `${keyPrefix}-${gi}-${ii}`, opts)}
             </div>
