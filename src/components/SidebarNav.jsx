@@ -14,21 +14,25 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
   const [stretchable, setStretchable] = useState({});
 
   useEffect(() => {
+    const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    const curveSize = remPx * 0.75 + 2; // 0.75rem + 2px
+
     function checkStretchable() {
       const updates = {};
       for (const s of sections) {
         const btn = btnRefs.current[s.id];
         const sectionEl = document.getElementById(s.id);
         if (!btn || !sectionEl) {
-          updates[s.id] = false;
+          updates[s.id] = { stretch: false, topClip: 0, bottomClip: 0 };
           continue;
         }
         const btnRect = btn.getBoundingClientRect();
         const sectionRect = sectionEl.getBoundingClientRect();
-        // Check if the button is fully vertically contained in the section's viewport
-        updates[s.id] =
-          btnRect.top >= sectionRect.top &&
-          btnRect.bottom <= sectionRect.bottom;
+        updates[s.id] = {
+          stretch: btnRect.top >= sectionRect.top && btnRect.bottom <= sectionRect.bottom,
+          topClip: Math.max(0, Math.min(curveSize, sectionRect.top - (btnRect.top - curveSize))),
+          bottomClip: Math.max(0, Math.min(curveSize, (btnRect.bottom + curveSize) - sectionRect.bottom)),
+        };
       }
       setStretchable(updates);
     }
@@ -75,7 +79,9 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
           {sections.map((s) => {
             const sectionVars = getSectionStyleVars(s.id);
             const isActive = activeSection === s.id;
-            const shouldStretch = isActive && stretchable[s.id];
+            const shouldStretch = isActive && stretchable[s.id]?.stretch;
+            const topClip = shouldStretch ? (stretchable[s.id]?.topClip ?? 0) : 0;
+            const bottomClip = shouldStretch ? (stretchable[s.id]?.bottomClip ?? 0) : 0;
             return (
               <button
                 key={s.id}
@@ -84,7 +90,10 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
                 className={`sidebar-tab-btn text-left px-3 py-2 border text-sm transition-all duration-200 ${
                   isActive ? "sidebar-tab-selected" : "sidebar-tab-idle"
                 }${shouldStretch ? " sidebar-tab-active" : ""}`}
-                style={isActive ? undefined : sectionVars}
+                style={isActive ? {
+                  "--curve-top-clip": `${topClip}px`,
+                  "--curve-bottom-clip": `${bottomClip}px`,
+                } : sectionVars}
               >
                 {s.label}
               </button>

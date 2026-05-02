@@ -1,4 +1,4 @@
-import { SiUnity, SiNodedotjs, SiAndroid, SiGit, SiJavascript, SiWebrtc, SiLinux, SiDocker, SiMapbox, SiReact, SiNestjs, SiNextdotjs, SiDotnet, SiFigma, SiAndroidstudio, SiTensorflow, SiFirebase, SiGooglecardboard, SiWebgl, SiPython, SiAssemblyscript, SiArduino, SiBlender, SiC, SiOpenai, SiClaude, SiEclipseide, SiGamedeveloper, SiGithubcopilot, SiIntellijidea, SiLatex, SiNotebooklm, SiOverleaf, SiPostman, SiSuno } from "react-icons/si";
+import { SiUnity, SiNodedotjs, SiAndroid, SiGit, SiJavascript, SiWebrtc, SiLinux, SiDocker, SiMapbox, SiReact, SiNestjs, SiNextdotjs, SiDotnet, SiFigma, SiAndroidstudio, SiTensorflow, SiFirebase, SiGooglecardboard, SiWebgl, SiPython, SiAssemblyscript, SiArduino, SiBlender, SiC, SiOpenai, SiClaude, SiEclipseide, SiGamedeveloper, SiGithubcopilot, SiIntellijidea, SiLatex, SiNotebooklm, SiOverleaf, SiPostman, SiSuno, SiWireshark } from "react-icons/si";
 import { TbBrandCSharp, TbAugmentedReality2, TbBrandMysql, TbSql, TbBoxModel2, TbCloudComputingFilled, TbBrandAdobePhotoshop, TbBrandAdobePremier } from "react-icons/tb"
 import { BsHeadsetVr, BsStack } from "react-icons/bs";
 import { DiVisualstudio, DiJava } from "react-icons/di";
@@ -519,6 +519,12 @@ export const skills = [
         title: "Windows",
         icon: FaWindows,
         tags: ["platform", "personal", "high_school", "university", "ccg"]
+    },
+    {
+        id: "wireshark",
+        title: "Wireshark",
+        icon: SiWireshark,
+        tags: ["tool", "university"]
     },
     {
         id: "xr",

@@ -68,7 +68,7 @@ export const hobbies = [
         icon: MdHeadphones,
         description: [
             "I'm particlarly fond of instrumental music, like movie soundtracks, epic scores and piano.",
-            "• Favorite song since 2020:",
+            "* Favorite song since 2020:",
             {
                 type: "bandcamp",
                 // link: "https://open.spotify.com/embed/track/098x2YmtSd6W3UixT1P0i1",
@@ -82,7 +82,7 @@ export const hobbies = [
         icon: MdPiano,
         description: [
             "Trying to learn on my own since 2024 whenever I have the time.",
-            "• Yiruma - River Flows in You:",
+            "* Yiruma - River Flows in You:",
             {
                 type: "video",
                 path: "river_flows_in_you.mp4"
@@ -128,8 +128,8 @@ export const hobbies = [
         icon: MdMovie,
         description: [
             "I'm the biggest fan of mind-bending movies and series.",
-            "• Favorite movie: Interstellar (2014)",
-            "• Favorite series: Dark (2017-2020)"
+            "* Favorite movie: Interstellar (2014)",
+            "* Favorite series: Dark (2017-2020)"
         ]
     },
     {

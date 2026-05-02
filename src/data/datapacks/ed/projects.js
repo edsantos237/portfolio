@@ -1,4 +1,5 @@
 import { IoLogoGithub } from "react-icons/io5";
+import { FaFilePdf } from "react-icons/fa6";
 
 export const projects = [
     {
@@ -468,7 +469,7 @@ export const projects = [
     {
         id: "dissertation",
         title: "Augmented Reality System with Gamification for Education",
-        label: "Dissertation",
+        label: "Master's Dissertation",
         year: "5th year",
         subject: "Dissertation in Telecommunications and Informatics Engineering",
         grade: {
@@ -492,9 +493,13 @@ export const projects = [
             }
         ],
         description: [
-            "# Original title (PT): *\"Sistema de Realidade Aumentada com Gamificação para o Ensino\"*",
+            "# Original title (PT): \"*Sistema de Realidade Aumentada com Gamificação para o Ensino*\"",
             "System centered on a location-based AR game for mobile devices named “**QuizHuntAR**”, heavily inspired by the game Pokémon GO, with education as its theme, that should be played by students. In this game, players must physically move to hotspots indicated on the map and perform tasks by solving exercises in a treasure hunting logic. This system is also composed of a back-office web app, where teachers can manage the game's content, namely hotspots and exercises, while students can access statistics regarding their class. These applications are supported by a REST API and a database to manage the accessed services and to store information regarding users, exercises, hotspots, and other aspects.",            
             "### Advisor: [Luís Gonzaga Mendes Magalhães](https://algoritmi.uminho.pt/user/luis-gonzaga-mendes-magalhaes/)",
+            {
+                type: "pdf",
+                path: "dissertation/Dissertation-a82350.pdf"
+            },
             {
                 type: "image",
                 path: "dissertation/ss1.jpg"
@@ -510,10 +515,6 @@ export const projects = [
             {
                 type: "image",
                 path: "dissertation/ss4.png"
-            },
-            {
-                type: "pdf",
-                path: "dissertation/Dissertation-a82350.pdf"
             }
         ]
     },
@@ -608,8 +609,13 @@ export const projects = [
                 path: "rva/ss6.jpg"
             },
             {
-                type: "pdf",
-                path: "rva/RVA-G5.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Final report",
+                link: {
+                    type: "file",
+                    path: "rva/RVA-G5.pdf"
+                }
             }
         ]
     },
@@ -638,8 +644,13 @@ export const projects = [
                 path: "su/ss1.png"
             },
             {
-                type: "pdf",
-                path: "su/P2-BikeEvents_final_report.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Final report",
+                link: {
+                    type: "file",
+                    path: "su/P2-BikeEvents_final_report.pdf"
+                }
             },
             {
                 type: "button",
@@ -693,8 +704,13 @@ export const projects = [
         description: [
             "System composed of a server that reads PCM audio files, and streams compressed samples to multiple clients through UDP and TCP protocols (along with resending mechanisms for lost packets), and a client that receives the audio stream and plays it in real-time.",
             {
-                type: "pdf",
-                path: "tsm/TP3-a74230-a82157-a82350.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "TP3 report",
+                link: {
+                    type: "file",
+                    path: "tsm/TP3-a74230-a82157-a82350.pdf"
+                }
             }
         ]
     },
@@ -718,12 +734,22 @@ export const projects = [
         description: [
             "System composed of a compressor that receives a file and compresses it based on Shannon-Fano and LZW algorithms, and a decompressor that receives the compressed file and restores it to its original state.",
             {
-                type: "pdf",
-                path: "tsm/TP1-a82350.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "TP1 report",
+                link: {
+                    type: "file",
+                    path: "tsm/TP1-a82350.pdf"
+                }
             },
             {
-                type: "pdf",
-                path: "tsm/TP2-a82350.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "TP2 report",
+                link: {
+                    type: "file",
+                    path: "tsm/TP2-a82350.pdf"
+                }
             }
         ]
     },
@@ -748,7 +774,7 @@ export const projects = [
             }
         ],
         description: [
-            "# Original title (PT): *\"Serviços corporativos de mensagens e alertas para redes veiculares\"*",
+            "# Original title (PT): \"*Serviços corporativos de mensagens e alertas para redes veiculares*\"",
             "System composed of an IPv6 vehicular network, where vehicles communicate with each other through RSUs and OBUs, to send and receive messages and alerts based on services provided by their brand.",
             {
                 type: "image",
@@ -759,8 +785,13 @@ export const projects = [
                 path: "pti2/ss2.png"
             },
             {
-                type: "pdf",
-                path: "pti2/R3-G1.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Final report (#3)",
+                link: {
+                    type: "file",
+                    path: "pti2/R3-G1.pdf"
+                }
             }
         ]
     },
@@ -783,16 +814,26 @@ export const projects = [
             "Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform."
         ],
         description: [
-            "# Original title (PT): *\"E-Scudo - Aplcação móvel para efetuar transações em criptomoedas\"*",            
+            "# Original title (PT): \"*Aplicação móvel para efetuar transações em criptomoedas*\"",            
             "Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform.",
             {
-                type: "pdf",
-                path: "rm/E-Scudo-INNCYBER.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "INNCYBER presentation",
+                link: {
+                    type: "file",
+                    path: "rm/E-Scudo-INNCYBER.pdf"
+                }
             },
             "## Participated in the 1st edition of INNCYBER Innovation Award (2019/2020).",
             {
-                type: "pdf",
-                path: "Certificado de Participação-José Eduardo da Silva Santos.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Certificate of Participation - INNCYBER Innovation Award",
+                link: {
+                    type: "file",
+                    path: "Certificado de Participação-José Eduardo da Silva Santos.pdf"
+                }
             }
         ]
     },
@@ -817,7 +858,7 @@ export const projects = [
             },
         ],
         description: [
-            "# Original title (PT): *\"Servidor musical com interface SNMP\"*",
+            "# Original title (PT): \"*Servidor musical com interface SNMP*\"",
             "System composed of an interface server that provides access to a music library stored in the file system of the operating system where an SNMP agent is running.",
             "This service contains a program for the SNMP agent and a web interface for the user.",
             {
@@ -825,8 +866,13 @@ export const projects = [
                 path: "gr/ss4.png"
             },
             {
-                type: "pdf",
-                path: "gr/TP3-GR-MIETI-a82157-a82350-Relatório.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "TP3 report",
+                link: {
+                    type: "file",
+                    path: "gr/TP3-GR-MIETI-a82157-a82350-Relatório.pdf"
+                }
             }
         ]
     },
@@ -851,7 +897,7 @@ export const projects = [
             }
         ],
         description: [
-            "# Original title (PT): *\"Ferramenta de monitorização\"*",
+            "# Original title (PT): \"*Ferramenta de monitorização*\"",
             "Monitoring tool that retrieves information from an SNMP agent and displays it in a web interface.",
             {
                 type: "image",
@@ -862,8 +908,13 @@ export const projects = [
                 path: "gr/ss2.png"
             },
             {
-                type: "pdf",
-                path: "gr/TP2-GR-MIETI-a82350-Relatório.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "TP2 report",
+                link: {
+                    type: "file",
+                    path: "gr/TP2-GR-MIETI-a82350-Relatório.pdf"
+                }
             }
         ]
     },
@@ -902,8 +953,13 @@ export const projects = [
         description: [
             "Communication system between two Arduino devices using laser and through air, where one device is the transmitter and the other is the receiver. The transmitter sends a message coded in binary by blinking an LED that emits a laser light, while the receiver detects the light with a photoreceptor and amplifier and decodes the message.",
             {
-                type: "pdf",
-                path: "sco/REL_SCO-5.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report",
+                link: {
+                    type: "file",
+                    path: "sco/REL_SCO-5.pdf"
+                }
             }
         ]
     },
@@ -928,15 +984,20 @@ export const projects = [
             }
         ],
         description: [
-            "# Original title (PT): *\"Serviços de monitorização de tráfego baseado em collaborative sensing\"*",
+            "# Original title (PT): \"*Serviços de monitorização de tráfego baseado em collaborative sensing*\"",
             "Traffic monitoring system based on collaborative sensing, where vehicles send information regarding their speed and location to a server that processes this information and provides public access services like vehicle status for authority, traffic congestion information for drivers, navigation system, speed alerts, public transportation locations, and towing services.",
             {
                 type: "image",
                 path: "pti1/ss1.png"
             },
             {
-                type: "pdf",
-                path: "pti1/R2-G1.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Final report (#2)",
+                link: {
+                    type: "file",
+                    path: "pti1/R2-G1.pdf"
+                }
             },
             {
                 type: "button",
@@ -983,7 +1044,7 @@ export const projects = [
             "TCP server/client system where the server manages multi-threaded client socket connections for asynchronous messaging."
         ],
         description: [
-            "# Original title (PT): *\"Servidor de chat\"*",
+            "# Original title (PT): \"*Servidor de chat*\"",
             "TCP server/client system where the server manages multi-threaded client socket connections for asynchronous messaging."
         ]
     },
@@ -1001,11 +1062,16 @@ export const projects = [
             "Analysis of contaminated electrocardiogram signals with noise filtering and sampling conversion."
         ],
         description: [
-            "# Original title (PT): *\"Sinal de electrocardiograma\"*",            
+            "# Original title (PT): \"*Sinal de electrocardiograma*\"",
             "Analysis of contaminated electrocardiogram signals with noise filtering and sampling conversion.",
             {
-                type: "pdf",
-                path: "pds/Relatorio.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report",
+                link: {
+                    type: "file",
+                    path: "pds/Relatorio.pdf"
+                }
             }
         ]
     },
@@ -1018,7 +1084,7 @@ export const projects = [
             value: 17.75,
             range: 20
         },
-        tags: ["university", "core", "java", "networking"],
+        tags: ["university", "core", "java", "networking", "wireshark"],
         date: {
             start: "2019-04",
             end: "2019-06"
@@ -1029,8 +1095,13 @@ export const projects = [
         description: [
             "IPv4 packet forwarding router that receives packets from a network interface, and forwards them through a forwarding table's ruleset.",
             {
-                type: "pdf",
-                path: "rc2/Relatorio.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report",
+                link: {
+                    type: "file",
+                    path: "rc2/Relatorio.pdf"
+                }
             }
         ]
     },
@@ -1055,15 +1126,20 @@ export const projects = [
             }
         ],
         description: [
-            "# Original title (PT): *\"Sistema de monitorização de atividade física\"*",
+            "# Original title (PT): \"*Sistema de monitorização de atividade física*\"",
             "Physical activity monitoring system based on an Arduino with a set of sensors that send data to a set of hubs and management services through UDP and TCP, where the data is interpreted as behavior statuses and stored in a database to be accessed in a web application.",
             {
                 type: "image",
                 path: "lti2/ss1.png"
             },
             {
-                type: "pdf",
-                path: "lti2/RF-G7.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Final report",
+                link: {
+                    type: "file",
+                    path: "lti2/RF-G7.pdf"
+                }
             }
         ]
     },
@@ -1088,27 +1164,47 @@ export const projects = [
             }
         ],
         description: [
-            "# Original title (PT): *\"Aplicação de Conversação\"*",
+            "# Original title (PT): \"*Aplicação de Conversação*\"",
             "Chatting application built along OSI model layers, with serial communication between Arduino and PC, between Arduino and a RF transceiver, and between two RF transceivers, managed with medium access control and communication protocols.",
             {
                 type: "image",
                 path: "lti1/ss1.png"
             },
             {
-                type: "pdf",
-                path: "lti1/R4-G3.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report #1",
+                link: {
+                    type: "file",
+                    path: "lti1/R1-G3.pdf"
+                }
             },
             {
-                type: "pdf",
-                path: "lti1/R3-G3.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report #2",
+                link: {
+                    type: "file",
+                    path: "lti1/R2-G3.pdf"
+                }
             },
             {
-                type: "pdf",
-                path: "lti1/R2-G3.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report #3",
+                link: {
+                    type: "file",
+                    path: "lti1/R3-G3.pdf"
+                }
             },
             {
-                type: "pdf",
-                path: "lti1/R1-G3.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report #4",
+                link: {
+                    type: "file",
+                    path: "lti1/R4-G3.pdf"
+                }
             }
         ]
     },
@@ -1130,11 +1226,16 @@ export const projects = [
             "Service to schedule the execution of a set of programs asynchronously through a server/client pipe communication."
         ],
         description: [
-            "# Original title (PT): *\"Execução Agendada de Conjuntos de Programas\"*",
+            "# Original title (PT): \"*Execução Agendada de Conjuntos de Programas*\"",
             "Service to schedule the execution of a set of programs asynchronously through a server/client pipe communication, where the client sends a set of programs with their respective execution times to the server, and the server executes them at the scheduled times and sends back their output to the client by e-mail.",
             {
-                type: "pdf",
-                path: "so/SO-G6.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report",
+                link: {
+                    type: "file",
+                    path: "so/SO-G6.pdf"
+                }
             }
         ]
     },
@@ -1147,7 +1248,7 @@ export const projects = [
             value: 14.0,
             range: 20
         },
-        tags: ["university", "core", "networking", "tcp"],
+        tags: ["university", "core", "networking", "tcp", "wireshark"],
         date: {
             start: "2018-11",
             end: "2019-01"
@@ -1156,11 +1257,16 @@ export const projects = [
             "Simulation and analysis of Ethernet LANs and TCP/IP networks using CORE network emulator and Wireshark."
         ],
         description: [
-            "# Original title (PT): *\"Simulação de LANs Ethernet e redes TCP/IP usando o CORE\"*",
+            "# Original title (PT): \"*Simulação de LANs Ethernet e redes TCP/IP usando o CORE*\"",
             "Simulation and analysis of Ethernet LANs and TCP/IP networks using CORE network emulator and Wireshark.",
             {
-                type: "pdf",
-                path: "rc1/Relatório.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report",
+                link: {
+                    type: "file",
+                    path: "rc1/Relatório.pdf"
+                }
             }
         ]
     },
@@ -1178,7 +1284,7 @@ export const projects = [
             "Project to design a PCB."
         ],
         description: [
-            "# Original title (PT): *\"Projeto de PCBs\"*",
+            "# Original title (PT): \"*Projeto de PCBs*\"",
             "Project to design a PCB."
         ]
     },
@@ -1200,11 +1306,16 @@ export const projects = [
             "Project to optimize storage of pallets in a warehouse."
         ],
         description: [
-            "# Original title (PT): *\"Armazém de Paletes\"*",
+            "# Original title (PT): \"*Armazém de Paletes*\"",
             "Project to optimize storage of pallets in a warehouse.",
             {
-                type: "pdf",
-                path: "io/Armazém-de-Paletes.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "Report",
+                link: {
+                    type: "file",
+                    path: "io/Armazém-de-Paletes.pdf"
+                }
             }
         ]
     },
@@ -1284,7 +1395,7 @@ export const projects = [
             "Java program to manage parking at a hotel."
         ],
         description: [
-            "# Original title (PT): *\"Gestão de Parques de longa duração\"*",
+            "# Original title (PT): \"*Gestão de Parques de longa duração*\"",
             "Java program to manage parking at a hotel."
         ]
     },
@@ -1327,8 +1438,13 @@ export const projects = [
                 link: "https://www.youtube.com/embed/g6_N_XRKgoQ"
             },
             {
-                type: "pdf",
-                path: "mp2/mp216TP3Gr06.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "TP3 Report",
+                link: {
+                    type: "file",
+                    path: "mp2/mp216TP3Gr06.pdf"
+                }
             }
         ]
     },
@@ -1350,11 +1466,16 @@ export const projects = [
             "C program to read and store files content and store it in linked lists."
         ],
         description: [
-            "# Original title (PT): *\"Pointers e Listas Ligadas\"*",
+            "# Original title (PT): \"*Pointers e Listas Ligadas*\"",
             "C program to read and store files content and store it in linked lists.",
             {
-                type: "pdf",
-                path: "mp2/mp216TP2Gr06.pdf"
+                type: "button",
+                icon: FaFilePdf,
+                label: "TP2 Report",
+                link: {
+                    type: "file",
+                    path: "mp2/mp216TP2Gr06.pdf"
+                }
             }
         ]
     },

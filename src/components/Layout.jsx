@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Cover from "./Cover";
 import SidebarNav from "./SidebarNav";
 import MobileTopBar from "./MobileTopBar";
@@ -17,6 +17,7 @@ import Contact from "./Contact";
 import { getSectionStyleVars, getSectionTheme, sections } from "../config/sections";
 import { heroBackgroundStyle } from "../config/heroTheme";
 import { cover } from "@datapack/cover";
+import { sources } from "../data/sources";
 
 export default function Layout() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
@@ -34,6 +35,7 @@ export default function Layout() {
   const [focusedSkillFilters, setFocusedSkillFilters] = useState(null);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [selectedPublicationId, setSelectedPublicationId] = useState(null);
+  const prevBodyStyles = useRef({ overflow: "", paddingRight: "", locked: false });
   const [focusedCompanyId, setFocusedCompanyId] = useState(null);
   const [focusedSchoolId, setFocusedSchoolId] = useState(null);
   const [focusedSkillId, setFocusedSkillId] = useState(null);
@@ -245,7 +247,45 @@ export default function Layout() {
       else jumpTo("publications");
       return;
     }
+    if (link.type === "file" && link.path) {
+      window.open(`res/${sources.res}/${link.path}`, "_blank", "noopener,noreferrer");
+      return;
+    }
   };
+
+  // Lock page scrolling when a project or publication overlay is open.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const locked = !!selectedProjectId || !!selectedPublicationId;
+
+    if (locked) {
+      if (!prevBodyStyles.current.locked) {
+        prevBodyStyles.current = {
+          overflow: document.body.style.overflow || "",
+          paddingRight: document.body.style.paddingRight || "",
+          locked: true,
+        };
+      }
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      if (scrollBarWidth > 0) document.body.style.paddingRight = `${scrollBarWidth}px`;
+      document.body.style.overflow = "hidden";
+    } else {
+      if (prevBodyStyles.current.locked) {
+        document.body.style.overflow = prevBodyStyles.current.overflow || "";
+        document.body.style.paddingRight = prevBodyStyles.current.paddingRight || "";
+        prevBodyStyles.current = { overflow: "", paddingRight: "", locked: false };
+      }
+    }
+
+    return () => {
+      if (prevBodyStyles.current.locked) {
+        document.body.style.overflow = prevBodyStyles.current.overflow || "";
+        document.body.style.paddingRight = prevBodyStyles.current.paddingRight || "";
+        prevBodyStyles.current = { overflow: "", paddingRight: "", locked: false };
+      }
+    };
+  }, [selectedProjectId, selectedPublicationId]);
+
   const showActivityById = (activityId) => {
     setFocusedActivityId(activityId);
     jumpTo("activities");

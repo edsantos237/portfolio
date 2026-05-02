@@ -28,7 +28,7 @@ export const activities = [
                     end: null
                 },
                 description: [
-                    "I'm performing food collection and distribution routes and organizing it at the Operations Center."
+                    "I'm performing food collection and distribution routes and organizing it at the Operations Center, two hours each week."
                 ]
             }
         ]

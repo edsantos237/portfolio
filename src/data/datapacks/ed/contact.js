@@ -46,4 +46,9 @@ export const contact = [
         address: "https://maps.app.goo.gl/8Bsgji9gAc5qMsXc6",
         icon: IoLocationSharp
     }
-]
+];
+
+export const map = {
+    embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13277.637255152338!2d-8.522158450000001!3d41.4143993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24585c13b9647f%3A0x3989cd2c7103f233!2sVila%20Nova%20de%20Famalic%C3%A3o!5e0!3m2!1sen!2spt!4v1777732065650!5m2!1sen!2spt",
+    link: "https://maps.app.goo.gl/8Bsgji9gAc5qMsXc6"
+}

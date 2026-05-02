@@ -1,5 +1,5 @@
 import Icon from "./Icon";
-import { contact } from "@datapack/contact";
+import { contact, map } from "@datapack/contact";
 import { getSectionTheme } from "../config/sections";
 
 export default function Contact({ isActive, isPrevious = false, activeAccentLine }) {
@@ -58,6 +58,20 @@ export default function Contact({ isActive, isPrevious = false, activeAccentLine
             })}
           </div>
         </div>
+
+        {map?.embed && (
+          <div className="mt-6 md:mt-0 md:w-1/2">
+            <a href={map.link || map.embed} target="_blank" rel="noreferrer" className="block w-full overflow-hidden rounded-xl border border-white/10 hover:border-white/30 transition-colors">
+              <iframe
+                src={map.embed}
+                title="Location map"
+                className="w-full h-52 pointer-events-none"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

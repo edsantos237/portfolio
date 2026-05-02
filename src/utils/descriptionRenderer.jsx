@@ -176,7 +176,7 @@ function JustifiedImageRow({ items, keyPrefix, opts = {} }) {
   }, []);
 
   return (
-    <div className={`flex flex-nowrap gap-3 overflow-hidden ${rowHeightClass}`}>
+    <div className={`flex flex-nowrap gap-3 overflow-hidden justify-center ${rowHeightClass}`}>
       {items.map((item, index) => (
         <div
           key={`${keyPrefix}-${index}`}
@@ -285,7 +285,7 @@ function JustifiedGallery({ items, keyPrefix, opts = {} }) {
         ))
       ) : (
         rows.map((row, ri) => (
-          <div key={ri} className="flex gap-3" style={{ height: row.height }}>
+          <div key={ri} className="flex gap-3 justify-center" style={{ height: row.height }}>
             {row.indices.map((idx) => (
               <div
                 key={idx}
@@ -479,13 +479,13 @@ export function renderGroups(groups, keyPrefix, onProjectLink, opts = {}) {
         );
       }
       const containerClass = singleRow
-        ? "flex flex-nowrap gap-3 overflow-hidden"
-        : "flex flex-wrap gap-3";
+        ? "flex flex-nowrap gap-3 overflow-hidden justify-center"
+        : "flex flex-wrap gap-3 justify-center";
       const itemClass = singleRow
         ? "flex flex-1 min-w-0 items-center justify-center"
         : compact
-          ? "flex-1 min-w-0"
-          : "flex-1 min-w-52 min-h-52";
+          ? "flex-1 min-w-0 flex items-center justify-center"
+          : "flex-1 min-w-52 min-h-52 flex items-center justify-center";
       return (
         <div key={`${keyPrefix}-media-${gi}`} className={containerClass}>
           {group.items.map((item, ii) => (
