@@ -135,12 +135,23 @@ export function groupDescriptionItems(items = []) {
     if (item == null) continue;
     const type = getItemGroup(item);
     const last = groups[groups.length - 1];
-    const isPdf = (i) => i && typeof i === "object" && i.type === "pdf";
+    const getMediaType = (i) => (i && typeof i === "object" ? i.type : null);
+
+    // Special rule: youtube and pdf wrappers are always in their own group
+    if (type === "media" && (getMediaType(item) === "youtube" || getMediaType(item) === "pdf")) {
+      groups.push({ type, items: [item] });
+      continue;
+    }
+
+    // Prevent merging into a group if the last group is a youtube or pdf
+    const lastIsSingleSpecial = last && last.type === "media" && last.items.length === 1 && ["youtube", "pdf"].includes(getMediaType(last.items[0]));
+
     const mergeIntoLast =
       last &&
       last.type === type &&
+      !lastIsSingleSpecial &&
       (type !== "text" || (typeof item === "string" && last.items.every((e) => typeof e === "string"))) &&
-      !(type === "media" && (isPdf(item) || last.items.some(isPdf)));
+      !(type === "media" && last.items.some((i) => getMediaType(i) !== getMediaType(item)));
     if (mergeIntoLast) {
       last.items.push(item);
     } else {
