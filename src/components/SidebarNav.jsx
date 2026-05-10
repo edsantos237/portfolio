@@ -12,6 +12,7 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
   const sectionBg = getSectionTheme(activeSection).activeBackground;
   const btnRefs = useRef({});
   const [stretchable, setStretchable] = useState({});
+  const cvHref = `res/${sources.res}/${sources.cv}`;
 
   useEffect(() => {
     const rootStyles = getComputedStyle(document.documentElement);
@@ -98,6 +99,24 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
             const shouldStretch = isActive && stretchable[s.id]?.stretch;
             const topClip = shouldStretch ? (stretchable[s.id]?.topClip ?? 0) : 0;
             const bottomClip = shouldStretch ? (stretchable[s.id]?.bottomClip ?? 0) : 0;
+
+            if (s.id === "cv") {
+              return (
+                <div key="cv">
+                  <div aria-hidden className="my-2 h-px w-full bg-white/10" />
+                  <a
+                    href={cvHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`sidebar-tab-btn text-left px-3 py-2 border text-sm transition-all duration-200 ${isActive ? "sidebar-tab-selected" : "sidebar-tab-idle"}`}
+                    style={sectionVars}
+                  >
+                    {s.label}
+                  </a>
+                </div>
+              );
+            }
+
             return (
               <button
                 key={s.id}

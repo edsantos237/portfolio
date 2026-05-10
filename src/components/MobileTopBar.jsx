@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { getSectionStyleVars, sections } from "../config/sections";
 import { heroBackgroundStyle } from "../config/heroTheme";
+import { sources } from "../data/sources";
 
 export default function MobileTopBar({ activeSection, onJump, visible }) {
   const buttonRefs = useRef({});
@@ -9,6 +10,7 @@ export default function MobileTopBar({ activeSection, onJump, visible }) {
   const [sectionUnderBar, setSectionUnderBar] = useState(null);
   const [contentHeight, setContentHeight] = useState(0);
   const [showFiller, setShowFiller] = useState(false);
+  const cvHref = `res/${sources.res}/${sources.cv}`;
 
   // measure content height so we can animate max-height and push layout down
   useEffect(() => {
@@ -34,7 +36,9 @@ export default function MobileTopBar({ activeSection, onJump, visible }) {
 
     const activeBtn = buttonRefs.current[activeSection];
     const prevBtn = prevId ? buttonRefs.current[prevId] : null;
-    const nextBtn = nextId ? buttonRefs.current[nextId] : null;
+    // Treat the CV button as the "next" neighbour when the last section is active
+    let nextBtn = nextId ? buttonRefs.current[nextId] : null;
+    if (!nextBtn && activeIndex === sections.length - 1) nextBtn = buttonRefs.current['cv'];
 
     if (!activeBtn) return;
 
@@ -175,6 +179,26 @@ export default function MobileTopBar({ activeSection, onJump, visible }) {
           const baseActiveStyle = { width: "auto" };
           if (shouldStretch && activeLayoutBg) {
             baseActiveStyle.borderBottomColor = activeLayoutBg;
+          }
+
+          if (s.id === "cv") {
+            return (
+              <a
+                key="cv"
+                ref={el => (buttonRefs.current['cv'] = el)}
+                href={cvHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`sidebar-tab-btn mobile-topbar-tab text-xs whitespace-nowrap px-3 py-2 border transition-all duration-200 ${
+                  isActive
+                    ? `sidebar-tab-selected${shouldStretch ? " mobile-topbar-tab-selected" : ""}`
+                    : "sidebar-tab-idle"
+                } shrink-0`}
+                style={isActive ? baseActiveStyle : { ...sectionVars, width: "auto" }}
+              >
+                {s.label}
+              </a>
+            );
           }
 
           return (

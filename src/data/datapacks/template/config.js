@@ -14,4 +14,5 @@ export const sections = [
   { id: "publications", label: "Publications", hue: 35 },
   { id: "activities", label: "Activities", hue: 80 },
   { id: "contact", label: "Contact", hue: 140 },
+  { id: "cv", label: "Curriculum Vitae", hue: 200 },
 ];

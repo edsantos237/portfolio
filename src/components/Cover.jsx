@@ -74,6 +74,7 @@ export default function Cover({ activeSection, onJump }) {
   const contentRef = useRef(null);
   const [contentOffset, setContentOffset] = useState(0);
   const navThemeVars = getSectionStyleVars(activeSection);
+  const cvHref = `res/${sources.res}/${sources.cv}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -183,16 +184,29 @@ export default function Cover({ activeSection, onJump }) {
               .filter((s) => s.id !== "start")
               .map((s) => {
                 const sectionVars = getSectionStyleVars(s.id);
+                if (s.id === "cv") {
+                  return (
+                    <React.Fragment key="cv">
+                      <div aria-hidden className="h-8 w-px self-center bg-white/10" />
+                      <a
+                        href={cvHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-lg border text-sm section-control-idle"
+                        style={sectionVars}
+                      >
+                        {s.label}
+                      </a>
+                    </React.Fragment>
+                  );
+                }
+
                 return (
                   <button
                     key={s.id}
                     onClick={() => onJump(s.id)}
-                    className={`px-4 py-2 rounded-lg border text-sm ${
-                      activeSection === s.id
-                        ? "section-control-active"
-                        : "section-control-idle"
-                    }`}
-                    style={activeSection === s.id ? undefined : sectionVars}
+                    className="px-4 py-2 rounded-lg border text-sm section-control-idle"
+                    style={sectionVars}
                   >
                     {s.label}
                   </button>

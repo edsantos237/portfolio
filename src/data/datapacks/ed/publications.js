@@ -88,7 +88,7 @@ export const publications = [
         tags: ["dissertation"],
         date: "2021-11-04",
         summary: [
-            "Presented at ICGI'2021 - International Conference on Graphics and Interaction."
+            "Presented by me at ICGI'2021 - International Conference on Graphics and Interaction."
         ],
         description: [
             "### Presented by me at ICGI'2021 - International Conference on Graphics and Interaction.",

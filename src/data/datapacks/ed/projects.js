@@ -5,7 +5,7 @@ export const projects = [
     {
         id: "portfolio",
         title: "Portfoio / CV",
-        tags: ["personal", "frontend", "ghcopilot", "js", "nodejs", "reactjs"],
+        tags: ["personal", "frontend", "ghcopilot", "js", "latex", "nodejs", "reactjs"],
         date: {
             start: "2026-04",
             end: null
@@ -25,15 +25,14 @@ export const projects = [
     },
     {
         id: "xrgrit",
-        title: "XR-GRIT - Gamified XR Platform for Robotics Instruction and Training Consulte",
-        label: "XR-GRIT",
+        title: "XR-GRIT",
         tags: ["featured", "ccg", "android", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
         date: {
             start: "2025-09",
             end: null
         },
         summary: [
-            "VR training course for robotics learning."
+            "Gamified VR training course for robotics instruction and training."
         ],
         description: [
             {
@@ -437,7 +436,7 @@ export const projects = [
         tags: ["ccg", "backend", "ar", "aspnet", "csharp", "frontend", "js", "http", "nestjs", "networking", "nextjs", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
         date: {
             start: "2021-05",
-            end: "2023-10"
+            end: "2022-10"
         },
         summary: [
             "Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support."
@@ -797,7 +796,7 @@ export const projects = [
     },
     {
         id: "rm_1",
-        title: "E-Scudo - Mobile application to carry out criptocurrency transactions",
+        title: "E-Scudo - Mobile application to carry out cryptocurrency transactions",
         label: "E-Scudo",
         year: "4th year",
         subject: "Mobile Networks",

@@ -1,0 +1,410 @@
+%% ============================================================
+%%  Eduardo Santos — Curriculum Vitae
+%%  Light theme inspired by the portfolio website's design.
+%%  Accent hue: 220° (about-me blue), translated from HSV to
+%%  light-friendly RGB values using the site's own color math.
+%%  Compile: xelatex cv.tex  (run twice)
+%% ============================================================
+\documentclass[10pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────
+% Use XeLaTeX for system fonts
+\usepackage{fontspec}
+\usepackage{graphicx}
+\setmainfont{Inter}[
+  Path = C:/Windows/Fonts/,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+\setsansfont{Inter}
+\setmonofont{JetBrains Mono}
+\usepackage[a4paper,top=1.25cm,bottom=1.25cm,left=1.45cm,right=1.45cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{paracol}
+
+% ── Color palette ─────────────────────────────────────────────
+% Website uses HSV color space. For hue 220° (about-me section):
+%   Accent line  HSV(220, 83%, 80%) → #235BCC
+%   Accent border HSV(220, 74%, 74%) → #315EBD
+%   Light theme body text from Tailwind slate scale (light bg equivalent)
+\definecolor{accent}{HTML}{235BCC}        % section titles, header rule
+\definecolor{accentvivid}{HTML}{3B7EFF}   % bullets, bright highlights
+\definecolor{accentborder}{HTML}{315EBD}  % links, secondary rule
+\definecolor{textprimary}{HTML}{0F172A}   % slate-950
+\definecolor{textsecondary}{HTML}{334155} % slate-700
+\definecolor{textmuted}{HTML}{64748B}     % slate-500 (dates, icons, metadata)
+
+% default current section color (used by subheadings and skill categories and bullets)
+\newcommand{\currentsectioncolor}{sec-about-me}
+
+% Section-specific accent colors (from site section hue mapping)
+% Hue -> define HSB color with saturation 0.83 and value 0.58 (subtle accent)
+\definecolor{sec-start}{hsb}{0.556,0.83,0.58}
+\definecolor{sec-about-me}{hsb}{0.611,0.83,0.58}
+\definecolor{sec-skills}{hsb}{0.722,0.83,0.58}
+\definecolor{sec-experience}{hsb}{0.833,0.83,0.58}
+\definecolor{sec-education}{hsb}{0.944,0.83,0.58}
+\definecolor{sec-projects}{hsb}{0.033,0.83,0.58}
+\definecolor{sec-publications}{hsb}{0.097,0.83,0.58}
+\definecolor{sec-activities}{hsb}{0.222,0.83,0.48}
+\definecolor{sec-contact}{hsb}{0.389,0.83,0.58}
+
+% Ensure default itemize labels use the dynamic section color
+\renewcommand{\labelitemi}{\textcolor{\currentsectioncolor}{\textbullet}}
+\renewcommand{\labelitemii}{\textcolor{\currentsectioncolor}{\textbullet}}
+\renewcommand{\labelitemiii}{\textcolor{\currentsectioncolor}{\textbullet}}
+\renewcommand{\labelitemiv}{\textcolor{\currentsectioncolor}{\textbullet}}
+
+% ── Hyperref (loaded after xcolor + color definitions) ────────
+\usepackage[colorlinks=true,urlcolor=sec-start,linkcolor=sec-start]{hyperref}
+
+% ── Page setup ────────────────────────────────────────────────
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\pagestyle{empty}
+\raggedbottom
+\urlstyle{same}
+
+% ── Section headings: blue bold title + 1.5 pt blue rule ──────
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{accent}}
+  {}{0pt}{}
+  [\vspace{4pt}{\color{accent}\rule{\linewidth}{1.5pt}}]
+% Increased spacing before and after section headings for better separation
+\titlespacing*{\section}{0pt}{28pt}{16pt}
+
+% ── Accent bullet list ────────────────────────────────────────
+\newlist{cvbullets}{itemize}{1}
+\setlist[cvbullets]{
+  leftmargin=1.1em, rightmargin=0pt,
+  itemsep=1pt, parsep=0pt, topsep=2pt, partopsep=0pt,
+  before=\renewcommand{\labelitemi}{\textcolor{\currentsectioncolor}{\textbullet}},
+  label={\textcolor{\currentsectioncolor}{\textbullet}}
+}
+
+% ── Layout helpers ───────────────────────────────────────────
+
+% Section title with explicit color: \cvsectiontitle{<color>}{<Title>}
+\newcommand{\cvsectiontitle}[2]{%
+  \vspace{10pt}% extra space before section title
+  {\large\bfseries\addfontfeatures{LetterSpace=5}\color{#1}\MakeUppercase{#2}}\par
+  \vspace{-3pt}{\color{#1}\rule{\linewidth}{1.35pt}}\par\vspace{10pt}%
+  \gdef\currentsectioncolor{#1}%
+}
+
+% Entry title size helper: keep titles consistent and explicit
+\newcommand{\entrytitlesize}{\normalsize\bfseries}
+
+\newcommand{\cvinlineruleheading}[2]{%
+  \par\noindent
+  {\entrytitlesize\color{\currentsectioncolor}#1}%
+  % dashed look: short raised rule segments with a small gap between them
+  \nobreak\hspace{0.45em}{\color{\currentsectioncolor}\leaders\hbox{\rule[0.52ex]{2.6pt}{0.6pt}\hskip 1.6pt}\hfill}\kern0pt\par\vspace{#2}%
+}
+
+\newcommand{\cvsubheading}[1]{%
+  \cvinlineruleheading{#1}{2pt}%
+}
+
+\newcommand{\stackentry}[3]{%
+  {\entrytitlesize\color{textprimary}#1}\par
+  {\footnotesize\color{textmuted}#2}\par
+  \vspace{0.5pt}%
+  #3%
+  \par\vspace{5pt}%
+}
+
+\newcommand{\pubentry}[3]{%
+  \begin{projectentry}{#1}{#3}
+    \item {#2}
+  \end{projectentry}
+}
+
+\newenvironment{projectentry}[2]{%
+  % Keep each project entry together inside a single column by
+  % wrapping it in a minipage of the current column width.
+  % Also disable justification and hyphenation for projects/publications
+  % so entries remain left-aligned without ugly hyphen breaks.
+  \begin{minipage}{\columnwidth}%
+  \hyphenpenalty=10000\exhyphenpenalty=10000\raggedright
+  {\entrytitlesize\color{textprimary}#1}\par
+  {\footnotesize\color{textmuted}#2}\par
+  \vspace{0.5pt}%
+  \begin{cvbullets}%
+}{%
+  \end{cvbullets}%
+  \end{minipage}%
+  \par\vspace{5pt}%
+}
+\newcommand{\listlead}{\textcolor{\currentsectioncolor}{\textbullet}\hspace{0.45em}}
+\newcommand{\listsep}{\hspace{0.55em}\textcolor{\currentsectioncolor}{\textbullet}\hspace{0.55em}}
+\newcommand{\bulletrow}[1]{%
+  {\normalsize\color{textsecondary}\listlead#1\par}%
+}
+
+\newcommand{\skillcategory}[1]{%
+  \cvinlineruleheading{#1}{1pt}%
+}
+
+\newcommand{\filledlevel}{\textcolor{sec-about-me}{\rule[0.25ex]{1.35em}{0.75ex}}}
+\newcommand{\emptylevel}{\textcolor{sec-about-me!20}{\rule[0.25ex]{1.35em}{0.75ex}}}
+
+\newcommand{\ratingbars}[1]{%
+  \ifnum#1>0 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
+  \ifnum#1>1 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
+  \ifnum#1>2 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
+  \ifnum#1>3 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
+  \ifnum#1>4 \filledlevel\else\emptylevel\fi%
+}
+
+\newlength{\langbarswidth}
+\settowidth{\langbarswidth}{\ratingbars{5}}
+\newlength{\langlabelwidth}
+\settowidth{\langlabelwidth}{{\footnotesize Professional}}
+
+\newcommand{\langrow}[3]{%
+  {\normalsize\color{textsecondary}\listlead#1\hfill\makebox[\langbarswidth][l]{\ratingbars{#2}}\hspace{0.55em}\makebox[\langlabelwidth][l]{{\footnotesize\color{textmuted}#3}}}\par\vspace{2pt}%
+}
+
+% ============================================================
+% NOTE: Compile with xelatex, not pdflatex!
+% If fonts are missing, install Inter and JetBrains Mono from Google Fonts.
+\begin{document}
+
+% ── HEADER ────────────────────────────────────────────────────
+\noindent
+\begin{minipage}[t]{0.17\linewidth}
+  \vspace{0pt}%
+  \includegraphics[width=0.98\linewidth,height=2.45cm,keepaspectratio]{../public/res/ed/profile_head_alpha.png}%
+\end{minipage}\hspace{0.15em}
+\begin{minipage}[t]{0.79\linewidth}
+  \vspace{0pt}%
+  {\fontsize{22}{24}\selectfont\bfseries\color{textprimary}Eduardo Santos}\par
+  {\small\bfseries\addfontfeatures{LetterSpace=4}\color{sec-start}UNITY \& BACKEND DEVELOPER}\par
+  \vspace{4pt}%
+  % --- Dense metadata rows: 4 fields per row, natural width ---
+  {\renewcommand{\arraystretch}{1.1}%
+  \setlength{\tabcolsep}{5.5pt}%
+  \begin{tabular}{@{}l l l l@{}}
+    {\footnotesize\textcolor{textmuted}{\faIdCard}\hspace{0.4em}\textcolor{textsecondary}{Jos\'e Eduardo da Silva Santos}} &
+    {\footnotesize\textcolor{textmuted}{\faBirthdayCake}\hspace{0.4em}\textcolor{textsecondary}{27 years old}} &
+    {\footnotesize\textcolor{textmuted}{\faMapMarker*}\hspace{0.4em}\textcolor{textsecondary}{V.\,N. Famalic\~ao, Portugal}} &
+    {\footnotesize\textcolor{textmuted}{\faCarSide}\hspace{0.4em}\textcolor{textsecondary}{B, B1}} \\
+    {\footnotesize\textcolor{sec-start}{\faEnvelope}\hspace{0.4em}\textcolor{sec-start}{\href{mailto:edsantos237@outlook.com}{edsantos237@outlook.com}}} &
+    {\footnotesize\textcolor{sec-start}{\faLinkedin}\hspace{0.4em}\textcolor{sec-start}{\href{https://linkedin.com/in/edsantos237}{edsantos237}}} &
+    {\footnotesize\textcolor{sec-start}{\faGithub}\hspace{0.4em}\textcolor{sec-start}{\href{https://github.com/edsantos237}{edsantos237}}} &
+    {\scriptsize\textcolor{sec-start}{\faOrcid}\hspace{0.3em}\textcolor{sec-start}{\href{https://orcid.org/0000-0001-5203-6249}{0000-0001-5203-6249}}} \\
+    \multicolumn{4}{@{}l@{}}{\footnotesize\textcolor{sec-start}{\faGlobe}\hspace{0.4em}\textcolor{sec-start}{\href{https://edsantos237.github.io/portfolio/}{edsantos237.github.io/portfolio}}}
+  \end{tabular}
+  }
+\end{minipage}
+
+\vspace{4pt}
+{\color{sec-start}\rule{\linewidth}{1.8pt}}\par
+\vspace{5pt}
+
+% ── PAGE 1 ────────────────────────────────────────────────────
+\columnratio{0.4,0.5}
+\begin{paracol}{2}
+\raggedright
+  \cvsectiontitle{sec-about-me}{About me}
+
+  \cvsubheading{Who am I?}
+  {\small\color{textsecondary}%
+    Since I know myself that I'm passionate about technology, and since I started watching sci-fi movies, I see not only what technology is, but also what it can be.
+
+    This mindset has driven my interest in fields that may revolutionize how people interact with technology, bending the digital world to reality, through ubiquitous computing, extended reality, sensors, networking, internet of things and machine learning.
+
+    My professional experience bloomed through my Master's dissertation, which paved my way to the Research \& Development environment, where I've been developing extended reality experiences, mobile applications, communication features, back-office systems, 3D scene configuration tools, and backend services, usually for industrial or learning contexts.
+
+    Given all of my professional, academic and personal experience and interests, I'm open to work in a wide range of things; either by taking advantage on domains and tools I've been working on professionally, or in the ubiquitous side that I'm particularly passionate about, not only in XR but also in IoT and sensorization.
+    
+    It's with the motivation to connect everything around the globe that I shoot for the stars, embracing the future and taking advantage of it, be it dominated by new technologies or by AI, and always looking for new challenges that let me be creative and that set me in the right path to revolutionize the world, not only in the mentioned fields, but also in others that let me learn and grow as a developer, researcher and person.\par
+  }
+
+  \vspace{5pt}
+  \cvsubheading{Hobbies}
+  \bulletrow{App development\listsep Astrophotography}
+  \bulletrow{Drawing\listsep Gym\listsep Hiking}
+  \bulletrow{Listening to music\listsep Playing piano}
+  \bulletrow{Stargazing\listsep Traveling\listsep Volunteering}
+  \bulletrow{Watching movies/series\listsep Writing}
+
+  \vspace{5pt}
+  \cvsubheading{Strengths}
+  \bulletrow{Ambition\listsep Creativity}
+  \bulletrow{Problem solving\listsep Proactivity}
+  \bulletrow{Teamwork\listsep Versatility}
+
+  \vspace{5pt}
+  \cvsubheading{Languages}
+  \langrow{Portuguese}{5}{Native}
+  \langrow{English}{4}{Professional}
+  \langrow{Spanish}{2}{Elementary}
+  \langrow{German}{1}{Elementary}
+\switchcolumn
+\raggedright
+  \cvsectiontitle{sec-skills}{Skills}
+  \skillcategory{Domains}
+  \bulletrow{Backend\listsep Extended Reality\listsep Game Development}
+  \bulletrow{Internet of Things\listsep Mobile Development\listsep Networking}
+  \vspace{2pt}
+
+  \skillcategory{Languages}
+  \bulletrow{C\listsep C\#\listsep Java\listsep Javascript\listsep Python\listsep SQL}
+  \vspace{2pt}
+
+  \skillcategory{Frameworks / Tools}
+  \bulletrow{Android Studio\listsep MySQL\listsep Node.js\listsep Unity}
+
+  \cvsectiontitle{sec-experience}{Experience}
+
+  \stackentry
+    {CCG/ZGDV Institute}
+    {May 2021 --- Present \textcolor{textmuted}{|} CVIG-CG --- Computer Vision, Interaction and Graphics}
+    {\begin{cvbullets}
+      \item \textbf{Technical Project Coordinator} \textcolor{textmuted}{(since Jan 2025)}: Project: ECP --- Ecoceramics and Crystalware of Portugal.
+      \item \textbf{Development Technician, Assistant Researcher} \textcolor{textmuted}{(since Oct 2021)}: Development in Unity/C\# of mixed reality remote assistance systems, 3D scene configurators, augmented reality mobile apps, gamified virtual reality apps, and backend services in Node.js.
+      \item \textbf{Research Grant} \textcolor{textmuted}{(until Sep 2021)}.
+    \end{cvbullets}}
+
+  \cvsectiontitle{sec-education}{Education}
+
+  \stackentry
+    {University of Minho}
+    {Sep 2016 --- Mar 2022 \textcolor{textmuted}{|} Bachelor's and Master's degree}
+    {\begin{cvbullets}
+      \item Telecommunications and Informatics Engineering
+      \item Grade: \textbf{15.07\,/\,20}
+    \end{cvbullets}}
+
+  \stackentry
+    {Escola Secund\'aria D.\,Sancho I}
+    {Sep 2013 --- Jun 2016 \textcolor{textmuted}{|} 10th--12th grade}
+    {\begin{cvbullets}
+      \item Science and Technology
+      \item Grade: \textbf{14.75\,/\,20}
+    \end{cvbullets}}
+
+  \cvsectiontitle{sec-activities}{Activities}
+
+  \stackentry
+    {Refood}
+    {Sep 2025 --- Present \textcolor{textmuted}{|} Volunteering}
+    {\begin{cvbullets}
+      \item I'm performing food collection and distribution routes and organizing it at the Operations Center, two hours each week.
+    \end{cvbullets}}
+
+  \stackentry
+    {N\'ucleo de Estudantes de Engenharia de Telecomunica\c{c}\~oes e Inform\'atica da Universidade do Minho}
+    {2019 --- 2020 \textcolor{textmuted}{|} Volunteering}
+    {\begin{cvbullets}
+      \item \textbf{Treasurer} \textcolor{textmuted}{(2020)}: I managed financial assets and liabilities.
+      \item \textbf{Communications and Design Department} \textcolor{textmuted}{(2019)}: I designed posters and promoted events.
+    \end{cvbullets}}
+\end{paracol}
+
+% ── PAGE 2 ────────────────────────────────────────────────────
+\newpage
+
+\noindent
+\begin{minipage}[t]{0.58\linewidth}
+  \raggedright
+  \vspace*{10pt}% match section spacing used on page 1
+  \cvsectiontitle{sec-projects}{Projects}
+
+  \cvsubheading{CCG/ZGDV Institute}
+  \vspace{4pt}
+
+  \begin{projectentry}{XR-GRIT}{Sep 2025 --- Ongoing}
+    \item Gamified VR training course for robotics instruction and training.
+  \end{projectentry}
+  % \begin{projectentry}{Nyxium}{Aug 2025 --- Ongoing}
+  %   \item Mobile app with clock and compass to display the orientation of celestial bodies.
+  % \end{projectentry}
+  \begin{projectentry}{ECP - Ecoceramics and Crystalware of Portugal}{Dec 2023 --- Ongoing}
+    \item Digital Training Academy with virtual and immersive learning methods for continuous and advanced worker training.
+    \item Role: Technical Project Coordinator.
+  \end{projectentry}
+  \begin{projectentry}{HfPT - Health from Portugal}{Oct 2023 --- Ongoing}
+    \item Remote monitoring and telemedicine system for healthcare, and a set of interactive applications for anatomical pathology learning.
+  \end{projectentry}
+  \begin{projectentry}{Cognitive CMMS - Cognitive Computerized Maintenance Management System}{Jun 2021 --- Jun 2023}
+    \item Mobile app to list and display assets info and tasks on a given location with indoor navigation system.
+  \end{projectentry}
+  \begin{projectentry}{ADM.IN: Advanced Decision Making IN Productive Systems Through Intelligent Networks}{Sep 2022 --- Jul 2023}
+    \item Maintenance Configurator and Remote Assistance system for maintenance operations in AR.
+  \end{projectentry}
+  \begin{projectentry}{TSIM - Test System Intelligent Machines}{May 2021 --- Oct 2022}
+    \item Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support.
+  \end{projectentry}
+  \begin{projectentry}{Factory of the Future: Smart Manufacturing / P51 - Training for operators with new methodologies}{Aug 2021 --- Jan 2022}
+    \item Gamified training and evaluation system for machine operations in VR and AR.
+  \end{projectentry}
+
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}
+  \raggedright
+  \vspace*{10pt}% match section spacing used on page 1
+  \cvsectiontitle{sec-publications}{Publications}
+
+  \pubentry{Towards remote rehabilitation with gaming, digital monitor and computer vision technologies}{Presented at Web3D '24: Proceedings of the 29th International ACM Conference on 3D Web Technology.}{2024 \textcolor{textmuted}{|} ACM Digital Library}
+  \pubentry{UX and Industry 5.0: A study in Repairing equipment using Augmented Reality}{Presented at ITET 2023 - International Conference on Information Technology and Education Technology.}{2023 \textcolor{textmuted}{|} Springer}
+  \pubentry{Augmented Reality Towards Industry 5.0: Improving Voice and Tap Interaction Based on User Experience Feedback}{Presented at ITET 2023 - International Conference on Information Technology and Education Technology.}{2023 \textcolor{textmuted}{|} Springer}
+  \pubentry{Generic XR game-based approach for industrial training}{Presented at ICGI'2022 - International Conference on Graphics and Interaction.}{2022 \textcolor{textmuted}{|} IEEE}
+  \pubentry{QuizHuntAR: A location-based Augmented Reality game for education}{Presented by me at ICGI'2021 - International Conference on Graphics and Interaction.}{2021 \textcolor{textmuted}{|} IEEE}
+\end{minipage}
+
+\vspace{4pt}
+\gdef\currentsectioncolor{sec-projects}%
+\cvsubheading{University}
+\vspace{4pt}
+
+\begingroup
+\setlength{\multicolsep}{0pt}
+\begin{multicols}{2}
+\raggedcolumns
+
+\begin{projectentry}{Augmented Reality System with Gamification for Education}{Sep 2020 --- Mar 2022 \textcolor{textmuted}{|} 5th year}
+  \item Master's Dissertation.
+  \item Grade: \textbf{19\,/\,20}.
+\end{projectentry}
+\begin{projectentry}{VRollercoastAR}{Sep 2020 --- Feb 2021 \textcolor{textmuted}{|} 5th year}
+  \item AR app to build rollercoaster tracks and VR app to ride them.
+\end{projectentry}
+\begin{projectentry}{Detection of bike riding events with a mobile phone}{Sep 2020 --- Jan 2021 \textcolor{textmuted}{|} 5th year}
+  \item Mobile app to detect bike riding events using a machine learning model based on the phone's sensors data.
+\end{projectentry}
+\begin{projectentry}{Corporative messaging and alerting services for vehicular networks}{Feb 2020 --- Jun 2020 \textcolor{textmuted}{|} 4th year}
+  \item System composed of an IPv6 vehicular network, where vehicles communicate with each other through RSUs and OBUs.
+\end{projectentry}
+% \begin{projectentry}{E-Scudo - Mobile application to carry out cryptocurrency transactions}{Mar 2020 --- Jun 2020}
+%   \item Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform.
+%   \item Participated in the 1st edition of INNCYBER Innovation Award (2019/2020).
+% \end{projectentry}
+% \begin{projectentry}{Colaborative sensing-based traffic monitoring services}{Sep 2019 --- Jan 2020}
+%   \item Traffic monitoring system based on collaborative sensing, where vehicles send information regarding their speed and location to a server that processes this information and provides public access services.
+% \end{projectentry}
+\begin{projectentry}{SMAF.G7 - Physical activity monitoring system}{Feb 2019 --- Sep 2019 \textcolor{textmuted}{|} 3rd year}
+  \item Physical activity monitoring system based on an Arduino with a set of sensors that send data to a set of hubs and management services.
+\end{projectentry}
+\begin{projectentry}{Smart Health Control}{Feb 2018 --- Jun 2018 \textcolor{textmuted}{|} 2nd year}
+  \item Mobile app to monitor user's health --- steps counter, distance measuring, heart rate measure, calories and workout monitoring.
+\end{projectentry}
+% \begin{projectentry}{The QUIZZER}{May 2017 --- Jun 2017}
+%   \item Quiz fighter game in C where the player answers questions to defeat themed characters.
+% \end{projectentry}
+
+\end{multicols}
+\endgroup
+
+\end{document}

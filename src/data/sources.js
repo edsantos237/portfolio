@@ -1,4 +1,5 @@
 export const sources = {
     datapack: "ed",
-    res: "ed"
+    res: "ed",
+    cv: "cv.pdf"
 }
