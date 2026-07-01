@@ -129,7 +129,7 @@ export const skills = [
     },
     {
         id: "clipchamp",
-        title: "Microsoft Clipchamp / Windows Movie Maker",
+        title: "Microsoft Clipchamp",
         icon: "clipchamp.png",
         tags: ["tool", "personal", "middle_school", "high_school"]
     },
