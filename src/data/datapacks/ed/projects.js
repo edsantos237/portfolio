@@ -48,6 +48,7 @@ export const projects = [
             "* Integration into the VIROO platform.",
             "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
             "* Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
+            "* **[Participation in the MASTER Final Event in Oldenburg, Germany](https://www.master-xr.eu/final-event/)**",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/2RsYF83Yetk"
@@ -163,7 +164,8 @@ export const projects = [
             "**Approaching academia, entities of the R&D system, technology suppliers, and national and international clients are factors that reinforce companies' competitiveness. Putting knowledge and technology at the service of companies to meet the challenges, is the focus of the 3rd activity of this WP, which aims to create synergies between the various stakeholders, bringing to discussion the best international practices, the best technologies, and the promotion of national ceramics.**",
             "## My contributions:",
             "* TCA - **Training Configuration System** - desktop app for trainers to build immersive scenes composed with 3D objects with customizable properties, interactions and animations, following a set of steps.",
-            "* ARTA - **Augmented Reality Training System** - mobile app for trainees to load created training scenes to be performed in augmented reality.",
+            "* ARTA - **Augmented Reality Training System** - mobile app and Meta Quest 3 app for trainees to load created training scenes to be performed in augmented and mixed reality.",
+            "* VRTA - **Virtual Reality Training System** - virtual reality app for trainees to load a training course for robotics with multiple types of media content, interactions, gamification mechanics, and tutor narrative.",
             "* TSIS - **Training Session Information System** - back-end system to store training info and provide it to the apps through a REST API.",
             {
                 type: "youtube",
