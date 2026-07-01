@@ -29,7 +29,7 @@ export const projects = [
         tags: ["featured", "ccg", "android", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
         date: {
             start: "2025-09",
-            end: null
+            end: "2026-06"
         },
         summary: [
             "Gamified VR training course for robotics instruction and training."
@@ -70,10 +70,10 @@ export const projects = [
     {
         id: "nyxium",
         title: "Nyxium",
-        tags: ["featured", "personal", "android", "csharp", "mobile", "unity"],
+        tags: ["featured", "suspended", "personal", "android", "csharp", "mobile", "unity"],
         date: {
             start: "2025-08",
-            end: null
+            end: "2026-04"
         },
         summary: [
             {
@@ -100,7 +100,7 @@ export const projects = [
         tags: ["ccg", "android", "ar", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "xr"],
         date: {
             start: "2024-09",
-            end: null
+            end: "2026-05"
         },
         summary: [
             "Remote Assistance system using AR for the textile and clothing industry."
@@ -143,10 +143,10 @@ export const projects = [
         id: "ecp",
         title: "ECP - Ecoceramics and Crystalware of Portugal",
         label: "ECP",
-        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "windows", "xr"],
+        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "gamedev", "http", "js", "mobile", "networking", "nodejs", "unity", "windows", "vr", "xr", "xritk"],
         date: {
             start: "2023-12",
-            end: null
+            end: "2026-07"
         },
         summary: [
             "Digital Training Academy with virtual and immersive learning methods for continuous and advanced worker training."
@@ -201,7 +201,7 @@ export const projects = [
         tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webgl", "webrtc", "websocket", "windows", "xr"],
         date: {
             start: "2023-10",
-            end: null
+            end: "2026-06"
         },
         summary: [
             // "Remote monitoring and telemedicine system for healthcare, and a set of interactive applications for anatomical pathology learning."
