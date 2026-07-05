@@ -6,10 +6,10 @@ export const projects = [
         id: "portfolio",
         title: "Portfoio / CV",
         tags: ["personal", "frontend", "ghcopilot", "js", "latex", "nodejs", "reactjs"],
-        date: {
+        dates: [{
             start: "2026-04",
             end: null
-        },
+        }],
         summary: [
             "Vibe-coded website in React.js, hosted in GitHub Pages, powered by GitHub Copilot, and easily customizable through data files."
         ],
@@ -27,10 +27,10 @@ export const projects = [
         id: "xrgrit",
         title: "XR-GRIT",
         tags: ["featured", "ccg", "android", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
-        date: {
+        dates: [{
             start: "2025-09",
             end: "2026-06"
-        },
+        }],
         summary: [
             "Gamified VR training course for robotics instruction and training."
         ],
@@ -72,10 +72,10 @@ export const projects = [
         id: "nyxium",
         title: "Nyxium",
         tags: ["featured", "suspended", "personal", "android", "csharp", "mobile", "unity"],
-        date: {
+        dates: [{
             start: "2025-08",
             end: "2026-04"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -99,10 +99,10 @@ export const projects = [
         title: "TEXP@CT - Innovation Pact for the Digitalization of Textiles and Clothing",
         label: "TEXP@CT",
         tags: ["ccg", "android", "ar", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "xr"],
-        date: {
+        dates: [{
             start: "2024-09",
             end: "2026-05"
-        },
+        }],
         summary: [
             "Remote Assistance system using AR for the textile and clothing industry."
         ],
@@ -145,10 +145,10 @@ export const projects = [
         title: "ECP - Ecoceramics and Crystalware of Portugal",
         label: "ECP",
         tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "gamedev", "http", "js", "mobile", "networking", "nodejs", "unity", "windows", "vr", "xr", "xritk"],
-        date: {
+        dates: [{
             start: "2023-12",
             end: "2026-07"
-        },
+        }],
         summary: [
             "Digital Training Academy with virtual and immersive learning methods for continuous and advanced worker training."
         ],
@@ -200,11 +200,11 @@ export const projects = [
         id: "hfpt",
         title: "HfPT - Health from Portugal",
         label: "HfPT",
-        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webgl", "webrtc", "websocket", "windows", "xr"],
-        date: {
+        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "latex", "mobile", "networking", "nodejs", "unity", "webgl", "webrtc", "websocket", "windows", "xr"],
+        dates: [{
             start: "2023-10",
             end: "2026-06"
-        },
+        }],
         summary: [
             // "Remote monitoring and telemedicine system for healthcare, and a set of interactive applications for anatomical pathology learning."
             {
@@ -269,10 +269,10 @@ export const projects = [
         id: "skyscanner",
         title: "Sky Scanner",
         tags: ["suspended", "personal", "mobile", "android", "csharp", "mapbox", "unity"],
-        date: {
+        dates: [{
             start: "2025-03",
             end: "2025-03"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -291,20 +291,28 @@ export const projects = [
         id: "openlabs",
         title: "OpenLabs - Open Pilot Labs Network",
         label: "OpenLabs",
-        tags: ["ccg", "backend", "csharp", "http", "js", "linux", "ml", "networking", "nodejs", "unity", "webrtc", "websocket"],
-        date: {
-            start: "2024-06",
-            end: "2024-07"
-        },
+        tags: ["ccg", "android", "backend", "csharp", "http", "js", "linux", "ml", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "windows"],
+        dates: [
+            {
+                start: "2024-06",
+                end: "2024-07"
+            },
+            {
+                start: "2026-07",
+                end: null
+            }
+        ],
         summary: [
             "Demonstrative app to display in real-time a digital twin of a given environment (CCG's building) along with a mobile robot and a set of detection cameras."
         ],
         description: [
             "The OpenLabs project is an open network of industrial laboratories for companies' digital and sustainable transformation in the Galicia-North Portugal Euroregion.",
             "In this way, it is possible to boost new production and service provision forms, and improve SMEs' ability to test use cases when implementing innovative solutions.",
-            "## My contributions:",
+            "## My contributions (2014):",
             "* Demonstrative app to display a digital twin of CCG's building along with a mobile robot and a set of detection cameras.",
             "* Communication system through WebRTC to retrieve robot coordinates and coordinates of detected people to be displayed.",
+            "## My contributions (2016):",
+            "* Video call module through WebRTC between a remote doctor and the patient using the Gripwise app (from **HfPT A3.2.3** project).",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/H5_kQZDzgy0"
@@ -327,10 +335,10 @@ export const projects = [
         id: "solarsystem",
         title: "SolAR System",
         tags: ["ccg", "android", "ar", "arfoundation", "csharp", "mobile", "xr", "unity"],
-        date: {
+        dates: [{
             start: "2024-07",
             end: "2024-07"
-        },
+        }],
         summary: [
             "Unity project to view and interact with the Solar System in AR."
         ],
@@ -351,10 +359,10 @@ export const projects = [
         title: "Cognitive CMMS - Cognitive Computerized Maintenance Management System",
         label: "Cognitive CMMS",
         tags: ["ccg", "arfoundation", "android", "ar", "backend", "csharp", "firebase", "http", "js", "mobile", "networking", "nodejs", "webgl", "webrtc", "websocket", "xr"],
-        date: {
+        dates: [{
             start: "2021-06",
             end: "2023-06"
-        },
+        }],
         summary: [
             "Mobile app to list and display assets info and tasks on a given location with indoor navigation system."
         ],
@@ -381,10 +389,10 @@ export const projects = [
         label: "I2AM",
         title: "I2AM: Intelligent Immersive Aircraft Modification",
         tags: ["ccg", "ar", "backend", "csharp", "http", "js", "networking", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
-        date: {
+        dates: [{
             start: "2022-03",
             end: "2023-08"
-        },
+        }],
         summary: [
             "Remote Assistance system for aviation inspection in AR."
         ],
@@ -410,10 +418,10 @@ export const projects = [
         title: "ADM.IN: Advanced Decision Making IN Productive Systems Through Intelligent Networks",
         label: "ADM.IN",
         tags: ["featured", "ccg", "ar", "backend", "csharp", "http", "js", "networking", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
-        date: {
+        dates: [{
             start: "2022-09",
             end: "2023-07"
-        },
+        }],
         summary: [
             "Maintenance Configurator and Remote Assistance system for maintenance operations in AR."
         ],
@@ -436,10 +444,10 @@ export const projects = [
         title: "TSIM - Test System Intelligent Machines",
         label: "TSIM",
         tags: ["ccg", "backend", "ar", "aspnet", "csharp", "frontend", "js", "http", "nestjs", "networking", "nextjs", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
-        date: {
+        dates: [{
             start: "2021-05",
             end: "2022-10"
-        },
+        }],
         summary: [
             "Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support."
         ],
@@ -478,10 +486,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "android", "ar", "arfoundation", "backend", "csharp", "frontend", "fullstack", "gamedev", "http", "js", "mapbox", "mobile", "mysql", "networking", "nodejs", "reactjs", "sql", "unity", "xr"],
-        date: {
+        dates: [{
             start: "2020-09",
             end: "2022-03"
-        },
+        }],
         summary: [
             "Master's Dissertation",
             {
@@ -495,7 +503,7 @@ export const projects = [
         ],
         description: [
             "# Original title (PT): \"*Sistema de Realidade Aumentada com Gamificação para o Ensino*\"",
-            "System centered on a location-based AR game for mobile devices named “**QuizHuntAR**”, heavily inspired by the game Pokémon GO, with education as its theme, that should be played by students. In this game, players must physically move to hotspots indicated on the map and perform tasks by solving exercises in a treasure hunting logic. This system is also composed of a back-office web app, where teachers can manage the game's content, namely hotspots and exercises, while students can access statistics regarding their class. These applications are supported by a REST API and a database to manage the accessed services and to store information regarding users, exercises, hotspots, and other aspects.",            
+            "System centered on a location-based AR game for mobile devices named “**QuizHuntAR**”, heavily inspired by the game Pokémon GO, with education as its theme, that should be played by students. In this game, players must physically move to hotspots indicated on the map and perform tasks by solving exercises in a treasure hunting logic. This system is also composed of a back-office web app, where teachers can manage the game's content, namely hotspots and exercises, while students can access statistics regarding their class. These applications are supported by a REST API and a database to manage the accessed services and to store information regarding users, exercises, hotspots, and other aspects.",
             "### Advisor: [Luís Gonzaga Mendes Magalhães](https://algoritmi.uminho.pt/user/luis-gonzaga-mendes-magalhaes/)",
             {
                 type: "pdf",
@@ -524,10 +532,10 @@ export const projects = [
         label: "Factory of the Future / P51",
         title: "Factory of the Future: Smart Manufacturing / P51 - Training for operators with new methodologies",
         tags: ["featured", "ccg", "ar", "backend", "csharp", "http", "mysql", "sql", "unity", "webgl", "vr", "xr"],
-        date: {
+        dates: [{
             start: "2021-08",
             end: "2022-01"
-        },
+        }],
         summary: [
             "Gamified training and evaluation system for machine operations in VR and AR."
         ],
@@ -549,10 +557,10 @@ export const projects = [
         id: "voice_transcription",
         title: "Voice Transcription app",
         tags: ["personal", "android", "androidstudio", "mobile", "java"],
-        date: {
+        dates: [{
             start: "2021-07",
             end: "2021-07"
-        },
+        }],
         summary: [
             "Voice Transcription mobile app shared with my family so they can communicate with its deaf members."
         ],
@@ -575,10 +583,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "android", "ar", "cardboard", "csharp", "http", "mobile", "sql", "unity", "vuforia", "vr", "xr"],
-        date: {
+        dates: [{
             start: "2020-09",
             end: "2021-02"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -631,10 +639,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "android", "androidstudio", "firebase", "http", "java", "ml", "mobile", "python", "tensorflow"],
-        date: {
+        dates: [{
             start: "2020-09",
             end: "2021-01"
-        },
+        }],
         summary: [
             "Mobile app to detect bike riding events (holes in the road, breaks and stops) using a machine learning model based on the phone's sensors data."
         ],
@@ -665,10 +673,16 @@ export const projects = [
         id: "edshot",
         title: "edShot",
         tags: ["suspended", "personal", "backend", "android", "androidstudio", "ar", "gamedev", "java", "mobile", "networking", "tcp", "tensorflow", "udp", "xr"],
-        date: {
-            start: "2019-07",
-            end: "2020-09"
-        },
+        dates: [
+            {
+                start: "2019-07",
+                end: "2019-09"
+            },
+            {
+                start: "2020-02",
+                end: "2020-09"
+            }
+        ],
         summary: [
             {
                 type: "image",
@@ -695,10 +709,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "backend", "core", "java", "linux", "networking", "udp", "tcp"],
-        date: {
+        dates: [{
             start: "2020-05",
             end: "2020-07"
-        },
+        }],
         summary: [
             "Audio distribution system to compress and stream PCM audio from a server to multiple clients."
         ],
@@ -725,10 +739,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "clang", "linux"],
-        date: {
+        dates: [{
             start: "2020-02",
             end: "2020-07"
-        },
+        }],
         summary: [
             "File compressor and decompressor based on Shannon-Fano and LZW algorithms."
         ],
@@ -764,10 +778,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "backend", "core", "iot", "java", "http", "linux", "mysql", "networking", "python", "sql", "tcp", "udp"],
-        date: {
+        dates: [{
             start: "2020-02",
             end: "2020-06"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -807,15 +821,15 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "certified", "university", "backend", "corda", "http", "java", "js"],
-        date: {
+        dates: [{
             start: "2020-03",
             end: "2020-06"
-        },
+        }],
         summary: [
             "Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform."
         ],
         description: [
-            "# Original title (PT): \"*Aplicação móvel para efetuar transações em criptomoedas*\"",            
+            "# Original title (PT): \"*Aplicação móvel para efetuar transações em criptomoedas*\"",
             "Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform.",
             {
                 type: "button",
@@ -848,10 +862,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "backend", "http", "java", "linux", "networking", "snmp"],
-        date: {
+        dates: [{
             start: "2020-01",
             end: "2020-02"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -887,10 +901,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "backend", "frontend", "java", "js", "linux", "networking", "nodejs", "reactjs", "snmp"],
-        date: {
+        dates: [{
             start: "2019-11",
             end: "2020-02"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -923,10 +937,10 @@ export const projects = [
         id: "carrilhoinator",
         title: "Carrilhoinator",
         tags: ["personal", "android", "androidstudio", "java", "js", "mobile", "nodejs"],
-        date: {
+        dates: [{
             start: "2019-12",
             end: "2019-12"
-        },
+        }],
         summary: [
             "Mobile app that plays random audioclips that were sent from a friend over four years across group chats."
         ],
@@ -944,10 +958,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "arduino", "embedded"],
-        date: {
+        dates: [{
             start: "2019-10",
             end: "2020-01"
-        },
+        }],
         summary: [
             "Communication system between two Arduino devices using laser and through air."
         ],
@@ -974,10 +988,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "android", "androidstudio", "backend", "clang", "coap", "http", "iot", "java", "js", "linux", "mobile", "mysql", "networking", "sql"],
-        date: {
+        dates: [{
             start: "2019-09",
             end: "2020-01"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -1016,10 +1030,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "linux", "python", "tcp"],
-        date: {
+        dates: [{
             start: "2019-09",
             end: "2020-01"
-        },
+        }],
         summary: [
             "Communication system between a server and a client with encryption and certificates, where each side exchanges encrypted messages, decrypted and authenticated through shared public keys and certificates."
         ],
@@ -1037,10 +1051,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "backend", "java", "linux", "networking", "tcp"],
-        date: {
+        dates: [{
             start: "2019-05",
             end: "2019-06"
-        },
+        }],
         summary: [
             "TCP server/client system where the server manages multi-threaded client socket connections for asynchronous messaging."
         ],
@@ -1055,10 +1069,10 @@ export const projects = [
         year: "3rd year",
         subject: "Digital Signal Processing",
         tags: ["university", "matlab"],
-        date: {
+        dates: [{
             start: "2019-05",
             end: "2019-06"
-        },
+        }],
         summary: [
             "Analysis of contaminated electrocardiogram signals with noise filtering and sampling conversion."
         ],
@@ -1086,10 +1100,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "core", "java", "networking", "wireshark"],
-        date: {
+        dates: [{
             start: "2019-04",
             end: "2019-06"
-        },
+        }],
         summary: [
             "IPv4 packet forwarding router that receives packets from a network interface, and forwards them through a forwarding table's ruleset."
         ],
@@ -1116,10 +1130,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "arduino", "backend", "clang", "embedded", "http", "iot", "linux", "mysql", "networking", "sql", "tcp", "udp"],
-        date: {
+        dates: [{
             start: "2019-02",
             end: "2019-06"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -1154,10 +1168,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "arduino", "embedded", "java", "networking"],
-        date: {
+        dates: [{
             start: "2018-09",
             end: "2019-01"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -1219,10 +1233,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "clang", "linux"],
-        date: {
+        dates: [{
             start: "2018-11",
             end: "2019-01"
-        },
+        }],
         summary: [
             "Service to schedule the execution of a set of programs asynchronously through a server/client pipe communication."
         ],
@@ -1250,10 +1264,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "core", "networking", "tcp", "wireshark"],
-        date: {
+        dates: [{
             start: "2018-11",
             end: "2019-01"
-        },
+        }],
         summary: [
             "Simulation and analysis of Ethernet LANs and TCP/IP networks using CORE network emulator and Wireshark."
         ],
@@ -1277,10 +1291,10 @@ export const projects = [
         year: "2nd year",
         subject: "Electronics II",
         tags: ["university"],
-        date: {
+        dates: [{
             start: "2018-06",
             end: "2018-06"
-        },
+        }],
         summary: [
             "Project to design a PCB."
         ],
@@ -1299,10 +1313,10 @@ export const projects = [
             range: 100
         },
         tags: ["university", "gusek"],
-        date: {
+        dates: [{
             start: "2018-05",
             end: "2018-06"
-        },
+        }],
         summary: [
             "Project to optimize storage of pallets in a warehouse."
         ],
@@ -1330,10 +1344,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "android", "androidstudio", "mobile"],
-        date: {
+        dates: [{
             start: "2018-02",
             end: "2018-06"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -1362,10 +1376,10 @@ export const projects = [
             range: 100
         },
         tags: ["university"],
-        date: {
+        dates: [{
             start: "2018-04",
             end: "2018-05"
-        },
+        }],
         summary: [
             "Research and presentation of an existing scientific article related to resources optimization."
         ],
@@ -1388,10 +1402,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "java"],
-        date: {
+        dates: [{
             start: "2017-11",
             end: "2018-01"
-        },
+        }],
         summary: [
             "Java program to manage parking at a hotel."
         ],
@@ -1410,10 +1424,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "university", "clang", "gamedev", "latex", "linux"],
-        date: {
+        dates: [{
             start: "2017-05",
             end: "2017-06"
-        },
+        }],
         summary: [
             {
                 type: "image",
@@ -1459,10 +1473,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "clang", "latex", "linux"],
-        date: {
+        dates: [{
             start: "2017-03",
             end: "2017-04"
-        },
+        }],
         summary: [
             "C program to read and store files content and store it in linked lists."
         ],
@@ -1490,10 +1504,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "clang", "latex", "linux"],
-        date: {
+        dates: [{
             start: "2017-02",
             end: "2017-03"
-        },
+        }],
         summary: [
             "C program to read and store files content and store it in arrays of structs."
         ],
@@ -1511,10 +1525,10 @@ export const projects = [
             range: 20
         },
         tags: ["university", "clang"],
-        date: {
+        dates: [{
             start: "2016-11",
             end: "2017-01"
-        },
+        }],
         summary: [
             "Morse code decoder that translates an input into a list of every possible set of words from a dictionary."
         ],
@@ -1528,10 +1542,10 @@ export const projects = [
         year: "12th grade",
         subject: "Computer Applications B",
         tags: ["high_school", "gamedev", "vbasic", "windows"],
-        date: {
+        dates: [{
             start: "2016-04",
             end: "2016-05"
-        },
+        }],
         summary: [
             {
                 type: "image",

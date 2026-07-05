@@ -5,7 +5,7 @@ import { schools } from "@datapack/education";
 import { skills, categories, getSkillCategoryId } from "@datapack/skills";
 import { projects } from "@datapack/projects";
 import { publications } from "@datapack/publications";
-import { formatRange } from "../utils/dateFormat";
+import { formatDates } from "../utils/dateFormat";
 import Icon from "./Icon";
 import ProjectStatusBadge, { getProjectBadgeTypes, getProjectPageBadgePadding } from "./ProjectStatusBadge";
 import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
@@ -71,9 +71,9 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
 
   if (!project) return null;
 
-  const rawDateLabel = formatRange(project.date)?.replace("— Present", "— Ongoing");
+  const rawDateLabel = formatDates(project.dates)?.replace(/— Present/g, "— Ongoing");
   const dateLabel = rawDateLabel
-    ? (project.tags.includes("suspended") ? `${rawDateLabel} — Suspended` : rawDateLabel)
+    ? (project.tags.includes("suspended") ? `${rawDateLabel}, Suspended` : rawDateLabel)
     : null;
 
   // Resolve origins (company / school / personal)

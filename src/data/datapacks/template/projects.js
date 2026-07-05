@@ -6,10 +6,10 @@ export const projects = [
         id: "project1",
         title: "Some company project",
         tags: ["featured", "company1", "skill1", "skill2"], // can reference associations and skills and have a "featured" and/or "personal" tag
-        date: {
+        dates: [{
             start: "2025-01", // ISO date string (YYYY-MM)
             end: null // leave null if ongoing
-        },
+        }],
         summary: [
             "Some string." // can be a string
         ],
@@ -110,10 +110,10 @@ export const projects = [
             range: 20
         },
         tags: ["featured", "school1", "skill3", "skill4"],
-        date: {
+        dates: [{
             start: "2020-01",
             end: "2020-06"
-        },
+        }],
         summary: [
             { // can be an image
                 type: "image",
@@ -130,10 +130,10 @@ export const projects = [
         id: "project3",
         title: "Some personal project",
         tags: ["personal", "skill1", "skill3"],
-        date: {
+        dates: [{
             start: "2019-01",
             end: "2019-12"
-        },
+        }],
         summary: [
             "Some string."
         ],

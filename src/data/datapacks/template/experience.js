@@ -99,10 +99,10 @@ export const companies = [
             {
                 title: "Some role",
                 department: "Some role department", // optional, if you find it more relevant to associate it to the role instead of the company
-                date: {
+                dates: [{
                     start: "2025-01", // ISO date string (YYYY-MM)
                     end: null // leave null if ongoing
-                },
+                }],
                 description: [
                     "Some string.",
                     "Another string with <b>HTML tags</b>.",
@@ -142,10 +142,10 @@ export const companies = [
             {
                 title: "Some other role",
                 department: "Some other role department",
-                date: {
+                dates: [{
                     start: "2023-01",
                     end: "2023-12"
-                },
+                }],
                 description: [
                     "Some string.",
                     "Another string with <b>HTML tags</b>.",
@@ -168,10 +168,10 @@ export const companies = [
             {
                 title: "Some role",
                 department: "Some role department",
-                date: {
+                dates: [{
                     start: "2022-01",
                     end: "2022-12"
-                },
+                }],
                 description: [
                     "Some string.",
                     "Another string with <b>HTML tags</b>.",

@@ -30,10 +30,10 @@ export const companies = [
         roles: [
             {
                 title: "Technical Project Coordinator",
-                date: {
+                dates: [{
                     start: "2025-01",
                     end: "2026-07"
-                },
+                }],
                 description: [
                     "Project:",
                     {
@@ -49,20 +49,20 @@ export const companies = [
             },
             {
                 title: "Development Technician / Assistant Researcher",
-                date: {
+                dates: [{
                     start: "2021-10",
                     end: null
-                },
+                }],
                 description: [
                     "Development in Unity/C# of Mixed Reality remote assistance systems, 3D scene configurators/back-offices, Augmented Reality mobile apps, gamified Virtual Reality apps and backend services in Node.js."
                 ]
             },
             {
                 title: "Research Grant",
-                date: {
+                dates: [{
                     start: "2021-05",
                     end: "2021-09"
-                },
+                }],
                 description: [
                     "Development in Unity/C# of Mixed Reality remote assistance systems, 3D scene configurators/back-offices and backend services in Node.js."
                 ]

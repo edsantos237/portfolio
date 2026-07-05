@@ -100,10 +100,10 @@ export const schools = [
             {
                 title: "Some course",
                 degrees: ["Some degree"],
-                date: {
+                dates: [{
                     start: "2018-09", // ISO date string (YYYY-MM)
                     end: "2020-06" // leave null if ongoing
-                },
+                }],
                 grade: {
                     value: 17.5,
                     range: 20
@@ -147,10 +147,10 @@ export const schools = [
             {
                 title: "Some other course",
                 degrees: ["Some degree"],
-                date: {
+                dates: [{
                     start: "2015-09",
                     end: "2018-06"
-                },
+                }],
                 grade: {
                     value: 15.0,
                     range: 20
@@ -179,10 +179,10 @@ export const schools = [
             {
                 title: "Some course",
                 degrees: ["Some degree"],
-                date: {
+                dates: [{
                     start: "2012-09",
                     end: "2015-06"
-                },
+                }],
                 grade: {
                     value: 10.0,
                     range: 20

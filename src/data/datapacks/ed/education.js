@@ -20,10 +20,10 @@ export const schools = [
             {
                 title: "Telecommunications and Informatics Engineering",
                 degrees: ["Bachelor's and Master's degree"],
-                date: {
+                dates: [{
                     start: "2016-09",
                     end: "2022-03"
-                },
+                }],
                 grade: {
                     value: 15.072,
                     range: 20
@@ -67,10 +67,10 @@ export const schools = [
             {
                 title: "Science and Technology",
                 degrees: ["Secondary Education", "10th — 12th grade"],
-                date: {
+                dates: [{
                     start: "2013-09",
                     end: "2016-06"
-                },
+                }],
                 grade: {
                     value: 14.75,
                     range: 20
@@ -95,10 +95,10 @@ export const schools = [
         courses: [
             {
                 degrees: ["Basic Education - 3rd cycle", "7th — 9th grade"],                
-                date: {
+                dates: [{
                     start: "2010-09",
                     end: "2013-06"
-                },
+                }],
                 grade: {
                     value: 4.25,
                     range: 5
@@ -106,10 +106,10 @@ export const schools = [
             },
             {
                 degrees: ["Basic Education - 2nd cycle", "5th — 6th grade"],
-                date: {
+                dates: [{
                     start: "2008-09",
                     end: "2010-06"
-                }
+                }]
             }
         ]
     },
@@ -121,10 +121,10 @@ export const schools = [
         courses: [
             {
                 degrees: ["Primary Education", "Basic Education - 1st cycle", "1st — 4th grade"],
-                date: {
+                dates: [{
                     start: "2004-09",
                     end: "2008-06"
-                }
+                }]
             }
         ]
     }

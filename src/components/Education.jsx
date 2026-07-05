@@ -5,6 +5,7 @@ import { projects } from "@datapack/projects";
 import { skills } from "@datapack/skills";
 import EducationCard from "./EducationCard";
 import VerticalTimeline from "./VerticalTimeline";
+import { getEarliestStart, getLatestEnd } from "../utils/dateFormat";
 
 export default function Education({ isActive, onShowProjects, onShowSkills, onProjectLink, focusedSchoolId, onClearFocusedSchool }) {
   const sectionTheme = getSectionTheme("education");
@@ -25,7 +26,7 @@ export default function Education({ isActive, onShowProjects, onShowSkills, onPr
   const sorted = useMemo(
     () =>
       [...schools].sort((a, b) => {
-        const getStart = (s) => (s.courses || []).map(c => c.date?.start).filter(Boolean).sort().at(-1) || "";
+        const getStart = (s) => (s.courses || []).map(c => getEarliestStart(c.dates)).filter(Boolean).sort().at(-1) || "";
         return getStart(b).localeCompare(getStart(a));
       }),
     []
@@ -87,8 +88,8 @@ export default function Education({ isActive, onShowProjects, onShowSkills, onPr
       const school = schools[0];
       return (school.courses || []).map((course, idx) => ({
         id: `${school.id}__course${idx}`,
-        startDate: course.date?.start,
-        endDate: course.date?.end,
+        startDate: getEarliestStart(course.dates),
+        endDate: getLatestEnd(course.dates),
       }));
     } else {
       return sorted.map((school) => {
@@ -96,8 +97,8 @@ export default function Education({ isActive, onShowProjects, onShowSkills, onPr
         if (courses.length > 1) {
           const periods = courses.map((c, idx) => ({
             id: `${school.id}__course${idx}`,
-            startDate: c.date?.start,
-            endDate: c.date?.end,
+            startDate: getEarliestStart(c.dates),
+            endDate: getLatestEnd(c.dates),
           }));
 
           const starts = periods.map((p) => p.startDate).filter(Boolean).sort();
@@ -109,7 +110,7 @@ export default function Education({ isActive, onShowProjects, onShowSkills, onPr
         }
 
         const c = courses[0] || {};
-        return { id: school.id, startDate: c.date?.start, endDate: c.date?.end };
+        return { id: school.id, startDate: getEarliestStart(c.dates), endDate: getLatestEnd(c.dates) };
       });
     }
   }, [single, sorted]);

@@ -11,7 +11,10 @@ import { useMemo } from "react";
  *   height   – total pixel height to render the bar (default 100% via flex)
  */
 export default function VerticalTimeline({ entries, activeId }) {
-  const NOW = "2026-04";
+  const NOW = useMemo(() => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+  }, []);
   const TIMELINE_WIDTH = "var(--timeline-width, 88px)";
   const TRACK_X = "var(--timeline-track-x, 68px)";
   const TICK_WIDTH = 16;
@@ -32,6 +35,16 @@ export default function VerticalTimeline({ entries, activeId }) {
     } else {
       const m = parseInt(mStr, 10);
       monthNum = isEnd ? m + 1 : m; // end-of-month -> move to next month start
+    }
+    // If this end date falls in the current month (which hasn't fully elapsed),
+    // don't extend past "now" — the +1 offset only applies once the month has passed.
+    if (isEnd && mStr) {
+      const nowParts = NOW.split("-");
+      const nowY = parseInt(nowParts[0], 10);
+      const nowM = parseInt(nowParts[1], 10);
+      if (y === nowY && parseInt(mStr, 10) === nowM) {
+        monthNum = parseInt(mStr, 10);
+      }
     }
     return y * 12 + monthNum;
   };
@@ -54,8 +67,8 @@ export default function VerticalTimeline({ entries, activeId }) {
     if (Array.isArray(entry.periods) && entry.periods.length) {
       return entry.periods.map((p, i) => ({
         id: p.id ?? `${entry.id}__p${i}`,
-        startDate: p.startDate ?? p.date?.start ?? p.start,
-        endDate: p.endDate ?? p.date?.end ?? p.end,
+        startDate: p.startDate ?? p.dates?.[0]?.start ?? p.start,
+        endDate: p.endDate ?? p.dates?.[0]?.end ?? p.end,
       }));
     }
     if (entry.startDate || entry.endDate) {
@@ -149,10 +162,10 @@ export default function VerticalTimeline({ entries, activeId }) {
   // Precompute dot fractions for active periods that are ongoing (endDate == null)
   const activeDotFracs = activePeriods.filter(p => !p.endDate).map(p => toFrac(p.endDate, false));
 
-  // Compute union (min top, max bottom) across active periods to animate a single highlight
-  // For periods with no explicit end date, use the 'present' fraction (isEnd=false) so the union
-  // highlight stops at the dot instead of stretching to an end-of-month/year.
-  const unionTopFrac = activePeriods.length > 0 ? Math.min(...activePeriods.map((p) => toFrac(p.endDate, !!p.endDate))) : 0;
+  // Compute union (min top, max bottom) across active periods to animate a single highlight.
+  // Always use isEnd=true so ongoing periods (null endDate) map to the same month
+  // offset as ended periods, preventing an ended role from appearing above an ongoing one.
+  const unionTopFrac = activePeriods.length > 0 ? Math.min(...activePeriods.map((p) => toFrac(p.endDate, true))) : 0;
   const unionBotFrac = activePeriods.length > 0 ? Math.max(...activePeriods.map((p) => toFrac(p.startDate, false))) : 0;
 
   return (
@@ -182,7 +195,7 @@ export default function VerticalTimeline({ entries, activeId }) {
         }}
       >
         {activePeriods.map((p) => {
-          const pTop = toFrac(p.endDate, !!p.endDate);
+          const pTop = toFrac(p.endDate, true);
           const pBot = toFrac(p.startDate, false);
           const denom = unionBotFrac - unionTopFrac;
           const innerTop = denom <= 0 ? 0 : ((pTop - unionTopFrac) / denom) * 100;

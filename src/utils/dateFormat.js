@@ -29,6 +29,25 @@ export function formatRange(date) {
   return `${start.month} ${start.year}`;
 }
 
+export function formatDates(dates) {
+  if (!Array.isArray(dates) || !dates.length) return "";
+  return dates.map((d) => formatRange(d)).filter(Boolean).join(", ");
+}
+
+export function getEarliestStart(dates) {
+  if (!Array.isArray(dates) || !dates.length) return null;
+  const starts = dates.map((d) => d?.start).filter(Boolean).sort();
+  return starts[0] || null;
+}
+
+export function getLatestEnd(dates) {
+  if (!Array.isArray(dates) || !dates.length) return null;
+  // If any entry has no end, the overall range is ongoing
+  if (dates.some((d) => !d?.end)) return null;
+  const ends = dates.map((d) => d.end).filter(Boolean).sort();
+  return ends.at(-1) || null;
+}
+
 export function formatSingle(dateStr) {
   if (!dateStr) return "";
   const parts = String(dateStr).split(/[-\/]/);

@@ -14,8 +14,9 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
 
   const formatDate = (d) => {
     if (!d) return "";
-    // expect d to be an object { start, end } or a string
+    // expect d to be an object { start, end }, an array of such objects, or a string
     if (typeof d === "string") return d;
+    if (Array.isArray(d)) return d.map((item) => formatRange(item)).filter(Boolean).join(", ");
     return formatRange(d);
   };
 
@@ -149,7 +150,7 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
 
                 {/* DATES */}
                 <p className="text-xs text-gray-400">
-                  {formatDate(role.date)}
+                  {formatDate(role.dates)}
                 </p>
 
                 {/* DESCRIPTION */}

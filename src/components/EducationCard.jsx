@@ -9,6 +9,7 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
     const formatDate = (d) => {
         if (!d) return "";
         if (typeof d === 'string') return d;
+        if (Array.isArray(d)) return d.map((item) => formatRange(item)).filter(Boolean).join(", ");
         return formatRange(d);
     };
 
@@ -155,8 +156,8 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
                                 )}
 
                                 {/* Date */}
-                                {course.date && (
-                                    <p className="text-xs text-gray-400">{formatDate(course.date)}</p>
+                                {course.dates && course.dates.length > 0 && (
+                                    <p className="text-xs text-gray-400">{formatDate(course.dates)}</p>
                                 )}
 
                                 {/* Course description (e.g. dissertation button) */}

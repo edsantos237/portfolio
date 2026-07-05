@@ -6,6 +6,7 @@ import { cover } from "@datapack/cover";
 import { sources } from "../data/sources";
 import { companies } from "@datapack/experience";
 import Icon from "./Icon";
+import { getEarliestStart } from "../utils/dateFormat";
 
 function calcProfessionalExperience() {
   const now = new Date();
@@ -13,8 +14,9 @@ function calcProfessionalExperience() {
   for (const company of companies) {
     for (const role of company.roles ?? []) {
       if (role.tags?.includes("no-calc")) continue;
-      if (role.date?.start) {
-        const [year, month] = role.date.start.split("-").map(Number);
+      const start = getEarliestStart(role.dates);
+      if (start) {
+        const [year, month] = start.split("-").map(Number);
         const startDate = new Date(year, month - 1, 1);
         if (!earliestStart || startDate < earliestStart) earliestStart = startDate;
       }

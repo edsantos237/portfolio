@@ -404,6 +404,12 @@ export const skills = [
         tags: ["featured", "language", "personal", "university"]
     },
     {
+        id: "quartz",
+        title: "Quartz",
+        icon: MdViewQuilt,
+        tags: ["framework", "personal"]
+    },
+    {
         id: "reactjs",
         title: "React.js",
         icon: SiReact,

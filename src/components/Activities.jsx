@@ -8,7 +8,7 @@ import AnimatedCollapse from "./AnimatedCollapse";
 import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
 import FilterPanel from "./FilterPanel";
-import { formatRange } from "../utils/dateFormat";
+import { formatDates, getEarliestStart, getLatestEnd } from "../utils/dateFormat";
 import VerticalTimeline from "./VerticalTimeline";
 import { groupDescriptionItems, renderGroups, renderFlatButtons } from "../utils/descriptionRenderer.jsx";
 
@@ -30,8 +30,8 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
   const sorted = useMemo(
     () =>
       [...activities].sort((a, b) => {
-        const aDate = a.roles?.[0]?.date?.start || "";
-        const bDate = b.roles?.[0]?.date?.start || "";
+        const aDate = getEarliestStart(a.roles?.[0]?.dates) || "";
+        const bDate = getEarliestStart(b.roles?.[0]?.dates) || "";
         return bDate.localeCompare(aDate);
       }).map((activity) => ({
         ...activity,
@@ -59,15 +59,15 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
 
       return act.roles.map((role, idx) => ({
         id: `${act.resolvedId}__role${idx}`,
-        startDate: role.date?.start,
-        endDate: role.date?.end,
+        startDate: getEarliestStart(role.dates),
+        endDate: getLatestEnd(role.dates),
       }));
     } else {
       return displayedSorted.map((act) => {
         const periods = (act.roles || []).map((r, idx) => ({
           id: `${act.resolvedId}__role${idx}`,
-          startDate: r.date?.start,
-          endDate: r.date?.end,
+          startDate: getEarliestStart(r.dates),
+          endDate: getLatestEnd(r.dates),
         }));
 
         const starts = periods.map((p) => p.startDate).filter(Boolean).sort();
@@ -298,7 +298,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
                         {role.title && <h4 className="font-medium text-gray-200">{role.title}</h4>}
 
                         <p className="text-xs text-gray-400">
-                          {formatRange(role.date)}
+                          {formatDates(role.dates)}
                         </p>
 
                         {Array.isArray(role.description)

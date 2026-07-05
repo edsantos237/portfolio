@@ -35,6 +35,11 @@ function formatRange(date) {
   return `${start.month} ${start.year}`;
 }
 
+function formatDates(dates) {
+  if (!Array.isArray(dates) || !dates.length) return null;
+  return dates.map((d) => formatRange(d)).filter(Boolean).join(", ");
+}
+
 export default function ProjectCard({
   project,
   orderedSkills,
@@ -45,9 +50,9 @@ export default function ProjectCard({
   onProjectClick,
   hideYear = false,
 }) {
-  const rawDateLabel = formatRange(project.date);
+  const rawDateLabel = formatDates(project.dates);
   const dateLabel = rawDateLabel
-    ? (project.tags.includes("suspended") ? `${rawDateLabel} — Suspended` : rawDateLabel)
+    ? (project.tags.includes("suspended") ? `${rawDateLabel}, Suspended` : rawDateLabel)
     : null;
 
   // 🔥 Resolve origin tags

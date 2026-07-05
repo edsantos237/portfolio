@@ -12,6 +12,7 @@ import FilterPanel from "./FilterPanel";
 import Icon from "./Icon";
 import { getSectionTheme } from "../config/sections";
 import { hasRelatedPublicationsForProject } from "../utils/projectPublications";
+import { getEarliestStart, getLatestEnd } from "../utils/dateFormat";
 
 export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany, setFocusedCompany, focusedActivity, setFocusedActivity, focusedProjectFilters, setFocusedProjectFilters, focusedAcademic, setFocusedAcademic, isActive, onProjectClick }) {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -467,11 +468,11 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
         // Sort: end date descending, then start date descending
         const sortedProjects = filteredProjects.slice().sort((a, b) => {
           const parse = (d) => d ? new Date(d) : null;
-          const aEnd = parse(a.date?.end) || new Date(3000,0,1);
-          const bEnd = parse(b.date?.end) || new Date(3000,0,1);
+          const aEnd = parse(getLatestEnd(a.dates)) || new Date(3000,0,1);
+          const bEnd = parse(getLatestEnd(b.dates)) || new Date(3000,0,1);
           if (bEnd - aEnd !== 0) return bEnd - aEnd;
-          const aStart = parse(a.date?.start) || new Date(1000,0,1);
-          const bStart = parse(b.date?.start) || new Date(1000,0,1);
+          const aStart = parse(getEarliestStart(a.dates)) || new Date(1000,0,1);
+          const bStart = parse(getEarliestStart(b.dates)) || new Date(1000,0,1);
           return bStart - aStart;
         });
         return (

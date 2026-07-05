@@ -97,10 +97,10 @@ export const activities = [
         roles: [
             {
                 title: "Some role",
-                date: {
+                dates: [{
                     start: "2025-01", // ISO date string (YYYY-MM)
                     end: null // leave null if ongoing
-                },
+                }],
                 description: [
                     "Some string.",
                     "Another string with <b>HTML tags</b>.",
@@ -139,10 +139,10 @@ export const activities = [
             },
             {
                 title: "Some other role",
-                date: {
+                dates: [{
                     start: "2024-01",
                     end: "2024-12"
-                },
+                }],
                 description: [
                     "Some string.",
                     "Another string with <b>HTML tags</b>.",
@@ -164,10 +164,10 @@ export const activities = [
         roles: [
             {
                 title: "Some role",
-                date: {
+                dates: [{
                     start: "2023-01",
                     end: "2023-12"
-                },
+                }],
                 description: [
                     "Some string.",
                     "Another string with <b>HTML tags</b>.",

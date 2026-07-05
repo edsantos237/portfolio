@@ -5,6 +5,7 @@ import { projects } from "@datapack/projects";
 import { skills } from "@datapack/skills";
 import ExperienceCard from "./ExperienceCard";
 import VerticalTimeline from "./VerticalTimeline";
+import { getEarliestStart, getLatestEnd } from "../utils/dateFormat";
 
 export default function Experience({ isActive, onShowProjects, onShowSkills, onProjectLink, focusedCompanyId, onClearFocusedCompany }) {
   const sectionTheme = getSectionTheme("experience");
@@ -26,8 +27,8 @@ export default function Experience({ isActive, onShowProjects, onShowSkills, onP
   const sorted = useMemo(
     () =>
       [...companies].sort((a, b) => {
-        const aDate = a.roles?.[0]?.date?.start || "";
-        const bDate = b.roles?.[0]?.date?.start || "";
+        const aDate = getEarliestStart(a.roles?.[0]?.dates) || "";
+        const bDate = getEarliestStart(b.roles?.[0]?.dates) || "";
         return bDate.localeCompare(aDate);
       }),
     []
@@ -39,15 +40,15 @@ export default function Experience({ isActive, onShowProjects, onShowSkills, onP
       const company = companies[0];
       return company.roles.map((role, idx) => ({
         id: `${company.id}__role${idx}`,
-        startDate: role.date?.start,
-        endDate: role.date?.end,
+        startDate: getEarliestStart(role.dates),
+        endDate: getLatestEnd(role.dates),
       }));
     } else {
       return sorted.map((company) => {
         const periods = (company.roles || []).map((r, idx) => ({
           id: `${company.id}__role${idx}`,
-          startDate: r.date?.start,
-          endDate: r.date?.end,
+          startDate: getEarliestStart(r.dates),
+          endDate: getLatestEnd(r.dates),
         }));
 
         const starts = periods.map((p) => p.startDate).filter(Boolean).sort();

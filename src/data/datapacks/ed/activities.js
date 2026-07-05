@@ -23,10 +23,10 @@ export const activities = [
         ],
         roles: [
             {
-                date: {
+                dates: [{
                     start: "2025-09",
                     end: null
-                },
+                }],
                 description: [
                     "I'm performing food collection and distribution routes and organizing it at the Operations Center, two hours each week."
                 ]
@@ -50,20 +50,20 @@ export const activities = [
         roles: [
             {
                 title: "Treasurer",
-                date: {
+                dates: [{
                     start: "2020-01",
                     end: "2020-12"
-                },
+                }],
                 description: [
                     "I managed financial assets and liabilities."
                 ]
             },
             {
                 title: "Communications and Design Department",
-                date: {
+                dates: [{
                     start: "2019-01",
                     end: "2019-12"
-                },
+                }],
                 description: [
                     "I designed posters and promoted events."
                 ]
@@ -84,10 +84,10 @@ export const activities = [
         ],
         roles: [
             {
-                date: {
+                dates: [{
                     start: "2017-09",
                     end: "2018-05"
-                },
+                }],
                 description: [
                     "I designed freshman and general course kits and helped organizing course dinners."
                 ]
@@ -100,10 +100,10 @@ export const activities = [
     //     roles: [
     //         {
     //             title: "Founder and Administrator",
-    //             date: {
+    //             dates: [{
     //                 start: "2017-10",
     //                 end: "2018-07"
-    //             },
+    //             }],
     //             description: [
     //                 "I founded and managed a Team Fortress 2 competitive league, where 44 teams, from Europe and North America, participated in the first season."
     //             ]
@@ -126,20 +126,20 @@ export const activities = [
         roles: [
             {
                 title: "MIETI Praxe Committee",
-                date: {
+                dates: [{
                     start: "2018-09",
                     end: "2019-05"
-                },
+                }],
                 description: [
                     "\"Mr. Engineer Fósforo Cooper\" with a very short active duty."
                 ]
             },
             {
                 title: "Freshman",
-                date: {
+                dates: [{
                     start: "2016-09",
                     end: "2017-05"
-                },
+                }],
                 description: [
                     "Had my weekly push-ups routine, participated in Guimarães's \"Latada\" and Braga's universitary procession, and got baptized as \"Fósforo Cooper\" with Francesinha sauce."
                 ]
@@ -152,10 +152,10 @@ export const activities = [
         roles: [
             {
                 title: "Famalicão",
-                date: {
+                dates: [{
                     start: "2014-11",
                     end: "2016-05"
-                },
+                }],
                 description: [
                     "Participated in swimming classes and competitions representing my high school city.",
                     {
@@ -167,10 +167,10 @@ export const activities = [
             },
             {
                 title: "Ribeirão",
-                date: {
+                dates: [{
                     start: "2009-10",
                     end: "2013-10"
-                },
+                }],
                 description: [
                     "Participated in swimming classes and competitions representing my town.",
                     {
@@ -188,10 +188,10 @@ export const activities = [
         tags: ["middle_school", "volunteering"],
         roles: [
             {
-                date: {
+                dates: [{
                     start: "2012-09",
                     end: "2013-06"
-                },
+                }],
                 description: [
                     "Organized events for the whole school."
                 ]
@@ -204,10 +204,10 @@ export const activities = [
     //     roles: [
     //         {
     //             title: "Founder and Administrator",
-    //             date: {
+    //             dates: [{
     //                 start: "2012-10",
     //                 end: "2013-03"
-    //             },
+    //             }],
     //             description: [
     //                 "I founded and managed a Counter-Strike server and community."
     //             ]
@@ -220,10 +220,10 @@ export const activities = [
         tags: ["middle_school"],
         roles: [
             {
-                date: {
+                dates: [{
                     start: "2011-10",
                     end: "2012-05"
-                },
+                }],
                 description: [
                     "Participated in futsal competitions representing my school."
                 ]
@@ -236,10 +236,10 @@ export const activities = [
         tags: ["middle_school"],
         roles: [
             {
-                date: {
+                dates: [{
                     start: "2009-10",
                     end: "2010-06"
-                },
+                }],
                 description: [
                     "Participated in chess competitions representing my school."
                 ]
@@ -261,10 +261,10 @@ export const activities = [
         roles: [
             {
                 title: "Athlete",
-                date: {
+                dates: [{
                     start: "2007-04",
                     end: "2011-07"
-                },
+                }],
                 description: [
                     "Participated in athletics classes and competitions representing my town."
                 ]
@@ -276,10 +276,10 @@ export const activities = [
         tags: ["middle_school"],
         roles: [
             {
-                date: {
+                dates: [{
                     start: "2008-12",
                     end: "2009-06"
-                },
+                }],
                 description: [
                     "Learned how to work with Windows Explorer, basic Command Line commands, and Microsoft Office Word, Excel and PowerPoint."
                 ]
