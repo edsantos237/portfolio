@@ -102,7 +102,7 @@ export const hobbies = [
         title: "Traveling",
         icon: BiWorld,
         description: [
-            "I have traveled a total of 13 countries (15 if you count layovers) across 4 continents."
+            "I have traveled to a total of 14 countries (17 if you count layovers) across 4 continents."
         ]
     },
     {

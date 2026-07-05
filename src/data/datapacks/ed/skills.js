@@ -1,4 +1,4 @@
-import { SiUnity, SiNodedotjs, SiAndroid, SiGit, SiJavascript, SiWebrtc, SiLinux, SiDocker, SiMapbox, SiReact, SiNestjs, SiNextdotjs, SiDotnet, SiFigma, SiAndroidstudio, SiTensorflow, SiFirebase, SiGooglecardboard, SiWebgl, SiPython, SiAssemblyscript, SiArduino, SiBlender, SiC, SiOpenai, SiClaude, SiEclipseide, SiGamedeveloper, SiGithubcopilot, SiIntellijidea, SiLatex, SiNotebooklm, SiOverleaf, SiPostman, SiSuno, SiWireshark } from "react-icons/si";
+import { SiUnity, SiNodedotjs, SiAndroid, SiGit, SiJavascript, SiWebrtc, SiLinux, SiDocker, SiMapbox, SiReact, SiNestjs, SiNextdotjs, SiDotnet, SiFigma, SiAndroidstudio, SiTensorflow, SiFirebase, SiGooglecardboard, SiWebgl, SiPython, SiAssemblyscript, SiArduino, SiBlender, SiC, SiOpenai, SiClaude, SiEclipseide, SiGamedeveloper, SiGithubcopilot, SiIntellijidea, SiLatex, SiNotebooklm, SiOverleaf, SiPostman, SiSuno, SiWireshark, SiObsidian } from "react-icons/si";
 import { TbBrandCSharp, TbAugmentedReality2, TbBrandMysql, TbSql, TbBoxModel2, TbCloudComputingFilled, TbBrandAdobePhotoshop, TbBrandAdobePremier } from "react-icons/tb"
 import { BsHeadsetVr, BsStack } from "react-icons/bs";
 import { DiVisualstudio, DiJava } from "react-icons/di";
@@ -269,7 +269,7 @@ export const skills = [
         id: "latex",
         title: "LaTeX",
         icon: SiLatex,
-        tags: ["language", "personal", "university"]
+        tags: ["language", "personal", "university", "ccg"]
     },
     {
         id: "linux",
@@ -356,10 +356,16 @@ export const skills = [
         tags: ["ai", "personal"]
     },
     {
+        id: "obsidian",
+        title: "Obsidian",
+        icon: SiObsidian,
+        tags: ["tool", "personal"]
+    },
+    {
         id: "overleaf",
         title: "Overleaf",
         icon: SiOverleaf,
-        tags: ["tool", "personal"]
+        tags: ["tool", "personal", "ccg"]
     },
     {
         id: "pascal",
