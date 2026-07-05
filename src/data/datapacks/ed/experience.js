@@ -32,7 +32,7 @@ export const companies = [
                 title: "Technical Project Coordinator",
                 date: {
                     start: "2025-01",
-                    end: null
+                    end: "2026-07"
                 },
                 description: [
                     "Project:",

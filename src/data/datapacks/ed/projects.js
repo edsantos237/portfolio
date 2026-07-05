@@ -29,7 +29,7 @@ export const projects = [
         tags: ["featured", "ccg", "android", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
         date: {
             start: "2025-09",
-            end: null
+            end: "2026-06"
         },
         summary: [
             "Gamified VR training course for robotics instruction and training."
@@ -48,6 +48,7 @@ export const projects = [
             "* Integration into the VIROO platform.",
             "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
             "* Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
+            "* **[Participation in the MASTER Final Event in Oldenburg, Germany](https://www.master-xr.eu/final-event/)**",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/2RsYF83Yetk"
@@ -70,10 +71,10 @@ export const projects = [
     {
         id: "nyxium",
         title: "Nyxium",
-        tags: ["featured", "personal", "android", "csharp", "mobile", "unity"],
+        tags: ["featured", "suspended", "personal", "android", "csharp", "mobile", "unity"],
         date: {
             start: "2025-08",
-            end: null
+            end: "2026-04"
         },
         summary: [
             {
@@ -100,7 +101,7 @@ export const projects = [
         tags: ["ccg", "android", "ar", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "xr"],
         date: {
             start: "2024-09",
-            end: null
+            end: "2026-05"
         },
         summary: [
             "Remote Assistance system using AR for the textile and clothing industry."
@@ -143,10 +144,10 @@ export const projects = [
         id: "ecp",
         title: "ECP - Ecoceramics and Crystalware of Portugal",
         label: "ECP",
-        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "windows", "xr"],
+        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "gamedev", "http", "js", "mobile", "networking", "nodejs", "unity", "windows", "vr", "xr", "xritk"],
         date: {
             start: "2023-12",
-            end: null
+            end: "2026-07"
         },
         summary: [
             "Digital Training Academy with virtual and immersive learning methods for continuous and advanced worker training."
@@ -163,7 +164,8 @@ export const projects = [
             "**Approaching academia, entities of the R&D system, technology suppliers, and national and international clients are factors that reinforce companies' competitiveness. Putting knowledge and technology at the service of companies to meet the challenges, is the focus of the 3rd activity of this WP, which aims to create synergies between the various stakeholders, bringing to discussion the best international practices, the best technologies, and the promotion of national ceramics.**",
             "## My contributions:",
             "* TCA - **Training Configuration System** - desktop app for trainers to build immersive scenes composed with 3D objects with customizable properties, interactions and animations, following a set of steps.",
-            "* ARTA - **Augmented Reality Training System** - mobile app for trainees to load created training scenes to be performed in augmented reality.",
+            "* ARTA - **Augmented Reality Training System** - mobile app and Meta Quest 3 app for trainees to load created training scenes to be performed in augmented and mixed reality.",
+            "* VRTA - **Virtual Reality Training System** - virtual reality app for trainees to load a training course for robotics with multiple types of media content, interactions, gamification mechanics, and tutor narrative.",
             "* TSIS - **Training Session Information System** - back-end system to store training info and provide it to the apps through a REST API.",
             {
                 type: "youtube",
@@ -201,7 +203,7 @@ export const projects = [
         tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webgl", "webrtc", "websocket", "windows", "xr"],
         date: {
             start: "2023-10",
-            end: null
+            end: "2026-06"
         },
         summary: [
             // "Remote monitoring and telemedicine system for healthcare, and a set of interactive applications for anatomical pathology learning."
