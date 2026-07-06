@@ -184,13 +184,13 @@ export const projects = [
             },
             {
                 type: "button",
-                icon: "ecp.png",
+                icon: "ecp.ico",
                 label: "Project website",
                 link: "https://agendaecp.pt/en"
             },
             {
                 type: "button",
-                icon: "ecp.png",
+                icon: "ecp.ico",
                 label: "WP7 | PPS 32",
                 link: "https://agendaecp.pt/en/activities/wp7"
             }
