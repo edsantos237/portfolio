@@ -308,10 +308,10 @@ export const projects = [
         description: [
             "The OpenLabs project is an open network of industrial laboratories for companies' digital and sustainable transformation in the Galicia-North Portugal Euroregion.",
             "In this way, it is possible to boost new production and service provision forms, and improve SMEs' ability to test use cases when implementing innovative solutions.",
-            "## My contributions (2014):",
+            "## My contributions (2024):",
             "* Demonstrative app to display a digital twin of CCG's building along with a mobile robot and a set of detection cameras.",
             "* Communication system through WebRTC to retrieve robot coordinates and coordinates of detected people to be displayed.",
-            "## My contributions (2016):",
+            "## My contributions (2026):",
             "* Video call module through WebRTC between a remote doctor and the patient using the Gripwise app (from **HfPT A3.2.3** project).",
             {
                 type: "youtube",
