@@ -361,7 +361,7 @@ export const projects = [
         tags: ["ccg", "arfoundation", "android", "ar", "backend", "csharp", "firebase", "http", "js", "mobile", "networking", "nodejs", "webgl", "webrtc", "websocket", "xr"],
         dates: [{
             start: "2021-06",
-            end: "2023-06"
+            end: "2023-09"
         }],
         summary: [
             "Mobile app to list and display assets info and tasks on a given location with indoor navigation system."
@@ -847,7 +847,7 @@ export const projects = [
                 label: "Certificate of Participation - INNCYBER Innovation Award",
                 link: {
                     type: "file",
-                    path: "Certificado de Participação-José Eduardo da Silva Santos.pdf"
+                    path: "rm/Certificado de Participação-José Eduardo da Silva Santos.pdf"
                 }
             }
         ]
