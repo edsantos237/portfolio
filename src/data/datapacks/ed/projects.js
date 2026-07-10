@@ -119,6 +119,10 @@ export const projects = [
                 type: "youtube",
                 link: "https://www.youtube.com/embed/G0DyT4qO1CI"
             },
+            {
+                type: "youtube",
+                link: "https://www.youtube.com/embed/BPCUYvUVYVs"
+            },
             "### **Partners**: [Citeve](https://www.citeve.pt/), [Inforcávado](https://inforcavado.com/), [INFOS](https://infos.pt/en/), [F3M](https://www.f3m.pt/gb), [Mind](https://www.mind.pt/mind/en/)",
             {
                 type: "button",
