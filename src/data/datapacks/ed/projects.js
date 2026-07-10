@@ -1025,6 +1025,8 @@ export const projects = [
     {
         id: "cripto_1",
         title: "Server/client communication system with encryption and certificates",
+        year: "4th year",
+        subject: "Cryptography",
         grade: {
             value: 16.0,
             range: 20
