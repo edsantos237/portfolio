@@ -114,7 +114,7 @@ export const hobbies = [
             {
                 type: "button",
                 icon: "refood.png",
-                label: "Refood",
+                label: "REFOOD",
                 link: {
                     type: "activities",
                     entry: "refood",
