@@ -364,7 +364,7 @@ export const projects = [
         label: "Cognitive CMMS",
         tags: ["ccg", "arfoundation", "android", "ar", "backend", "csharp", "firebase", "http", "js", "mobile", "networking", "nodejs", "webgl", "webrtc", "websocket", "xr"],
         dates: [{
-            start: "2021-06",
+            start: "2021-09",
             end: "2023-09"
         }],
         summary: [
