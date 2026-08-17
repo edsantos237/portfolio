@@ -4,7 +4,7 @@ import { FaInstagram, FaBlogger } from "react-icons/fa6";
 export const activities = [
     {
         id: "refood",
-        title: "Refood",
+        title: "REFOOD",
         icon: "refood.png",
         tags: ["volunteering"],
         description: [            

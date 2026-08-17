@@ -119,6 +119,10 @@ export const projects = [
                 type: "youtube",
                 link: "https://www.youtube.com/embed/G0DyT4qO1CI"
             },
+            {
+                type: "youtube",
+                link: "https://www.youtube.com/embed/BPCUYvUVYVs"
+            },
             "### **Partners**: [Citeve](https://www.citeve.pt/), [Inforcávado](https://inforcavado.com/), [INFOS](https://infos.pt/en/), [F3M](https://www.f3m.pt/gb), [Mind](https://www.mind.pt/mind/en/)",
             {
                 type: "button",
@@ -184,13 +188,13 @@ export const projects = [
             },
             {
                 type: "button",
-                icon: "ecp.png",
+                icon: "ecp.ico",
                 label: "Project website",
                 link: "https://agendaecp.pt/en"
             },
             {
                 type: "button",
-                icon: "ecp.png",
+                icon: "ecp.ico",
                 label: "WP7 | PPS 32",
                 link: "https://agendaecp.pt/en/activities/wp7"
             }
@@ -308,10 +312,10 @@ export const projects = [
         description: [
             "The OpenLabs project is an open network of industrial laboratories for companies' digital and sustainable transformation in the Galicia-North Portugal Euroregion.",
             "In this way, it is possible to boost new production and service provision forms, and improve SMEs' ability to test use cases when implementing innovative solutions.",
-            "## My contributions (2014):",
+            "## My contributions (2024):",
             "* Demonstrative app to display a digital twin of CCG's building along with a mobile robot and a set of detection cameras.",
             "* Communication system through WebRTC to retrieve robot coordinates and coordinates of detected people to be displayed.",
-            "## My contributions (2016):",
+            "## My contributions (2026):",
             "* Video call module through WebRTC between a remote doctor and the patient using the Gripwise app (from **HfPT A3.2.3** project).",
             {
                 type: "youtube",
@@ -360,8 +364,8 @@ export const projects = [
         label: "Cognitive CMMS",
         tags: ["ccg", "arfoundation", "android", "ar", "backend", "csharp", "firebase", "http", "js", "mobile", "networking", "nodejs", "webgl", "webrtc", "websocket", "xr"],
         dates: [{
-            start: "2021-06",
-            end: "2023-06"
+            start: "2021-09",
+            end: "2023-09"
         }],
         summary: [
             "Mobile app to list and display assets info and tasks on a given location with indoor navigation system."
@@ -847,7 +851,7 @@ export const projects = [
                 label: "Certificate of Participation - INNCYBER Innovation Award",
                 link: {
                     type: "file",
-                    path: "Certificado de Participação-José Eduardo da Silva Santos.pdf"
+                    path: "rm/Certificado de Participação-José Eduardo da Silva Santos.pdf"
                 }
             }
         ]
@@ -1025,6 +1029,8 @@ export const projects = [
     {
         id: "cripto_1",
         title: "Server/client communication system with encryption and certificates",
+        year: "4th year",
+        subject: "Cryptography",
         grade: {
             value: 16.0,
             range: 20

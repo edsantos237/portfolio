@@ -38,7 +38,7 @@ export const companies = [
                     "Project:",
                     {
                         type: "button",
-                        icon: "ecp.png",
+                        icon: "ecp.ico",
                         label: "ECP - Ecoceramics and Crystalware of Portugal",
                         link: {
                             type: "projects",
