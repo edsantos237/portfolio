@@ -46,14 +46,14 @@ export const hobbies = [
             }
         ]
     },
-    {
-        id: "gym",
-        title: "Gym",
-        icon: IoMdFitness,
-        description: [
-            "I try to workout 3x a week."
-        ]
-    },
+    // {
+    //     id: "gym",
+    //     title: "Gym",
+    //     icon: IoMdFitness,
+    //     description: [
+    //         "I try to workout 3x a week."
+    //     ]
+    // },
     {
         id: "hiking",
         title: "Hiking",
@@ -62,20 +62,20 @@ export const hobbies = [
             "I have quite the tendency to get lost in the woods with my dog."
         ]
     },
-    {
-        id: "music",
-        title: "Listening to music",
-        icon: MdHeadphones,
-        description: [
-            "I'm particlarly fond of instrumental music, like movie soundtracks, epic scores and piano.",
-            "* Favorite song since 2020:",
-            {
-                type: "bandcamp",
-                // link: "https://open.spotify.com/embed/track/098x2YmtSd6W3UixT1P0i1",
-                link: "https://bandcamp.com/EmbeddedPlayer/track=1585406331"
-            }
-        ]
-    },
+    // {
+    //     id: "music",
+    //     title: "Listening to music",
+    //     icon: MdHeadphones,
+    //     description: [
+    //         "I'm particlarly fond of instrumental music, like movie soundtracks, epic scores and piano.",
+    //         "* Favorite song since 2020:",
+    //         {
+    //             type: "bandcamp",
+    //             // link: "https://open.spotify.com/embed/track/098x2YmtSd6W3UixT1P0i1",
+    //             link: "https://bandcamp.com/EmbeddedPlayer/track=1585406331"
+    //         }
+    //     ]
+    // },
     {
         id: "piano",
         title: "Playing piano",
@@ -89,14 +89,14 @@ export const hobbies = [
             }
         ]
     },
-    {
-        id: "stargazing",
-        title: "Stargazing",
-        icon: IoTelescope,
-        description: [
-            "Sometimes I just lay on my garden and look up."
-        ]
-    },
+    // {
+    //     id: "stargazing",
+    //     title: "Stargazing",
+    //     icon: IoTelescope,
+    //     description: [
+    //         "Sometimes I just lay on my garden and look up."
+    //     ]
+    // },
     {
         id: "traveling",
         title: "Traveling",
@@ -122,22 +122,22 @@ export const hobbies = [
             }
         ]
     },
-    {
-        id: "movies_series",
-        title: "Watching movies/series",
-        icon: MdMovie,
-        description: [
-            "I'm the biggest fan of mind-bending movies and series.",
-            "* Favorite movie: Interstellar (2014)",
-            "* Favorite series: Dark (2017-2020)"
-        ]
-    },
+    // {
+    //     id: "movies_series",
+    //     title: "Watching movies/series",
+    //     icon: MdMovie,
+    //     description: [
+    //         "I'm the biggest fan of mind-bending movies and series.",
+    //         "* Favorite movie: Interstellar (2014)",
+    //         "* Favorite series: Dark (2017-2020)"
+    //     ]
+    // },
     {
         id: "writing",
         title: "Writing",
         icon: TbWritingFilled,
         description: [
-            "I have been idealizing since my 7th grade, and writting since 2019, the most epic piece of fiction spanning across 24 seasons that might never see the light of day."
+            "I have been idealizing since my 7th grade, and writing since 2019, the most epic piece of fiction spanning across 24 seasons that might never see the light of day."
         ]
     }
 ];

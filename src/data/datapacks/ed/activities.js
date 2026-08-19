@@ -110,78 +110,78 @@ export const activities = [
     //         }
     //     ]
     // },
-    {
-        id: "praxe",
-        title: "Praxe",
-        icon: "praxe.png",
-        tags: ["university"],
-        description: [
-            {
-                type: "button",
-                icon: FaBlogger,
-                label: "Cabido de Cardeais",
-                link: "https://cabidodecardeais.blogspot.com/"
-            }
-        ],
-        roles: [
-            {
-                title: "MIETI Praxe Committee",
-                dates: [{
-                    start: "2018-09",
-                    end: "2019-05"
-                }],
-                description: [
-                    "\"Mr. Engineer Fósforo Cooper\" with a very short active duty."
-                ]
-            },
-            {
-                title: "Freshman",
-                dates: [{
-                    start: "2016-09",
-                    end: "2017-05"
-                }],
-                description: [
-                    "Had my weekly push-ups routine, participated in Guimarães's \"Latada\" and Braga's universitary procession, and got baptized as \"Fósforo Cooper\" with Francesinha sauce."
-                ]
-            }
-        ]
-    },
-    {
-        id: "swimming",
-        title: "Swimming",
-        roles: [
-            {
-                title: "Famalicão",
-                dates: [{
-                    start: "2014-11",
-                    end: "2016-05"
-                }],
-                description: [
-                    "Participated in swimming classes and competitions representing my high school city.",
-                    {
-                        type: "button",
-                        label: "Website",
-                        link: "https://www.famalicaodesportivo.pt/_piscinas_vn_famalicao"
-                    }
-                ]
-            },
-            {
-                title: "Ribeirão",
-                dates: [{
-                    start: "2009-10",
-                    end: "2013-10"
-                }],
-                description: [
-                    "Participated in swimming classes and competitions representing my town.",
-                    {
-                        type: "button",
-                        label: "Website",
-                        link: "https://www.famalicaodesportivo.pt/_piscinas_ribeirao"
-                    }
-                ]
-            }
-        ]
-    },
+    // {
+    //     id: "praxe",
+    //     title: "Praxe",
+    //     icon: "praxe.png",
+    //     tags: ["university"],
+    //     description: [
+    //         {
+    //             type: "button",
+    //             icon: FaBlogger,
+    //             label: "Cabido de Cardeais",
+    //             link: "https://cabidodecardeais.blogspot.com/"
+    //         }
+    //     ],
+    //     roles: [
+    //         {
+    //             title: "MIETI Praxe Committee",
+    //             dates: [{
+    //                 start: "2018-09",
+    //                 end: "2019-05"
+    //             }],
+    //             description: [
+    //                 "\"Mr. Engineer Fósforo Cooper\" with a very short active duty."
+    //             ]
+    //         },
+    //         {
+    //             title: "Freshman",
+    //             dates: [{
+    //                 start: "2016-09",
+    //                 end: "2017-05"
+    //             }],
+    //             description: [
+    //                 "Had my weekly push-ups routine, participated in Guimarães's \"Latada\" and Braga's universitary procession, and got baptized as \"Fósforo Cooper\" with Francesinha sauce."
+    //             ]
+    //         }
+    //     ]
+    // },
+    // {
+    //     id: "swimming",
+    //     title: "Swimming",
+    //     roles: [
+    //         {
+    //             title: "Famalicão",
+    //             dates: [{
+    //                 start: "2014-11",
+    //                 end: "2016-05"
+    //             }],
+    //             description: [
+    //                 "Participated in swimming classes and competitions representing my high school city.",
+    //                 {
+    //                     type: "button",
+    //                     label: "Website",
+    //                     link: "https://www.famalicaodesportivo.pt/_piscinas_vn_famalicao"
+    //                 }
+    //             ]
+    //         },
+    //         {
+    //             title: "Ribeirão",
+    //             dates: [{
+    //                 start: "2009-10",
+    //                 end: "2013-10"
+    //             }],
+    //             description: [
+    //                 "Participated in swimming classes and competitions representing my town.",
+    //                 {
+    //                     type: "button",
+    //                     label: "Website",
+    //                     link: "https://www.famalicaodesportivo.pt/_piscinas_ribeirao"
+    //                 }
+    //             ]
+    //         }
+    //     ]
+    // },
     {
         id: "students_association",
         title: "Students Association",
@@ -214,63 +214,63 @@ export const activities = [
     //         }
     //     ]
     // },
-    {
-        id: "futsal",
-        title: "Futsal",
-        tags: ["middle_school"],
-        roles: [
-            {
-                dates: [{
-                    start: "2011-10",
-                    end: "2012-05"
-                }],
-                description: [
-                    "Participated in futsal competitions representing my school."
-                ]
-            }
-        ]
-    },
-    {
-        id: "chess",
-        title: "Chess",
-        tags: ["middle_school"],
-        roles: [
-            {
-                dates: [{
-                    start: "2009-10",
-                    end: "2010-06"
-                }],
-                description: [
-                    "Participated in chess competitions representing my school."
-                ]
-            }
-        ]
-    },
-    {
-        id: "ccdr",
-        title: "CCDR - Clube de Cultura e Desporto de Ribeirão",
-        icon: "ccdr.png",
-        description: [            
-            {
-                type: "button",
-                icon: "ccdr.png",
-                label: "Website",
-                link: "https://www.ccdr.pt/"
-            }
-        ],
-        roles: [
-            {
-                title: "Athlete",
-                dates: [{
-                    start: "2007-04",
-                    end: "2011-07"
-                }],
-                description: [
-                    "Participated in athletics classes and competitions representing my town."
-                ]
-            }
-        ]
-    },
+    // {
+    //     id: "futsal",
+    //     title: "Futsal",
+    //     tags: ["middle_school"],
+    //     roles: [
+    //         {
+    //             dates: [{
+    //                 start: "2011-10",
+    //                 end: "2012-05"
+    //             }],
+    //             description: [
+    //                 "Participated in futsal competitions representing my school."
+    //             ]
+    //         }
+    //     ]
+    // },
+    // {
+    //     id: "chess",
+    //     title: "Chess",
+    //     tags: ["middle_school"],
+    //     roles: [
+    //         {
+    //             dates: [{
+    //                 start: "2009-10",
+    //                 end: "2010-06"
+    //             }],
+    //             description: [
+    //                 "Participated in chess competitions representing my school."
+    //             ]
+    //         }
+    //     ]
+    // },
+    // {
+    //     id: "ccdr",
+    //     title: "CCDR - Clube de Cultura e Desporto de Ribeirão",
+    //     icon: "ccdr.png",
+    //     description: [            
+    //         {
+    //             type: "button",
+    //             icon: "ccdr.png",
+    //             label: "Website",
+    //             link: "https://www.ccdr.pt/"
+    //         }
+    //     ],
+    //     roles: [
+    //         {
+    //             title: "Athlete",
+    //             dates: [{
+    //                 start: "2007-04",
+    //                 end: "2011-07"
+    //             }],
+    //             description: [
+    //                 "Participated in athletics classes and competitions representing my town."
+    //             ]
+    //         }
+    //     ]
+    // },
     {
         title: "Informatics Course",
         tags: ["middle_school"],
