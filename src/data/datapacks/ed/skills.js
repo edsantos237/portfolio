@@ -261,7 +261,7 @@ export const skills = [
     },
     {
         id: "js",
-        title: "Javascript",
+        title: "JavaScript",
         icon: SiJavascript,
         tags: ["featured", "language", "personal", "university", "ccg"]
     },

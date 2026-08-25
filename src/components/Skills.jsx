@@ -251,6 +251,12 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
             }
         }, [filteredSkills, selectedSkillId]);
 
+        const hasAnyFilter =
+            featuredSelected ||
+            selectedProfessional.length > 0 ||
+            selectedAcademic.length > 0 ||
+            personalSelected;
+
         return (
             <section id="skills" className="py-16">
                 <div
@@ -359,12 +365,12 @@ export default function Skills({ onShowProjects, isActive, isPrevious = false, a
                     })}
                 </div>
 
-                {featuredSelected && (
+                {hasAnyFilter && (
                     <div className="mt-8 flex justify-center">
                         <button
                             type="button"
                             onClick={() => {
-                                setFeaturedSelected(false);
+                                clearAll();
                                 const section = document.getElementById("skills");
                                 section?.scrollIntoView({ behavior: "smooth" });
                             }}

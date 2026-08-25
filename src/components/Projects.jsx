@@ -301,6 +301,13 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
     return grouped.flat().filter((s) => keepSet.has(s.id));
   };
 
+  const hasAnyFilter =
+    featuredSelected ||
+    selectedProfessional.length > 0 ||
+    selectedAcademic.length > 0 ||
+    selectedSkills.length > 0 ||
+    personalSelected;
+
   return (
     <section id="projects" className="py-16">
       {/* Sticky header and filter bar */}
@@ -493,12 +500,12 @@ export default function Projects({ focusedSkill, setFocusedSkill, focusedCompany
         );
       })()}
 
-      {featuredSelected && (
+      {hasAnyFilter && (
         <div className="mt-8 flex justify-center">
           <button
             type="button"
             onClick={() => {
-              setFeaturedSelected(false);
+              clearAll();
               const section = document.getElementById("projects");
               section?.scrollIntoView({ behavior: "smooth" });
             }}

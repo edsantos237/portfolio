@@ -82,6 +82,11 @@ export default function Publications({ isActive, onPublicationClick }) {
     onRemovePersonal: () => setPersonalSelected(false),
   };
 
+  const hasAnyFilter =
+    selectedProfessional.length > 0 ||
+    selectedAcademic.length > 0 ||
+    personalSelected;
+
   return (
     <section id="publications" className="py-16">
       <div
@@ -217,6 +222,22 @@ export default function Publications({ isActive, onPublicationClick }) {
           </div>
         ))}
       </div>
+
+      {hasAnyFilter && (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() => {
+              clearAll();
+              const section = document.getElementById("publications");
+              section?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="w-fit rounded border px-3 py-2 text-sm font-normal transition section-accent-button"
+          >
+            {`Show all publications (${publications.length})`}
+          </button>
+        </div>
+      )}
     </section>
   );
 }

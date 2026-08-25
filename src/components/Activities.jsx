@@ -7,7 +7,6 @@ import { projects } from "@datapack/projects";
 import AnimatedCollapse from "./AnimatedCollapse";
 import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
-import FilterPanel from "./FilterPanel";
 import { formatDates, getEarliestStart, getLatestEnd } from "../utils/dateFormat";
 import VerticalTimeline from "./VerticalTimeline";
 import { groupDescriptionItems, renderGroups, renderFlatButtons } from "../utils/descriptionRenderer.jsx";
@@ -20,12 +19,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
   const sectionTheme = getSectionTheme("activities");
   const single = activities.length === 1;
   const [selectedId, setSelectedId] = useState(null);
-  const [volunteeringSelected, setVolunteeringSelected] = useState(false);
   const activityRefs = useRef({});
-
-  const hasVolunteeringActivities = useMemo(() =>
-    activities.some((a) => (a.tags || []).includes("volunteering")),
-  []);
 
   const sorted = useMemo(
     () =>
@@ -40,18 +34,12 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
     []
   );
 
-  const displayedSorted = useMemo(() =>
-    volunteeringSelected
-      ? sorted.filter((a) => (a.tags || []).includes("volunteering"))
-      : sorted,
-  [sorted, volunteeringSelected]);
-
   const [openId, setOpenId] = useState(single ? sorted[0]?.resolvedId ?? null : null);
 
   // Timeline: if single, use roles as entries; else, use activities
   const timelineEntries = useMemo(() => {
     if (single) {
-      const act = displayedSorted[0];
+      const act = sorted[0];
 
       if (!act) {
         return [];
@@ -63,7 +51,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
         endDate: getLatestEnd(role.dates),
       }));
     } else {
-      return displayedSorted.map((act) => {
+      return sorted.map((act) => {
         const periods = (act.roles || []).map((r, idx) => ({
           id: `${act.resolvedId}__role${idx}`,
           startDate: getEarliestStart(r.dates),
@@ -78,7 +66,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
         return { id: act.resolvedId, startDate, endDate, periods };
       });
     }
-  }, [single, displayedSorted]);
+  }, [single, sorted]);
 
   useEffect(() => {
     if (!focusedActivityId) {
@@ -110,20 +98,6 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
         />
         <div className="relative pt-4">
           <h2 className="text-3xl font-bold mb-2">Activities</h2>
-          {hasVolunteeringActivities && (
-            <FilterPanel
-              leadingControls={[
-                {
-                  id: "volunteering",
-                  label: "Volunteering",
-                  active: volunteeringSelected,
-                  onClick: () => setVolunteeringSelected((v) => !v),
-                },
-              ]}
-              filters={[]}
-              onClearAll={() => setVolunteeringSelected(false)}
-            />
-          )}
         </div>
       </div>
 
@@ -134,7 +108,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
         {/* Cards */}
         <div className="flex-1">
 
-        {displayedSorted.map((act) => {
+        {sorted.map((act) => {
           const isEntryOpen = single || openId === act.resolvedId;
           // Count projects with this activity title as tag
           const projectCount = projects.filter(p => p.tags.includes(act.title)).length;

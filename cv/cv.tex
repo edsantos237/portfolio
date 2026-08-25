@@ -54,7 +54,7 @@
 \definecolor{sec-education}{hsb}{0.944,0.83,0.58}
 \definecolor{sec-projects}{hsb}{0.033,0.83,0.58}
 \definecolor{sec-publications}{hsb}{0.097,0.83,0.58}
-\definecolor{sec-activities}{hsb}{0.222,0.83,0.48}
+\definecolor{sec-activities}{hsb}{0.033,0.83,0.58} %{0.222,0.83,0.48}
 \definecolor{sec-contact}{hsb}{0.389,0.83,0.58}
 
 % Ensure default itemize labels use the dynamic section color
@@ -95,7 +95,7 @@
 
 % Section title with explicit color: \cvsectiontitle{<color>}{<Title>}
 \newcommand{\cvsectiontitle}[2]{%
-  \vspace{10pt}% extra space before section title
+  \vspace{20pt}% extra space before section title
   {\large\bfseries\addfontfeatures{LetterSpace=5}\color{#1}\MakeUppercase{#2}}\par
   \vspace{-3pt}{\color{#1}\rule{\linewidth}{1.35pt}}\par\vspace{10pt}%
   \gdef\currentsectioncolor{#1}%
@@ -120,7 +120,7 @@
   {\footnotesize\color{textmuted}#2}\par
   \vspace{0.5pt}%
   #3%
-  \par\vspace{5pt}%
+  \par\vspace{10pt}%
 }
 
 \newcommand{\pubentry}[3]{%
@@ -155,24 +155,28 @@
   \cvinlineruleheading{#1}{1pt}%
 }
 
-\newcommand{\filledlevel}{\textcolor{sec-about-me}{\rule[0.25ex]{1.35em}{0.75ex}}}
-\newcommand{\emptylevel}{\textcolor{sec-about-me!20}{\rule[0.25ex]{1.35em}{0.75ex}}}
+\newcommand{\filledlevel}{\textcolor{sec-about-me}{\rule[0.25ex]{1em}{0.75ex}}}
+\newcommand{\emptylevel}{\textcolor{sec-about-me!20}{\rule[0.25ex]{1em}{0.75ex}}}
 
 \newcommand{\ratingbars}[1]{%
   \ifnum#1>0 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
   \ifnum#1>1 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
   \ifnum#1>2 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
   \ifnum#1>3 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
-  \ifnum#1>4 \filledlevel\else\emptylevel\fi%
+  \ifnum#1>4 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
+  \ifnum#1>5 \filledlevel\else\emptylevel\fi\hspace{0.18em}%
+  \ifnum#1>6 \filledlevel\else\emptylevel\fi%
 }
 
 \newlength{\langbarswidth}
 \settowidth{\langbarswidth}{\ratingbars{5}}
 \newlength{\langlabelwidth}
 \settowidth{\langlabelwidth}{{\footnotesize Professional}}
+\newlength{\langnamewidth}
+\settowidth{\langnamewidth}{{\normalsize\color{textsecondary}\listlead Portuguese}}
 
 \newcommand{\langrow}[3]{%
-  {\normalsize\color{textsecondary}\listlead#1\hfill\makebox[\langbarswidth][l]{\ratingbars{#2}}\hspace{0.55em}\makebox[\langlabelwidth][l]{{\footnotesize\color{textmuted}#3}}}\par\vspace{2pt}%
+  {\normalsize\color{textsecondary}\makebox[\langnamewidth][l]{\listlead#1}\hspace{1em}\makebox[\langbarswidth][l]{\ratingbars{#2}}\hspace{0.55em}\makebox[\langlabelwidth][l]{{\footnotesize\color{textmuted}#3}}}\par\vspace{2pt}%
 }
 
 % ============================================================
@@ -190,7 +194,7 @@
   \vspace{0pt}%
   {\fontsize{22}{24}\selectfont\bfseries\color{textprimary}Eduardo Santos}\par
   {\small\bfseries\addfontfeatures{LetterSpace=4}\color{sec-start}UNITY \& BACKEND DEVELOPER}\par
-  \vspace{4pt}%
+  \vspace{10pt}%
   % --- Dense metadata rows: 4 fields per row, natural width ---
   {\renewcommand{\arraystretch}{1.1}%
   \setlength{\tabcolsep}{5.5pt}%
@@ -220,42 +224,43 @@
 
   \cvsubheading{Who am I?}
   {\normalsize\color{textsecondary}%
-    I have a Master's degree in Telecommunications and Informatics Engineering, where I've got quite the expertise in programming, networking, embedded systems, internet of things, machine learning and full stack.\smallskip
+    I have a Master's degree in Telecommunications and Informatics Engineering, with a broad background in programming, networking, embedded systems, Internet of Things, machine learning and full stack.\smallskip
 
-    My professional experience bloomed through my Master's dissertation, which paved my way to the Research \& Development environment, where I've been developing extended reality experiences, mobile applications, communication features, back-office systems, 3D scene configuration tools, and backend services, usually for industrial or learning contexts.\smallskip
+    My professional experience bloomed through my Master's dissertation, which led me to the Research \& Development environment, where I've been developing extended reality experiences, mobile applications, communication features, back-office systems, 3D scene configuration tools, and backend services, usually for industrial or learning contexts. I have also contributed to five published articles and conference papers.\smallskip
 
-    Given all of my professional, academic and personal experiences, I'm open to work in a wide range of fields, with a particular interest in the fields of internet of things, extended reality and backend services, and always eager to learn new things.\par
+    I'm open to work in a wide range of fields, with a particular interest in the fields of Internet of Things, extended reality and backend development, and always eager to learn new things.\par
   }
 
-  \vspace{5pt}
+  \vspace{10pt}
   \cvsubheading{Hobbies}
   \bulletrow{App development\listsep Astrophotography}
   \bulletrow{Drawing\listsep Hiking\listsep Playing piano}
   \bulletrow{Traveling\listsep Volunteering \listsep Writing}
 
-  \vspace{5pt}
+  \vspace{10pt}
   \cvsubheading{Strengths}
   \bulletrow{Ambition\listsep Creativity\listsep Problem solving}
   \bulletrow{Proactivity\listsep Teamwork\listsep Versatility}
 
-  \vspace{5pt}
+  \vspace{10pt}
   \cvsubheading{Languages}
-  \langrow{Portuguese}{5}{Native}
-  \langrow{English}{4}{Professional}
-  \langrow{Spanish}{2}{Elementary}
-  \langrow{German}{1}{Elementary}
+  \langrow{Portuguese}{7}{Native}
+  \langrow{English}{5}{C1 / Professional}
+  \langrow{Spanish}{2}{A2 / Elementary}
+  \langrow{German}{1}{A1 / Elementary}
+  \vspace{8pt}
 
   \cvsectiontitle{sec-skills}{Skills}
   \skillcategory{Domains}
   \bulletrow{Backend\listsep Extended Reality}
   \bulletrow{Game Development\listsep Internet of Things}
   \bulletrow{Mobile Development\listsep Networking}
-  \vspace{2pt}
-
+  
+  \vspace{10pt}
   \skillcategory{Languages}
-  \bulletrow{C\listsep C\#\listsep Java\listsep Javascript\listsep Python\listsep SQL}
-  \vspace{2pt}
-
+  \bulletrow{C\listsep C\#\listsep Java\listsep JavaScript\listsep Python\listsep SQL}
+  
+  \vspace{10pt}
   \skillcategory{Frameworks / Tools}
   \bulletrow{Android Studio\listsep MySQL\listsep Node.js\listsep Unity}
   
@@ -268,9 +273,9 @@
     {CCG/ZGDV Institute}
     {May 2021 --- Present \textcolor{textmuted}{|} CVIG-CG --- Computer Vision, Interaction and Graphics}
     {\begin{cvbullets}
-      \item \textbf{Technical Project Coordinator} \textcolor{textmuted}{(Jan 2025 to Jul 2026)}: Project: ECP --- Ecoceramics and Crystalware of Portugal.
-      \item \textbf{Development Technician, Assistant Researcher} \textcolor{textmuted}{(since Oct 2021)}: Development in Unity/C\# of mixed reality remote assistance systems, 3D scene configurators, augmented reality mobile apps, gamified virtual reality apps, and backend services in Node.js.
-      \item \textbf{Research Grant} \textcolor{textmuted}{(until Sep 2021)}.
+      \item \textbf{Technical Project Coordinator} {\footnotesize\textcolor{textmuted}{(Jan 2025 to Jul 2026)}}: Project: \textit{ECP -- Ecoceramics and Crystalware of Portugal}.
+      \item \textbf{Development Technician, Assistant Researcher} {\footnotesize\textcolor{textmuted}{(since Oct 2021)}}: Development in Unity/C\# of mixed reality remote assistance systems, 3D scene configurators, augmented reality mobile apps, gamified virtual reality apps, and backend services in Node.js.
+      \item \textbf{Research Grant} {\footnotesize\textcolor{textmuted}{(until Sep 2021)}}.
     \end{cvbullets}}
 
   \cvsectiontitle{sec-education}{Education}
@@ -281,6 +286,7 @@
     {\begin{cvbullets}
       \item Telecommunications and Informatics Engineering
       \item Grade: \textbf{15.07\,/\,20}
+      \item Master's Dissertation: \textit{Augmented Reality System with Gamification for Education} {\footnotesize\textcolor{textmuted}{(Grade: 19\,/\,20)}}
     \end{cvbullets}}
 
   \stackentry
@@ -294,113 +300,113 @@
   \cvsectiontitle{sec-activities}{Activities}
 
   \stackentry
-    {Refood}
+    {REFOOD}
     {Sep 2025 --- Present \textcolor{textmuted}{|} Volunteering}
     {\begin{cvbullets}
       \item I'm performing food collection and distribution routes and organizing it at the Operations Center, two hours each week.
     \end{cvbullets}}
 
   \stackentry
-    {N\'ucleo de Estudantes de Engenharia de Telecomunica\c{c}\~oes e Inform\'atica da Universidade do Minho}
+    {NETIUM \textmd{-- \textit{N\'ucleo de Estudantes de Engenharia de Telecomunica\c{c}\~oes e Inform\'atica da Universidade do Minho}}}
     {2019 --- 2020 \textcolor{textmuted}{|} Volunteering}
     {\begin{cvbullets}
-      \item \textbf{Treasurer} \textcolor{textmuted}{(2020)}: I managed financial assets and liabilities.
-      \item \textbf{Communications and Design Department} \textcolor{textmuted}{(2019)}: I designed posters and promoted events.
+      \item \textbf{Treasurer} {\footnotesize\textcolor{textmuted}{(2020)}}: I managed financial assets and liabilities.
+      \item \textbf{Communications and Design Department} {\footnotesize\textcolor{textmuted}{(2019)}}: I designed posters and promoted events.
     \end{cvbullets}}
 \end{paracol}
 
 % ── PAGE 2 ────────────────────────────────────────────────────
-\newpage
+% \newpage
 
-\noindent
-\begin{minipage}[t]{0.58\linewidth}
-  \raggedright
-  \vspace*{10pt}% match section spacing used on page 1
-  \cvsectiontitle{sec-projects}{Projects}
+% \noindent
+% \begin{minipage}[t]{0.58\linewidth}
+%   \raggedright
+%   \vspace*{10pt}% match section spacing used on page 1
+%   \cvsectiontitle{sec-projects}{Projects}
 
-  \cvsubheading{CCG/ZGDV Institute}
-  \vspace{4pt}
+%   \cvsubheading{CCG/ZGDV Institute}
+%   \vspace{4pt}
 
-  \begin{projectentry}{XR-GRIT}{Sep 2025 --- Jun 2026}
-    \item Gamified VR training course for robotics instruction and training.
-  \end{projectentry}
-  % \begin{projectentry}{Nyxium}{Aug 2025 --- Ongoing}
-  %   \item Mobile app with clock and compass to display the orientation of celestial bodies.
-  % \end{projectentry}
-  \begin{projectentry}{ECP - Ecoceramics and Crystalware of Portugal}{Dec 2023 --- Jul 2026}
-    \item Digital Training Academy with virtual and immersive learning methods for continuous and advanced worker training.
-    \item Role: Technical Project Coordinator.
-  \end{projectentry}
-  \begin{projectentry}{HfPT - Health from Portugal}{Oct 2023 --- Jun 2026}
-    \item Remote monitoring and telemedicine system for healthcare, and a set of interactive and AR applications for anatomical pathology learning.
-  \end{projectentry}
-  \begin{projectentry}{Cognitive CMMS - Cognitive Computerized Maintenance Management System}{Jun 2021 --- Jun 2023}
-    \item Mobile app to list and display assets info and tasks on a given location with indoor navigation system.
-  \end{projectentry}
-  \begin{projectentry}{ADM.IN: Advanced Decision Making IN Productive Systems Through Intelligent Networks}{Sep 2022 --- Jul 2023}
-    \item Maintenance Configurator and Remote Assistance system for maintenance operations in AR.
-  \end{projectentry}
-  \begin{projectentry}{TSIM - Test System Intelligent Machines}{May 2021 --- Oct 2022}
-    \item Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support.
-  \end{projectentry}
-  \begin{projectentry}{Factory of the Future: Smart Manufacturing / P51 - Training for operators with new methodologies}{Aug 2021 --- Jan 2022}
-    \item Gamified training and evaluation system for machine operations in VR and AR.
-  \end{projectentry}
+%   \begin{projectentry}{XR-GRIT}{Sep 2025 --- Jun 2026}
+%     \item Gamified VR training course for robotics instruction and training.
+%   \end{projectentry}
+%   % \begin{projectentry}{Nyxium}{Aug 2025 --- Ongoing}
+%   %   \item Mobile app with clock and compass to display the orientation of celestial bodies.
+%   % \end{projectentry}
+%   \begin{projectentry}{ECP - Ecoceramics and Crystalware of Portugal}{Dec 2023 --- Jul 2026}
+%     \item Digital Training Academy with virtual and immersive learning methods for continuous and advanced worker training.
+%     \item Role: Technical Project Coordinator.
+%   \end{projectentry}
+%   \begin{projectentry}{HfPT - Health from Portugal}{Oct 2023 --- Jun 2026}
+%     \item Remote monitoring and telemedicine system for healthcare, and a set of interactive and AR applications for anatomical pathology learning.
+%   \end{projectentry}
+%   \begin{projectentry}{Cognitive CMMS - Cognitive Computerized Maintenance Management System}{Jun 2021 --- Jun 2023}
+%     \item Mobile app to list and display assets info and tasks on a given location with indoor navigation system.
+%   \end{projectentry}
+%   \begin{projectentry}{ADM.IN: Advanced Decision Making IN Productive Systems Through Intelligent Networks}{Sep 2022 --- Jul 2023}
+%     \item Maintenance Configurator and Remote Assistance system for maintenance operations in AR.
+%   \end{projectentry}
+%   \begin{projectentry}{TSIM - Test System Intelligent Machines}{May 2021 --- Oct 2022}
+%     \item Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support.
+%   \end{projectentry}
+%   \begin{projectentry}{Factory of the Future: Smart Manufacturing / P51 - Training for operators with new methodologies}{Aug 2021 --- Jan 2022}
+%     \item Gamified training and evaluation system for machine operations in VR and AR.
+%   \end{projectentry}
 
-\end{minipage}\hfill
-\begin{minipage}[t]{0.38\linewidth}
-  \raggedright
-  \vspace*{10pt}% match section spacing used on page 1
-  \cvsectiontitle{sec-publications}{Publications}
+% \end{minipage}\hfill
+% \begin{minipage}[t]{0.38\linewidth}
+%   \raggedright
+%   \vspace*{10pt}% match section spacing used on page 1
+%   \cvsectiontitle{sec-publications}{Publications}
 
-  \pubentry{Towards remote rehabilitation with gaming, digital monitor and computer vision technologies}{Presented at Web3D '24: Proceedings of the 29th International ACM Conference on 3D Web Technology.}{2024 \textcolor{textmuted}{|} ACM Digital Library}
-  \pubentry{UX and Industry 5.0: A study in Repairing equipment using Augmented Reality}{Presented at ITET 2023 - International Conference on Information Technology and Education Technology.}{2023 \textcolor{textmuted}{|} Springer}
-  \pubentry{Augmented Reality Towards Industry 5.0: Improving Voice and Tap Interaction Based on User Experience Feedback}{Presented at ITET 2023 - International Conference on Information Technology and Education Technology.}{2023 \textcolor{textmuted}{|} Springer}
-  \pubentry{Generic XR game-based approach for industrial training}{Presented at ICGI'2022 - International Conference on Graphics and Interaction.}{2022 \textcolor{textmuted}{|} IEEE}
-  \pubentry{QuizHuntAR: A location-based Augmented Reality game for education}{Presented by me at ICGI'2021 - International Conference on Graphics and Interaction.}{2021 \textcolor{textmuted}{|} IEEE}
-\end{minipage}
+%   \pubentry{Towards remote rehabilitation with gaming, digital monitor and computer vision technologies}{Presented at Web3D '24: Proceedings of the 29th International ACM Conference on 3D Web Technology.}{2024 \textcolor{textmuted}{|} ACM Digital Library}
+%   \pubentry{UX and Industry 5.0: A study in Repairing equipment using Augmented Reality}{Presented at ITET 2023 - International Conference on Information Technology and Education Technology.}{2023 \textcolor{textmuted}{|} Springer}
+%   \pubentry{Augmented Reality Towards Industry 5.0: Improving Voice and Tap Interaction Based on User Experience Feedback}{Presented at ITET 2023 - International Conference on Information Technology and Education Technology.}{2023 \textcolor{textmuted}{|} Springer}
+%   \pubentry{Generic XR game-based approach for industrial training}{Presented at ICGI'2022 - International Conference on Graphics and Interaction.}{2022 \textcolor{textmuted}{|} IEEE}
+%   \pubentry{QuizHuntAR: A location-based Augmented Reality game for education}{Presented by me at ICGI'2021 - International Conference on Graphics and Interaction.}{2021 \textcolor{textmuted}{|} IEEE}
+% \end{minipage}
 
-\vspace{4pt}
-\gdef\currentsectioncolor{sec-projects}%
-\cvsubheading{University}
-\vspace{4pt}
+% \vspace{4pt}
+% \gdef\currentsectioncolor{sec-projects}%
+% \cvsubheading{University}
+% \vspace{4pt}
 
-\begingroup
-\setlength{\multicolsep}{0pt}
-\begin{multicols}{2}
-\raggedcolumns
+% \begingroup
+% \setlength{\multicolsep}{0pt}
+% \begin{multicols}{2}
+% \raggedcolumns
 
-\begin{projectentry}{Augmented Reality System with Gamification for Education}{Sep 2020 --- Mar 2022 \textcolor{textmuted}{|} 5th year}
-  \item Master's Dissertation.
-  \item Grade: \textbf{19\,/\,20}.
-\end{projectentry}
-\begin{projectentry}{VRollercoastAR}{Sep 2020 --- Feb 2021 \textcolor{textmuted}{|} 5th year}
-  \item AR app to build rollercoaster tracks and VR app to ride them.
-\end{projectentry}
-\begin{projectentry}{Detection of bike riding events with a mobile phone}{Sep 2020 --- Jan 2021 \textcolor{textmuted}{|} 5th year}
-  \item Mobile app to detect bike riding events using a machine learning model based on the phone's sensors data.
-\end{projectentry}
-\begin{projectentry}{Corporative messaging and alerting services for vehicular networks}{Feb --- Jun 2020 \textcolor{textmuted}{|} 4th year}
-  \item System composed of an IPv6 vehicular network, where vehicles communicate with each other through RSUs and OBUs.
-\end{projectentry}
-% \begin{projectentry}{E-Scudo - Mobile application to carry out cryptocurrency transactions}{Mar --- Jun 2020}
-%   \item Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform.
-%   \item Participated in the 1st edition of INNCYBER Innovation Award (2019/2020).
+% \begin{projectentry}{Augmented Reality System with Gamification for Education}{Sep 2020 --- Mar 2022 \textcolor{textmuted}{|} 5th year}
+%   \item Master's Dissertation.
+%   \item Grade: \textbf{19\,/\,20}.
 % \end{projectentry}
-% \begin{projectentry}{Colaborative sensing-based traffic monitoring services}{Sep 2019 --- Jan 2020}
-%   \item Traffic monitoring system based on collaborative sensing, where vehicles send information regarding their speed and location to a server that processes this information and provides public access services.
+% \begin{projectentry}{VRollercoastAR}{Sep 2020 --- Feb 2021 \textcolor{textmuted}{|} 5th year}
+%   \item AR app to build rollercoaster tracks and VR app to ride them.
 % \end{projectentry}
-\begin{projectentry}{SMAF.G7 - Physical activity monitoring system}{Feb --- Sep 2019 \textcolor{textmuted}{|} 3rd year}
-  \item Physical activity monitoring system based on an Arduino with a set of sensors that send data to a set of hubs and management services.
-\end{projectentry}
-\begin{projectentry}{Smart Health Control}{Feb --- Jun 2018 \textcolor{textmuted}{|} 2nd year}
-  \item Mobile app to monitor user's health --- steps counter, distance measuring, heart rate measure, calories and workout monitoring.
-\end{projectentry}
-% \begin{projectentry}{The QUIZZER}{May 2017 --- Jun 2017}
-%   \item Quiz fighter game in C where the player answers questions to defeat themed characters.
+% \begin{projectentry}{Detection of bike riding events with a mobile phone}{Sep 2020 --- Jan 2021 \textcolor{textmuted}{|} 5th year}
+%   \item Mobile app to detect bike riding events using a machine learning model based on the phone's sensors data.
 % \end{projectentry}
+% \begin{projectentry}{Corporative messaging and alerting services for vehicular networks}{Feb --- Jun 2020 \textcolor{textmuted}{|} 4th year}
+%   \item System composed of an IPv6 vehicular network, where vehicles communicate with each other through RSUs and OBUs.
+% \end{projectentry}
+% % \begin{projectentry}{E-Scudo - Mobile application to carry out cryptocurrency transactions}{Mar --- Jun 2020}
+% %   \item Mobile app to carry out cryptocurrency transactions based on the Portuguese financial system and through Corda blockchain platform.
+% %   \item Participated in the 1st edition of INNCYBER Innovation Award (2019/2020).
+% % \end{projectentry}
+% % \begin{projectentry}{Colaborative sensing-based traffic monitoring services}{Sep 2019 --- Jan 2020}
+% %   \item Traffic monitoring system based on collaborative sensing, where vehicles send information regarding their speed and location to a server that processes this information and provides public access services.
+% % \end{projectentry}
+% \begin{projectentry}{SMAF.G7 - Physical activity monitoring system}{Feb --- Sep 2019 \textcolor{textmuted}{|} 3rd year}
+%   \item Physical activity monitoring system based on an Arduino with a set of sensors that send data to a set of hubs and management services.
+% \end{projectentry}
+% \begin{projectentry}{Smart Health Control}{Feb --- Jun 2018 \textcolor{textmuted}{|} 2nd year}
+%   \item Mobile app to monitor user's health --- steps counter, distance measuring, heart rate measure, calories and workout monitoring.
+% \end{projectentry}
+% % \begin{projectentry}{The QUIZZER}{May 2017 --- Jun 2017}
+% %   \item Quiz fighter game in C where the player answers questions to defeat themed characters.
+% % \end{projectentry}
 
-\end{multicols}
-\endgroup
+% \end{multicols}
+% \endgroup
 
 \end{document}

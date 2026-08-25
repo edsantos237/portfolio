@@ -303,15 +303,14 @@ export const projects = [
             },
             {
                 start: "2026-07",
-                end: null
+                end: "2026-07"
             }
         ],
         summary: [
             "Demonstrative app to display in real-time a digital twin of a given environment (CCG's building) along with a mobile robot and a set of detection cameras."
         ],
         description: [
-            "The OpenLabs project is an open network of industrial laboratories for companies' digital and sustainable transformation in the Galicia-North Portugal Euroregion.",
-            "In this way, it is possible to boost new production and service provision forms, and improve SMEs' ability to test use cases when implementing innovative solutions.",
+            "The OpenLabs project is an open network of industrial laboratories for companies' digital and sustainable transformation, aimed at boosting new production and service provision forms, and improving SMEs' ability to test use cases when implementing innovative solutions.",
             "## My contributions (2024):",
             "* Demonstrative app to display a digital twin of CCG's building along with a mobile robot and a set of detection cameras.",
             "* Communication system through WebRTC to retrieve robot coordinates and coordinates of detected people to be displayed.",

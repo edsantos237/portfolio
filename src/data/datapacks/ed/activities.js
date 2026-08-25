@@ -39,7 +39,7 @@ export const activities = [
         icon: "netium.png",
         tags: ["university", "volunteering"],
         description: [
-            "Núcleo de Estudantes de Engenharia de Telecomunicações e Informática da Universidade do Minho",
+            "*Núcleo de Estudantes de Engenharia de Telecomunicações e Informática da Universidade do Minho*",
             {
                 type: "button",
                 icon: "netium.png",

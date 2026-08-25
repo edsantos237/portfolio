@@ -146,7 +146,7 @@ export default function About({ isActive, onShowProjectFilters, onShowActivity, 
             <h3 className="text-lg font-semibold mb-4 text-gray-300">Languages</h3>
             <div className="space-y-4">
               {languages.map((l) => {
-                const percent = Math.round((l.level / 5) * 100);
+                const percent = Math.round((l.level / 7) * 100);
                 return (
                   <div key={l.title}>
                     <div className="flex items-center justify-between">
@@ -158,8 +158,8 @@ export default function About({ isActive, onShowProjectFilters, onShowActivity, 
 
                     <div className="relative mt-2 w-full bg-gray-800 rounded-full h-2 overflow-hidden">
                       <div className="h-full section-progress-fill rounded-full" style={{ width: `${percent}%` }} />
-                      {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="absolute inset-y-0 w-px bg-black/30" style={{ left: `${(i / 5) * 100}%` }} />
+                      {[1, 2, 3, 4, 5, 6].map((i) => (
+                        <div key={i} className="absolute inset-y-0 w-px bg-black/30" style={{ left: `${(i / 7) * 100}%` }} />
                       ))}
                     </div>
                   </div>
