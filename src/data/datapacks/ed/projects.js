@@ -2,19 +2,46 @@ import { IoLogoGithub } from "react-icons/io5";
 import { FaFilePdf } from "react-icons/fa6";
 
 export const projects = [
+    
+    {
+        id: "idex_machina",
+        title: "IDEx MACHINA",
+        label: "IDEx MACHINA",
+        tags: ["ccg", "csharp", "figma", "unity", "vr", "windows", "xr"],
+        dates: [{
+            start: "2026-08",
+            end: null
+        }],
+        summary: [
+            "UI assets for a industrial machines monitoring and virtual simulation of their operations."
+        ],
+        description: [
+            "The project aims to create an integrated digital platform for the complete development of industrial machines, from the mechanical design phase to the programming of automatons and virtual simulation of their operation.",
+            "This platform will feature advanced motion simulation, interoperable communication with robots from various brands, and integration of Extended Reality technology. By creating digital twins and an immersive interface, users will be able to validate projects more efficiently and with less risk. This holistic approach will reduce development time and costs, eliminating redundancies and promoting effective multidisciplinary collaboration.",
+            "## My contributions:",
+            "* UI assets, namely prefabs, scripts and scriptable objects.",
+            "### **Partner**: [Controlar](https://controlar.com/en/)",
+            {
+                type: "button",
+                icon: "ccg.svg",
+                label: "Project website",
+                link: "https://www.ccg.pt/en/research-and-innovation/projects/idex-machina"
+            },
+        ]
+    },
     {
         id: "portfolio",
-        title: "Portfoio / CV",
-        tags: ["personal", "frontend", "ghcopilot", "js", "latex", "nodejs", "reactjs"],
+        title: "Portfolio / CV",
+        tags: ["personal", "deepseek", "frontend", "ghcopilot", "js", "latex", "nodejs", "reactjs"],
         dates: [{
             start: "2026-04",
             end: null
         }],
         summary: [
-            "Vibe-coded website in React.js, hosted in GitHub Pages, powered by GitHub Copilot, and easily customizable through data files."
+            "Vibe-coded website in React.js, hosted in GitHub Pages, powered by AI agents, and easily customizable through data files."
         ],
         description: [
-            "Vibe-coded website in React.js, hosted in GitHub Pages, powered by GitHub Copilot, and easily customizable through data files.",
+            "Vibe-coded website in React.js, hosted in GitHub Pages, powered by AI agents, and easily customizable through data files.",
             {
                 type: "button",
                 icon: "profile_icon.png",
@@ -514,7 +541,7 @@ export const projects = [
             "  * **Authentication module** - WebSocket server, HTTP REST endpoints, and users database;",
             "  * **Designer module** - content files HTTP REST endpoints;",
             "  * **Remote Assistance module** - sessions log HTTP REST endpoints and database.",
-            "### **Partners**: [Controlar](https://controlar.com/en/business-units/test-systems/tsim/), [UMinho](https://www.uminho.pt/en/)",
+            "### **Partners**: [Controlar](https://controlar.com/en/), [UMinho](https://www.uminho.pt/en/)",
             {
                 type: "button",
                 icon: "controlar.svg",
