@@ -94,6 +94,87 @@ function renderHtml(html, keyPrefix) {
   return Array.from(root.childNodes).map((node, index) => renderNode(node, `${keyPrefix}-${index}`));
 }
 
+function renderInlineNode(node, path) {
+  if (node.nodeType === window.Node.TEXT_NODE) {
+    return node.textContent;
+  }
+
+  if (node.nodeType !== window.Node.ELEMENT_NODE) {
+    return null;
+  }
+
+  const tag = node.tagName.toLowerCase();
+  const children = Array.from(node.childNodes)
+    .map((child, index) => renderInlineNode(child, `${path}-${index}`))
+    .filter((child) => child !== null && child !== "");
+
+  if (tag === "br") {
+    return <br key={path} />;
+  }
+
+  if (tag === "a") {
+    const href = sanitizeHref(node.getAttribute("href"));
+    if (!href) {
+      return <React.Fragment key={path}>{children}</React.Fragment>;
+    }
+    return (
+      <a
+        key={path}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline decoration-gray-500 underline-offset-2 hover:text-white"
+      >
+        {children}
+      </a>
+    );
+  }
+
+  if (tag === "strong" || tag === "b") {
+    return <strong key={path}>{children}</strong>;
+  }
+  if (tag === "em" || tag === "i") {
+    return <i key={path}>{children}</i>;
+  }
+  if (tag === "u") {
+    return <u key={path}>{children}</u>;
+  }
+  if (tag === "code") {
+    return <code key={path} className="font-mono">{children}</code>;
+  }
+  if (tag === "del" || tag === "s" || tag === "strike") {
+    return <del key={path}>{children}</del>;
+  }
+
+  // Block-level or disallowed tags: keep only their inline children
+  return <React.Fragment key={path}>{children}</React.Fragment>;
+}
+
+/**
+ * Render a markdown string as inline React nodes (no block-level wrappers).
+ * Also formats LaTeX-style dashes ("---" -> em dash, "--" -> en dash).
+ */
+export function renderInlineMarkdown(text, keyPrefix = "inline") {
+  if (typeof text !== "string" || typeof window === "undefined" || !window.DOMParser) {
+    return text;
+  }
+
+  const dashed = formatDashes(text);
+  const html = toHtml(dashed);
+
+  const parser = new window.DOMParser();
+  const doc = parser.parseFromString(`<div>${html}</div>`, "text/html");
+  const root = doc.body.firstChild;
+
+  return Array.from(root.childNodes).map((node, index) => renderInlineNode(node, `${keyPrefix}-${index}`));
+}
+
+/** Format LaTeX-style dashes: "---" -> em dash, "--" -> en dash. */
+function formatDashes(text) {
+  if (typeof text !== "string") return text;
+  return text.replace(/---/g, "—").replace(/--/g, "–");
+}
+
 function toHtml(text) {
   if (typeof text !== "string") return "";
   return marked.parse(text, { breaks: false });
@@ -416,7 +497,7 @@ export function renderFlatButtons(items, keyPrefix, onProjectLink) {
                 <Icon icon={item.icon} className="w-4 h-4" />
               </span>
             ) : null}
-            <span>{item.label}</span>
+            <span>{renderInlineMarkdown(item.label, `${keyPrefix}-flatbtn-label-${ii}`)}</span>
           </span>
         </button>
       );
@@ -435,7 +516,7 @@ export function renderFlatButtons(items, keyPrefix, onProjectLink) {
               <Icon icon={item.icon} className="w-4 h-4" />
             </span>
           ) : null}
-          <span>{item.label}</span>
+          <span>{renderInlineMarkdown(item.label, `${keyPrefix}-flatbtn-label-${ii}`)}</span>
         </span>
       </a>
     );
@@ -446,7 +527,7 @@ export function renderGroups(groups, keyPrefix, onProjectLink, opts = {}) {
   return groups.map((group, gi) => {
     if (group.type === "text") {
       const key = `${keyPrefix}-text-${gi}`;
-      const markdown = joinTextItems(group.items);
+      const markdown = formatDashes(joinTextItems(group.items));
 
       return (
         <React.Fragment key={key}>
@@ -520,7 +601,7 @@ export function renderGroups(groups, keyPrefix, onProjectLink, opts = {}) {
                         <Icon icon={item.icon} className="w-4 h-4" />
                       </span>
                     ) : null}
-                    <span>{item.label}</span>
+                    <span>{renderInlineMarkdown(item.label, `${keyPrefix}-button-${gi}-${ii}`)}</span>
                   </span>
                 </button>
               );
@@ -540,7 +621,7 @@ export function renderGroups(groups, keyPrefix, onProjectLink, opts = {}) {
                       <Icon icon={item.icon} className="w-4 h-4" />
                     </span>
                   ) : null}
-                  <span>{item.label}</span>
+                  <span>{renderInlineMarkdown(item.label, `${keyPrefix}-button-${gi}-${ii}`)}</span>
                 </span>
               </a>
             );

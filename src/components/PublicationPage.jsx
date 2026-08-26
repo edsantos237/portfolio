@@ -6,7 +6,8 @@ import { projects } from "@datapack/projects";
 import { publications } from "@datapack/publications";
 import { formatSingle } from "../utils/dateFormat";
 import Icon from "./Icon";
-import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
+import { groupDescriptionItems, renderGroups, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
+import { getEntryType } from "../utils/publicationTypes";
 
 export default function PublicationPage({ publicationId, onBack, onProjectLink }) {
   const pub = publications.find((p) => p.id === publicationId);
@@ -36,6 +37,11 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
   if (!pub) return null;
 
   const dateLabel = pub.date ? formatSingle(pub.date) : null;
+  const booktitleLabel = pub.booktitle
+    ? [pub.series, pub.booktitle].filter(Boolean).join(": ")
+    : null;
+  const pubType = getEntryType(pub);
+  const authorsText = (pub.authors || []).join(", ");
 
   // Resolve origins from tags (companies, schools, projects — ignore "arcticle" and other strings)
   const origins = [];
@@ -79,6 +85,7 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
   });
 
   const descriptionGroups = groupDescriptionItems(pub.description || []);
+  const abstractGroups = groupDescriptionItems(pub.abstract || []);
 
   return (
     <>
@@ -110,9 +117,11 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
               >
                 ← Publications
               </button>
-              <h2 className="text-2xl font-bold leading-tight">{pub.title}</h2>
-              {pub.publisher && (
-                <p className="text-sm text-gray-400 mt-1">{pub.publisher}</p>
+              <h2 className="text-2xl font-bold leading-tight">{renderInlineMarkdown(pub.title, `pubpage-title-${pub.id}`)}</h2>
+              {booktitleLabel && (
+                <p className="text-sm text-gray-400 mt-1">
+                  {renderInlineMarkdown(booktitleLabel, `pubpage-sub-${pub.id}`)}
+                </p>
               )}
             </div>
           </div>
@@ -125,8 +134,8 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
                 <p className="text-sm text-gray-400">{dateLabel}</p>
               )}
 
-              {origins.length > 0 && (
-                <div className="flex flex-wrap gap-2">
+              {(origins.length > 0 || pubType) && (
+                <div className="flex flex-col gap-2 items-start">
                   {origins.map((origin) => {
                     const handleOriginClick = () => {
                       if (origin.type === "company") { close(); onProjectLink?.({ type: "experience", entry: origin.id }); }
@@ -149,7 +158,7 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
                         </span>
                       )}
                       <div className="leading-tight">
-                        <span className="font-medium text-white">{origin.title}</span>
+                        <span className="font-medium text-white">{renderInlineMarkdown(origin.title, `pubpage-origin-${origin.id}`)}</span>
                         {origin.type === "company" && origin.department && (
                           <span className="block text-xs text-gray-500">{origin.department}</span>
                         )}
@@ -163,14 +172,74 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
                     </div>
                     );
                   })}
+                  {pubType && (
+                    <span className="flex items-center gap-2 px-3 py-2 text-sm rounded border section-card">
+                      <span className="font-medium text-white">{pubType.full}</span>
+                    </span>
+                  )}
                 </div>
               )}
             </div>
+
+            {pub.publisher && (
+              <p className="text-sm text-gray-300 mb-1">
+                Publisher:{" "}
+                <span className="font-medium">
+                  {pub.publisher}
+                </span>
+              </p>
+            )}
+
+            {/* DOI link */}
+            {pub.url && (
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={pub.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-fit rounded border px-3 py-2 text-xs font-normal transition section-accent-button"
+                >
+                  <span className="flex items-center gap-2">
+                    <span>{renderInlineMarkdown([pub.website_name, pub.doi].filter(Boolean).join(" • ") || pub.url, "pub-doi-label")}</span>
+                  </span>
+                </a>
+              </div>
+            )}
 
             {/* Description content */}
             <div className="space-y-4">
               {renderGroups(descriptionGroups, `pub-${pub.id}`, onProjectLink)}
             </div>
+
+            {/* Abstract */}
+            {abstractGroups.length > 0 && (
+              <div
+                className={`space-y-3${descriptionGroups.length > 0 ? " border-t pt-6" : ""}`}
+                style={descriptionGroups.length > 0 ? { borderColor: theme.cardBorder } : undefined}
+              >
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
+                  Abstract
+                </h3>
+                <div className="space-y-4">
+                  {renderGroups(abstractGroups, `pub-abstract-${pub.id}`, onProjectLink)}
+                </div>
+              </div>
+            )}
+
+            {/* Authors */}
+            {authorsText && (
+              <div
+                className={`space-y-3${abstractGroups.length > 0 ? " border-t pt-6" : ""}`}
+                style={abstractGroups.length > 0 ? { borderColor: theme.cardBorder } : undefined}
+              >
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
+                  Authors
+                </h3>
+                <div className="space-y-4">
+                  {renderGroups(groupDescriptionItems([authorsText]), `pub-authors-${pub.id}`, onProjectLink)}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

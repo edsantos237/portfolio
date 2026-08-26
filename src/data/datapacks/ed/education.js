@@ -94,7 +94,7 @@ export const schools = [
         ],
         courses: [
             {
-                degrees: ["Basic Education - 3rd cycle", "7th — 9th grade"],                
+                degrees: ["Basic Education -- 3rd cycle", "7th — 9th grade"],                
                 dates: [{
                     start: "2010-09",
                     end: "2013-06"
@@ -105,7 +105,7 @@ export const schools = [
                 }
             },
             {
-                degrees: ["Basic Education - 2nd cycle", "5th — 6th grade"],
+                degrees: ["Basic Education -- 2nd cycle", "5th — 6th grade"],
                 dates: [{
                     start: "2008-09",
                     end: "2010-06"
@@ -120,7 +120,7 @@ export const schools = [
         type: "Elementary School",
         courses: [
             {
-                degrees: ["Primary Education", "Basic Education - 1st cycle", "1st — 4th grade"],
+                degrees: ["Primary Education", "Basic Education -- 1st cycle", "1st — 4th grade"],
                 dates: [{
                     start: "2004-09",
                     end: "2008-06"

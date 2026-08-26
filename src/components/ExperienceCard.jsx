@@ -4,7 +4,7 @@ import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
 import ShowSkillsButton from "./ShowSkillsButton";
 import { formatRange } from "../utils/dateFormat";
-import { groupDescriptionItems, renderGroups, renderFlatButtons } from "../utils/descriptionRenderer.jsx";
+import { groupDescriptionItems, renderGroups, renderFlatButtons, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
 
 export default function ExperienceCard({ company, open, onToggle, forceOpen, roleSelectable, selectedRoleId, onSelectRole, showProjectsButton, projectCount, showSkillsButton, skillCount, onShowProjects, onShowSkills, onProjectLink }) {
   // open/onToggle controlled externally; fallback to internal state if not provided
@@ -36,10 +36,10 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
               {/* TITLE */}
               <div>
                 <h3 className="text-lg font-semibold">
-                  {company.title}
+                  {renderInlineMarkdown(company.title, `exp-title-${company.id}`)}
                 </h3>
                 <p className="text-sm text-gray-400">
-                  {company.department}
+                  {renderInlineMarkdown(company.department, `exp-dept-${company.id}`)}
                 </p>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
         ) : (
           <button
             onClick={toggle}
-            className="w-full text-left flex items-center justify-between gap-4"
+            className="w-full text-left flex items-center justify-between gap-4 pr-3"
             tabIndex={0}
           >
             <div className="flex items-center gap-3">
@@ -58,10 +58,10 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
               {/* TITLE */}
               <div>
                 <h3 className="text-lg font-semibold">
-                  {company.title}
+                  {renderInlineMarkdown(company.title, `exp-title-${company.id}`)}
                 </h3>
                 <p className="text-sm text-gray-400">
-                  {company.department}
+                  {renderInlineMarkdown(company.department, `exp-dept-${company.id}`)}
                 </p>
               </div>
             </div>
@@ -140,12 +140,12 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
                >
                 {/* ROLE TITLE */}
                 <h4 className="font-medium text-gray-200">
-                  {role.title}
+                  {renderInlineMarkdown(role.title, `exp-role-title-${company.id}-${i}`)}
                 </h4>
 
                 {/* ROLE DEPARTMENT (if different from company) */}
                 {role.department && (
-                  <p className="text-xs text-gray-400">{role.department}</p>
+                  <p className="text-xs text-gray-400">{renderInlineMarkdown(role.department, `exp-role-dept-${company.id}-${i}`)}</p>
                 )}
 
                 {/* DATES */}

@@ -127,12 +127,12 @@ export const skills = [
         icon: SiClaude,
         tags: ["ai", "personal"]
     },
-    {
-        id: "clipchamp",
-        title: "Microsoft Clipchamp",
-        icon: "clipchamp.png",
-        tags: ["tool", "personal", "middle_school", "high_school"]
-    },
+    // {
+    //     id: "clipchamp",
+    //     title: "Microsoft Clipchamp",
+    //     icon: "clipchamp.png",
+    //     tags: ["tool", "personal", "middle_school", "high_school"]
+    // },
     {
         id: "coap",
         title: "CoAP",

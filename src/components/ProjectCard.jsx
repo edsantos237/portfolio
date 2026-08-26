@@ -1,7 +1,8 @@
 import Icon from "./Icon";
 import { sources } from "../data/sources";
 import ProjectStatusBadge, { getProjectBadgeTypes, getProjectCardBadgeWrapStyle } from "./ProjectStatusBadge";
-import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
+import { groupDescriptionItems, renderGroups, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
+import { getEntryType } from "../utils/publicationTypes";
 
 function formatMonthYear(dateStr) {
   const [year, month] = dateStr.split("-");
@@ -97,6 +98,8 @@ export default function ProjectCard({
     }
   });
 
+  const entryType = getEntryType(project);
+
   const badgeTypes = getProjectBadgeTypes(project, hasAssociatedPublications);
   const badgeWrapStyle = getProjectCardBadgeWrapStyle(badgeTypes.length);
 
@@ -116,12 +119,12 @@ export default function ProjectCard({
           <div aria-hidden="true" style={badgeWrapStyle} />
         )}
         <h3 className="font-semibold text-white">
-          {project.title}
+          {renderInlineMarkdown(project.title, `projcard-title-${project.id}`)}
         </h3>
 
-        {(!hideYear && project.year || project.subject) && (
+        {(project.group || (!hideYear && project.year) || project.subject) && (
           <p className="text-sm text-gray-400 mt-1">
-            {[hideYear ? null : project.year, project.subject].filter(Boolean).join(" · ")}
+            {renderInlineMarkdown([project.group, hideYear ? null : project.year, project.subject].filter(Boolean).join(" · "), `projcard-sub-${project.id}`)}
           </p>
         )}
 
@@ -131,7 +134,7 @@ export default function ProjectCard({
           </p>
         )}
 
-        {origins.length > 0 && (
+        {(origins.length > 0 || entryType) && (
           <div className="flex flex-wrap gap-2 mt-2">
             {origins.map((origin) => (
               <span
@@ -139,9 +142,14 @@ export default function ProjectCard({
                 className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip"
               >
                 {origin.icon && <Icon icon={origin.icon} />}
-                {origin.title}
+                {renderInlineMarkdown(origin.title, `projcard-origin-${origin.id}`)}
               </span>
             ))}
+            {entryType && (
+              <span className="px-2 py-1 text-xs rounded border whitespace-nowrap section-chip">
+                {entryType.short}
+              </span>
+            )}
           </div>
         )}
       </div>

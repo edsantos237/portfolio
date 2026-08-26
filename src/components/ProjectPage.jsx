@@ -8,8 +8,9 @@ import { publications } from "@datapack/publications";
 import { formatDates } from "../utils/dateFormat";
 import Icon from "./Icon";
 import ProjectStatusBadge, { getProjectBadgeTypes, getProjectPageBadgePadding } from "./ProjectStatusBadge";
-import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
+import { groupDescriptionItems, renderGroups, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
 import { getRelatedPublicationsForProject } from "../utils/projectPublications";
+import { getEntryType } from "../utils/publicationTypes";
 
 const skillOrder = categories.map((c) => c.id);
 const skillLabels = Object.fromEntries(categories.map((c) => [c.id, c.title]));
@@ -94,6 +95,8 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
     }
   });
 
+  const entryType = getEntryType(project);
+
   // Skills grouped by category
   const projectSkills = project.tags
     .map((tag) => skills.find((s) => s.id === tag))
@@ -152,10 +155,10 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
               >
                 ← Projects
               </button>
-              <h2 className="text-2xl font-bold leading-tight" style={titlePaddingRight ? { paddingRight: titlePaddingRight } : undefined}>{project.title}</h2>
-              {(project.year || project.subject) && (
+              <h2 className="text-2xl font-bold leading-tight" style={titlePaddingRight ? { paddingRight: titlePaddingRight } : undefined}>{renderInlineMarkdown(project.title, `proj-title-${project.id}`)}</h2>
+              {(project.group || project.year || project.subject) && (
                 <p className="text-sm text-gray-400 mt-1">
-                  {[project.year, project.subject].filter(Boolean).join(" · ")}
+                  {renderInlineMarkdown([project.group, project.year, project.subject].filter(Boolean).join(" · "), `proj-sub-${project.id}`)}
                 </p>
               )}
             </div>
@@ -169,8 +172,8 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
                 <p className="text-sm text-gray-400">{dateLabel}</p>
               )}
 
-              {origins.length > 0 && (
-                <div className="flex flex-wrap gap-2">
+              {(origins.length > 0 || entryType) && (
+                <div className="flex flex-col gap-2 items-start">
                   {origins.map((origin) => {
                     const handleOriginClick = () => {
                       if (origin.type === "company") { close(); onProjectLink?.({ type: "experience", entry: origin.id }); }
@@ -192,7 +195,7 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
                         </span>
                       )}
                       <div className="leading-tight">
-                        <span className="font-medium text-white">{origin.title}</span>
+                        <span className="font-medium text-white">{renderInlineMarkdown(origin.title, `proj-origin-${origin.id}`)}</span>
                         {origin.type === "company" && origin.department && (
                           <span className="block text-xs text-gray-500">
                             {origin.department}
@@ -207,6 +210,11 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
                     </div>
                     );
                   })}
+                  {entryType && (
+                    <span className="flex items-center gap-2 px-3 py-2 text-sm rounded border section-card">
+                      <span className="font-medium text-white">{entryType.full}</span>
+                    </span>
+                  )}
                 </div>
               )}
             </div>
@@ -296,8 +304,8 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
                     >
                       <div className="leading-tight">
                         <span className="font-medium text-white">{pub.title}</span>
-                        {pub.publisher && (
-                          <span className="block text-xs text-gray-500">{pub.publisher}</span>
+                        {pub.booktitle && (
+                          <span className="block text-xs text-gray-500">{renderInlineMarkdown(pub.booktitle, `proj-pub-sub-${pub.id}`)}</span>
                         )}
                       </div>
                     </button>

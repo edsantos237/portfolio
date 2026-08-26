@@ -39,11 +39,10 @@ export const projects = [
                 type: "image",
                 path: "xrgrit.jpg"
             },
-            "XR-GRIT is a Virtual Reality (VR) platform that redefines robotics training through immersive simulation and structured gamification.",
-            "The system enables learners to perform realistic robotic operations such as pick-and-place, machine tending, and safety procedures, all within a fully virtual environment that replicates industrial conditions safely and accurately. Building on this foundation, we propose a framework that begins with a structured understanding of the educational content and evolves toward a gamified VR narrative designed to enhance immersion and the overall learning experience.",
+            "XR-GRIT is a Virtual Reality platform that redefines robotics training through immersive simulation and structured gamification.",
+            "The system enables learners to perform realistic robotic operations such as pick-and-place, machine tending, and safety procedures, all within a fully virtual environment that replicates industrial conditions safely and accurately.",
             "At its core, XR-GRIT integrates narrative-driven missions, progress-tracking mechanics, and visual metaphors representing achievement and advancement.",
             "Trainees are guided by an avatar facilitator, who introduces objectives, demonstrates procedures, and provides feedback throughout the modules, ensuring an intuitive, instructor-like learning flow.",
-            "By merging immersive training and game design, XR-GRIT provides a pathway for workforce upskilling and digital transformation in sectors with low technological maturity — particularly ceramics, glass, and stone — aligning with the Industry 5.0 vision of human-centric, adaptive automation.",
             "## My contributions:",
             "* Integration into the VIROO platform.",
             "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
@@ -96,7 +95,8 @@ export const projects = [
     },
     {
         id: "texpact",
-        title: "TEXP@CT - Innovation Pact for the Digitalization of Textiles and Clothing",
+        title: "T&C Product Lifecycle Management 4.0",
+        group: "TEXP@CT -- Innovation Pact for the Digitalization of Textiles and Clothing",
         label: "TEXP@CT",
         tags: ["ccg", "android", "ar", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "xr"],
         dates: [{
@@ -107,17 +107,19 @@ export const projects = [
             "Remote Assistance system using AR for the textile and clothing industry."
         ],
         description: [
-            "**TEXP@CT is a response to the challenge of digital transition and adaptation to Industry 4.0 in the textile and clothing sector.**",
-            "The **Pact for Innovation in the Textile and Clothing Industry** will develop a set of 26 digital solutions and technologies, for different areas of work, namely robotics, product engineering, industrial processes, artificial intelligence, smart textiles, data sharing and digital skills.",
-            "With this pact, it is intended that there will be a significant boost in the **adoption of innovative digital technologies and solutions**, making the sector more attractive for current and future global markets and for human resources, more resilient, more sustainable and more sophisticated.",
-            "This project is financed by the Recovery Plan and Resilience.",
-            "# WP6 - Digital Product | PPS22: T&C Product Lifecycle Management 4.0",
-            "PLM architecture on which project IT companies will develop their own versions of a PLM suite. By proceeding this way, the project preserves each company's DevOps choices, potential integration with other software products, and their market strategy.",
+            "TEXP@CT is a mobilizing agenda for the textile and clothing sector, focused on the development of a set of innovative digital solutions and technologies for different areas of work.",
+            "The work package **WP6 -- Digital Product | PPS22: T&C Product Lifecycle Management 4.0** consists on a PLM architecture for potential integration with other software products.",
+            // "**TEXP@CT is a response to the challenge of digital transition and adaptation to Industry 4.0 in the textile and clothing sector.**",
+            // "The **Pact for Innovation in the Textile and Clothing Industry** will develop a set of 26 digital solutions and technologies, for different areas of work, namely robotics, product engineering, industrial processes, artificial intelligence, smart textiles, data sharing and digital skills.",
+            // "With this pact, it is intended that there will be a significant boost in the **adoption of innovative digital technologies and solutions**, making the sector more attractive for current and future global markets and for human resources, more resilient, more sustainable and more sophisticated.",
+            // "This project is financed by the Recovery Plan and Resilience.",
+            // "# WP6 - Digital Product | PPS22: T&C Product Lifecycle Management 4.0",
+            // "PLM architecture on which project IT companies will develop their own versions of a PLM suite. By proceeding this way, the project preserves each company's DevOps choices, potential integration with other software products, and their market strategy.",
             "## My contributions:",
-            "* Remote Assistance system for video and audio communication through WebRTC between a remote expert on a desktop device and a clothes technician equipped with Magic Leap 2.",
+            "* Remote Assistance system for video and audio communication through WebRTC between a remote expert on a mobile device and a clothes technician equipped with Magic Leap 2.",
             {
                 type: "youtube",
-                link: "https://www.youtube.com/embed/G0DyT4qO1CI"
+                link: "https://www.youtube.com/embed/XMux8fM3f20"
             },
             {
                 type: "youtube",
@@ -129,24 +131,25 @@ export const projects = [
                 icon: "ccg.svg",
                 label: "Project website",
                 link: "https://ccg.pt/en/research-and-innovation/projects/texpct-innovation-pact-for-the-digitalization-of-textiles-and-clothing"
-            },
-            {
-                type: "button",
-                icon: "texpact.png",
-                label: "Project website",
-                link: "https://texpact.pt/"
-            },
-            {
-                type: "button",
-                icon: "texpact.png",
-                label: "PPS22",
-                link: "https://texpact.pt/solucoes/artigos___solucoes/pps22__t_c_product_lifecycle_management_4_0-e7a21c3f"
             }
+            // {
+            //     type: "button",
+            //     icon: "texpact.png",
+            //     label: "Project website",
+            //     link: "https://texpact.pt/"
+            // },
+            // {
+            //     type: "button",
+            //     icon: "texpact.png",
+            //     label: "PPS22",
+            //     link: "https://texpact.pt/solucoes/artigos___solucoes/pps22__t_c_product_lifecycle_management_4_0-e7a21c3f"
+            // }
         ]
     },
     {
         id: "ecp",
-        title: "ECP - Ecoceramics and Crystalware of Portugal",
+        title: "Ceramic and Glass Digital Training Academy",
+        group: "ECP -- Ecoceramics and Crystalware of Portugal",
         label: "ECP",
         tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "gamedev", "http", "js", "mobile", "networking", "nodejs", "unity", "windows", "vr", "xr", "xritk"],
         dates: [{
@@ -158,14 +161,16 @@ export const projects = [
         ],
         description: [
             "### Role: **Technical Project Coordinator**",
-            "**This is an integrated, cross-cutting initiative for the ceramics and crystal sectors, focused on their critical competitiveness factors and aimed at improving their international positioning.**",
-            "Ecocerâmica e Cristalaria de Portugal Agenda's aims to strengthen the competitiveness of the ceramics and crystal industries at national level, based on factors of innovation, differentiation and a solid collaborative dynamic, with investments in all stages of the sector's value chain and sustained by improving the qualifications of its assets.",
-            "# WP7 - CER_CAPACITATES | PPS 32: Ceramic and Glass Digital Training Academy",
-            "WP7 will focus on the continuous and advanced training of the active population, supporting the fundamental axes of the Agenda, namely, the re-engineering process, Innovation infusion, Energy Transition, Decarbonisation, Circular Economy, Industrial Symbiosis, and Industrial Design with a focus on Ecodesign, Digital Transition - namely, Additive Manufacturing technologies, BIM Libraries and I4.0 applied to the sector - Continuous and Advanced Training for Digital Transformation, Sustainability and Energy Transition.",
-            "Accessible to the entire sector, through virtual and immersive training learning methods, which recreate the factory environment (manufacturing processes), laboratory, warehouse, simulating situations for problem solving, for the generation of new ideas, analysis and processing of data to support decision making.",
-            "The Ceramic and Glass Sectors have a high deficit of qualified and even undifferentiated labor. As a critical current problem that will tend to get worse shortly, it is urgent to find a sustainable mitigation solution. Consumption patterns and technological development will bring a new paradigm in the attraction, qualification, and retention of company assets, a paradigm that drives the development of synergies between the business industries and the scientific and technological system in Portugal.",
-            "To overcome the challenge of requalifying and qualifying the sector's workers, we will development 113 training courses, involving 1765 trainees, in alignment with the strategic development axes of the project, such as the energy and digital transition, the circularity of materials and decarbonization.",
-            "**Approaching academia, entities of the R&D system, technology suppliers, and national and international clients are factors that reinforce companies' competitiveness. Putting knowledge and technology at the service of companies to meet the challenges, is the focus of the 3rd activity of this WP, which aims to create synergies between the various stakeholders, bringing to discussion the best international practices, the best technologies, and the promotion of national ceramics.**",
+            "ECP's agenda aims to strengthen the competitiveness of the ceramics and crystal industries at national level through innovation, differentiation and a solid collaborative dynamic.",
+            "The **WP7 -- CER_CAPACITATES | PPS 32: Ceramic and Glass Digital Training Academy** work package focuses on the continuous and advanced training of the active population through virtual and immersive training learning methods, which recreate the factory environment (manufacturing processes), laboratory, warehouse, simulating situations for problem solving, for the generation of new ideas, analysis and processing of data to support decision making.",
+            // "**This is an integrated, cross-cutting initiative for the ceramics and crystal sectors, focused on their critical competitiveness factors and aimed at improving their international positioning.**",
+            // "Ecocerâmica e Cristalaria de Portugal Agenda's aims to strengthen the competitiveness of the ceramics and crystal industries at national level, based on factors of innovation, differentiation and a solid collaborative dynamic, with investments in all stages of the sector's value chain and sustained by improving the qualifications of its assets.",
+            // "# WP7 - CER_CAPACITATES | PPS 32: Ceramic and Glass Digital Training Academy",
+            // "WP7 will focus on the continuous and advanced training of the active population, supporting the fundamental axes of the Agenda, namely, the re-engineering process, Innovation infusion, Energy Transition, Decarbonisation, Circular Economy, Industrial Symbiosis, and Industrial Design with a focus on Ecodesign, Digital Transition - namely, Additive Manufacturing technologies, BIM Libraries and I4.0 applied to the sector - Continuous and Advanced Training for Digital Transformation, Sustainability and Energy Transition.",
+            // "Accessible to the entire sector, through virtual and immersive training learning methods, which recreate the factory environment (manufacturing processes), laboratory, warehouse, simulating situations for problem solving, for the generation of new ideas, analysis and processing of data to support decision making.",
+            // "The Ceramic and Glass Sectors have a high deficit of qualified and even undifferentiated labor. As a critical current problem that will tend to get worse shortly, it is urgent to find a sustainable mitigation solution. Consumption patterns and technological development will bring a new paradigm in the attraction, qualification, and retention of company assets, a paradigm that drives the development of synergies between the business industries and the scientific and technological system in Portugal.",
+            // "To overcome the challenge of requalifying and qualifying the sector's workers, we will development 113 training courses, involving 1765 trainees, in alignment with the strategic development axes of the project, such as the energy and digital transition, the circularity of materials and decarbonization.",
+            // "**Approaching academia, entities of the R&D system, technology suppliers, and national and international clients are factors that reinforce companies' competitiveness. Putting knowledge and technology at the service of companies to meet the challenges, is the focus of the 3rd activity of this WP, which aims to create synergies between the various stakeholders, bringing to discussion the best international practices, the best technologies, and the promotion of national ceramics.**",
             "## My contributions:",
             "* TCA - **Training Configuration System** - desktop app for trainers to build immersive scenes composed with 3D objects with customizable properties, interactions and animations, following a set of steps.",
             "* ARTA - **Augmented Reality Training System** - mobile app and Meta Quest 3 app for trainees to load created training scenes to be performed in augmented and mixed reality.",
@@ -201,48 +206,38 @@ export const projects = [
         ]
     },
     {
-        id: "hfpt",
-        title: "HfPT - Health from Portugal",
-        label: "HfPT",
-        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "latex", "mobile", "networking", "nodejs", "unity", "webgl", "webrtc", "websocket", "windows", "xr"],
+        id: "hfpt323",
+        title: "Devices for remote physical monitoring and recovery, based on gamification",
+        group: "HfPT -- Health from Portugal",
+        label: "HfPT A3.2.3",
+        tags: ["ccg", "android", "backend", "csharp", "http", "js", "latex", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "windows"],
         dates: [{
-            start: "2023-10",
+            start: "2024-09",
             end: "2026-06"
         }],
         summary: [
-            // "Remote monitoring and telemedicine system for healthcare, and a set of interactive applications for anatomical pathology learning."
-            {
-                type: "image",
-                path: "hfpt534.png"
-            }
+            "Remote monitoring and telemedicine system for healthcare."
         ],
         description: [
-            "The Health *from* Portugal (HfPT) Agenda aims at positioning Portugal as a world reference hub in the design, development and production of advanced solutions for the health markets, based on innovation and technology.",
-            "The HfPT Agenda is designed to provide an integrated response to the challenges facing the health sector, taking advantage of the emerging opportunities surrounding the digital and green transition and economic resilience. In general terms, the Mobilizing Agenda aims to position Portugal as a reference hub in the design and development of healthcare products and services that stand out for their degree of innovation and incorporation of technology.",
-            "The **Smart Health Solutions Vertical** is designed to foster a new paradigm for the operation and management of healthcare systems, geared towards the collection and analysis of data generated by the devices to be developed. These innovations are expected to stimulate the definition of new digital health models based on digital and patient-centered, with a focus on reducing costs and improving the quality of the services provided.",
-            "# WP3 - Sensing and robotics | A3.2.3: Devices for remote physical monitoring and recovery, based on gamification",
-            "The development of diagnostic methods is fundamental and transversal to the practice of occupational medicine and health. These methods allow for the early detection of pathologies to treat them effectively, more economically, and with a significant impact on the patient's quality of life. However, it is necessary to create new solutions that better respect their physical condition and the conditions of ergonomics and usability, with faster and more active feedback.",
-            "Gripwise is a system based on a connected portable dynamometer, mobile applications, and the cloud data aggregator platform (GDPR), gathering data for frailty and sarcopenia assessments in a simple and effective workflow, aimed at maintaining the health and quality of life of the elderly. The sub-project aims the development of accessories to be applied to the Gripwise dynamometer to assess the strength of various muscle groups, applicable to recovery from frailty and remote physiotherapy, to reinforce the patent granted in the USA and the main markets in Europe. This development will also include the creation of a mobile application for digital games made using Gripwise to prescribe customized and quantified physical activity and rehabilitation with remote monitoring.",
+            "The HfPT agenda focuses on the design, development and production of advanced solutions for the health markets, based on innovation and technology.",
+            "The **WP3 -- Sensing and robotics | A3.2.3: Devices for remote physical monitoring and recovery, based on gamification** work package focuses on the Gripwise system, based on a connected portable dynamometer, mobile applications and a cloud data aggregator platform. The project aims to develop a mobile application for digital games to prescribe customized and quantified physical activity and rehabilitation with remote monitoring.",
+            // "The Health *from* Portugal (HfPT) Agenda aims at positioning Portugal as a world reference hub in the design, development and production of advanced solutions for the health markets, based on innovation and technology.",
+            // "The HfPT Agenda is designed to provide an integrated response to the challenges facing the health sector, taking advantage of the emerging opportunities surrounding the digital and green transition and economic resilience. In general terms, the Mobilizing Agenda aims to position Portugal as a reference hub in the design and development of healthcare products and services that stand out for their degree of innovation and incorporation of technology.",
+            // "The **Smart Health Solutions Vertical** is designed to foster a new paradigm for the operation and management of healthcare systems, geared towards the collection and analysis of data generated by the devices to be developed. These innovations are expected to stimulate the definition of new digital health models based on digital and patient-centered, with a focus on reducing costs and improving the quality of the services provided.",
+            // "# WP3 - Sensing and robotics | A3.2.3: Devices for remote physical monitoring and recovery, based on gamification",
+            // "The development of diagnostic methods is fundamental and transversal to the practice of occupational medicine and health. These methods allow for the early detection of pathologies to treat them effectively, more economically, and with a significant impact on the patient's quality of life. However, it is necessary to create new solutions that better respect their physical condition and the conditions of ergonomics and usability, with faster and more active feedback.",
+            // "Gripwise is a system based on a connected portable dynamometer, mobile applications, and the cloud data aggregator platform (GDPR), gathering data for frailty and sarcopenia assessments in a simple and effective workflow, aimed at maintaining the health and quality of life of the elderly. The sub-project aims the development of accessories to be applied to the Gripwise dynamometer to assess the strength of various muscle groups, applicable to recovery from frailty and remote physiotherapy, to reinforce the patent granted in the USA and the main markets in Europe. This development will also include the creation of a mobile application for digital games made using Gripwise to prescribe customized and quantified physical activity and rehabilitation with remote monitoring.",
             {
                 type: "image",
                 path: "gripwise.png"
             },
             "## My contributions:",
             "* Video call module through WebRTC between a remote doctor and the patient using the Gripwise app.",
-            "# WP5 - Digital consultation and telemedicine | A5.3.4: Augmented Reality system for visualizing processed slide data (QRCode ID)",
-            "The rise of the health market will be driven by new opportunities related to the growth, increased longevity and aging of the global population, which will lead to a progressive increase in the incidence/prevalence of oncological, neurological, cerebro-cardiovascular, metabolic and osteoarticular diseases.",
-            {
-                type: "image",
-                path: "hfpt534.png"
-            },
-            "## My contributions:",
-            "* AR mobile app for visitors of [FMUC's Museum of Anatomical Pathology](https://www.uc.pt/en/fmuc/iap-pm/museum/) to have access to additional info and digital twins of exposed pieces in Augmented Reality.",
-            "* Desktop app for students to simulate Anatomical Pathology laboratory classes with laboratory tools and fully customizable.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/fMbwnmRuo-U"
             },
-            "### **Partners**: [BMD](https://www.bmd-software.com/), [FMUC](https://www.uc.pt/en/fmuc/), [CeNTI](https://www.centi.pt/en/)",
+            "### **Partner**: [CeNTI](https://www.centi.pt/en/)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -260,6 +255,56 @@ export const projects = [
                 icon: "hfpt.svg",
                 label: "WP3 | A3.2.3",
                 link: "https://www.healthfromportugal.pt/en/organization-of-the-agenda/smart-health-solutions/sensorizacao-e-robotica/dispositivos-monitorizacao-recuperacao-fisica-distancia-gamificacao/"
+            }
+        ]
+    },
+    {
+        id: "hfpt534",
+        title: "Augmented Reality system for visualizing processed slide data",
+        group: "HfPT -- Health from Portugal",
+        label: "HfPT A5.3.4",
+        tags: ["featured", "ccg", "android", "ar", "arfoundation", "backend", "csharp", "http", "js", "mobile", "networking", "nodejs", "unity", "webgl", "windows", "xr"],
+        dates: [{
+            start: "2023-10",
+            end: "2026-06"
+        }],
+        summary: [
+            {
+                type: "image",
+                path: "hfpt534.png"
+            }
+        ],
+        description: [
+            "The HfPT agenda focuses on the design, development and production of advanced solutions for the health markets, based on innovation and technology.",
+            "The **WP5 -- Digital consultation and telemedicine | A5.3.4: Augmented Reality system for visualizing processed slide data** work package focuses on the development of a set of interactive applications for anatomical pathology learning in classes and in [FMUC's Museum of Anatomical Pathology](https://www.uc.pt/en/fmuc/iap-pm/museum/).",
+            // "The Health *from* Portugal (HfPT) Agenda aims at positioning Portugal as a world reference hub in the design, development and production of advanced solutions for the health markets, based on innovation and technology.",
+            // "The HfPT Agenda is designed to provide an integrated response to the challenges facing the health sector, taking advantage of the emerging opportunities surrounding the digital and green transition and economic resilience. In general terms, the Mobilizing Agenda aims to position Portugal as a reference hub in the design and development of healthcare products and services that stand out for their degree of innovation and incorporation of technology.",
+            // "The **Smart Health Solutions Vertical** is designed to foster a new paradigm for the operation and management of healthcare systems, geared towards the collection and analysis of data generated by the devices to be developed. These innovations are expected to stimulate the definition of new digital health models based on digital and patient-centered, with a focus on reducing costs and improving the quality of the services provided.",            
+            // "# WP5 - Digital consultation and telemedicine | A5.3.4: Augmented Reality system for visualizing processed slide data (QRCode ID)",
+            // "The rise of the health market will be driven by new opportunities related to the growth, increased longevity and aging of the global population, which will lead to a progressive increase in the incidence/prevalence of oncological, neurological, cerebro-cardiovascular, metabolic and osteoarticular diseases.",
+            {
+                type: "image",
+                path: "hfpt534.png"
+            },
+            "## My contributions:",
+            "* AR mobile app for visitors of the Museum of Anatomical Pathology to have access to additional info and digital twins of exposed pieces in Augmented Reality.",
+            "* Desktop app for students to simulate Anatomical Pathology laboratory classes with laboratory tools and fully customizable.",
+            {
+                type: "youtube",
+                link: "https://www.youtube.com/embed/fMbwnmRuo-U"
+            },
+            "### **Partners**: [BMD](https://www.bmd-software.com/), [FMUC](https://www.uc.pt/en/fmuc/)",
+            {
+                type: "button",
+                icon: "ccg.svg",
+                label: "Project website",
+                link: "https://ccg.pt/en/research-and-innovation/projects/hfpt-health-from-portugal"
+            },
+            {
+                type: "button",
+                icon: "hfpt.svg",
+                label: "Project website",
+                link: "https://www.healthfromportugal.pt/en/"
             },
             {
                 type: "button",
@@ -293,7 +338,7 @@ export const projects = [
     },
     {
         id: "openlabs",
-        title: "OpenLabs - Open Pilot Labs Network",
+        title: "OpenLabs -- Open Pilot Labs Network",
         label: "OpenLabs",
         tags: ["ccg", "android", "backend", "csharp", "http", "js", "linux", "ml", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "windows"],
         dates: [
@@ -359,7 +404,7 @@ export const projects = [
     },
     {
         id: "cmms",
-        title: "Cognitive CMMS - Cognitive Computerized Maintenance Management System",
+        title: "Cognitive CMMS -- Cognitive Computerized Maintenance Management System",
         label: "Cognitive CMMS",
         tags: ["ccg", "arfoundation", "android", "ar", "backend", "csharp", "firebase", "http", "js", "mobile", "networking", "nodejs", "webgl", "webrtc", "websocket", "xr"],
         dates: [{
@@ -400,7 +445,7 @@ export const projects = [
             "Remote Assistance system for aviation inspection in AR."
         ],
         description: [
-            "Solution based on augmented reality for remote assistance centered on aviation maintenance operations (borescope inspection) and with holographic visualization of information (from the worker on-site to the remote inspector)",
+            "Solution based on augmented reality for remote assistance centered on aviation maintenance operations (borescope inspection) and with holographic visualization of information (from the worker on-site to the remote inspector).",
             "## My contributions:",
             "* Remote Assistance expert desktop app for video and audio communication with file and annotations exchange through WebRTC with aviation inspectors equipped with HoloLens 2.0.",
             {
@@ -444,7 +489,7 @@ export const projects = [
     },
     {
         id: "tsim",
-        title: "TSIM - Test System Intelligent Machines",
+        title: "TSIM -- Test System Intelligent Machines",
         label: "TSIM",
         tags: ["ccg", "backend", "ar", "aspnet", "csharp", "frontend", "js", "http", "nestjs", "networking", "nextjs", "nodejs", "unity", "webrtc", "websocket", "windows", "xr"],
         dates: [{
@@ -455,11 +500,11 @@ export const projects = [
             "Auto diagnosis and validation system, with maintenance step-by-step holographic indications and remote assistance support."
         ],
         description: [
-            "The central objective of the TSIM project is the design and development of modular test systems, accompanied by a self-diagnosis system, interactive manuals and a remote assistance system, using augmented reality (AR).",
-            "It is structured in three distinct components that are translated into the main lines of R&D involved:",
-            "* R&D new modular automatic test system, aims at the development of coupling modules that allow the testing of different types of products on the same platform;",
-            "* R&D new self-diagnosis system of the automatic test systems, aims at the development of a self-diagnosis system for assessing the health status of the test equipment;",
-            "* R&D a new interactive after-sales assistance application for maintenance and remote assistance, aims to develop a system that allows the visualization of equipment information and after-sales assistance using AR and mixed techniques.",
+            "The central objective of the TSIM project is the design and development of modular test systems, accompanied by a self-diagnosis system, interactive manuals and a remote assistance system, using Augmented Reality.",
+            // "It is structured in three distinct components that are translated into the main lines of R&D involved:",
+            // "* R&D new modular automatic test system, aims at the development of coupling modules that allow the testing of different types of products on the same platform;",
+            // "* R&D new self-diagnosis system of the automatic test systems, aims at the development of a self-diagnosis system for assessing the health status of the test equipment;",
+            // "* R&D a new interactive after-sales assistance application for maintenance and remote assistance, aims to develop a system that allows the visualization of equipment information and after-sales assistance using AR and mixed techniques.",
             "## My contributions:",
             "* **Back-office app**:",
             "  * **Authentication module** - WebSocket connection handler and HTTP REST endpoints access;",
@@ -488,13 +533,12 @@ export const projects = [
             value: 19,
             range: 20
         },
-        tags: ["featured", "university", "android", "ar", "arfoundation", "backend", "csharp", "frontend", "fullstack", "gamedev", "http", "js", "mapbox", "mobile", "mysql", "networking", "nodejs", "reactjs", "sql", "unity", "xr"],
+        tags: ["featured", "university", "dissert_msc", "android", "ar", "arfoundation", "backend", "csharp", "frontend", "fullstack", "gamedev", "http", "js", "mapbox", "mobile", "mysql", "networking", "nodejs", "reactjs", "sql", "unity", "xr"],
         dates: [{
             start: "2020-09",
             end: "2022-03"
         }],
         summary: [
-            "Master's Dissertation",
             {
                 type: "image",
                 path: "dissertation/ss5.jpg"
@@ -533,7 +577,7 @@ export const projects = [
     {
         id: "fof",
         label: "Factory of the Future / P51",
-        title: "Factory of the Future: Smart Manufacturing / P51 - Training for operators with new methodologies",
+        title: "Factory of the Future: Smart Manufacturing / P51 -- Training for operators with new methodologies",
         tags: ["featured", "ccg", "ar", "backend", "csharp", "http", "mysql", "sql", "unity", "webgl", "vr", "xr"],
         dates: [{
             start: "2021-08",
@@ -815,7 +859,7 @@ export const projects = [
     },
     {
         id: "rm_1",
-        title: "E-Scudo - Mobile application to carry out cryptocurrency transactions",
+        title: "E-Scudo -- Mobile application to carry out cryptocurrency transactions",
         label: "E-Scudo",
         year: "4th year",
         subject: "Mobile Networks",
@@ -1127,7 +1171,7 @@ export const projects = [
     },
     {
         id: "lti2_1",
-        title: "SMAF.G7 - Physical activity monitoring system",
+        title: "SMAF.G7 -- Physical activity monitoring system",
         year: "3rd year",
         subject: "Laboratories of Telecommunications and Informatics II",
         grade: {
@@ -1372,7 +1416,7 @@ export const projects = [
     },
     {
         id: "io_1",
-        title: "Scientific article research - \"Resolution of an Antenna-Satellite assignment problem by means of Integer Linear Programming\"",
+        title: "Scientific article research -- \"Resolution of an Antenna-Satellite assignment problem by means of Integer Linear Programming\"",
         label: "Scientific article research",
         year: "2nd year",
         subject: "Operations Research",

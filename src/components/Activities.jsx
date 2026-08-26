@@ -9,7 +9,7 @@ import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
 import { formatDates, getEarliestStart, getLatestEnd } from "../utils/dateFormat";
 import VerticalTimeline from "./VerticalTimeline";
-import { groupDescriptionItems, renderGroups, renderFlatButtons } from "../utils/descriptionRenderer.jsx";
+import { groupDescriptionItems, renderGroups, renderFlatButtons, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
 
 function getActivityId(activity) {
   return activity.id ?? activity.title;
@@ -124,7 +124,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
               <div className="flex flex-col gap-2">
                 <button
                   onClick={single ? undefined : () => setOpenId(openId === act.resolvedId ? null : act.resolvedId)}
-                  className={`w-full text-left flex items-center justify-between gap-4 ${single ? "cursor-default" : ""}`}
+                  className={`w-full text-left flex items-center justify-between gap-4 pr-3 ${single ? "cursor-default" : ""}`}
                   disabled={!!single}
                   tabIndex={single ? -1 : 0}
                 >
@@ -165,7 +165,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
                                 return (
                                   <span key={tag} className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip">
                                     {project.icon && <Icon icon={project.icon} />}
-                                    {project.label ?? project.title}
+                                    {renderInlineMarkdown(project.label ?? project.title, `act-proj-${tag}`)}
                                   </span>
                                 );
                               }

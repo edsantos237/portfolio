@@ -6,7 +6,7 @@ export const companies = [
         title: "CCG/ZGDV Institute",
         icon: "ccg.svg",
         // label: (optional)
-        department: "CVIG-CG - Computer Vision, Interaction and Graphics - Computer Graphics",
+        department: "CVIG-CG -- Computer Vision, Interaction and Graphics - Computer Graphics",
         description: [
             {
                 type: "button",
@@ -39,7 +39,7 @@ export const companies = [
                     {
                         type: "button",
                         icon: "ecp.ico",
-                        label: "ECP - Ecoceramics and Crystalware of Portugal",
+                        label: "ECP -- Ceramic and Glass Digital Training Academy",
                         link: {
                             type: "projects",
                             entry: "ecp",

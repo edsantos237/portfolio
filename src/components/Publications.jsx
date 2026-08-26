@@ -7,8 +7,9 @@ import { projects } from "@datapack/projects";
 import Icon from "./Icon";
 import FilterPanel from "./FilterPanel";
 
-import { groupDescriptionItems, renderGroups } from "../utils/descriptionRenderer.jsx";
-import { formatSingle } from "../utils/dateFormat.js";
+import { groupDescriptionItems, renderGroups, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
+import { formatPublicationCitationParts } from "../utils/citation";
+import { getEntryType } from "../utils/publicationTypes";
 
 /** Resolve a publication's tags into a flat list of company/school/personal association IDs */
 function getPublicationAssociationIds(pub) {
@@ -142,13 +143,15 @@ export default function Publications({ isActive, onPublicationClick }) {
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onPublicationClick?.(pub.id); }}
           >
             <div className="mb-2">
-              <h3 className="font-semibold text-white">{pub.title}</h3>
-              {pub.publisher && (
-                <p className="text-sm text-gray-400 mt-1">{pub.publisher}</p>
-              )}
-              {pub.date && (
-                <p className="text-xs text-gray-500">{formatSingle(pub.date)}</p>
-              )}
+              <p className="text-sm text-gray-300 leading-snug">
+                {formatPublicationCitationParts(pub).map((part, i) =>
+                  part.bold
+                    ? <strong key={i}>{part.text}</strong>
+                    : part.italic
+                      ? <i key={i}>{part.text}</i>
+                      : <span key={i}>{part.text}</span>
+                )}
+              </p>
             </div>
             {/** Origin pills: resolve companies/schools/personal from tags (ignore 'arcticle') */}
             {pub.tags && (
@@ -191,7 +194,7 @@ export default function Publications({ isActive, onPublicationClick }) {
                     return (
                       <span key={tag} className="flex items-center gap-1 px-2 py-1 text-xs rounded border whitespace-nowrap section-chip">
                         {projectOriginIcon && <Icon icon={projectOriginIcon} />}
-                        {project.label ?? project.title}
+                        {renderInlineMarkdown(project.label ?? project.title, `pub-chip-${tag}`)}
                       </span>
                     );
                   }
@@ -200,6 +203,15 @@ export default function Publications({ isActive, onPublicationClick }) {
                     return (
                       <span key={tag} className="px-2 py-1 text-xs rounded border whitespace-nowrap section-chip">
                         Personal
+                      </span>
+                    );
+                  }
+
+                  const pubType = getEntryType({ tags: [tag] });
+                  if (pubType) {
+                    return (
+                      <span key={tag} className="px-2 py-1 text-xs rounded border whitespace-nowrap section-chip">
+                        {pubType.short}
                       </span>
                     );
                   }

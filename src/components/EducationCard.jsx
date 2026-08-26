@@ -3,7 +3,7 @@ import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
 import ShowSkillsButton from "./ShowSkillsButton";
 import { formatRange } from "../utils/dateFormat";
-import { groupDescriptionItems, renderGroups, renderFlatButtons } from "../utils/descriptionRenderer.jsx";
+import { groupDescriptionItems, renderGroups, renderFlatButtons, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
 
 export default function EducationCard({ school, open, onToggle, forceOpen, degreeSelectable, selectedCourseId, onSelectCourse, showProjectsButton, projectCount, showSkillsButton, skillCount, onShowProjects, onShowSkills, onProjectLink }) {
     const formatDate = (d) => {
@@ -29,7 +29,7 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
             <div className="flex flex-col gap-2">
                 <button
                     onClick={toggle}
-                    className={`w-full text-left flex items-center justify-between gap-4 ${forceOpen ? "cursor-default" : ""}`}
+                    className={`w-full text-left flex items-center justify-between gap-4 pr-3 ${forceOpen ? "cursor-default" : ""}`}
                     disabled={!!forceOpen}
                     tabIndex={forceOpen ? -1 : 0}
                 >
@@ -41,11 +41,11 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
                         {/* TITLE + labels */}
                         <div>
                             <h3 className="text-lg font-semibold">
-                                {school.title}
+                                {renderInlineMarkdown(school.title, `edu-title-${school.id}`)}
                             </h3>
                             {visibleLabels.length > 0 && (
                                 <p className="text-sm text-gray-400 mt-1">
-                                    {visibleLabels.join(" · ")}
+                                    {renderInlineMarkdown(visibleLabels.join(" · "), `edu-labels-${school.id}`)}
                                 </p>
                             )}
                         </div>
@@ -145,13 +145,13 @@ export default function EducationCard({ school, open, onToggle, forceOpen, degre
                             >
                                 {/* Course title */}
                                 {course.title && (
-                                    <h4 className="font-medium text-gray-200">{course.title}</h4>
+                                    <h4 className="font-medium text-gray-200">{renderInlineMarkdown(course.title, `edu-course-title-${school.id}-${cIdx}`)}</h4>
                                 )}
 
                                 {/* Degrees as inline text */}
                                 {course.degrees && course.degrees.length > 0 && (
                                     <p className="text-sm text-gray-400">
-                                        {course.degrees.join(" · ")}
+                                        {renderInlineMarkdown(course.degrees.join(" · "), `edu-course-degrees-${school.id}-${cIdx}`)}
                                     </p>
                                 )}
 
