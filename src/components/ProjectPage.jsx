@@ -198,7 +198,7 @@ export default function ProjectPage({ projectId, onBack, onProjectLink }) {
                         <span className="font-medium text-white">{renderInlineMarkdown(origin.title, `proj-origin-${origin.id}`)}</span>
                         {origin.type === "company" && origin.department && (
                           <span className="block text-xs text-gray-500">
-                            {origin.department}
+                            {renderInlineMarkdown(origin.department, `proj-origin-dept-${origin.id}`)}
                           </span>
                         )}
                         {origin.type === "school" && (origin.headline ?? origin.labels?.slice(1))?.length > 0 && (

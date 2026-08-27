@@ -52,7 +52,8 @@ export const projects = [
     },
     {
         id: "xrgrit",
-        title: "XR-GRIT",
+        title: "XR-GRIT -- Gamified XR Platform for Robotics Instruction and Training",
+        group: "Master",
         tags: ["featured", "ccg", "android", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
         dates: [{
             start: "2025-09",
@@ -74,7 +75,7 @@ export const projects = [
             "* Integration into the VIROO platform.",
             "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
             "* Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
-            "* **[Participation in the MASTER Final Event in Oldenburg, Germany](https://www.master-xr.eu/final-event/)**",
+            "* **[Participation in the MASTER Final Event in Oldenburg, Germany](https://www.master-xr.eu/final-event/)**.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/2RsYF83Yetk"
@@ -89,7 +90,13 @@ export const projects = [
             {
                 type: "button",
                 icon: "master.png",
-                label: "Open Call @ Master",
+                label: "Master",
+                link: "https://www.master-xr.eu"
+            },
+            {
+                type: "button",
+                icon: "master.png",
+                label: "Open Call",
                 link: "https://www.master-xr.eu/oc-project/xr-grit/"
             }
         ]
@@ -199,10 +206,10 @@ export const projects = [
             // "To overcome the challenge of requalifying and qualifying the sector's workers, we will development 113 training courses, involving 1765 trainees, in alignment with the strategic development axes of the project, such as the energy and digital transition, the circularity of materials and decarbonization.",
             // "**Approaching academia, entities of the R&D system, technology suppliers, and national and international clients are factors that reinforce companies' competitiveness. Putting knowledge and technology at the service of companies to meet the challenges, is the focus of the 3rd activity of this WP, which aims to create synergies between the various stakeholders, bringing to discussion the best international practices, the best technologies, and the promotion of national ceramics.**",
             "## My contributions:",
-            "* TCA - **Training Configuration System** - desktop app for trainers to build immersive scenes composed with 3D objects with customizable properties, interactions and animations, following a set of steps.",
-            "* ARTA - **Augmented Reality Training System** - mobile app and Meta Quest 3 app for trainees to load created training scenes to be performed in augmented and mixed reality.",
-            "* VRTA - **Virtual Reality Training System** - virtual reality app for trainees to load a training course for robotics with multiple types of media content, interactions, gamification mechanics, and tutor narrative.",
-            "* TSIS - **Training Session Information System** - back-end system to store training info and provide it to the apps through a REST API.",
+            "* TCA -- **Training Configuration System** -- desktop app for trainers to build immersive scenes composed with 3D objects with customizable properties, interactions and animations, following a set of steps.",
+            "* ARTA -- **Augmented Reality Training System** -- mobile app and Meta Quest 3 app for trainees to load created training scenes to be performed in augmented and mixed reality.",
+            "* VRTA -- **Virtual Reality Training System** -- virtual reality app for trainees to load a training course for robotics with multiple types of media content, interactions, gamification mechanics, and tutor narrative.",
+            "* TSIS -- **Training Session Information System** -- back-end system to store training info and provide it to the apps through a REST API.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/YqAKVt1mczU"
@@ -221,7 +228,7 @@ export const projects = [
             {
                 type: "button",
                 icon: "ecp.ico",
-                label: "Project website",
+                label: "ECP",
                 link: "https://agendaecp.pt/en"
             },
             {
@@ -264,7 +271,7 @@ export const projects = [
                 type: "youtube",
                 link: "https://www.youtube.com/embed/fMbwnmRuo-U"
             },
-            "### **Partner**: [CeNTI](https://www.centi.pt/en/)",
+            "### **Partners**: [Gripwise](https://gripwisetech.com), [CeNTI](https://www.centi.pt/en/)",
             {
                 type: "button",
                 icon: "ccg.svg",
@@ -274,7 +281,7 @@ export const projects = [
             {
                 type: "button",
                 icon: "hfpt.svg",
-                label: "Project website",
+                label: "HfPT",
                 link: "https://www.healthfromportugal.pt/en/"
             },
             {
@@ -330,7 +337,7 @@ export const projects = [
             {
                 type: "button",
                 icon: "hfpt.svg",
-                label: "Project website",
+                label: "HfPT",
                 link: "https://www.healthfromportugal.pt/en/"
             },
             {
@@ -503,8 +510,8 @@ export const projects = [
         description: [
             "Development of a knowledge management architecture and framework for the integration of Augmented Reality and Mixed Reality, oriented towards knowledge of the maintenance and monitoring process through indicators applied in some critical maintenance activities.",
             "## My contributions:",
-            "* **Maintenance Configurator** - desktop app to display a digital twin of a given machine and customize a set of telemetries, diagnosis tree and intervention steps.",
-            "* **Remote Assistance** - expert desktop app for video and audio communication with file and annotations exchange through WebRTC with technicians equipped with HoloLens 2.0.",
+            "* **Maintenance Configurator** -- desktop app to display a digital twin of a given machine and customize a set of telemetries, diagnosis tree and intervention steps.",
+            "* **Remote Assistance** -- expert desktop app for video and audio communication with file and annotations exchange through WebRTC with technicians equipped with HoloLens 2.0.",
             "### **Partner**: [Sonae Arauco](https://www.sonaearauco.com/)",
             {
                 type: "button",
@@ -534,13 +541,13 @@ export const projects = [
             // "* R&D a new interactive after-sales assistance application for maintenance and remote assistance, aims to develop a system that allows the visualization of equipment information and after-sales assistance using AR and mixed techniques.",
             "## My contributions:",
             "* **Back-office app**:",
-            "  * **Authentication module** - WebSocket connection handler and HTTP REST endpoints access;",
-            "  * **Designer module** - content files manager, machine 3D model instantiation, content files instantiation for maintenance steps;",
-            "  * **Remote Assistance module** - contacts management, WebRTC P2P call management (video and audio) with annotations and content files exchange, and sessions log management.",
+            "  * **Authentication module** -- WebSocket connection handler and HTTP REST endpoints access;",
+            "  * **Designer module** -- content files manager, machine 3D model instantiation, content files instantiation for maintenance steps;",
+            "  * **Remote Assistance module** -- contacts management, WebRTC P2P call management (video and audio) with annotations and content files exchange, and sessions log management.",
             "* **Backend servers**:",
-            "  * **Authentication module** - WebSocket server, HTTP REST endpoints, and users database;",
-            "  * **Designer module** - content files HTTP REST endpoints;",
-            "  * **Remote Assistance module** - sessions log HTTP REST endpoints and database.",
+            "  * **Authentication module** -- WebSocket server, HTTP REST endpoints, and users database;",
+            "  * **Designer module** -- content files HTTP REST endpoints;",
+            "  * **Remote Assistance module** -- sessions log HTTP REST endpoints and database.",
             "### **Partners**: [Controlar](https://controlar.com/en/), [UMinho](https://www.uminho.pt/en/)",
             {
                 type: "button",
@@ -616,8 +623,8 @@ export const projects = [
         description: [
             "Gamified training and evaluation system for machine operations in VR and AR (HoloLens).",
             "## My contributions:",
-            "* **Task Configurator** - flowchart designer to define each task's flow through steps and conditions, and respective precedences and awarded points.",
-            "* **XR Configurator** - back-office app to assign interactions (VR only) and 3D annotations (VR and AR) using a QR code marker as reference point for each step and machine components, to be displayed in the VR and AR player apps.",
+            "* **Task Configurator** -- flowchart designer to define each task's flow through steps and conditions, and respective precedences and awarded points.",
+            "* **XR Configurator** -- back-office app to assign interactions (VR only) and 3D annotations (VR and AR) using a QR code marker as reference point for each step and machine components, to be displayed in the VR and AR player apps.",
             "### **Partners**: [Bosch](https://www.bosch.com/), [UMinho](https://www.uminho.pt/en/)",
             {
                 type: "button",
@@ -644,7 +651,7 @@ export const projects = [
                 type: "image",
                 path: "voice_transcriptor.jpg"
             },
-            "Made specially for my grandmother who lost her hearing ability, and for over three years, it became the main communication channel between her and the rest of the family on a daily baisis. It has a large font and high contrast coloring to be easily readable for her, and easily usable for the rest of the family.",
+            "Made specially for my grandmother who lost her hearing ability, and for over three years, it became the main communication channel between her and the rest of the family on a daily basis. It has a large font and high contrast coloring to be easily readable for her, and easily usable for the rest of the family.",
         ]
     },
     {
@@ -673,8 +680,8 @@ export const projects = [
         ],
         description: [
             "VR and AR system inspired on a rollercoaster business in pandemic times, split in two mobile apps:",
-            "* **VRollercoastAR Builder** - Augmented Reality app to build rollercoaster tracks;",
-            "* **VRollercoastAR Player** - Virtual Reality app (Cardboard) to ride the built rollercoaster tracks.",
+            "* **VRollercoastAR Builder** -- Augmented Reality app to build rollercoaster tracks;",
+            "* **VRollercoastAR Player** -- Virtual Reality app (Cardboard) to ride the built rollercoaster tracks.",
             {
                 type: "image",
                 path: "rva/ss3.jpg"
@@ -721,7 +728,7 @@ export const projects = [
             "Mobile app to detect bike riding events (holes in the road, breaks and stops) using a machine learning model based on the phone's sensors data."
         ],
         description: [
-            "System composed of a mobile app to detect bike riding events (holes in the road, breaks and stops) using a machine learning model based on the phone's sensors data - accelerometer and GPS, and a back-office web app to display the detected events on a map and respective statistics.",
+            "System composed of a mobile app to detect bike riding events (holes in the road, breaks and stops) using a machine learning model based on the phone's sensors data -- accelerometer and GPS, and a back-office web app to display the detected events on a map and respective statistics.",
             {
                 type: "image",
                 path: "su/ss1.png"
@@ -894,7 +901,7 @@ export const projects = [
             value: 18,
             range: 20
         },
-        tags: ["featured", "certified", "university", "backend", "corda", "http", "java", "js"],
+        tags: ["featured", "certified", "university", "backend", "corda", "http", "java"],
         dates: [{
             start: "2020-03",
             end: "2020-06"
@@ -918,7 +925,7 @@ export const projects = [
             {
                 type: "button",
                 icon: FaFilePdf,
-                label: "Certificate of Participation - INNCYBER Innovation Award",
+                label: "Certificate of Participation -- INNCYBER Innovation Award",
                 link: {
                     type: "file",
                     path: "rm/Certificado de Participação-José Eduardo da Silva Santos.pdf"
@@ -974,7 +981,7 @@ export const projects = [
             value: 15.0,
             range: 20
         },
-        tags: ["university", "backend", "frontend", "java", "js", "linux", "networking", "nodejs", "reactjs", "snmp"],
+        tags: ["university", "backend", "frontend", "js", "linux", "networking", "nodejs", "reactjs", "snmp"],
         dates: [{
             start: "2019-11",
             end: "2020-02"
@@ -1016,10 +1023,10 @@ export const projects = [
             end: "2019-12"
         }],
         summary: [
-            "Mobile app that plays random audioclips that were sent from a friend over four years across group chats."
+            "Mobile app that plays random audio clips that were sent from a friend over four years across group chats."
         ],
         description: [
-            "Mobile app that plays random audioclips that were sent from a friend over four years across group chats."
+            "Mobile app that plays random audio clips that were sent from a friend over four years across group chats."
         ]
     },
     {
@@ -1432,9 +1439,9 @@ export const projects = [
         ],
         description: [
             "Mobile app to monitor user's health through a set of features:",
-            "* Steps counter and distance measuring - using accelerometer, gyroscope and GPS.",
-            "* Heart rate measure - using the device's camera and flashlight covered with the user's finger or pulse.",
-            "* Calories and workout monitoring - through user's manual input.",
+            "* Steps counter and distance measuring -- using accelerometer, gyroscope and GPS.",
+            "* Heart rate measure -- using the device's camera and flashlight covered with the user's finger or pulse.",
+            "* Calories and workout monitoring -- through user's manual input.",
             {
                 type: "image",
                 path: "pp2/ss1.jpg"
@@ -1443,7 +1450,7 @@ export const projects = [
     },
     {
         id: "io_1",
-        title: "Scientific article research -- \"Resolution of an Antenna-Satellite assignment problem by means of Integer Linear Programming\"",
+        title: "Scientific article research -- \"*Resolution of an Antenna-Satellite assignment problem by means of Integer Linear Programming*\"",
         label: "Scientific article research",
         year: "2nd year",
         subject: "Operations Research",
@@ -1460,11 +1467,11 @@ export const projects = [
             "Research and presentation of an existing scientific article related to resources optimization."
         ],
         description: [
-            "Research and presentation of an existing scientific article related to resources optimization - \"*Resolution of an Antenna-Satellite assignment problem by means of Integer Linear Programming*\".",
+            "Research and presentation of an existing scientific article related to resources optimization -- \"*Resolution of an Antenna-Satellite assignment problem by means of Integer Linear Programming*\".",
             {
                 type: "button",
-                label: "ScienceDirect",
-                link: "https://www.sciencedirect.com/science/article/abs/pii/S1270963814001096"
+                label: "ScienceDirect • 10.1016/j.ast.2014.06.002",
+                link: "https://doi.org/10.1016/j.ast.2014.06.002"
             }
         ]
     },
@@ -1541,7 +1548,7 @@ export const projects = [
     },
     {
         id: "mp2_2",
-        title: "Steam Powered Storage - Pointers and Linked Lists",
+        title: "Steam Powered Storage -- Pointers and Linked Lists",
         year: "1st year",
         subject: "Programming Methods II",
         grade: {
