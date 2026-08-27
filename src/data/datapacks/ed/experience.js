@@ -48,7 +48,7 @@ export const companies = [
                 ]
             },
             {
-                title: "Development Technician / Assistant Researcher",
+                title: "Development Technician, Assistant Researcher",
                 dates: [{
                     start: "2021-10",
                     end: null
