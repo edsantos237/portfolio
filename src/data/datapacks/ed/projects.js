@@ -239,7 +239,7 @@ export const projects = [
         label: "HfPT A3.2.3",
         tags: ["ccg", "android", "backend", "csharp", "http", "js", "latex", "mobile", "networking", "nodejs", "unity", "webrtc", "websocket", "windows"],
         dates: [{
-            start: "2024-09",
+            start: "2024-03",
             end: "2026-06"
         }],
         summary: [
