@@ -7,7 +7,7 @@ export const projects = [
         id: "idex_machina",
         title: "IDEx MACHINA",
         label: "IDEx MACHINA",
-        tags: ["ccg", "csharp", "figma", "unity", "vr", "windows", "xr"],
+        tags: ["ccg", "csharp", "unity", "vr", "windows", "xr"],
         dates: [{
             start: "2026-08",
             end: null
@@ -53,7 +53,7 @@ export const projects = [
     {
         id: "xrgrit",
         title: "XR-GRIT -- Gamified XR Platform for Robotics Instruction and Training",
-        group: "Master",
+        group: "MASTER",
         tags: ["featured", "ccg", "android", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
         dates: [{
             start: "2025-09",
@@ -663,7 +663,7 @@ export const projects = [
             value: 19,
             range: 20
         },
-        tags: ["featured", "university", "android", "ar", "cardboard", "csharp", "http", "mobile", "sql", "unity", "vuforia", "vr", "xr"],
+        tags: ["featured", "university", "android", "ar", "cardboard", "csharp", "http", "mobile", "mysql", "sql", "unity", "vuforia", "vr", "xr"],
         dates: [{
             start: "2020-09",
             end: "2021-02"

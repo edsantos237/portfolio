@@ -27,16 +27,16 @@ export const categories = [
         title: "Tools"
     },
     {
+        id: "platform",
+        title: "Platforms",
+    },
+    {
         id: "technology",
         title: "Technologies",
     },
     {
         id: "ai",
         title: "AI Tools"
-    },
-    {
-        id: "platform",
-        title: "Platforms",
     }
 ]
 
@@ -491,7 +491,7 @@ export const skills = [
         id: "vstudio",
         title: "Visual Studio",
         icon: DiVisualstudio,
-        tags: ["tool", "personal", "ccg"]
+        tags: ["tool", "personal", "high_school", "university", "ccg"]
     },
     {
         id: "vuforia",
