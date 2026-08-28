@@ -90,7 +90,7 @@ export const projects = [
             {
                 type: "button",
                 icon: "master.png",
-                label: "Master",
+                label: "MASTER",
                 link: "https://www.master-xr.eu"
             },
             {
