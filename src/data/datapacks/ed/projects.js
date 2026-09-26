@@ -54,6 +54,7 @@ export const projects = [
         id: "xrgrit",
         title: "XR-GRIT -- Gamified XR Platform for Robotics Instruction and Training",
         group: "MASTER",
+        label: "XR-GRIT",
         tags: ["featured", "ccg", "android", "csharp", "gamedev", "unity", "viroo", "vr", "xr", "xritk"],
         dates: [{
             start: "2025-09",

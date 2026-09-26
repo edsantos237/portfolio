@@ -2,7 +2,10 @@ import { getEntryType } from "./publicationTypes";
 
 /** Remove **bold** emphasis markers used to highlight an author in the data */
 function stripEmphasis(name) {
-  return String(name ?? "").replace(/\*\*/g, "").trim();
+  return String(name ?? "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\*\*/g, "")
+    .trim();
 }
 
 /** "José Eduardo da Silva Santos" -> "J. E. S. Santos" */
@@ -112,6 +115,14 @@ function buildGenericParts(pub) {
     parts.push({ text: ` ${pub.journal},`, italic: true });
     if (pub.volume) parts.push({ text: ` vol. ${pub.volume},`, italic: false });
     if (pub.number) parts.push({ text: ` no. ${pub.number},`, italic: false });
+    if (pub.pages) parts.push({ text: ` pp. ${formatPages(pub.pages)},`, italic: false });
+  } else if (pub.booktitle) {
+    parts.push({ text: " in ", italic: false });
+    parts.push({ text: pub.series ? `${pub.booktitle} (${pub.series})` : pub.booktitle, italic: true });
+    parts.push({ text: ",", italic: false });
+
+    const location = pub.location || pub.address || "";
+    if (location) parts.push({ text: ` ${location},`, italic: false });
     if (pub.pages) parts.push({ text: ` pp. ${formatPages(pub.pages)},`, italic: false });
   } else if (pub.publisher) {
     parts.push({ text: ` ${pub.publisher},`, italic: false });

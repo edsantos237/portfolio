@@ -29,6 +29,16 @@ export const companies = [
         ],
         roles: [
             {
+                title: "Development Technician, Assistant Researcher",
+                dates: [{
+                    start: "2021-10",
+                    end: null
+                }],
+                description: [
+                    "Development in Unity/C# of Mixed Reality remote assistance systems, 3D scene configurators/back-offices, Augmented Reality mobile apps, gamified Virtual Reality apps and backend services in Node.js."
+                ]
+            },
+            {
                 title: "Technical Project Coordinator",
                 dates: [{
                     start: "2025-01",
@@ -45,16 +55,6 @@ export const companies = [
                             entry: "ecp",
                         }
                     }
-                ]
-            },
-            {
-                title: "Development Technician, Assistant Researcher",
-                dates: [{
-                    start: "2021-10",
-                    end: null
-                }],
-                description: [
-                    "Development in Unity/C# of Mixed Reality remote assistance systems, 3D scene configurators/back-offices, Augmented Reality mobile apps, gamified Virtual Reality apps and backend services in Node.js."
                 ]
             },
             {
