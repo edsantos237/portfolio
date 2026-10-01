@@ -2,7 +2,7 @@ export const publications = [
     // {
     //     id: "i2am_pps22",
     //     title: "USER EXPERIENCE IN REMOTE ASSISTANCE: COMPARING AUDIO, VIDEO, AND MIXED REALITY INTERACTION",
-    //     tags: ["texpact", "i2am"],
+    //     tags: ["i2am"],
     //     authors: [
     //         "Iara Margolis",
     //         "Emanuel Silva",
@@ -82,7 +82,7 @@ export const publications = [
     //         "Yusbel Castilla",
     //         "Nuno Sousa",
     //         "Edel Garcia Reyes",
-    //         "Luís Gonzaga Magalhães"
+    //         "[Luís Gonzaga Magalhães](https://algoritmi.uminho.pt/user/luis-gonzaga-mendes-magalhaes/)"
     //     ],
     //     date: "2026-11-12",
     //     location: "Iași, Romania",
@@ -110,7 +110,7 @@ export const publications = [
             "Yusbel Chávez Castilla",
             "Nuno Sousa",
             "Edel Reyes Garcia",
-            "Luís Gonzaga Magalhães"
+            "[Luís Gonzaga Magalhães](https://algoritmi.uminho.pt/user/luis-gonzaga-mendes-magalhaes/)"
         ],
         date: "2024-09-24",
         address: "New York, NY, USA",
@@ -210,7 +210,7 @@ export const publications = [
             "José Rocha",
             "Nuno Sousa",
             "Telmo Adão",
-            "Luís Gonzaga Magalhães",
+            "[Luís Gonzaga Magalhães](https://algoritmi.uminho.pt/user/luis-gonzaga-mendes-magalhaes/)",
             "Cristiano Jesus",
             "Rui Sousa",
             "Rui Lima",
@@ -239,7 +239,7 @@ export const publications = [
         tags: ["dissertation", "conf"],
         authors: [
             "**José Eduardo da Silva Santos**",
-            "Luís Gonzaga Mendes Magalhães"
+            "[Luís Gonzaga Mendes Magalhães](https://algoritmi.uminho.pt/user/luis-gonzaga-mendes-magalhaes/)"
         ],
         date: "2021-11-04",
         location: "Porto, Portugal",
