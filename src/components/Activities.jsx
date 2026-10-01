@@ -7,7 +7,7 @@ import { projects } from "@datapack/projects";
 import AnimatedCollapse from "./AnimatedCollapse";
 import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
-import { formatDates, getEarliestStart, getLatestEnd } from "../utils/dateFormat";
+import { formatDatesWithDuration, getEarliestStart, getLatestEnd } from "../utils/dateFormat";
 import VerticalTimeline from "./VerticalTimeline";
 import { groupDescriptionItems, renderGroups, renderFlatButtons, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
 
@@ -272,7 +272,7 @@ export default function Activities({ isActive, onShowProjects, focusedActivityId
                         {role.title && <h4 className="font-medium text-gray-200">{role.title}</h4>}
 
                         <p className="text-xs text-gray-400">
-                          {formatDates(role.dates)}
+                          {formatDatesWithDuration(role.dates)}
                         </p>
 
                         {Array.isArray(role.description)

@@ -76,7 +76,13 @@ export default function SidebarNav({ activeSection, visible, onJump }) {
         <img
           src={`res/${sources.res}/${cover.picture}`}
           alt={cover.name}
-          className="w-20 h-20 rounded-2xl object-contain"
+          className="w-[7.5rem] h-[7.5rem] rounded-2xl object-contain"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to bottom, black 65%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to bottom, black 65%, transparent 100%)",
+          }}
         />
 
         <div>

@@ -6,7 +6,7 @@ export const companies = [
         title: "CCG/ZGDV Institute",
         icon: "ccg.svg",
         // label: (optional)
-        department: "CVIG-CG -- Computer Vision, Interaction and Graphics - Computer Graphics",
+        department: "CVIG-CG -- Computer Vision, Interaction and Graphics -- Computer Graphics",
         description: [
             {
                 type: "button",

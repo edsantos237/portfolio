@@ -130,11 +130,17 @@ export default function Cover({ activeSection, onJump }) {
         style={{ transform: `translateY(${contentOffset}px)` }}
       >
         <div ref={contentRef} className="w-full">
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center -mt-8 mb-6">
             <img
               src={`res/${sources.res}/${cover.picture}`}
               alt={cover.name}
-              className="w-40 h-40 sm:w-52 sm:h-52 rounded-3xl object-contain shadow-2xl"
+              className="w-60 h-60 sm:w-[19.5rem] sm:h-[19.5rem] rounded-3xl object-contain shadow-2xl"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, black 65%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to bottom, black 65%, transparent 100%)",
+              }}
             />
           </div>
 

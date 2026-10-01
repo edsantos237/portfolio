@@ -32,10 +32,10 @@ export const projects = [
     {
         id: "portfolio",
         title: "Portfolio / CV",
-        tags: ["personal", "deepseek", "frontend", "ghcopilot", "js", "latex", "nodejs", "reactjs"],
+        tags: ["personal", "frontend", "ghcopilot", "js", "latex", "nodejs", "reactjs"],
         dates: [{
             start: "2026-04",
-            end: null
+            end: "2026-05"
         }],
         summary: [
             "Vibe-coded website in React.js, hosted in GitHub Pages, powered by AI agents, and easily customizable through data files."

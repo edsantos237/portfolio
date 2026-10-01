@@ -3,7 +3,7 @@ import AnimatedCollapse from "./AnimatedCollapse";
 import Icon from "./Icon";
 import ShowProjectsButton from "./ShowProjectsButton";
 import ShowSkillsButton from "./ShowSkillsButton";
-import { formatRange } from "../utils/dateFormat";
+import { formatRangeWithDuration } from "../utils/dateFormat";
 import { groupDescriptionItems, renderGroups, renderFlatButtons, renderInlineMarkdown } from "../utils/descriptionRenderer.jsx";
 
 export default function ExperienceCard({ company, open, onToggle, forceOpen, roleSelectable, selectedRoleId, onSelectRole, showProjectsButton, projectCount, showSkillsButton, skillCount, onShowProjects, onShowSkills, onProjectLink }) {
@@ -16,8 +16,8 @@ export default function ExperienceCard({ company, open, onToggle, forceOpen, rol
     if (!d) return "";
     // expect d to be an object { start, end }, an array of such objects, or a string
     if (typeof d === "string") return d;
-    if (Array.isArray(d)) return d.map((item) => formatRange(item)).filter(Boolean).join(", ");
-    return formatRange(d);
+    if (Array.isArray(d)) return d.map((item) => formatRangeWithDuration(item)).filter(Boolean).join(", ");
+    return formatRangeWithDuration(d);
   };
 
   return (
