@@ -506,10 +506,21 @@ export const projects = [
             end: "2023-07"
         }],
         summary: [
-            "Maintenance Configurator and Remote Assistance system for maintenance operations in AR."
+            {
+                type: "image",
+                path: "admin.png"
+            },
         ],
         description: [
             "Development of a knowledge management architecture and framework for the integration of Augmented Reality and Mixed Reality, oriented towards knowledge of the maintenance and monitoring process through indicators applied in some critical maintenance activities.",
+            {
+                type: "image",
+                path: "admin.png"
+            },
+            {
+                type: "image",
+                path: "admin2.png"
+            },
             "## My contributions:",
             "* **Maintenance Configurator** -- desktop app to display a digital twin of a given machine and customize a set of telemetries, diagnosis tree and intervention steps.",
             "* **Remote Assistance** -- expert desktop app for video and audio communication with file and annotations exchange through WebRTC with technicians equipped with HoloLens 2.0.",
@@ -619,10 +630,25 @@ export const projects = [
             end: "2022-01"
         }],
         summary: [
-            "Gamified training and evaluation system for machine operations in VR and AR."
+            {
+                type: "image",
+                path: "fof.png"
+            },
         ],
         description: [
             "Gamified training and evaluation system for machine operations in VR and AR (HoloLens).",
+            {
+                type: "image",
+                path: "fof.png"
+            },
+            {
+                type: "image",
+                path: "fof2.png"
+            },
+            {
+                type: "image",
+                path: "fof3.png"
+            },
             "## My contributions:",
             "* **Task Configurator** -- flowchart designer to define each task's flow through steps and conditions, and respective precedences and awarded points.",
             "* **XR Configurator** -- back-office app to assign interactions (VR only) and 3D annotations (VR and AR) using a QR code marker as reference point for each step and machine components, to be displayed in the VR and AR player apps.",
