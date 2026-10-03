@@ -85,6 +85,9 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
     }
   });
 
+  const projectOrigins = origins.filter((o) => o.type === "project");
+  const otherOrigins = origins.filter((o) => o.type !== "project");
+
   const descriptionGroups = groupDescriptionItems(pub.description || []);
   const abstractGroups = groupDescriptionItems(pub.abstract || []);
 
@@ -135,9 +138,9 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
                 <p className="text-sm text-gray-400">{publicationMeta}</p>
               )}
 
-              {(origins.length > 0 || pubType) && (
+              {(otherOrigins.length > 0 || pubType) && (
                 <div className="flex flex-col gap-2 items-start">
-                  {origins.map((origin) => {
+                  {otherOrigins.map((origin) => {
                     const handleOriginClick = () => {
                       if (origin.type === "company") { close(); onProjectLink?.({ type: "experience", entry: origin.id }); }
                       else if (origin.type === "school") { close(); onProjectLink?.({ type: "education", entry: origin.id }); }
@@ -238,6 +241,48 @@ export default function PublicationPage({ publicationId, onBack, onProjectLink }
                 </h3>
                 <div className="space-y-4">
                   {renderGroups(groupDescriptionItems([authorsText]), `pub-authors-${pub.id}`, onProjectLink)}
+                </div>
+              </div>
+            )}
+
+            {/* Associated project */}
+            {projectOrigins.length > 0 && (
+              <div
+                className={`space-y-3${authorsText ? " border-t pt-6" : ""}`}
+                style={authorsText ? { borderColor: theme.cardBorder } : undefined}
+              >
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
+                  Associated project
+                </h3>
+                <div className="flex flex-col gap-2 items-start">
+                  {projectOrigins.map((origin) => {
+                    const handleOriginClick = () => {
+                      close();
+                      onProjectLink?.({ type: "projects", entry: origin.id });
+                    };
+                    return (
+                      <div
+                        key={origin.id}
+                        className="flex items-center gap-2 px-3 py-2 text-sm rounded border section-card cursor-pointer transition-opacity hover:opacity-80"
+                        onClick={handleOriginClick}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleOriginClick(); }}
+                      >
+                        {origin.icon && (
+                          <span className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
+                            <Icon icon={origin.icon} className="w-5 h-5" />
+                          </span>
+                        )}
+                        <div className="leading-tight">
+                          <span className="font-medium text-white">{renderInlineMarkdown(origin.title, `pubpage-project-${origin.id}`)}</span>
+                          {origin.subtitle && (
+                            <span className="block text-xs text-gray-500">{origin.subtitle}</span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}

@@ -23,6 +23,7 @@ export const activities = [
         ],
         roles: [
             {
+                title: "Volunteer",
                 dates: [{
                     start: "2025-09",
                     end: null
@@ -55,7 +56,7 @@ export const activities = [
                     end: "2020-12"
                 }],
                 description: [
-                    "I managed financial assets and liabilities."
+                    "Managed financial assets and liabilities."
                 ]
             },
             {
@@ -65,7 +66,7 @@ export const activities = [
                     end: "2019-12"
                 }],
                 description: [
-                    "I designed posters and promoted events."
+                    "Designed posters and promoted events."
                 ]
             }
         ]
@@ -89,7 +90,7 @@ export const activities = [
                     end: "2018-05"
                 }],
                 description: [
-                    "I designed freshman and general course kits and helped organizing course dinners."
+                    "Designed freshman and general course kits and helped organizing course dinners."
                 ]
             }
         ]

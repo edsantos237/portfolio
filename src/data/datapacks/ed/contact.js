@@ -38,7 +38,7 @@ export const contact = [
         title: "CIÊNCIAVITAE",
         value: "AD15-4A7B-2863",
         address: "https://www.cienciavitae.pt/portal/en/AD15-4A7B-2863",
-        icon: IoMdFlower
+        icon: "cienciavitae.svg"
     },
     {
         title: "Location",
