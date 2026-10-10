@@ -7,7 +7,7 @@ export const schools = [
         icon: "uminho.jpg",
         label: "University",
         type: "University",
-        headline: ["Integrated Master", "Telecommunications and Informatics Engineering"],
+        headline: ["Integrated Master (BSc and MSc)", "Telecommunications and Informatics Engineering"],
         description: [
             {
                 type: "button",

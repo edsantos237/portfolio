@@ -5,7 +5,7 @@
 %%  light-friendly RGB values using the site's own color math.
 %%  Compile: xelatex cv.tex  (run twice)
 %% ============================================================
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 % ── Packages ──────────────────────────────────────────────────
 % Use XeLaTeX for system fonts
@@ -83,11 +83,11 @@
 \titlespacing*{\section}{0pt}{28pt}{16pt}
 
 % ── Accent bullet list ────────────────────────────────────────
-\newlist{cvbullets}{itemize}{1}
+\newlist{cvbullets}{itemize}{2}
 \setlist[cvbullets]{
   leftmargin=1.1em, rightmargin=0pt,
   itemsep=1pt, parsep=0pt, topsep=2pt, partopsep=0pt,
-  before=\renewcommand{\labelitemi}{\textcolor{\currentsectioncolor}{\textbullet}},
+  before={\color{textsecondary}\renewcommand{\labelitemi}{\textcolor{\currentsectioncolor}{\textbullet}}},
   label={\textcolor{\currentsectioncolor}{\textbullet}}
 }
 
@@ -95,9 +95,9 @@
 
 % Section title with explicit color: \cvsectiontitle{<color>}{<Title>}
 \newcommand{\cvsectiontitle}[2]{%
-  \vspace{20pt}% extra space before section title
+  \vspace{10pt}% extra space before section title
   {\large\bfseries\addfontfeatures{LetterSpace=5}\color{#1}\MakeUppercase{#2}}\par
-  \vspace{-3pt}{\color{#1}\rule{\linewidth}{1.35pt}}\par\vspace{10pt}%
+  \vspace{-3pt}{\color{#1}\rule{\linewidth}{1.35pt}}\par\vspace{6pt}%
   \gdef\currentsectioncolor{#1}%
 }
 
@@ -120,7 +120,7 @@
   {\footnotesize\color{textmuted}#2}\par
   \vspace{0.5pt}%
   #3%
-  \par\vspace{10pt}%
+  \par\vspace{6pt}%
 }
 
 \newcommand{\pubentry}[3]{%
@@ -188,7 +188,7 @@
 \noindent
 \begin{minipage}[t]{0.17\linewidth}
   \vspace{0pt}%
-  \includegraphics[width=0.98\linewidth,height=2.7cm,keepaspectratio]{../public/res/ed/profile_head.png}%
+  \includegraphics[width=0.98\linewidth,height=3cm,keepaspectratio]{../public/res/ed/profile_head.png}%
 \end{minipage}\hspace{0.15em}
 \begin{minipage}[t]{0.79\linewidth}
   \vspace{0pt}%
@@ -197,18 +197,18 @@
   \vspace{10pt}%
   % --- Dense metadata rows: 4 fields per row, natural width ---
   {\renewcommand{\arraystretch}{1.1}%
-  \setlength{\tabcolsep}{5.5pt}%
-  \begin{tabular}{@{}l l l l@{}}
-    {\footnotesize\textcolor{textmuted}{\faIdCard}\hspace{0.4em}\textcolor{textsecondary}{Jos\'e Eduardo da Silva Santos}} &
-    {\footnotesize\textcolor{textmuted}{\faBirthdayCake}\hspace{0.4em}\textcolor{textsecondary}{28 years old}} &
-    {\footnotesize\textcolor{textmuted}{\faMapMarker*}\hspace{0.4em}\textcolor{textsecondary}{V.\,N. Famalic\~ao, Portugal}} &
-    {\footnotesize\textcolor{textmuted}{\faCarSide}\hspace{0.4em}\textcolor{textsecondary}{B, B1}} \\
-    {\footnotesize\textcolor{sec-start}{\faEnvelope}\hspace{0.4em}\textcolor{sec-start}{\href{mailto:edsantos237@outlook.com}{edsantos237@outlook.com}}} &
-    {\footnotesize\textcolor{sec-start}{\faLinkedin}\hspace{0.4em}\textcolor{sec-start}{\href{https://linkedin.com/in/edsantos237}{edsantos237}}} &
-    {\footnotesize\textcolor{sec-start}{\faGithub}\hspace{0.4em}\textcolor{sec-start}{\href{https://github.com/edsantos237}{edsantos237}}} &
-    {\scriptsize\textcolor{sec-start}{\faOrcid}\hspace{0.3em}\textcolor{sec-start}{\href{https://orcid.org/0000-0001-5203-6249}{0000-0001-5203-6249}}} \\
-    \multicolumn{4}{@{}l@{}}{\footnotesize\textcolor{sec-start}{\faGlobe}\hspace{0.4em}\textcolor{sec-start}{\href{https://edsantos237.github.io/portfolio/}{edsantos237.github.io/portfolio}}}
-  \end{tabular}
+  \setlength{\tabcolsep}{3pt}%
+  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}l l l l@{}}
+    {\footnotesize\textcolor{textmuted}{\faIdCard}\hspace{0.3em}\textcolor{textsecondary}{Jos\'e Eduardo da Silva Santos}} &
+    {\footnotesize\textcolor{textmuted}{\faBirthdayCake}\hspace{0.3em}\textcolor{textsecondary}{28 years old}} &
+    {\footnotesize\textcolor{textmuted}{\faMapMarker*}\hspace{0.3em}\textcolor{textsecondary}{V.\,N. Famalic\~ao, Portugal}} &
+    {\footnotesize\textcolor{textmuted}{\faCarSide}\hspace{0.3em}\textcolor{textsecondary}{B, B1}} \\
+    {\footnotesize\textcolor{sec-start}{\faEnvelope}\hspace{0.3em}\textcolor{sec-start}{\href{mailto:edsantos237@outlook.com}{edsantos237@outlook.com}}} &
+    {\footnotesize\textcolor{sec-start}{\faLinkedin}\hspace{0.3em}\textcolor{sec-start}{\href{https://linkedin.com/in/edsantos237}{edsantos237}}} &
+    {\footnotesize\textcolor{sec-start}{\faGithub}\hspace{0.3em}\textcolor{sec-start}{\href{https://github.com/edsantos237}{edsantos237}}} \\
+    {\footnotesize\textcolor{sec-start}{\faGlobe}\hspace{0.3em}\textcolor{sec-start}{\href{https://edsantos237.github.io/portfolio/}{\textbf{edsantos237.github.io/portfolio}}}} &
+    \rlap{\footnotesize\textcolor{sec-start}{\faOrcid}\hspace{0.3em}\textcolor{sec-start}{\href{https://orcid.org/0000-0001-5203-6249}{0000-0001-5203-6249}}} \\
+  \end{tabular*}
   }
 \end{minipage}
 
@@ -223,7 +223,7 @@
   \cvsectiontitle{sec-about-me}{About me}
 
   \cvsubheading{Who am I?}
-  {\normalsize\color{textsecondary}%
+  {\small\color{textsecondary}%
     I have a Master's degree in Telecommunications and Informatics Engineering, with a broad background in programming, networking, embedded systems, Internet of Things, machine learning and full stack.\smallskip
 
     My professional experience bloomed through my Master's dissertation, which led me to the Research \& Development environment, where I've been developing extended reality experiences, mobile applications, communication features, back-office systems, 3D scene configuration tools, and backend services, usually for industrial or learning contexts.\\ I have also contributed to five published conference papers.\smallskip
@@ -231,11 +231,11 @@
     I'm open to work in a wide range of fields, with a particular interest in the fields of Internet of Things, extended reality and backend development, and always eager to learn new things.\par
   }
 
-  \vspace{10pt}
-  \cvsubheading{Hobbies}
-  \bulletrow{App development\listsep Astrophotography}
-  \bulletrow{Drawing\listsep Hiking\listsep Playing piano}
-  \bulletrow{Traveling\listsep Volunteering \listsep Writing}
+  % \vspace{10pt}
+  % \cvsubheading{Hobbies}
+  % \bulletrow{App development\listsep Astrophotography}
+  % \bulletrow{Drawing\listsep Hiking\listsep Playing piano}
+  % \bulletrow{Traveling\listsep Volunteering \listsep Writing}
 
   \vspace{10pt}
   \cvsubheading{Strengths}
@@ -258,7 +258,8 @@
   
   \vspace{10pt}
   \skillcategory{Languages}
-  \bulletrow{C\listsep C\#\listsep Java\listsep JavaScript\listsep Python\listsep SQL}
+  \bulletrow{C\listsep C\#\listsep Java\listsep JavaScript\listsep Python}
+  \bulletrow{SQL}
   
   \vspace{10pt}
   \skillcategory{Frameworks / Tools}
@@ -274,28 +275,33 @@
     {May 2021 --- Present \textcolor{textmuted}{|} CVIG-CG -- Computer Vision, Interaction and Graphics -- Computer Graphics}
     {\begin{cvbullets}
       \item \textbf{Development Technician, Assistant Researcher} {\footnotesize\textcolor{textmuted}{(since Oct 2021)}}: Development in Unity/C\# of mixed reality remote assistance systems, 3D scene configurators, augmented reality mobile apps, gamified virtual reality apps, and backend services in Node.js.
-      \item \textbf{Technical Project Coordinator} {\footnotesize\textcolor{textmuted}{(Jan 2025 to Jul 2026)}}: Project: \textit{ECP -- Ceramic and Glass Digital Training Academy}.
-      \item \textbf{Research Grant} {\footnotesize\textcolor{textmuted}{(until Sep 2021)}}.
+      \item \textbf{Technical Project Coordinator} {\fontsize{9}{13.6}\selectfont\textcolor{textmuted}{(Jan 2025 to\\Jul 2026)}}: Project: \textit{ECP -- Ceramic and Glass Digital Training Academy}.
+      \item \textbf{Research Grant} {\footnotesize\textcolor{textmuted}{(until Sep 2021)}}
     \end{cvbullets}}
 
   \cvsectiontitle{sec-education}{Education}
 
   \stackentry
     {University of Minho}
-    {Sep 2016 --- Mar 2022 \textcolor{textmuted}{|} Bachelor's and Master's degree}
+    {Sep 2016 --- Mar 2022 \textcolor{textmuted}{|} \textbf{Bachelor's and Master's degree}}
     {\begin{cvbullets}
-      \item Telecommunications and Informatics Engineering
-      \item Grade: \textbf{15.07\,/\,20}
-      \item Master's Dissertation: \textit{Augmented Reality System with Gamification for Education} {\footnotesize\textcolor{textmuted}{(Grade: \textbf{19\,/\,20})}}
+      \item \textbf{Telecommunications and Informatics Engineering}
+      \begin{cvbullets}
+        \item Grade: \textbf{15.07\,/\,20}
+      \end{cvbullets}
+      \item Master's Dissertation: \textit{Augmented Reality System with Gamification for Education}
+      \begin{cvbullets}
+        \item Grade: \textbf{19\,/\,20}
+      \end{cvbullets}
     \end{cvbullets}}
 
-  \stackentry
-    {Escola Secund\'aria D.\,Sancho I}
-    {Sep 2013 --- Jun 2016 \textcolor{textmuted}{|} 10th--12th grade}
-    {\begin{cvbullets}
-      \item Science and Technology
-      \item Grade: \textbf{14.75\,/\,20}
-    \end{cvbullets}}
+  % \stackentry
+  %   {Escola Secund\'aria D.\,Sancho I}
+  %   {Sep 2013 --- Jun 2016 \textcolor{textmuted}{|} 10th--12th grade}
+  %   {\begin{cvbullets}
+  %     \item Science and Technology
+  %     \item Grade: \textbf{14.75\,/\,20}
+  %   \end{cvbullets}}
 
   \cvsectiontitle{sec-activities}{Activities}
 
