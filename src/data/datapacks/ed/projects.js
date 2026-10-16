@@ -74,12 +74,7 @@ export const projects = [
             "XR-GRIT is a Virtual Reality platform that redefines robotics training through immersive simulation and structured gamification.",
             "The system enables learners to perform realistic robotic operations such as pick-and-place, machine tending, and safety procedures, all within a fully virtual environment that replicates industrial conditions safely and accurately.",
             "At its core, XR-GRIT integrates narrative-driven missions, progress-tracking mechanics, and visual metaphors representing achievement and advancement.",
-            "Trainees are guided by an avatar facilitator, who introduces objectives, demonstrates procedures, and provides feedback throughout the modules, ensuring an intuitive, instructor-like learning flow.",
-            "## My contributions:",
-            "* Integration into the VIROO platform.",
-            "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
-            "* Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
-            "* **[Participation in the MASTER Final Event in Oldenburg, Germany](https://www.master-xr.eu/final-event/)**.",
+            "Trainees are guided by an avatar facilitator, who introduces objectives, demonstrates procedures, and provides feedback throughout the modules, ensuring an intuitive, instructor-like learning flow.",            
             {
                 type: "image",
                 path: "xrgrit2.png"
@@ -88,6 +83,11 @@ export const projects = [
                 type: "image",
                 path: "xrgrit3.png"
             },
+            "## My contributions:",
+            "* Integration into the VIROO platform.",
+            "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
+            "* Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
+            "* **[Participation in the MASTER Final Event in Oldenburg, Germany](https://www.master-xr.eu/final-event/)**.",
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/2RsYF83Yetk"
