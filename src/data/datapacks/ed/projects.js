@@ -86,7 +86,7 @@ export const projects = [
             },
             {
                 type: "image",
-                path: "xrgri3.png"
+                path: "xrgrit3.png"
             },
             {
                 type: "youtube",
