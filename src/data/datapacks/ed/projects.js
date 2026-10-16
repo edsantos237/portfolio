@@ -61,12 +61,15 @@ export const projects = [
             end: "2026-06"
         }],
         summary: [
-            "Gamified VR training course for robotics instruction and training."
+            {
+                type: "image",
+                path: "xrgrit.png"
+            }
         ],
         description: [
             {
                 type: "image",
-                path: "xrgrit.jpg"
+                path: "xrgrit.png"
             },
             "XR-GRIT is a Virtual Reality platform that redefines robotics training through immersive simulation and structured gamification.",
             "The system enables learners to perform realistic robotic operations such as pick-and-place, machine tending, and safety procedures, all within a fully virtual environment that replicates industrial conditions safely and accurately.",
@@ -77,6 +80,14 @@ export const projects = [
             "* Development of the environment, interactions, gamification mechanics and tutor timelines.",
             "* Integration of teaching content (3D models, animations, videos, images, audio and exercises).",
             "* **[Participation in the MASTER Final Event in Oldenburg, Germany](https://www.master-xr.eu/final-event/)**.",
+            {
+                type: "image",
+                path: "xrgrit2.png"
+            },
+            {
+                type: "image",
+                path: "xrgri3.png"
+            },
             {
                 type: "youtube",
                 link: "https://www.youtube.com/embed/2RsYF83Yetk"
