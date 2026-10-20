@@ -2,7 +2,30 @@ import { IoLogoGithub } from "react-icons/io5";
 import { FaFilePdf } from "react-icons/fa6";
 
 export const projects = [
-    
+    {
+        id: "linha_de_codigo",
+        title: "Linha de Código",
+        label: "Linha de Código",
+        tags: ["ccg", "frontend", "js", "nodejs"],
+        dates: [{
+            start: "2026-09",
+            end: null
+        }],
+        summary: [
+            "Web platform to create embroidery designs."
+        ],
+        description: [
+            "The project aims to create a web platform for creating Guimarães embroidery designs, built from a gallery of individual elements previously collected in \"O traço e a linha\" by Cecília Lages. In practical terms, the development of the web application will result from defining programming parameters that allow users to create an embroidery composition, which can then be printed and subsequently embroidered.",
+            "## My contributions:",
+            "* Website platform",
+            "### **Partner**: [A Oficina](https://www.aoficina.pt/en/)",
+            {
+                type: "button",
+                label: "Project website",
+                link: "https://www.aoficina.pt/en/detail-eventos/20260501-linha-de-codigo/"
+            },
+        ]
+    },
     {
         id: "idex_machina",
         title: "IDEx MACHINA",
