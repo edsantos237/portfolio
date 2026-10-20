@@ -36,7 +36,7 @@ export const projects = [
             end: null
         }],
         summary: [
-            "UI assets for a industrial machines monitoring and virtual simulation of their operations."
+            "UI assets for industrial machines monitoring and virtual simulation of their operations."
         ],
         description: [
             "The project aims to create an integrated digital platform for the complete development of industrial machines, from the mechanical design phase to the programming of automatons and virtual simulation of their operation.",
