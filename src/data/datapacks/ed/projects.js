@@ -17,7 +17,7 @@ export const projects = [
         description: [
             "The project aims to create a web platform for creating Guimarães embroidery designs, built from a gallery of individual elements previously collected in \"*O traço e a linha*\" by Cecília Lages. In practical terms, the development of the web application will result from defining programming parameters that allow users to create an embroidery composition, which can then be printed and subsequently embroidered.",
             "## My contributions:",
-            "* Website platform",
+            "* Web platform",
             "### **Partner**: [A Oficina](https://www.aoficina.pt/en/)",
             {
                 type: "button",
