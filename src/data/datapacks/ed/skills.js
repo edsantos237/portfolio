@@ -125,7 +125,7 @@ export const skills = [
         id: "claude",
         title: "Claude",
         icon: SiClaude,
-        tags: ["ai", "personal"]
+        tags: ["featured", "ai", "personal"]
     },
     // {
     //     id: "clipchamp",
