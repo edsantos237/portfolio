@@ -3,10 +3,25 @@ import { FaFilePdf } from "react-icons/fa6";
 
 export const projects = [
     {
+        id: "eleosphere",
+        title: "Eleosphere",
+        tags: ["personal", "backend", "claudecode", "frontend", "fullstack", "js", "nextjs", "nodejs"],
+        dates: [{
+            start: "2026-11",
+            end: null
+        }],
+        summary: [
+            "Social network for social causes."
+        ],
+        description: [
+            "Eleosphere is a platform that answers "what can I do near me?" for social causes: charities, volunteering, animal shelters, food banks, goods banks, blood donation, environmental causes and more."
+        ]
+    },
+    {
         id: "linha_de_codigo",
         title: "Linha de Código",
         label: "Linha de Código",
-        tags: ["ccg", "frontend", "js", "nodejs"],
+        tags: ["ccg", "claudecode" "frontend", "js", "nodejs"],
         dates: [{
             start: "2026-09",
             end: null
@@ -15,7 +30,7 @@ export const projects = [
             "Web platform to create embroidery designs."
         ],
         description: [
-            "The project aims to create a web platform for creating Guimarães embroidery designs, built from a gallery of individual elements previously collected in \"*O traço e a linha*\" by Cecília Lages. In practical terms, the development of the web application will result from defining programming parameters that allow users to create an embroidery composition, which can then be printed and subsequently embroidered.",
+            "\"Linha de Código\" aims to create a web platform for creating Guimarães embroidery designs, built from a gallery of individual elements previously collected in \"*O traço e a linha*\" by Cecília Lages. In practical terms, the development of the web application will result from defining programming parameters that allow users to create an embroidery composition, which can then be printed and subsequently embroidered.",
             "## My contributions:",
             "* Web platform",
             "### **Partner**: [A Oficina](https://www.aoficina.pt/en/)",
@@ -39,7 +54,7 @@ export const projects = [
             "UI assets for industrial machines monitoring and virtual simulation of their operations."
         ],
         description: [
-            "The project aims to create an integrated digital platform for the complete development of industrial machines, from the mechanical design phase to the programming of automatons and virtual simulation of their operation.",
+            "IDEx MACHINA aims to create an integrated digital platform for the complete development of industrial machines, from the mechanical design phase to the programming of automatons and virtual simulation of their operation.",
             "This platform will feature advanced motion simulation, interoperable communication with robots from various brands, and integration of Extended Reality technology. By creating digital twins and an immersive interface, users will be able to validate projects more efficiently and with less risk. This holistic approach will reduce development time and costs, eliminating redundancies and promoting effective multidisciplinary collaboration.",
             "## My contributions:",
             "* UI assets, namely prefabs, scripts and scriptable objects.",

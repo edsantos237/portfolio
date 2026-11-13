@@ -125,6 +125,12 @@ export const skills = [
         id: "claude",
         title: "Claude",
         icon: SiClaude,
+        tags: ["ai", "personal", "ccg"]
+    },
+    {
+        id: "claudecode",
+        title: "Claude Code",
+        icon: SiClaude,
         tags: ["featured", "ai", "personal", "ccg"]
     },
     // {
