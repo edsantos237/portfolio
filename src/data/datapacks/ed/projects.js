@@ -21,7 +21,7 @@ export const projects = [
         id: "linha_de_codigo",
         title: "Linha de Código",
         label: "Linha de Código",
-        tags: ["ccg", "claudecode" "frontend", "js", "nodejs"],
+        tags: ["ccg", "claudecode", "frontend", "js", "nodejs"],
         dates: [{
             start: "2026-09",
             end: null
