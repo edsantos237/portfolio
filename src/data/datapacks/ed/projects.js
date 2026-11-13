@@ -14,7 +14,7 @@ export const projects = [
             "Social network for social causes."
         ],
         description: [
-            "Eleosphere is a platform that answers "what can I do near me?" for social causes: charities, volunteering, animal shelters, food banks, goods banks, blood donation, environmental causes and more."
+            "Eleosphere is a platform that answers \"what can I do near me?\" for social causes: charities, volunteering, animal shelters, food banks, goods banks, blood donation, environmental causes and more."
         ]
     },
     {
