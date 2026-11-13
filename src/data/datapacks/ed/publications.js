@@ -72,7 +72,7 @@ export const publications = [
         id: "ehb2026",
         title: "A Prescription-Driven Multimodal Platform for Remote Physical Rehabilitation Using Serious Games",
         booktitle: "EHB 2026 Proceeding",
-        publisher: "Springer Nature Singapore",
+        publisher: "Springer",
         tags: ["hfpt323", "conf"],
         authors: [
             "[Alexandre Carrança](https://alexapropt.github.io/Portfolio/)",
