@@ -57,6 +57,7 @@ export const publications = [
         booktitle: "AHFE 2026 Hawaii Conference Proceedings",
         publisher: "AHFE",
         tags: ["ecp", "conf"],
+        website_name: "AHFE Open Access",
         authors: [
             "Iara Margolis",
             "**Eduardo Santos**",
